@@ -10,8 +10,12 @@ body {
 	width: 1200px;
 	height: 50px;
 	border: 2px yellow dashed;
-	margin-bottom: 10px;
 }
+
+
+
+
+
 
 .container {
 	display: flex;
@@ -30,6 +34,7 @@ body {
     padding-top: 5px;
     box-sizing: border-box;
     resize: none;
+    color: black;
 }
 
 .button {
@@ -61,3 +66,26 @@ body {
     cursor: pointer;
 }
 
+
+
+
+
+
+.template-selection {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	border: 2px yellow dashed;
+	width: 1200px;
+	margin: 10px 0;
+}
+
+.template-selection > * {
+	color: yellow;
+}
+
+.template-selection > p {
+	font-size: 20px;
+}

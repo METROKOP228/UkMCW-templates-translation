@@ -41,19 +41,41 @@ let months_uk = ['січня', 'лютого', 'березня', 'квітня',
 
 var textarea = document.getElementById('textareaOutput');
 
+let checkedRadioButton = document.querySelector('input[name="templates"]:checked');
+console.log(checkedRadioButton.value);
+
 function translateuk() {
     const text = document.getElementById('textareaInput').value;
 
-    if (text.includes('{{ID table')) {
-        id_table(text);
-    } else if (text.includes('{{Sound table')) {
-        sound_table(text);
-    } else if (text.includes('{{Version nav') || text.includes('{{Infobox version') || text.includes('{{infobox version')) {
-        version_nav(text);
-    } else if (text === "") {
-        textarea.value = "Введіть справжній текст шаблона, а не пустоту";
-    } else {
-        textarea.value = "Не можливо розпізнати шаблон";
+    let radioButtons = document.getElementsByName('templates');
+
+    for (let i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            let id = radioButtons[i].id;
+            console.log(id);
+
+            if (id === 'auto') {
+                console.log('yea')
+                if (text.includes('{{ID table')) {
+                    id_table(text);
+                } else if (text.includes('{{Sound table')) {
+                    sound_table(text);
+                } else if (text.includes('{{Version nav') || text.includes('{{Infobox version') || text.includes('{{infobox version')) {
+                    version_nav(text);
+                } else if (text === "") {
+                    textarea.value = "Введіть справжній текст шаблона, а не пустоту";
+                } else {
+                    textarea.value = "Не можливо розпізнати шаблон";
+                }
+            } else if (id === 'id') {
+                id_table(text);
+            } else if (id === 'sound') {
+                sound_table(text);
+            } else if (id === 'vn') {
+                version_nav(text);
+            }
+            return;
+        }
     }
 }
 

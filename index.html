@@ -8,15 +8,31 @@
     <link rel="icon" href="img/logo.png">
 </head>
 <body>
-    <div class="header">
+	<div class="header">
     	<a href="https://uk.minecraft.wiki" class="button"><img src="img/logo.png" width=20px>Перейти до Minecraft Wiki</a>
     	<a href="https://discord.gg/japqvP7" class="button"><img src="img/discord-logo.png" width=20px>Discord Української Minecraft Wiki</a>
     	<a href="https://t.me/Yuriioptg" class="button">Зв'язок/Звітувати помилку</a>
 	</div>
+	<div class="template-selection">
+		<p>Виберіть шаблон:</p>
+		<form>
+		    <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
+		    <label for="auto">Автоматично</label>
+		    
+		    <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
+		    <label for="id">ID таблиця</label>
+		    
+		    <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
+		    <label for="sound">Звукова таблиця</label>
+		    
+		    <input type="radio" class="radio" id="vn" name="templates" value="Версія навігація">
+		    <label for="vn">Версія навігація</label>
+		</form>
+	</div>
     <div class="container">
-        <textarea type="text" id="textareaInput" class="input" placeholder="Введіть ваш текст тут..."></textarea>
+    	<textarea id="textareaInput" class="input" color="black" placeholder="Введіть ваш текст тут..."></textarea>
         <button class="button-tr" onclick="translateuk()">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
-        <textarea type="text" id="textareaOutput" class="input" readonly></textarea>
+        <textarea id="textareaOutput" class="input" readonly></textarea>
     </div>
 
     <script src="js/scripts.js"></script>
