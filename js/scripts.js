@@ -50,6 +50,10 @@ function translateuk() {
         sound_table(text);
     } else if (text.includes('{{Version nav') || text.includes('{{Infobox version') || text.includes('{{infobox version')) {
         version_nav(text);
+    } else if (text === "") {
+        textarea.value = "Введіть справжній текст шаблона, а не пустоту";
+    } else {
+        textarea.value = "Не можливо розпізнати шаблон";
     }
 }
 
