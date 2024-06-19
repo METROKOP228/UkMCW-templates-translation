@@ -32,9 +32,16 @@ let replacements_vn = ["Version nav","version nav", "Infobox version", "infobox 
     "compiled","devversions", "version","hash","dl","downloads","file","other","maps","map","protocol_manual",
     "data_manual","no_protocol","no_data","no_","_manual","parent", "{{vl"];
 let replace_with_vn = ["Версія навігація","Версія навігація","Версія навігація","Версія навігація","іншівидання","видання","назва","сервер","префікс","зобр","ім\'я","клієнт",
-    "збірка","внутрішній","кодверсії", "поперверсія","попер","настверсія","наст","тип","невипущено","заплановано","|дата","| дата",
-    "скомпільований","поперзбірки", "версія","хеш","зп","завантаження","файл","інше","карти","карта","протокол_вручну",
+    "збірка","внутрішній","кодверсії","поперверсія","попер","настверсія","наст","тип","невипущено","заплановано","|дата","| дата",
+    "скомпільований","поперзбірки","версія","хеш","зп","завантаження","файл","інше","карти","карта","протокол_вручну",
     "дані_вручну","немає_протоколу","немає_даних","немає_","_вручну","знімокдля", "{{вер"];
+
+let replacements_entity = ["health","armor","behavior","classification","family","damage","size",
+    "group","speed","knockbackresistance","spawn","equipment","usableitems","rarity",
+    "notes","invimage","image","{{Infobox entity","{{Entity","{{hp","{{drop"];
+let replace_with_entity = ["здоров'я","обладунки","поведінка","класифікація","сімейство","атака","розмір",
+    "група","швидкість","стійкістьдовіддачі","спавн","екіпірування","корисніпредмети","рідкісність",
+    "примітки","інвзображення","зобр","{{Сутність","{{Сутність","{{оз","{{дроп"];
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 let months_uk = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
@@ -62,6 +69,8 @@ function translateuk() {
                     sound_table(text);
                 } else if (text.includes('{{Version nav') || text.includes('{{Infobox version') || text.includes('{{infobox version')) {
                     version_nav(text);
+                } else if (text.includes('{{Entity') || text.includes('{{Infobox entity')) {
+                    entity(text);
                 } else if (text === "") {
                     textarea.value = "Введіть справжній текст шаблона, а не пустоту";
                 } else {
@@ -73,6 +82,8 @@ function translateuk() {
                 sound_table(text);
             } else if (id === 'vn') {
                 version_nav(text);
+            } else if (id === 'entity') {
+                entity(text);
             }
             return;
         }
@@ -192,5 +203,18 @@ function version_nav(text) {
             console.log("Error in date translation");
         }
     }
+    textarea.value = text;
+}
+
+function entity(text) {
+    text = text.split("\n");
+    for (let i = 0; i < text.length; i++) {
+        for (let j = 0; j < replacements_entity.length; j++) {
+            if (text[i].includes(replacements_entity[j])) {
+                text[i] = text[i].replace(replacements_entity[j], replace_with_entity[j]);
+            }
+        }
+    }
+    text = text.join("\n");
     textarea.value = text;
 }
