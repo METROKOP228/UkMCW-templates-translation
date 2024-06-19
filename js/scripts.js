@@ -191,7 +191,6 @@ function version_nav(text) {
         } catch (error) {
             console.log("Error in date translation");
         }
-
-    textarea.value = text;
     }
+    textarea.value = text;
 }
