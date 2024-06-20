@@ -28,12 +28,12 @@ let replace_with_sound = ["Звукова таблиця", "звук", "звук
     "погода", "ворожі", "нейтральні", "гравець", "джерело", "середовище", "голос", "залежний", "''Немає''"];
 
 let replacements_vn = ["Version nav","version nav", "Infobox version", "infobox version", "othereditions","edition","title","server","prefix","image","name","client",
-    "build","internal","versioncode", "prevparent","prev","nextparent","next","type","unreleased","planned","|date","| date",
-    "compiled","devversions", "version","hash","dl","downloads","file","other","maps","map","protocol_manual",
+    "build","internal","versioncode", "prevparent","|prev","| prev","nextparent","next","type","unreleased","planned","|date","| date",
+    "compiled","devversions", "version","hash","|dl","| dl","downloads","file","other","maps","map","protocol_manual",
     "data_manual","no_protocol","no_data","no_","_manual","parent", "{{vl"];
 let replace_with_vn = ["Версія навігація","Версія навігація","Версія навігація","Версія навігація","іншівидання","видання","назва","сервер","префікс","зобр","ім\'я","клієнт",
-    "збірка","внутрішній","кодверсії","поперверсія","попер","настверсія","наст","тип","невипущено","заплановано","|дата","| дата",
-    "скомпільований","поперзбірки","версія","хеш","зп","завантаження","файл","інше","карти","карта","протокол_вручну",
+    "збірка","внутрішній","кодверсії","поперверсія","|попер","| попер","настверсія","наст","тип","невипущено","заплановано","|дата","| дата",
+    "скомпільований","поперзбірки","версія","хеш","|зп","| зп","завантаження","файл","інше","карти","карта","протокол_вручну",
     "дані_вручну","немає_протоколу","немає_даних","немає_","_вручну","знімокдля", "{{вер"];
 
 let replacements_entity = ["health","armor","behavior","classification","family","damage","size",
@@ -217,4 +217,25 @@ function entity(text) {
     }
     text = text.join("\n");
     textarea.value = text;
+}
+
+function copy() {
+    var textToCopy = document.getElementById("textareaOutput");
+    console.log(textToCopy);
+    if (textToCopy.value !== "" && textToCopy.value !== "Введіть справжній текст шаблона, а не пустоту"  && textToCopy.value !== "Не можливо розпізнати шаблон") {
+        textToCopy.select();
+        textToCopy.setSelectionRange(0, 99999);
+
+        document.execCommand("copy");
+
+        showCopyNotification();
+    }
+}
+
+function showCopyNotification() {
+    var notification = document.getElementById("copy-notification");
+    notification.classList.add("show");
+    setTimeout(function() {
+        notification.classList.remove("show");
+    }, 2000);
 }

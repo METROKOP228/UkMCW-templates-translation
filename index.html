@@ -35,8 +35,11 @@
     <div class="container">
     	<textarea id="textareaInput" class="input" color="black" placeholder="Введіть ваш текст тут..."></textarea>
         <button class="button-tr" onclick="translateuk()">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
-        <textarea id="textareaOutput" class="input" readonly></textarea>
+        <textarea id="textareaOutput" class="input" placeholder="Вихід" readonly></textarea>
+        <button class="button-copy" onclick="copy()">Копіювати</button>
     </div>
+
+    <div id="copy-notification" class="copy-notification">Текст скопійовано</div>
 
     <script src="js/scripts.js"></script>
 </body>
