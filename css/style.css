@@ -136,3 +136,27 @@ body {
 .template-selection > p {
 	font-size: 20px;
 }
+
+.footer {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 1200px;
+	height: 50px;
+	border: 2px yellow dashed;
+	margin-top: 10px;
+}
+
+.footer > span {
+	color: yellow;
+	margin: 3px;
+}
+
+.footer > a {
+	color: red;
+}
+
+.footer > a:hover {
+	color: #A60000;
+}

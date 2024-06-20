@@ -8,11 +8,12 @@
     <link rel="icon" href="img/logo.png">
 </head>
 <body>
-	<div class="header">
+	<header class="header">
     	<a href="https://uk.minecraft.wiki" class="button"><img src="img/logo.png" width=20px>Перейти до Minecraft Wiki</a>
     	<a href="https://discord.gg/japqvP7" class="button"><img src="img/discord-logo.png" width=20px>Discord Української Minecraft Wiki</a>
     	<a href="https://t.me/Yuriioptg" class="button">Зв'язок/Звітувати помилку</a>
-	</div>
+	</header>
+
 	<div class="template-selection">
 		<p>Виберіть шаблон:</p>
 		<form>
@@ -35,11 +36,15 @@
     <div class="container">
     	<textarea id="textareaInput" class="input" color="black" placeholder="Введіть ваш текст тут..."></textarea>
         <button class="button-tr" onclick="translateuk()">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
-        <textarea id="textareaOutput" class="input" placeholder="Вихід" readonly></textarea>
+        <textarea id="textareaOutput" class="input" placeholder="Пусто" readonly></textarea>
         <button class="button-copy" onclick="copy()">Копіювати</button>
     </div>
 
     <div id="copy-notification" class="copy-notification">Текст скопійовано</div>
+
+    <footer class="footer">
+    	<span>Зроблено користувачем </span><a href="https://uk.minecraft.wiki/w/Користувач:METROKOP228_UA">METROKOP228</a><span> для спільноти Української</span><a href="https://uk.minecraft.wiki">Minecraft Wiki</a><span>, 2024</span>
+    </footer>
 
     <script src="js/scripts.js"></script>
 </body>
