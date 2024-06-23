@@ -56,7 +56,8 @@ body {
 }
 
 .button:hover,
-.button-tr:hover {
+.button-tr:hover,
+.button-tr-names:hover {
     background-color: #a69d00;
     color: #fff;
 }
@@ -115,6 +116,64 @@ body {
     display: block;
     animation: slideInOut 2s forwards;
 }
+
+
+
+
+
+.translate-names {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	border: 2px yellow dashed;
+	width: 1200px;
+	margin-bottom: 10px;
+}
+
+.button-tr-names {
+    background-color: #fff873;
+    color: blue;
+    border: 1px solid black;
+    margin: 10px;
+    height: 30px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: relative;
+    left: -5px;
+    top: -10px;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
+
+
 
 
 
