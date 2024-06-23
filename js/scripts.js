@@ -99,7 +99,7 @@ function id_table(text) {
         }
     }
     text = text.join("\n");
-    textarea.value = text;
+    translateJava(text);
 }
 
 function sound_table(text) {
@@ -112,7 +112,7 @@ function sound_table(text) {
         }
     }
     text = text.join("\n");
-    textarea.value = text;
+    translateJava(text);
 }
 
 
@@ -202,7 +202,7 @@ function version_nav(text) {
             console.log("Error in date translation");
         }
     }
-    textarea.value = text;
+    translateJava(text);
 }
 
 function entity(text) {
@@ -215,7 +215,7 @@ function entity(text) {
         }
     }
     text = text.join("\n");
-    textarea.value = text;
+    translateJava(text);
 }
 
 function copy() {

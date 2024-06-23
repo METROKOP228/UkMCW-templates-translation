@@ -146,7 +146,7 @@ body {
 
 .tooltip {
     position: relative;
-    left: -120px;
+    left: -95px;
     top: -10px;
     border-bottom: 1px dotted black;
 }
