@@ -32287,7 +32287,7 @@ function translateNames() {
             console.log(id);
 
             if (id === 'java') {
-                translateJava(text);
+                translateJavaFunc(text);
             } else if (id === 'bedrock') {
                 translateBedrock(text);
             } else if (id === 'earth') {
@@ -32314,10 +32314,14 @@ function translateJava(text) {
         }
 
         text = text.join("\n");
-        textarea.value = text;
+        return text;
     } catch (error) {
         textarea.value = "Error";
     }
+}
+
+function translateJavaFunc(text) {
+    textarea.value = translateJava(text);
 }
 
 function translateBedrock(text) {

@@ -12,6 +12,49 @@ body {
 	border: 2px yellow dashed;
 }
 
+.popup {
+    position: fixed;
+    left: 0;
+    top: 25%;
+    transform: translateY(-50%);
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 0 10px 10px 0;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+}
+
+.popup.show {
+    display: block;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.container-new {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	width: 1200px;
+	height: 600px;
+	border: 2px yellow dashed;
+	padding: 20px;
+}
+
+.container-new h1,
+.container-new h3,
+.container-new li {
+	color: yellow;
+}
+
+
 
 
 

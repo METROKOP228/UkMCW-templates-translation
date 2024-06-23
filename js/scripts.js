@@ -99,7 +99,7 @@ function id_table(text) {
         }
     }
     text = text.join("\n");
-    translateJava(text);
+    textarea.value = translateJava(text);
 }
 
 function sound_table(text) {
@@ -110,9 +110,12 @@ function sound_table(text) {
                 text[i] = text[i].replace(replacements_sound[j], replace_with_sound[j]);
             }
         }
+        if (text[i].includes("субтитри")) {
+            text[i] = translateJava(text[i]);
+        }
     }
     text = text.join("\n");
-    translateJava(text);
+    textarea.value = text;
 }
 
 
@@ -202,7 +205,7 @@ function version_nav(text) {
             console.log("Error in date translation");
         }
     }
-    translateJava(text);
+    textarea.value = translateJava(text);
 }
 
 function entity(text) {
@@ -215,7 +218,7 @@ function entity(text) {
         }
     }
     text = text.join("\n");
-    translateJava(text);
+    textarea.value = translateJava(text);
 }
 
 function copy() {
@@ -237,4 +240,15 @@ function showCopyNotification() {
     setTimeout(function() {
         notification.classList.remove("show");
     }, 2000);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    if (!sessionStorage.getItem('popupClosed')) {
+        document.getElementById('popup').classList.add('show');
+    }
+});
+
+function closePopup() {
+    document.getElementById('popup').classList.remove('show');
+    sessionStorage.setItem('popupClosed', 'true');
 }
