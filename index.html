@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UkMCW Templates translation | Переклад шаблонів на UkMCW</title>
+    <title>Перекладач Minecraft Wiki</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="img/logo.png">
 </head>
@@ -34,10 +34,22 @@
 		</form>
 	</div>
 	<div class="translate-names">
+		<form class="editions-form">
+        	<p>Виберіть видання/гру:</p>
+			<input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
+			<label for="java">Java Edition</label>
+
+			<input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
+			<label for="bedrock">Bedrock Edition</label>
+
+			<input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
+			<label for="earth">Minecraft Earth</label>
+		</form>
+		<div class="line"></div>
         <button class="button-tr-names" onclick="translateNames()">Перекласти назви з гри</button>
         <div class="tooltip">
     		<img src="img/info.png" width="20px">
-    		<span class="tooltiptext">Перекласти будь-які внутрішньоігрові англійські назви на українську. Поки що, підтримуються лише назви для Java Edition. Версія перекладів - 1.21</span>
+    		<span class="tooltiptext">Перекласти будь-які внутрішньоігрові англійські назви на українську. Версія перекладів - 1.21 (0.33.0 для Minecraft Earth)</span>
 		</div>
 	</div>
     <div class="container">
