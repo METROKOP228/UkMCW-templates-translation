@@ -1,4 +1,3 @@
-
 let replacements_id = ["=y","ID table","editions","{{edition|","firstcolumnname","nonameid","notnamespaced",
     "shownumericids","showaliasids","showfluidtags","showblocktags","edition",
     "showitemtags","showentitytags","showforms","notshowbeitemforms",

@@ -33,6 +33,13 @@
 		    <label for="vn">Сутність</label>
 		</form>
 	</div>
+	<div class="translate-names">
+        <button class="button-tr-names" onclick="translateNames()">Перекласти назви з гри</button>
+        <div class="tooltip">
+    		<img src="img/info.png" width="20px">
+    		<span class="tooltiptext">Перекласти будь-які внутрішньоігрові англійські назви на українську. Поки що, підтримуються лише назви для Java Edition</span>
+		</div>
+	</div>
     <div class="container">
     	<textarea id="textareaInput" class="input" color="black" placeholder="Введіть ваш текст тут..."></textarea>
         <button class="button-tr" onclick="translateuk()">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
@@ -47,5 +54,6 @@
     </footer>
 
     <script src="js/scripts.js"></script>
+    <script src="js/translation.js"></script>
 </body>
 </html>
