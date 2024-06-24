@@ -89,6 +89,13 @@ body {
     cursor: pointer;
 }
 
+.button-clear {
+    position: absolute;
+    top: 100px;
+    left: 533px;
+    cursor: pointer;
+}
+
 .copy-notification {
     display: none;
     position: fixed;

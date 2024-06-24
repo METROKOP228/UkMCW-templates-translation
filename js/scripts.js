@@ -49,6 +49,9 @@ let months_uk = ['січня', 'лютого', 'березня', 'квітня',
 
 var textarea = document.getElementById('textareaOutput');
 
+const textareaInput = document.getElementById('textareaInput');
+const clearButton = document.querySelector('.button-clear');
+
 let checkedRadioButton = document.querySelector('input[name="templates"]:checked');
 console.log(checkedRadioButton.value);
 
@@ -246,3 +249,7 @@ function showCopyNotification() {
         notification.classList.remove("show");
     }, 2000);
 }
+
+clearButton.addEventListener('click', () => {
+    textareaInput.value = ''; // Очищаємо текст у textarea
+});
