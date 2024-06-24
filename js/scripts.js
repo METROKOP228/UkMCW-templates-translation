@@ -20,11 +20,13 @@ let replace_with_id = ["=т","ID таблиця","видання","{{el|","на�
 let replacements_sound = ["Sound table", "sound", "sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8",
     "subtitle=", "source=block", "description", "translationkey", "pitch", "distance", "rowspan",
     "volume", "foot=", "nocat", "type", "Baby:", "''varies''", "master", "music", "record", "weather",
-    "hostile", "neutral", "player", "source", "ambient", "voice", "dependent", "''None''"];
+    "hostile", "neutral", "player", "source", "ambient", "voice", "dependent", "''None''",
+    "templatepage", "overridesource", "idnote", "translationkeynote"];
 let replace_with_sound = ["Звукова таблиця", "звук", "звук1", "звук2", "звук3", "звук4", "звук5", "звук6", "звук7", "звук8",
     "субтитри=", "джерело=блок", "опис", "ключперекладу", "висотазвуку", "відстань", "рядки",
     "гучність", "підвал=", "некат", "тип", "Дитинча:", "''варіюється''", "загальне", "музика", "платівка",
-    "погода", "ворожі", "нейтральні", "гравець", "джерело", "середовище", "голос", "залежний", "''Немає''"];
+    "погода", "ворожі", "нейтральні", "гравець", "джерело", "середовище", "голос", "залежний", "''Немає''",
+    "сторінкашаблону", "перевизначитиджерело", "idнотатка", "ключперекладунотатка"];
 
 let replacements_vn = ["Version nav","version nav", "Infobox version", "infobox version", "othereditions","edition","title","server","prefix","image","name","client",
     "build","internal","versioncode", "prevparent","|prev","| prev","nextparent","next","type","unreleased","planned","|date","| date",
@@ -240,15 +242,4 @@ function showCopyNotification() {
     setTimeout(function() {
         notification.classList.remove("show");
     }, 2000);
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    if (!sessionStorage.getItem('popupClosed')) {
-        document.getElementById('popup').classList.add('show');
-    }
-});
-
-function closePopup() {
-    document.getElementById('popup').classList.remove('show');
-    sessionStorage.setItem('popupClosed', 'true');
 }
