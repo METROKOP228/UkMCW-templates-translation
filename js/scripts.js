@@ -99,9 +99,12 @@ function id_table(text) {
                 text[i] = text[i].replace(replacements_id[j], replace_with_id[j]);
             }
         }
+        if (text[i].includes("відображуванеім'я")) {
+            text[i] = translateJava(text[i]);
+        }
     }
     text = text.join("\n");
-    textarea.value = translateJava(text);
+    textarea.value = text;
 }
 
 function sound_table(text) {
