@@ -30,12 +30,12 @@ let replace_with_sound = ["Звукова таблиця", "звук", "звук
 
 let replacements_vn = ["Version nav","version nav", "Infobox version", "infobox version", "othereditions","edition","title","server","prefix","image","name","client",
     "build","internal","versioncode", "prevparent","|prev","| prev","nextparent","next","type","unreleased","planned","|date","| date",
-    "compiled","devversions", "version","hash","|dl","| dl","downloads","file","other","maps","map","protocol_manual",
-    "data_manual","no_protocol","no_data","no_","_manual","parent", "{{vl"];
+    "compiled","devversions", "version","hash","downloads","file","other","maps","map","protocol_manual",
+    "data_manual","no_protocol","no_data","no_","_manual","parent","{{vl","dl=","dl =","Client","Server"];
 let replace_with_vn = ["Версія навігація","Версія навігація","Версія навігація","Версія навігація","іншівидання","видання","назва","сервер","префікс","зобр","ім\'я","клієнт",
     "збірка","внутрішній","кодверсії","поперверсія","|попер","| попер","настверсія","наст","тип","невипущено","заплановано","|дата","| дата",
-    "скомпільований","поперзбірки","версія","хеш","|зп","| зп","завантаження","файл","інше","карти","карта","протокол_вручну",
-    "дані_вручну","немає_протоколу","немає_даних","немає_","_вручну","знімокдля", "{{вер"];
+    "скомпільований","поперзбірки","версія","хеш","завантаження","файл","інше","карти","карта","протокол_вручну",
+    "дані_вручну","немає_протоколу","немає_даних","немає_","_вручну","знімокдля","{{вер","зп=","зп =","Клієнт","Сервер"];
 
 let replacements_entity = ["health","armor","behavior","classification","family","damage","size",
     "group","speed","knockbackresistance","spawn","equipment","usableitems","rarity",
@@ -201,8 +201,8 @@ function version_nav(text) {
         try {
             for (let month = 0; month < months.length; month++) {
                 if (date_line_new.includes(months[month])) {
-                    let d = date_line_new.replace(',', 'Розрізати');
-                    d = d.replace(months[month], 'Розрізати');
+                    let d = date_line_new.replace(',', 'Розрізати'); 
+                    d = d.replace(months[month] + " ", 'Розрізати');
                     d = d.split('Розрізати');
                     let changed_date_line = d[0] + d[1] + ' ' + months_uk[month] + d[2] + ' року' + date_line_after;
 
@@ -213,7 +213,7 @@ function version_nav(text) {
             console.log("Error in date translation");
         }
     }
-    textarea.value = translateJava(text);
+    textarea.value = text;
 }
 
 function entity(text) {
