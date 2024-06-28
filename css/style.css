@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
 	background-color: blue;
 }
@@ -39,6 +43,12 @@ body {
 	position: relative;
 }
 
+.taContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
 .input {
 	width: 500px;
 	height: 400px;
@@ -46,6 +56,25 @@ body {
     box-sizing: border-box;
     resize: none;
     color: black;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.line-numbers {
+    padding: 8px;
+    border-right: 1px solid #ddd;
+    user-select: none;
+    background-color: #f8f8f8;
+    text-align: right;
+    padding-right: 10px;
+    text-align: right;
+    overflow: hidden;
+}
+
+.line-numbers, #textareaInput {
+    font-family: monospace;
+    line-height: 1.5em;
 }
 
 #textareaOutput {
@@ -84,15 +113,15 @@ body {
 
 .button-copy {
     position: absolute;
-    top: 100px;
-    left: 1089px;
+    top: 0;
+    right: 0;
     cursor: pointer;
 }
 
 .button-clear {
     position: absolute;
-    top: 100px;
-    left: 533px;
+    top: 0;
+    right: 0;
     cursor: pointer;
 }
 
