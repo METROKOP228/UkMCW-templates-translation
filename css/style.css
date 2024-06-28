@@ -72,7 +72,7 @@ body {
     overflow: hidden;
 }
 
-.line-numbers, #textareaInput {
+.line-numbers, .input {
     font-family: monospace;
     line-height: 1.5em;
 }
