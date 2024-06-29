@@ -39,10 +39,17 @@ let replace_with_vn = ["Версія навігація","Версія наві�
 
 let replacements_entity = ["health","armor","behavior","classification","family","damage","size",
     "group","speed","knockbackresistance","spawn","equipment","usableitems","rarity",
-    "notes","invimage","image","{{Infobox entity","{{Entity","{{hp","{{drop"];
+    "notes","invimage","image","{{Infobox entity","{{Entity","{{hp","{{drop","caption"];
 let replace_with_entity = ["здоров'я","обладунки","поведінка","класифікація","сімейство","атака","розмір",
     "група","швидкість","стійкістьдовіддачі","спавн","екіпірування","корисніпредмети","рідкісність",
-    "примітки","інвзображення","зобр","{{Сутність","{{Сутність","{{оз","{{дроп"];
+    "примітки","інвзображення","зобр","{{Сутність","{{Сутність","{{оз","{{дроп","підпис"];
+
+let replacements_block = ["Infobox block","rarity","renewable","stackable","tool","title","hardness",
+    "durability","light","transparent","waterloggable","heals","flammable","lavasusceptible",
+    "=No","= No","=Yes","= Yes"];
+let replace_with_block = ["Блок","рідкісність","поновл","склад","інструмент","назва","міцн",
+    "стійкість","світ","прозор","затопл","відн","займист","загорвлави",
+    "=Ні","= Ні","=Так","= Так"];
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 let months_uk = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
@@ -75,6 +82,8 @@ function translateuk() {
                     version_nav(text);
                 } else if (text.includes('{{Entity') || text.includes('{{Infobox entity')) {
                     entity(text);
+                } else if (text.includes('{{Infobox block')) {
+                    block(text);
                 } else if (text === "") {
                     textarea.value = "Введіть справжній текст шаблона, а не пустоту";
                 } else {
@@ -88,6 +97,8 @@ function translateuk() {
                 version_nav(text);
             } else if (id === 'entity') {
                 entity(text);
+            } else if (id === 'block') {
+                block(text);
             }
             return;
         }
@@ -125,7 +136,6 @@ function sound_table(text) {
     text = text.join("\n");
     textarea.value = text;
 }
-
 
 function version_nav(text) {
     text = text.split("\n");
@@ -226,6 +236,19 @@ function entity(text) {
         }
         if (text[i].includes("інвзображення") || text[i].includes("корисніпредмети") || text[i].includes("{{дроп")) {
             text[i] = translateJava(text[i]);
+        }
+    }
+    text = text.join("\n");
+    textarea.value = text;
+}
+
+function block(text) {
+    text = text.split("\n");
+    for (let i = 0; i < text.length; i++) {
+        for (let j = 0; j < replacements_block.length; j++) {
+            if (text[i].includes(replacements_block[j])) {
+                text[i] = text[i].replace(replacements_block[j], replace_with_block[j]);
+            }
         }
     }
     text = text.join("\n");
