@@ -1,11 +1,13 @@
-* {
-    box-sizing: border-box;
-    font-family: "Minecraft";
-}
-
 @font-face {
     font-family: "Minecraft";
-    src: url("../fonts/cyrillic-minecraft-font.ttf");
+    src: url('../fonts/Minecraft.woff') format('woff'),
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Minecraft", sans-serif;
 }
 
 body {
