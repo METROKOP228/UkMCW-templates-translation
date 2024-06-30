@@ -1,5 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: "Minecraft";
+}
+
+@font-face {
+    font-family: "Minecraft";
+    src: url("../fonts/cyrillic-minecraft-font.ttf");
 }
 
 body {
@@ -14,6 +20,11 @@ body {
 	width: 1200px;
 	height: 50px;
 	border: 2px yellow dashed;
+}
+
+.header-img {
+    width: 20px;
+    margin-right: 5px;
 }
 
 .close-btn {
@@ -59,22 +70,6 @@ body {
     border: none;
     outline: none;
     resize: none;
-}
-
-.line-numbers {
-    padding: 8px;
-    border-right: 1px solid #ddd;
-    user-select: none;
-    background-color: #f8f8f8;
-    text-align: right;
-    padding-right: 10px;
-    text-align: right;
-    overflow: hidden;
-}
-
-.line-numbers, .input {
-    font-family: monospace;
-    line-height: 1.5em;
 }
 
 #textareaOutput {
@@ -185,16 +180,17 @@ body {
     color: blue;
     border: 1px solid black;
     margin: 10px;
-    height: 30px;
+    height: 50px;
     width: 200px;
     cursor: pointer;
 }
 
 .tooltip {
     position: relative;
-    left: -95px;
-    top: -10px;
+    left: -40px;
+    top: -30px;
     border-bottom: 1px dotted black;
+    cursor: help;
 }
 
 .tooltip .tooltiptext {
@@ -211,6 +207,7 @@ body {
     bottom: 100%;
     left: 50%;
     margin-left: -60px;
+    font-size: 12px;
 }
 
 .tooltip:hover .tooltiptext {
