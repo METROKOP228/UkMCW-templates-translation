@@ -157,31 +157,29 @@ function version_nav(text) {
                 break;
             }
         }
-        try {
-            let edition = null;
-            m = image2_line.replace('.png', 'Тут потрібно розрізати');
-            if (m.includes('Bedrock')) {
-                if (m.includes('Edition')) {
-                    m = m.replace("Bedrock Edition ", "Тут потрібно розрізати");
-                } else {
-                    m = m.replace("Bedrock ", "Тут потрібно розрізати");
-                }
-                let edition = "Bedrock";
-            } else if (m.includes('Pocket')) {
-                m = m.replace("Pocket Edition ", "Тут потрібно розрізати");
-                edition = "Pocket";
-            } else if (m.includes('Windows 10')) {
-                m = m.replace("Windows 10 Edition ", "Тут потрібно розрізати");
-                edition = "Windows 10";
-            } else if (m.includes('Java')) {
-                m = m.replace("Java Edition ", "Тут потрібно розрізати");
-                edition = "Java";
+        let edition = null;
+        m = image2_line.replace('.png', 'Тут потрібно розрізати');
+        if (m.includes('Bedrock')) {
+            if (m.includes('Edition')) {
+                m = m.replace("Bedrock Edition ", "Тут потрібно розрізати");
+            } else {
+                m = m.replace("Bedrock ", "Тут потрібно розрізати");
             }
-            m = m.split("Тут потрібно розрізати");
+            edition = "Bedrock";
+        } else if (m.includes('Pocket')) {
+            m = m.replace("Pocket Edition ", "Тут потрібно розрізати");
+            edition = "Pocket";
+        } else if (m.includes('Windows 10')) {
+            m = m.replace("Windows 10 Edition ", "Тут потрібно розрізати");
+            edition = "Windows 10";
+        } else if (m.includes('Java')) {
+            m = m.replace("Java Edition ", "Тут потрібно розрізати");
+            edition = "Java";
+        }
+        m = m.split("Тут потрібно розрізати");
+        if (edition !== null) {
             let changed_image_line = m[0] + m[1] + " (" + edition + " Edition) меню.png" + m[2];
             text = text.replace(image2_line, changed_image_line)
-        } catch (error) {
-            console.log("Error in image2 translation");
         }
     }
     if (text.includes('дата')) {

@@ -29,13 +29,6 @@ body {
     margin-right: 5px;
 }
 
-.close-btn {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    cursor: pointer;
-    font-size: 20px;
-}
 
 
 
@@ -63,10 +56,9 @@ body {
 }
 
 .input {
-	width: 500px;
-	height: 400px;
+    width: 500px;
+    height: 400px;
     padding-top: 5px;
-    box-sizing: border-box;
     resize: none;
     color: black;
     border: none;
@@ -189,7 +181,7 @@ body {
 
 .tooltip {
     position: relative;
-    left: -40px;
+    left: -50px;
     top: -30px;
     border-bottom: 1px dotted black;
     cursor: help;
