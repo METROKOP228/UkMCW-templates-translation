@@ -32247,7 +32247,7 @@ const translations_legends = [
 ];
 
 function translateNames() {
-    let text = document.getElementById('textareaInput').value;
+    let text = editor.getValue();
     let radioButtonsEd = document.getElementsByName('editions');
 
     for (let i = 0; i < radioButtonsEd.length; i++) {

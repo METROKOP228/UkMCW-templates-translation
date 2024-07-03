@@ -56,14 +56,33 @@ let months_uk = ['січня', 'лютого', 'березня', 'квітня',
 
 var textarea = document.getElementById('textareaOutput');
 
-const textareaInput = document.getElementById('textareaInput');
+CodeMirror.defineSimpleMode("customMode", {
+    start: [
+        {regex: /\<\-\-.*?\-\-\>/, token: "custom-comment"}, // Comments      ( <-- something --> )
+        {regex: /\{\{\#.*?\}\}/, token: "custom-parser"}, // Parser functions ( {{#something}} )
+        {regex: /==.*==/, token: "custom-heading"}, // Headings               ( == something == )
+        {regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter"}, // Parameters  ( {{{something}}} )
+        {regex: /\{\{.*?\}\}/, token: "custom-template"}, // Templates        ( {{something}} )
+        {regex: /\[\[.*?\]\]/, token: "custom-link"}, // Links                ( [[something]] )
+        {regex: /\<.*?\>/, token: "custom-tag"}, // HTML tags                 ( <something></something> )
+    ]
+});
+
+var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
+    lineNumbers: true,
+    mode: "customMode",
+    theme: "default"
+});
+
+const textareaInput = editor.getValue();
 const clearButton = document.querySelector('.button-clear');
 
 let checkedRadioButton = document.querySelector('input[name="templates"]:checked');
 console.log(checkedRadioButton.value);
 
 function translateuk() {
-    const text = document.getElementById('textareaInput').value;
+    console.log(editor.getValue());
+    const text = editor.getValue();
 
     let radioButtons = document.getElementsByName('templates');
 
@@ -74,6 +93,7 @@ function translateuk() {
 
             if (id === 'auto') {
                 console.log('yea')
+                console.log(text);
                 if (text.includes('{{ID table')) {
                     id_table(text);
                 } else if (text.includes('{{Sound table')) {
@@ -272,24 +292,4 @@ function copy() {
 
 clearButton.addEventListener('click', () => {
     textareaInput.value = '';
-});
-
-// Створення кастомного режиму
-CodeMirror.defineSimpleMode("customMode", {
-    start: [
-        {regex: /\<\-\-.*?\-\-\>/, token: "custom-comment"}, // Comments      ( <-- something --> )
-        {regex: /\{\{\#.*?\}\}/, token: "custom-parser"}, // Parser functions ( {{#something}} )
-        {regex: /==.*==/, token: "custom-heading"}, // Headings               ( == something == )
-        {regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter"}, // Parameters  ( {{{something}}} )
-        {regex: /\{\{.*?\}\}/, token: "custom-template"}, // Templates        ( {{something}} )
-        {regex: /\[\[.*?\]\]/, token: "custom-link"}, // Links                ( [[something]] )
-        {regex: /\<.*?\>/, token: "custom-tag"}, // HTML tags                 ( <something></something> )
-    ]
-});
-
-// Ініціалізація CodeMirror з кастомним режимом
-var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
-    lineNumbers: true,
-    mode: "customMode",
-    theme: "default"
 });
