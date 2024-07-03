@@ -50,6 +50,8 @@ body {
 }
 
 .taContainer {
+    width: 500px;
+    height: 400px;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -64,6 +66,7 @@ body {
     border: none;
     outline: none;
     resize: none;
+    font-size: 14px;
 }
 
 #textareaOutput {
@@ -269,4 +272,51 @@ body {
 
 .footer > a:hover {
 	color: #A60000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.CodeMirror {
+    width: 500px;
+    height: 400px;
+    padding-top: 5px;
+    font-size: 14px;
+    resize: none;
+    color: black;
+    border: none;
+    outline: none;
+    resize: none;
+}
+.cm-custom-link {
+    color: blue;
+    font-weight: bold;
+}
+.cm-custom-heading {
+    color: brown;
+}
+.cm-custom-parameter {
+    color: orange;
+}
+.cm-custom-template {
+    color: purple;
+}
+.cm-custom-tag {
+    color: green;
+}
+.cm-custom-parser {
+    color: red;
+}
+.cm-custom-comment {
+    color: gray;
 }

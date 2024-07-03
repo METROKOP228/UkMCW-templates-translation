@@ -273,3 +273,23 @@ function copy() {
 clearButton.addEventListener('click', () => {
     textareaInput.value = '';
 });
+
+// Створення кастомного режиму
+CodeMirror.defineSimpleMode("customMode", {
+    start: [
+        {regex: /\<\-\-.*?\-\-\>/, token: "custom-comment"}, // Comments      ( <-- something --> )
+        {regex: /\{\{\#.*?\}\}/, token: "custom-parser"}, // Parser functions ( {{#something}} )
+        {regex: /==.*==/, token: "custom-heading"}, // Headings               ( == something == )
+        {regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter"}, // Parameters  ( {{{something}}} )
+        {regex: /\{\{.*?\}\}/, token: "custom-template"}, // Templates        ( {{something}} )
+        {regex: /\[\[.*?\]\]/, token: "custom-link"}, // Links                ( [[something]] )
+        {regex: /\<.*?\>/, token: "custom-tag"}, // HTML tags                 ( <something></something> )
+    ]
+});
+
+// Ініціалізація CodeMirror з кастомним режимом
+var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
+    lineNumbers: true,
+    mode: "customMode",
+    theme: "default"
+});
