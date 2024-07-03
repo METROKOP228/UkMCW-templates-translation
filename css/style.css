@@ -110,13 +110,6 @@ body {
     cursor: pointer;
 }
 
-.button-clear {
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-}
-
 .copy-notification {
     display: none;
     position: fixed;

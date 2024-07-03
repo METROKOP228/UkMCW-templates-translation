@@ -75,7 +75,6 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
 });
 
 const textareaInput = editor.getValue();
-const clearButton = document.querySelector('.button-clear');
 
 let checkedRadioButton = document.querySelector('input[name="templates"]:checked');
 console.log(checkedRadioButton.value);
@@ -289,7 +288,3 @@ function copy() {
         }, 2000);
     }
 }
-
-clearButton.addEventListener('click', () => {
-    textareaInput.value = '';
-});
