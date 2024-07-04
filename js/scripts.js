@@ -59,10 +59,11 @@ var textarea = document.getElementById('textareaOutput');
 CodeMirror.defineSimpleMode("customMode", {
     start: [
         {regex: /\<\-\-.*?\-\-\>/, token: "custom-comment"}, // Comments      ( <-- something --> )
-        {regex: /\{\{\#.*?\}\}/, token: "custom-parser"}, // Parser functions ( {{#something}} )
+        // {regex: /\{\{\#.*?\}\}/, token: "custom-parser"}, // Parser functions ( {{#something}} )
         {regex: /==.*==/, token: "custom-heading"}, // Headings               ( == something == )
         {regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter"}, // Parameters  ( {{{something}}} )
-        {regex: /\{\{.*?\}\}/, token: "custom-template"}, // Templates        ( {{something}} )
+        {regex: /\{\{/, token: "custom-template"}, // Templates               ( {{ )
+        {regex: /\}\}/, token: "custom-template"}, // Templates               ( }} )
         {regex: /\[\[.*?\]\]/, token: "custom-link"}, // Links                ( [[something]] )
         {regex: /\<.*?\>/, token: "custom-tag"}, // HTML tags                 ( <something></something> )
     ]
@@ -76,8 +77,20 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
 
 const textareaInput = editor.getValue();
 
-let checkedRadioButton = document.querySelector('input[name="templates"]:checked');
-console.log(checkedRadioButton.value);
+function translatetext() {
+    let radioButtons = document.getElementsByName('modes');
+    for (let i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            let id = radioButtons[i].id;
+            console.log(id);
+            if (id === "mc-template") {
+                translateuk();
+            } else if (id === "mc-name") {
+                translateNames();
+            }
+        }
+    }
+}
 
 function translateuk() {
     console.log(editor.getValue());
@@ -106,7 +119,7 @@ function translateuk() {
                 } else if (text === "") {
                     textarea.value = "Введіть справжній текст шаблона, а не пустоту";
                 } else {
-                    textarea.value = "Не можливо розпізнати шаблон";
+                    textarea.value = "Неможливо розпізнати шаблон";
                 }
             } else if (id === 'id') {
                 id_table(text);

@@ -157,62 +157,17 @@ body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: space-evenly;
+	justify-content: left;
 	align-items: center;
 	border: 2px yellow dashed;
 	width: 1200px;
-	height: 120px;
 	margin-bottom: 10px;
-}
-
-.button-tr-names {
-    background-color: #fff873;
-    color: blue;
-    border: 1px solid black;
-    margin: 10px;
-    height: 50px;
-    width: 200px;
-    cursor: pointer;
-}
-
-.tooltip {
-    position: relative;
-    left: -50px;
-    top: -30px;
-    border-bottom: 1px dotted black;
-    cursor: help;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 200px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
-    font-size: 12px;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
-.line {
-	display: absolute;
-	left: 50%;
-	height: 100px;
-	border: 1px yellow dashed;
+    padding: 10px;
 }
 
 .translate-names label,
-.translate-names p {
+.translate-names p,
+.translate-names h2 {
 	color: yellow;
 }
 
@@ -224,24 +179,86 @@ body {
 
 
 
-.template-selection {
+.template-selection-container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: center;
+	justify-content: left;
 	align-items: center;
 	border: 2px yellow dashed;
 	width: 1200px;
 	margin: 10px 0;
+    padding: 10px;
 }
 
-.template-selection > * {
+.template-selection-container > * {
 	color: yellow;
 }
 
-.template-selection > p {
+.template-selection-container > p {
 	font-size: 20px;
 }
+
+.radio-container {
+    display: inline-block;
+    position: relative;
+    width: 75px;
+    height: 75px;
+    margin: 0 75px;
+}
+
+.radio-container input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.radio-container .custom-radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.radio-container input[type="radio"]:checked + .custom-radio {
+    background-color: #000;
+}
+
+.radio-container .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.radio-container input[type="radio"]:checked + .custom-radio::after {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footer {
 	display: flex;

@@ -17,55 +17,61 @@
         <a href="https://t.me/Yuriioptg" class="button">Зв'язок/Звітувати помилку</a>
     </header>
 
-    <div class="template-selection">
-        <p>Виберіть шаблон:</p>
-        <form>
-            <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
-            <label for="auto">Автоматично</label>
-            
-            <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
-            <label for="id">ID таблиця</label>
-            
-            <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
-            <label for="sound">Звукова таблиця</label>
-            
-            <input type="radio" class="radio" id="vn" name="templates" value="Версія навігація">
-            <label for="vn">Версія навігація</label>
+    <div class="template-selection-container">
+    	<label class="radio-container">
+	    	<input type="radio" class="mode-choice-radio" id="mc-template" name="modes" checked />
+	    	<span class="custom-radio"><span>
+    	</label>
+    	<div class="template-selection">
+    		<h2>Переклад шаблонів</h2>
+	        <form>
+	        	<p>Виберіть шаблон:</p>
+	            <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
+	            <label for="auto">Автоматично</label>
+	            
+	            <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
+	            <label for="id">ID таблиця</label>
+		        
+	            <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
+	            <label for="sound">Звукова таблиця</label>
+	            
+	            <input type="radio" class="radio" id="vn" name="templates" value="Версія навігація">
+	            <label for="vn">Версія навігація</label>
 
-            <input type="radio" class="radio" id="entity" name="templates" value="Сутність">
-            <label for="entity">Сутність</label>
+	            <input type="radio" class="radio" id="entity" name="templates" value="Сутність">
+	            <label for="entity">Сутність</label>
 
-            <input type="radio" class="radio" id="block" name="templates" value="Блок">
-            <label for="block">Блок</label>
-        </form>
+	            <input type="radio" class="radio" id="block" name="templates" value="Блок">
+	            <label for="block">Блок</label>
+	        </form>
+    	</div>
     </div>
     <div class="translate-names">
-        <form class="editions-form">
-            <p>Виберіть видання/гру:</p>
-            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
-            <label for="java">Java Edition</label>
+    	<label class="radio-container">
+    		<input type="radio" class="mode-choice-radio" id="mc-name" name="modes" />
+	    	<span class="custom-radio"><span>
+    	</label>
+    	<div class="template-selection">
+	    	<h2>Переклад внутрішньоігрових назв</h2>
+	        <form class="editions-form">
+	            <p>Виберіть видання/гру:</p>
+	            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
+	            <label for="java">Java Edition</label>
 
-            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
-            <label for="bedrock">Bedrock Edition</label>
+	            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
+	            <label for="bedrock">Bedrock Edition</label>
 
-            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
-            <label for="earth">Minecraft Earth</label>
+	            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
+	            <label for="earth">Minecraft Earth</label>
 
-            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
-            <label for="legends">Minecraft Legends</label>
-        </form>
-        <div class="line"></div>
-        <button class="button-tr-names" onclick="translateNames()">Перекласти назви з гри</button>
-        <div class="tooltip">
-            <img src="img/info.png" width="20px">
-            <span class="tooltiptext">Перекласти будь-які внутрішньоігрові англійські назви на українську. Версія перекладів - 1.21 (0.33.0 для Minecraft Earth, 1.18.19068 для Minecraft Legends)</span>
-        </div>
+	            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
+	            <label for="legends">Minecraft Legends</label>
+	        </form>
+    	</div>
     </div>
     <div class="container">
-        <div class="taContainer">
-            <textarea id="textareaInput" class="input" placeholder="Введіть ваш текст тут..." oninput="updateLineNumbers()" onscroll="syncScroll()"></textarea>
-        </div>
-        <button class="button-tr" onclick="translateuk()">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
+        <textarea id="textareaInput" class="input" placeholder="Введіть ваш текст тут..." oninput="updateLineNumbers()" onscroll="syncScroll()"></textarea>
+        <button class="button-tr" onclick="translatetext()">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
         <div class="taContainer">
             <textarea id="textareaOutput" class="input" placeholder="Пусто" readonly></textarea>
             <button class="button-copy" onclick="copy()"><img src="img/copy.png" width="20px" height="20px"></button>
