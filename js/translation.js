@@ -32256,7 +32256,7 @@ function translateNames() {
             console.log(id);
 
             if (id === 'java') {
-                translateJavaFunc(text);
+                textarea.value = translateJava(text);
             } else if (id === 'bedrock') {
                 translateBedrock(text);
             } else if (id === 'earth') {
@@ -32269,28 +32269,29 @@ function translateNames() {
     }
 }
 
+// Don't even try to optimize
 function translateJava(text) {
     text = text.split("\n");
     let en_uk = [];
     try {
         for (let i = 0; i < text.length; i++) {
+            if (text[i].includes("[[File:") || text[i].includes("[[Файл:")) {
+                var matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
+                text[i] = text[i].replace(matches, 'ЗАМІНИТИ');
+            }
             for (let j = 0; j < translations_java.length; j++) {
                 en_uk = translations_java[j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
                     text[i] = text[i].replace(en_uk[0], en_uk[1]);
                 }
             }
+            text[i] = text[i].replace('ЗАМІНИТИ', matches)
         }
-
         text = text.join("\n");
         return text;
     } catch (error) {
         textarea.value = "Error";
     }
-}
-
-function translateJavaFunc(text) {
-    textarea.value = translateJava(text);
 }
 
 function translateBedrock(text) {
@@ -32352,5 +32353,3 @@ function translateLegends(text) {
         textarea.value = "Error";
     }
 }
-
-window.translateJava = translateJava;
