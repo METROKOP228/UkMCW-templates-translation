@@ -1,55 +1,185 @@
-let replacements_id = ["=y","ID table","editions","{{edition|","firstcolumnname","nonameid","notnamespaced",
-    "shownumericids","showaliasids","showfluidtags","showblocktags","edition",
-    "showitemtags","showentitytags","showforms","notshowbeitemforms",
-    "itemform","itemform2","generatetranslationkeys","nocat","displayname",
-    "spritename","nameid","aliasid","form","fluidtags",
-    "blocktags","itemtags","entitytags","translationkey","translationtype",
-    "foot=","spritetype=block","spritetype=item","spritetype=entity",
-    "spritetype=biome","spritetype=environment","spritetype=env","spritetype=effect","form=block",
-    "form=item","form=entity","form=biome","form=environment","form=effect"];
-let replace_with_id = ["=т","ID таблиця","видання","{{el|","назвапершогостовпця","немаєназвиid","безінтервалуміжіменами",
-    "показатичисловийid","показатипсевдонімиid","показатитеґирідини","показатитеґиблоку","видання",
-    "показатитеґипредмету","показатитеґисутности","показатиформи","непоказуватиформипредмету",
-    "формапредмету","формапредмету2","генеруватиключіперекладу","некат","відображуванеім'я",
-    "назваспрайту","назваid","псевдонімиid","форма","теґирідини",
-    "теґиблоку","теґипредмету","теґисутности","ключперекладу","типперекладу",
-    "підвал=","типспрайту=блок","типспрайту=предмет","типспрайту=сутність",
-    "типспрайту=біом","типспрайту=оточення","типспрайту=оточення","типспрайту=ефект","форма=блок",
-    "форма=предмет","форма=сутність","форма=біом","форма=оточення","форма=ефект"];
-
-let replacements_sound = ["Sound table", "sound", "sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8",
-    "subtitle=", "source=block", "description", "translationkey", "pitch", "distance", "rowspan",
-    "volume", "foot=", "nocat", "type", "Baby:", "''varies''", "master", "music", "record", "weather",
-    "hostile", "neutral", "player", "source", "ambient", "voice", "dependent", "''None''",
-    "templatepage", "overridesource", "idnote", "translationkeynote"];
-let replace_with_sound = ["Звукова таблиця", "звук", "звук1", "звук2", "звук3", "звук4", "звук5", "звук6", "звук7", "звук8",
-    "субтитри=", "джерело=блок", "опис", "ключперекладу", "висотазвуку", "відстань", "рядки",
-    "гучність", "підвал=", "некат", "тип", "Дитинча:", "''варіюється''", "загальне", "музика", "платівка",
-    "погода", "ворожі", "нейтральні", "гравець", "джерело", "середовище", "голос", "залежний", "''Немає''",
-    "сторінкашаблону", "перевизначитиджерело", "idнотатка", "ключперекладунотатка"];
-
-let replacements_vn = ["Version nav","version nav", "Infobox version", "infobox version", "othereditions","edition","title","server","prefix","image","name","client",
-    "build","internal","versioncode", "prevparent","|prev","| prev","nextparent","next","type","unreleased","planned","|date","| date",
-    "compiled","devversions", "version","hash","downloads","file","other","maps","map","protocol_manual",
-    "data_manual","no_protocol","no_data","no_","_manual","parent","{{vl","dl=","dl =","Client","Server"];
-let replace_with_vn = ["Версія навігація","Версія навігація","Версія навігація","Версія навігація","іншівидання","видання","назва","сервер","префікс","зобр","ім\'я","клієнт",
-    "збірка","внутрішній","кодверсії","поперверсія","|попер","| попер","настверсія","наст","тип","невипущено","заплановано","|дата","| дата",
-    "скомпільований","поперзбірки","версія","хеш","завантаження","файл","інше","карти","карта","протокол_вручну",
-    "дані_вручну","немає_протоколу","немає_даних","немає_","_вручну","знімокдля","{{вер","зп=","зп =","Клієнт","Сервер"];
-
-let replacements_entity = ["health","armor","behavior","classification","family","damage","size",
-    "group","speed","knockbackresistance","spawn","equipment","usableitems","rarity",
-    "notes","invimage","image","{{Infobox entity","{{Entity","{{hp","{{drop","caption"];
-let replace_with_entity = ["здоров'я","обладунки","поведінка","класифікація","сімейство","атака","розмір",
-    "група","швидкість","стійкістьдовіддачі","спавн","екіпірування","корисніпредмети","рідкісність",
-    "примітки","інвзображення","зобр","{{Сутність","{{Сутність","{{оз","{{дроп","підпис"];
-
-let replacements_block = ["Infobox block","rarity","renewable","stackable","tool","title","hardness",
-    "durability","light","transparent","waterloggable","heals","flammable","lavasusceptible",
-    "=No","= No","=Yes","= Yes"];
-let replace_with_block = ["Блок","рідкісність","поновл","склад","інструмент","назва","міцн",
-    "стійкість","світ","прозор","затопл","відн","займист","загорвлави",
-    "=Ні","= Ні","=Так","= Так"];
+const replacements_id = {
+    "=y": "=т",
+    "ID table": "ID таблиця",
+    "editions": "видання",
+    "{{edition|": "{{el|",
+    "firstcolumnname": "назвапершогостовпця",
+    "nonameid": "немаєназвиid",
+    "notnamespaced": "безінтервалуміжіменами",
+    "shownumericids": "показатичисловийid",
+    "showaliasids": "показатипсевдонімиid",
+    "showfluidtags": "показатитеґирідини",
+    "showblocktags": "показатитеґиблоку",
+    "edition": "видання",
+    "showitemtags": "показатитеґипредмету",
+    "showentitytags": "показатитеґисутности",
+    "showforms": "показатиформи",
+    "notshowbeitemforms": "непоказуватиформипредмету",
+    "itemform": "формапредмету",
+    "itemform2": "формапредмету2",
+    "generatetranslationkeys": "генеруватиключіперекладу",
+    "nocat": "некат",
+    "displayname": "відображуванеім'я",
+    "spritename": "назваспрайту",
+    "nameid": "назваid",
+    "aliasid": "псевдонімиid",
+    "form": "форма",
+    "fluidtags": "теґирідини",
+    "blocktags": "теґиблоку",
+    "itemtags": "теґипредмету",
+    "entitytags": "теґисутности",
+    "translationkey": "ключперекладу",
+    "translationtype": "типперекладу",
+    "foot=": "підвал=",
+    "spritetype=block": "типспрайту=блок",
+    "spritetype=item": "типспрайту=предмет",
+    "spritetype=entity": "типспрайту=сутність",
+    "spritetype=biome": "типспрайту=біом",
+    "spritetype=environment": "типспрайту=оточення",
+    "spritetype=env": "типспрайту=оточення",
+    "spritetype=effect": "типспрайту=ефект",
+    "form=block": "форма=блок",
+    "form=item": "форма=предмет",
+    "form=entity": "форма=сутність",
+    "form=biome": "форма=біом",
+    "form=environment": "форма=оточення",
+    "form=effect": "форма=ефект"
+};
+const replacements_sound = {
+    "Sound table": "Звукова таблиця",
+    "sound": "звук",
+    "sound1": "звук1",
+    "sound2": "звук2",
+    "sound3": "звук3",
+    "sound4": "звук4",
+    "sound5": "звук5",
+    "sound6": "звук6",
+    "sound7": "звук7",
+    "sound8": "звук8",
+    "subtitle=": "субтитри=",
+    "source=block": "джерело=блок",
+    "description": "опис",
+    "translationkey": "ключперекладу",
+    "pitch": "висотазвуку",
+    "distance": "відстань",
+    "rowspan": "рядки",
+    "volume": "гучність",
+    "foot=": "підвал=",
+    "nocat": "некат",
+    "type": "тип",
+    "Baby:": "Дитинча:",
+    "''varies''": "''варіюється''",
+    "master": "загальне",
+    "music": "музика",
+    "record": "платівка",
+    "weather": "погода",
+    "hostile": "ворожі",
+    "neutral": "нейтральні",
+    "player": "гравець",
+    "source": "джерело",
+    "ambient": "середовище",
+    "voice": "голос",
+    "dependent": "залежний",
+    "''None''": "''Немає''",
+    "templatepage": "сторінкашаблону",
+    "overridesource": "перевизначитиджерело",
+    "idnote": "idнотатка",
+    "translationkeynote": "ключперекладунотатка"
+};
+const replacements_vn = {
+    "Version nav": "Версія навігація",
+    "version nav": "Версія навігація",
+    "Infobox version": "Версія навігація",
+    "infobox version": "Версія навігація",
+    "othereditions": "іншівидання",
+    "edition": "видання",
+    "title": "назва",
+    "server": "сервер",
+    "prefix": "префікс",
+    "image": "зобр",
+    "name": "ім'я",
+    "client": "клієнт",
+    "build": "збірка",
+    "internal": "внутрішній",
+    "versioncode": "кодверсії",
+    "prevparent": "поперверсія",
+    "|prev": "| попер",
+    "| prev": "| попер",
+    "nextparent": "настверсія",
+    "next": "наст",
+    "type": "тип",
+    "unreleased": "невипущено",
+    "planned": "заплановано",
+    "|date": "| дата",
+    "| date": "| дата",
+    "compiled": "скомпільований",
+    "devversions": "поперзбірки",
+    "version": "версія",
+    "hash": "хеш",
+    "downloads": "завантаження",
+    "file": "файл",
+    "other": "інше",
+    "maps": "карти",
+    "map": "карта",
+    "protocol_manual": "протокол_вручну",
+    "data_manual": "дані_вручну",
+    "no_protocol": "немає_протоколу",
+    "no_data": "немає_даних",
+    "no_": "немає_",
+    "_manual": "_вручну",
+    "parent": "знімокдля",
+    "{{vl": "{{вер",
+    "dl=": "зп=",
+    "dl =": "зп =",
+    "Client": "Клієнт",
+    "Server": "Сервер"
+};
+const replacements_entity = {
+    "health": "здоров'я",
+    "armor": "обладунки",
+    "behavior": "поведінка",
+    "classification": "класифікація",
+    "family": "сімейство",
+    "damage": "атака",
+    "size": "розмір",
+    "group": "група",
+    "speed": "швидкість",
+    "knockbackresistance": "стійкістьдовіддачі",
+    "spawn": "спавн",
+    "equipment": "екіпірування",
+    "usableitems": "корисніпредмети",
+    "rarity": "рідкісність",
+    "notes": "примітки",
+    "invimage": "інвзображення",
+    "image": "зобр",
+    "{{Infobox entity": "{{Сутність",
+    "{{Entity": "{{Сутність",
+    "{{hp": "{{оз",
+    "{{drop": "{{дроп",
+    "caption": "підпис"
+};
+const replacements_block = {
+    "Infobox block": "Блок",
+    "rarity": "рідкісність",
+    "renewable": "поновл",
+    "stackable": "склад",
+    "tool": "інструмент",
+    "title": "назва",
+    "hardness": "міцн",
+    "durability": "стійкість",
+    "light": "світ",
+    "transparent": "прозор",
+    "waterloggable": "затопл",
+    "heals": "відн",
+    "flammable": "займист",
+    "lavasusceptible": "загорвлави",
+    "=No": "=Ні",
+    "= No": "= Ні",
+    "=Yes": "=Так",
+    "= Yes": "= Так",
+    "image": "зобр",
+    "invimage": "інвзображення"
+};
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 let months_uk = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
@@ -58,14 +188,22 @@ var textarea = document.getElementById('textareaOutput');
 
 CodeMirror.defineSimpleMode("customMode", {
     start: [
-        {regex: /\<\-\-.*?\-\-\>/, token: "custom-comment"}, // Comments      ( <-- something --> )
-        // {regex: /\{\{\#.*?\}\}/, token: "custom-parser"}, // Parser functions ( {{#something}} )
-        {regex: /==.*==/, token: "custom-heading"}, // Headings               ( == something == )
-        {regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter"}, // Parameters  ( {{{something}}} )
-        {regex: /\{\{/, token: "custom-template"}, // Templates               ( {{ )
-        {regex: /\}\}/, token: "custom-template"}, // Templates               ( }} )
-        {regex: /\[\[.*?\]\]/, token: "custom-link"}, // Links                ( [[something]] )
-        {regex: /\<.*?\>/, token: "custom-tag"}, // HTML tags                 ( <something></something> )
+        { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" }, // Comments ( <-- something --> )
+        // { regex: /\{\{\#.*?\}\}/, token: "custom-parser" }, // Parser functions ( {{#something}} )
+        { regex: /==.*==/, token: "custom-heading" }, // Headings ( == something == )
+        { regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter" }, // Parameters ( {{{something}}} )
+        { regex: /\{\{/, token: "custom-template", next: "template" }, // Templates ( {{ )
+        { regex: /\}\}/, token: "custom-template" }, // Templates ( }} )
+        { regex: /\|/, token: "custom-template" }, // Pipes ( | )
+        { regex: /\[\[(?:(?!\]\]|\|).)*\]\]/, token: "custom-link" }, // Links ( [[something]] )
+        { regex: /\[\[(.*?)\|/, token: "custom-link" }, // Links ( [[something| )
+        { regex: /\]\]/, token: "custom-link" }, // Links ( ]] )
+        { regex: /\<.*?\>/, token: "custom-tag" }, // HTML tags ( <something></something> )
+    ],
+    template: [
+        { regex: /\b([^\|\}\n]+)/, token: "custom-template-name", next: "start" }, // Template name without {{ and |, until | or }}
+        { regex: /\}\}/, token: "custom-template", next: "start" }, // Template closing ( }} )
+        { regex: /\|/, token: "custom-template" }, // Pipes within template
     ]
 });
 
@@ -137,14 +275,20 @@ function translateuk() {
     }
 }
 
-function id_table(text) {
-    text = text.split("\n");
-    for (let i = 0; i < text.length; i++) {
-        for (let j = 0; j < replacements_id.length; j++) {
-            if (text[i].includes(replacements_id[j])) {
-                text[i] = text[i].replace(replacements_id[j], replace_with_id[j]);
-            }
+function performReplacements(text, replacementsObject) {
+    for (let key in replacementsObject) {
+        if (replacementsObject.hasOwnProperty(key)) {
+            let regex = new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+            text = text.replace(regex, replacementsObject[key]);
         }
+    }
+    return text;
+}
+
+function id_table(text) {
+    text = performReplacements(text, replacements_id);
+    text = text.split("\n");
+    for (let i = 1; i < text.length; i++) {
         if (text[i].includes("відображуванеім'я")) {
             text[i] = translateJava(text[i]);
         }
@@ -154,13 +298,9 @@ function id_table(text) {
 }
 
 function sound_table(text) {
+    text = performReplacements(text, replacements_sound);
     text = text.split("\n");
-    for (let i = 0; i < text.length; i++) {
-        for (let j = 0; j < replacements_sound.length; j++) {
-            if (text[i].includes(replacements_sound[j])) {
-                text[i] = text[i].replace(replacements_sound[j], replace_with_sound[j]);
-            }
-        }
+    for (let i = 1; i < text.length; i++) {
         if (text[i].includes("субтитри")) {
             text[i] = translateJava(text[i]);
         }
@@ -170,16 +310,15 @@ function sound_table(text) {
 }
 
 function version_nav(text) {
+    text = performReplacements(text, replacements_vn);
     text = text.split("\n");
-    for (let i = 0; i < text.length; i++) {
-        for (let j = 0; j < replacements_vn.length; j++) {
-            if (text[i].includes(replacements_vn[j])) {
-                text[i] = text[i].replace(replacements_vn[j], replace_with_vn[j]);
-            }
+    for (let i = 1; i < text.length; i++) {
+        if (text[i].includes("субтитри")) {
+            text[i] = translateJava(text[i]);
         }
     }
     text = text.join("\n");
-    let lines = text.split('\n');
+    let lines = text.split("\n");
 
     if (text.includes('зобр2')) {;
         for (let i = 0; i < lines.length; i++) {
@@ -257,13 +396,9 @@ function version_nav(text) {
 }
 
 function entity(text) {
+    text = performReplacements(text, replacements_entity);
     text = text.split("\n");
-    for (let i = 0; i < text.length; i++) {
-        for (let j = 0; j < replacements_entity.length; j++) {
-            if (text[i].includes(replacements_entity[j])) {
-                text[i] = text[i].replace(replacements_entity[j], replace_with_entity[j]);
-            }
-        }
+    for (let i = 1; i < text.length; i++) {
         if (text[i].includes("інвзображення") || text[i].includes("корисніпредмети") || text[i].includes("{{дроп")) {
             text[i] = translateJava(text[i]);
         }
@@ -273,12 +408,11 @@ function entity(text) {
 }
 
 function block(text) {
+    text = performReplacements(text, replacements_block);
     text = text.split("\n");
-    for (let i = 0; i < text.length; i++) {
-        for (let j = 0; j < replacements_block.length; j++) {
-            if (text[i].includes(replacements_block[j])) {
-                text[i] = text[i].replace(replacements_block[j], replace_with_block[j]);
-            }
+    for (let i = 1; i < text.length; i++) {
+        if (text[i].includes("інвзображення")) {
+            text[i] = translateJava(text[i]);
         }
     }
     text = text.join("\n");
@@ -286,18 +420,13 @@ function block(text) {
 }
 
 function copy() {
-    var textToCopy = document.getElementById("textareaOutput");
-    console.log(textToCopy);
-    if (textToCopy.value !== "" && textToCopy.value !== "Введіть справжній текст шаблона, а не пустоту"  && textToCopy.value !== "Не можливо розпізнати шаблон") {
-        textToCopy.select();
-        textToCopy.setSelectionRange(0, 99999); // для мобільних пристроїв
+    const textToCopy = document.getElementById("textareaOutput");
+    textToCopy.select();
+    document.execCommand("copy");
 
-        document.execCommand("copy");
-
-        var notification = document.getElementById("copy-notification");
-        notification.classList.add("show");
-        setTimeout(function() {
-            notification.classList.remove("show");
-        }, 2000);
-    }
+    const notification = document.getElementById("copy-notification");
+    notification.classList.add("show");
+    setTimeout(() => {
+        notification.classList.remove("show");
+    }, 2000);
 }

@@ -341,6 +341,13 @@ div.CodeMirror {
 .cm-custom-template {
     color: purple;
 }
+.cm-custom-template-parameter-name {
+    color: purple;
+    font-style: bold;
+}
+.cm-custom-template-name {
+    color: #e500ff;
+}
 .cm-custom-tag {
     color: green;
 }
