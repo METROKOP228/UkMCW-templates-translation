@@ -430,3 +430,40 @@ function copy() {
         notification.classList.remove("show");
     }, 2000);
 }
+
+const timeTracker = document.querySelector('.timeTracker');
+
+let intervalId = null; // Define intervalId outside the function to make it global
+
+function timeTracking() {
+    let startTime = performance.now();
+    let previousValue = textarea.value;
+    let intervalId = null;
+
+    clearInterval(intervalId);
+
+    intervalId = setInterval(function() {
+        if (textarea.value !== previousValue) {
+            previousValue = textarea.value;
+            let endTime = performance.now();
+            let durationInSeconds = (endTime - startTime) / 1000;
+            let durationRounded = durationInSeconds.toFixed(3);
+
+            let secondsLabel;
+            if (durationRounded === '1.000') {
+                secondsLabel = 'секунда';
+            } else if (durationRounded.endsWith('.000')) {
+                secondsLabel = 'секунд';
+            } else {
+                secondsLabel = 'секунди';
+            }
+
+            timeTracker.textContent = `Час виконання: ${durationRounded} ${secondsLabel}`;
+
+            startTime = performance.now();
+        }
+    }, 100);
+}
+
+
+

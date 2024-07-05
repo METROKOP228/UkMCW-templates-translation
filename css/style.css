@@ -51,10 +51,14 @@ body {
 
 .taContainer {
     width: 500px;
-    height: 400px;
+    height: 420px;
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.taContainer span {
+    color: yellow;
 }
 
 .input {
@@ -319,7 +323,7 @@ body {
 
 div.CodeMirror {
     width: 500px;
-    height: 400px;
+    height: 420px;
     padding-top: 5px;
     font-size: 14px;
     resize: none;
@@ -340,10 +344,6 @@ div.CodeMirror {
 }
 .cm-custom-template {
     color: purple;
-}
-.cm-custom-template-parameter-name {
-    color: purple;
-    font-style: bold;
 }
 .cm-custom-template-name {
     color: #e500ff;
