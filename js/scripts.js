@@ -209,6 +209,7 @@ CodeMirror.defineSimpleMode("customMode", {
 
 var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
     lineNumbers: true,
+    lineWrapping: true,
     mode: "customMode",
     theme: "default"
 });
