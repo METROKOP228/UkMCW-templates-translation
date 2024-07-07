@@ -92,7 +92,8 @@ body {
 
 .button:hover,
 .button-tr:hover,
-.button-tr-names:hover {
+.button-tr-names:hover,
+.search-button:hover {
     background-color: #a69d00;
     color: #fff;
 }
@@ -163,7 +164,7 @@ body {
 .translate-names {
     position: relative;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: left;
 	align-items: center;
@@ -179,6 +180,84 @@ body {
 	color: yellow;
 }
 
+.translate-names-a {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 1200px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+details.search-text-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: center;
+    margin-left: 200px;
+    width: 1000px;
+}
+
+summary {
+    margin-bottom: 25px;
+}
+
+details,
+details summary {
+    color: yellow;
+}
+
+.flex-dir-needed {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-text {
+    width: 200px;
+}
+
+.global-search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.global-search {
+    width: 25px;
+    height: 25px;
+    margin: 0 5px 0 0;
+}
+
+.search-button {
+    background-color: #fff873;
+    color: blue;
+    border: 1px solid black;
+    margin: 10px;
+    font-size: 18px;
+    height: 30px;
+    width: 175px;
+    cursor: pointer;
+}
+
+.highlight-search {
+    background-color: yellow;
+    color: blue;
+}
+.arrow {
+    color: red;
+}
 
 
 
@@ -348,11 +427,11 @@ div.CodeMirror {
 .cm-custom-template-name {
     color: #e500ff;
 }
+.cm-custom-parser-name {
+    color: red;
+}
 .cm-custom-tag {
     color: green;
-}
-.cm-custom-parser {
-    color: red;
 }
 .cm-custom-comment {
     color: gray;

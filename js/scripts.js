@@ -94,11 +94,13 @@ const replacements_vn = {
     "othereditions": "іншівидання",
     "edition": "видання",
     "title": "назва",
-    "server": "сервер",
+    "|server": "|сервер",
+    "| server": "| сервер",
     "prefix": "префікс",
     "image": "зобр",
     "name": "ім'я",
-    "client": "клієнт",
+    "|client": "|клієнт",
+    "| client": "| клієнт",
     "build": "збірка",
     "internal": "внутрішній",
     "versioncode": "кодверсії",
@@ -177,8 +179,10 @@ const replacements_block = {
     "= No": "= Ні",
     "=Yes": "=Так",
     "= Yes": "= Так",
+    "invimage": "інвзображення",
     "image": "зобр",
-    "invimage": "інвзображення"
+    "group": "група",
+    "caption": "підпис"
 };
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -188,22 +192,23 @@ var textarea = document.getElementById('textareaOutput');
 
 CodeMirror.defineSimpleMode("customMode", {
     start: [
-        { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" }, // Comments ( <-- something --> )
-        // { regex: /\{\{\#.*?\}\}/, token: "custom-parser" }, // Parser functions ( {{#something}} )
-        { regex: /==.*==/, token: "custom-heading" }, // Headings ( == something == )
-        { regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter" }, // Parameters ( {{{something}}} )
-        { regex: /\{\{/, token: "custom-template", next: "template" }, // Templates ( {{ )
-        { regex: /\}\}/, token: "custom-template" }, // Templates ( }} )
-        { regex: /\|/, token: "custom-template" }, // Pipes ( | )
-        { regex: /\[\[(?:(?!\]\]|\|).)*\]\]/, token: "custom-link" }, // Links ( [[something]] )
-        { regex: /\[\[(.*?)\|/, token: "custom-link" }, // Links ( [[something| )
-        { regex: /\]\]/, token: "custom-link" }, // Links ( ]] )
-        { regex: /\<.*?\>/, token: "custom-tag" }, // HTML tags ( <something></something> )
+        { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" },             // Comments ( <-- something --> )
+        // { regex: /\{\{\#.*?\}\}/, token: "custom-parser" },             // Parser functions ( {{#something}} )
+        { regex: /==.*==/, token: "custom-heading" },                      // Headings ( == something == )
+        { regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter" },           // Parameters ( {{{something}}} )
+        { regex: /\{\{/, token: "custom-template", next: "template" },     // Templates ( {{ )
+        { regex: /\}\}/, token: "custom-template" },                       // Templates ( }} )
+        { regex: /\|/, token: "custom-template" },                         // Pipes ( | )
+        { regex: /\[\[(?:(?!\]\]|\|).)*\]\]/, token: "custom-link" },      // Links ( [[something]] )
+        { regex: /\[\[(.*?)\|/, token: "custom-link" },                    // Links ( [[something| )
+        { regex: /\]\]/, token: "custom-link" },                           // Links ( ]] )
+        { regex: /\<.*?\>/, token: "custom-tag" },                         // HTML tags ( <something></something> )
     ],
     template: [
         { regex: /\b([^\|\}\n]+)/, token: "custom-template-name", next: "start" }, // Template name without {{ and |, until | or }}
-        { regex: /\}\}/, token: "custom-template", next: "start" }, // Template closing ( }} )
-        { regex: /\|/, token: "custom-template" }, // Pipes within template
+        { regex: /#([^\|\}\n]+)/, token: "custom-parser-name", next: "start" },    // Parser name without {{ and |, until | or }}
+        { regex: /\}\}/, token: "custom-template", next: "start" },                // Template closing ( }} )
+        { regex: /\|/, token: "custom-template" },                                 // Pipes within template
     ]
 });
 
@@ -450,16 +455,7 @@ function timeTracking() {
             let durationInSeconds = (endTime - startTime) / 1000;
             let durationRounded = durationInSeconds.toFixed(3);
 
-            let secondsLabel;
-            if (durationRounded === '1.000') {
-                secondsLabel = 'секунда';
-            } else if (durationRounded.endsWith('.000')) {
-                secondsLabel = 'секунд';
-            } else {
-                secondsLabel = 'секунди';
-            }
-
-            timeTracker.textContent = `Час виконання: ${durationRounded} ${secondsLabel}`;
+            timeTracker.textContent = `Час виконання: ${durationRounded} секунди`;
 
             startTime = performance.now();
         }

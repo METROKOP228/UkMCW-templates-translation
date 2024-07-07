@@ -6807,8 +6807,9 @@ const translations_java = [
     "Ice=Лід",
     "Cat=Кіт",
     "???=???",
-    "All=Усі",
-];
+    "All=Усі"
+]
+
 const translations_bedrock = [
 "Our ability to support this device is coming to an end in your area. With this final update, you will still be able to play on your worlds, and access your Marketplace purchases, but you will no longer be able to make purchases in the Marketplace. Realms managed from this device will continue to work for 6 months. On Sept. 30th, 2023 you will no longer have access to the realms from this device. It is recommended you download your world prior to this and cancel your subscription by viewing your subscriptions in Google Play. %sYou will no longer receive the latest updates and will be unable to play multiplayer. You will also not be able to connect to certain servers. %sIf you have signed in with a Microsoft/Xbox Live account, your Marketplace purchases & Minecoins and your Realms subscription will be available on your other platforms where you play Minecraft. You can start a new subscription from these other platforms where you play Minecraft. %sIf you would like to move your worlds from this device to another, you can do so by uploading the world to a Realm, and downloading a backup onto your new device. %sClick on the button for more information, including ways to move your world to a new device.=Наші можливості з підтримки цього пристрою добігають кінця у вашому регіоні. Завдяки цьому останньому оновленню ви все ще зможете грати у своїх світах і використовувати покупки з Ринку, але більше не зможете здійснювати нові покупки. Realms, які керуються з цього пристрою, продовжать працювати ще 6 місяців. З 30 вересня 2023 року ви більше не матимете доступу до цих Realms. Рекомендується завантажити свій світ до цього часу та скасувати підписку, переглянувши свої підписки в Google Play. %sВи більше не отримуватимете актуальні оновлення і не зможете грати в мультиплеєрі. Ви також не зможете підключатися до певних серверів. %sЯкщо ви ввійшли в обліковий запис Microsoft/Xbox Live, ваші покупки з Ринку й монети Minecoins, а також підписка на Realms будуть доступні на інших платформах, де ви граєте в Minecraft. Ви можете стартувати нову підписку з інших платформ, де ви граєте в Minecraft. %sЯкщо ви хочете перенести світи з цього пристрою на інший, ви можете зробити це, завантаживши світ у Realm і завантаживши резервну копію на новий пристрій. %sНатисніть кнопку, щоб дізнатися більше, зокрема про те, як перенести ваші світи на новий пристрій.",
 "Our ability to support this device is coming to an end. You will continue to receive updates until Feb. of 2024, when you will receive your final update for this device.%sAfter you receive the final update, you will still be able to play on your worlds, and access Marketplace purchases (including Minecoins), however you will no longer be able to make new purchases on this device. Realms managed from this device will continue to work for 6 months unless they are updated by the Realm owner on a different device. To cancel your realm subscription, you will need to do so in your subscriptions in Google Play, you can access Google Play on any supported device or from PC where you are able to login to your account  You will no longer receive the latest updates and will be unable to play multiplayer with devices or Realms which are continuing to receive updates. You will also not be able to connect to certain servers.%sClick on the button for more information, including ways to move your world to a new device.=Невдовзі ми вже не зможемо підтримувати цей пристрій. Ви будете отримувати оновлення до лютого 2024 року, після чого надійде останнє.%sОтримавши останнє оновлення, ви все ще зможете грати у своїх світах і користуватися минулими покупками з Ринку (зокрема Minecoins), але не зможете здійснювати нові покупки на цьому пристрої. Realms, керовані з цього пристрою, продовжать працювати ще 6 місяців, якщо власник цього Realm не оновить його з іншого пристрою. Скасувати передплату Realm можна через меню передплат у Google Play. Google Play доступний на будь-якому підтримуваному пристрої або з ПК, де ви можете увійти до свого облікового запису. Ви більше не отримуватимете актуальних оновлень і не зможете грати в багатоосібному режимі з пристроями або Realms, які продовжують оновлюватися. Ви також не зможете підключитися до певних серверів.%sНатисніть цю кнопку для отримання додаткової інформації, зокрема про способи перенести ваш світ на новий пристрій.",
@@ -32255,14 +32256,21 @@ function translateNames() {
             let id = radioButtonsEd[i].id;
             console.log(id);
 
-            if (id === 'java') {
+            switch (id) {
+            case 'java':
                 textarea.value = translateJava(text);
-            } else if (id === 'bedrock') {
+                break;
+            case 'bedrock':
                 translateBedrock(text);
-            } else if (id === 'earth') {
+                break;
+            case 'earth':
                 translateEarth(text);
-            } else if (id === 'legends') {
+                break;
+            case 'legends':
                 translateLegends(text);
+                break;
+            default:
+                textarea.value = 'Error';
             }
             return;
         }
@@ -32351,5 +32359,127 @@ function translateLegends(text) {
         textarea.value = text;
     } catch (error) {
         textarea.value = "Error";
+    }
+}
+
+function searchMatches() {
+    const checkbox = document.getElementById("global-search");
+    let isGlobal = checkbox.checked;
+    console.log(isGlobal);
+    if (isGlobal) {
+        searchInArrays(translations_java, translations_bedrock, translations_earth, translations_legends)
+    } else {
+        let radioButtonsEd = document.getElementsByName('editions');
+        for (let i = 0; i < radioButtonsEd.length; i++) {
+            if (radioButtonsEd[i].checked) {
+                let id = radioButtonsEd[i].id;
+                console.log(id);
+                switch (id) {
+                case 'java':
+                    searchInArrays(translations_java)
+                    break;
+                case 'bedrock':
+                    searchInArrays(undefined, translations_bedrock)
+                    break;
+                case 'earth':
+                    searchInArrays(undefined, undefined, translations_earth)
+                    break;
+                case 'legends':
+                    searchInArrays(undefined, undefined, undefined, translations_legends)
+                    break;
+                }
+            }
+        };
+    }
+    return;
+}
+
+function searchInArrays(arrayJ, arrayB, arrayE, arrayL) {
+    const resultsContainer = document.getElementById("results-container");
+    resultsContainer.innerHTML = ""; // Очищення попередніх результатів
+    const text = document.getElementById("text-to-search").value;
+    let matches = []; // Ініціалізація масиву для збереження результатів
+    let matches2 = []; // Ініціалізація масиву для збереження результатів
+    let matches3 = []; // Ініціалізація масиву для збереження результатів
+    let matches4 = []; // Ініціалізація масиву для збереження результатів
+    console.log(text);
+    
+    if (text !== "") {
+        if (arrayJ !== undefined) {
+            let element = '<span style="font-size: 25px;">Java Edition:</span>'
+            let resultElement = document.createElement('div');
+            resultElement.innerHTML = element;
+            document.getElementById("results-container").appendChild(resultElement);
+            for (let i = 0; i < arrayJ.length; i++) {
+                let el = arrayJ[i];
+                if (el.includes(text)) { // Виправлення синтаксису умови
+                    let els = el.split("=");
+                    el = els[0] + ` <span class="arrow"> --&gt; </span> ` + els[1];
+                    matches.push(el); // Використання push для додавання елементів до масиву
+
+                    let highlightedEl = el.replace(new RegExp(text, 'gi'), (match) => `<span class="highlight-search">${match}</span>`);
+                    let resultElement = document.createElement('div');
+                    resultElement.innerHTML = highlightedEl;
+                    resultsContainer.appendChild(resultElement);
+                }
+            }
+        }
+        if (arrayB !== undefined) {
+            let element = '<span style="font-size: 25px;">Bedrock Edition:</span>'
+            let resultElement = document.createElement('div');
+            resultElement.innerHTML = element;
+            document.getElementById("results-container").appendChild(resultElement);
+            for (let i = 0; i < arrayB.length; i++) {
+                let el = arrayB[i];
+                if (el.includes(text)) { // Виправлення синтаксису умови
+                    let els = el.split("=");
+                    el = els[0] + ` <span class="arrow"> --&gt; </span> ` + els[1];
+                    matches2.push(el); // Використання push для додавання елементів до масиву
+
+                    let highlightedEl = el.replace(new RegExp(text, 'gi'), (match) => `<span class="highlight-search">${match}</span>`);
+                    let resultElement = document.createElement('div');
+                    resultElement.innerHTML = highlightedEl;
+                    resultsContainer.appendChild(resultElement);
+                }
+            }
+        }
+        if (arrayE !== undefined) {
+            let element = '<span style="font-size: 25px;">Minecraft Earth:</span>'
+            let resultElement = document.createElement('div');
+            resultElement.innerHTML = element;
+            document.getElementById("results-container").appendChild(resultElement);
+            for (let i = 0; i < arrayE.length; i++) {
+                let el = arrayE[i];
+                if (el.includes(text)) { // Виправлення синтаксису умови
+                    let els = el.split("=");
+                    el = els[0] + ` <span class="arrow"> --&gt; </span> ` + els[1];
+                    matches3.push(el); // Використання push для додавання елементів до масиву
+
+                    let highlightedEl = el.replace(new RegExp(text, 'gi'), (match) => `<span class="highlight-search">${match}</span>`);
+                    let resultElement = document.createElement('div');
+                    resultElement.innerHTML = highlightedEl;
+                    resultsContainer.appendChild(resultElement);
+                }
+            }
+        }
+        if (arrayL !== undefined) {
+            let element = '<span style="font-size: 25px;">Minecraft Legends:</span>'
+            let resultElement = document.createElement('div');
+            resultElement.innerHTML = element;
+            document.getElementById("results-container").appendChild(resultElement);
+            for (let i = 0; i < arrayL.length; i++) {
+                let el = arrayL[i];
+                if (el.includes(text)) { // Виправлення синтаксису умови
+                    let els = el.split("=");
+                    el = els[0] + ` <span class="arrow"> --&gt; </span> ` + els[1];
+                    matches4.push(el); // Використання push для додавання елементів до масиву
+
+                    let highlightedEl = el.replace(new RegExp(text, 'gi'), (match) => `<span class="highlight-search">${match}</span>`);
+                    let resultElement = document.createElement('div');
+                    resultElement.innerHTML = highlightedEl;
+                    resultsContainer.appendChild(resultElement);
+                }
+            }
+        }
     }
 }

@@ -47,30 +47,49 @@
     	</div>
     </div>
     <div class="translate-names">
-    	<label class="radio-container">
-    		<input type="radio" class="mode-choice-radio" id="mc-name" name="modes" />
-	    	<span class="custom-radio"><span>
-    	</label>
-    	<div class="template-selection">
-	    	<h2>Переклад внутрішньоігрових назв</h2>
-	        <form class="editions-form">
-	            <p>Виберіть видання/гру:</p>
-	            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
-	            <label for="java">Java Edition</label>
+    	<div class="translate-names-a">
+    		<label class="radio-container">
+	    		<input type="radio" class="mode-choice-radio" id="mc-name" name="modes" />
+		    	<span class="custom-radio"><span>
+	    	</label>
+	    	<div class="template-selection">
+		    	<h2>Переклад внутрішньоігрових назв</h2>
+		        <form class="editions-form">
+		            <p>Виберіть видання/гру:</p>
+		            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
+		            <label for="java">Java Edition</label>
 
-	            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
-	            <label for="bedrock">Bedrock Edition</label>
+		            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
+		            <label for="bedrock">Bedrock Edition</label>
 
-	            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
-	            <label for="earth">Minecraft Earth</label>
+		            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
+		            <label for="earth">Minecraft Earth</label>
 
-	            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
-	            <label for="legends">Minecraft Legends</label>
-	        </form>
+		            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
+		            <label for="legends">Minecraft Legends</label>
+		        </form>
+	    	</div>
     	</div>
+        <details class="search-text-container">
+        	<summary>Шукати серед рядків перекладу</summary>
+        	<div class="flex-dir-needed">
+	        	<div class="not-search-btn">
+		        	<div class="search-text-wrapper">
+			        	<span>Текст для пошуку:</span>
+			        	<input id="text-to-search" type="text" class="search-text" name="search-text">
+		        	</div>
+		        	<div class="global-search-container">
+			        	<input id="global-search" class="global-search" type="checkbox" checked>
+			        	<label for="global-search">Глобальний пошук</label>
+		        	</div>
+	        	</div>
+	        	<button class="search-button" onclick="searchMatches();">Шукати</button>
+        	</div>
+        	<div id="results-container"></div>
+        </details>
     </div>
     <div class="container">
-        <textarea id="textareaInput" class="input" placeholder="Введіть ваш текст тут..." oninput="updateLineNumbers()" onscroll="syncScroll()"></textarea>
+        <textarea id="textareaInput" class="input" placeholder="Введіть ваш текст тут..."></textarea>
         <button class="button-tr" onclick="timeTracking(); translatetext();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
         <div class="taContainer">
             <textarea id="textareaOutput" class="input" placeholder="Пусто" readonly></textarea>
