@@ -292,11 +292,26 @@ function performReplacements(text, replacementsObject) {
 }
 
 function id_table(text) {
+    let edition;
     text = performReplacements(text, replacements_id);
     text = text.split("\n");
     for (let i = 1; i < text.length; i++) {
+        if (text[i].includes('java')) {
+            edition = "java";
+        } else if (text[i].includes('bedrock')) {
+            edition = "bedrock";
+        }
+        
         if (text[i].includes("відображуванеім'я")) {
-            text[i] = translateJava(text[i]);
+            console.log(edition);
+            switch (edition) {
+            case "bedrock":
+                text[i] = translateBedrock(text[i]);
+                break;
+            default:
+                text[i] = translateJava(text[i]);
+                break;
+            }
         }
     }
     text = text.join("\n");

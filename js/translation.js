@@ -32261,7 +32261,7 @@ function translateNames() {
                 textarea.value = translateJava(text);
                 break;
             case 'bedrock':
-                translateBedrock(text);
+                textarea.value = translateBedrock(text);
                 break;
             case 'earth':
                 translateEarth(text);
@@ -32316,7 +32316,7 @@ function translateBedrock(text) {
         }
 
         text = text.join("\n");
-        textarea.value = text;
+        return text;
     } catch (error) {
         textarea.value = "Error";
     }
