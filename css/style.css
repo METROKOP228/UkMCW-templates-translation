@@ -222,8 +222,17 @@ details summary {
     flex-direction: column;
 }
 
+.for-regex-container {
+    display: flex;
+    flex-direction: rows;
+}
+
+.hidden {
+    display: none;
+}
+
 .search-text {
-    width: 200px;
+    width: 300px;
 }
 
 .global-search-container {
@@ -240,11 +249,17 @@ details summary {
     margin: 0 5px 0 0;
 }
 
+label a {
+    color: orange;
+}
+
 .search-button {
+    position: relative;
+    bottom: 10px;
+    left: -165px;
     background-color: #fff873;
     color: blue;
     border: 1px solid black;
-    margin: 10px;
     font-size: 18px;
     height: 30px;
     width: 175px;
@@ -423,6 +438,9 @@ div.CodeMirror {
 }
 .cm-custom-template {
     color: purple;
+}
+.cm-custom-parameter-name {
+    color: blue;
 }
 .cm-custom-template-name {
     color: #e500ff;

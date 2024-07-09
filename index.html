@@ -85,11 +85,23 @@
 	        	<div class="not-search-btn">
 		        	<div class="search-text-wrapper">
 			        	<span>Текст для пошуку:</span>
-			        	<input id="text-to-search" type="text" class="search-text" name="search-text">
+			        	<div class="for-regex-container">
+				        	<span id="regex-slash" class="hidden">/</span>
+				        	<input id="text-to-search" type="text" class="search-text" name="search-text">
+				        	<span id="regex-slash2" class="hidden">/g</span>
+			        	</div>
 		        	</div>
 		        	<div class="global-search-container">
 			        	<input id="global-search" class="global-search" type="checkbox" checked>
 			        	<label for="global-search">Глобальний пошук</label>
+		        	</div>
+		        	<div class="global-search-container">
+			        	<input id="regex-search" class="global-search" type="checkbox">
+			        	<label for="regex-search">Вважати рядок <a href="https://uk.wikipedia.org/wiki/Регулярний_вираз">регулярним виразом</a></label>
+		        	</div>
+		        	<div class="global-search-container">
+			        	<input id="cs-search" class="global-search" type="checkbox" checked>
+			        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
 		        	</div>
 	        	</div>
 	        	<button class="search-button" onclick="searchMatches();">Шукати</button>
