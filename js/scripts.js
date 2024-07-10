@@ -135,6 +135,7 @@ const replacements_vn = {
     "dl =": "зп =",
     "Client": "Клієнт",
     "Server": "Сервер"
+    "editorver": "editorвер"
 };
 const replacements_entity = {
     "health": "здоров'я",
@@ -296,9 +297,9 @@ function id_table(text) {
     text = performReplacements(text, replacements_id);
     text = text.split("\n");
     for (let i = 1; i < text.length; i++) {
-        if (text[i].includes('java')) {
+        if (text[i].includes('java') || text[i].includes('je') || text[i].includes('JE')) {
             edition = "java";
-        } else if (text[i].includes('bedrock')) {
+        } else if (text[i].includes('bedrock') || text[i].includes('be') || text[i].includes('BE')) {
             edition = "bedrock";
         }
         
