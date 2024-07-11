@@ -134,7 +134,7 @@ const replacements_vn = {
     "dl=": "зп=",
     "dl =": "зп =",
     "Client": "Клієнт",
-    "Server": "Сервер"
+    "Server": "Сервер",
     "editorver": "editorвер"
 };
 const replacements_entity = {
@@ -482,6 +482,11 @@ document.getElementById('regex-search').addEventListener('change', function() {
     if (this.checked) {
         document.getElementById('regex-slash').classList.remove('hidden');
         document.getElementById('regex-slash2').classList.remove('hidden');
+        if (document.getElementById('cs-search').checked) {
+            document.getElementById('regex-slash2').textContent = "/g";
+        } else {
+            document.getElementById('regex-slash2').textContent = "/gi";
+        }
     } else {
         document.getElementById('regex-slash').classList.add('hidden');
         document.getElementById('regex-slash2').classList.add('hidden');
