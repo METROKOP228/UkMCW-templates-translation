@@ -1,52 +1,21 @@
 const javaUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/1.21.txt';
 let translations_java;
-fetch(javaUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        translations_java = data;
-        translations_java = translations_java.split('\n');
-    })
-    .catch(error => console.error('Error fetching file:', error));
-
+fileFetch(javaUrl, translations_java)
 
 const bedrockUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/newest.txt';
 let translations_bedrock;
-fetch(bedrockUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        translations_bedrock = data;
-        translations_bedrock = translations_bedrock.split('\n');
-    })
-    .catch(error => console.error('Error fetching file:', error));
+fileFetch(bedrockUrl, translations_bedrock)
 
 const earthUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/earth/newest.txt';
 let translations_earth;
-fetch(earthUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        translations_earth = data;
-        translations_earth = translations_earth.split('\n');
-    })
-    .catch(error => console.error('Error fetching file:', error));
+fileFetch(earthUrl, translations_earth)
 
 const legendsUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/legends/newest.txt';
 let translations_legends;
-fetch(legendsUrl)
+fileFetch(legendsUrl, translations_legends)
+
+function fileFetch(url, array) {
+    fetch(url)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -54,10 +23,11 @@ fetch(legendsUrl)
         return response.text();
     })
     .then(data => {
-        translations_legends = data;
-        translations_legends = translations_legends.split('\n');
+        array = data;
+        array = array.split('\n');
     })
     .catch(error => console.error('Error fetching file:', error));
+}
 
 function translateNames() {
     let text = editor.getValue();
