@@ -230,7 +230,6 @@ details summary {
 .hidden {
     display: none;
 }
-
 .search-text {
     width: 300px;
 }
@@ -266,10 +265,23 @@ label a {
     cursor: pointer;
 }
 
+.dt-sl {
+    display: flex;
+    flex-direction: row;
+}
+
+#version-choice {
+    position: relative;
+    left: -330px;
+    height: 23px;
+    margin-bottom: 10px;
+}
+
 .highlight-search {
     background-color: yellow;
     color: blue;
 }
+
 .arrow {
     color: red;
 }
