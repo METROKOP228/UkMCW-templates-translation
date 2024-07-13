@@ -16,17 +16,17 @@ fileFetch(legendsUrl, translations_legends)
 
 function fileFetch(url, array) {
     fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(data => {
-        array = data;
-        array = array.split('\n');
-    })
-    .catch(error => console.error('Error fetching file:', error));
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(data => {
+            array = data;
+            array = array.split('\n');
+        })
+        .catch(error => console.error('Error fetching file:', error));
 }
 
 function translateNames() {
