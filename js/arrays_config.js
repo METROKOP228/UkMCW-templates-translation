@@ -1,7 +1,7 @@
 let javaVer = "1.21";
 
 function getSelectValue() {
-    const selectElement = document.getElementById('version-choice');
+    const selectElement = document.getElementById('version-choice-je');
     const selectedValue = selectElement.value;
     console.log(selectedValue);
     // Тепер змінна selectedValue містить вибране значення
@@ -16,7 +16,7 @@ function getSelectValue() {
         });
 }
 
-document.getElementById('version-choice').addEventListener('change', getSelectValue);
+document.getElementById('version-choice-je').addEventListener('change', getSelectValue);
 
 let javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/1.21.txt`;
 let translations_java = [];

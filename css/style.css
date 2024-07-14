@@ -270,11 +270,14 @@ label a {
     flex-direction: row;
 }
 
-#version-choice {
-    position: relative;
-    left: -330px;
+.vc-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.vc-container select {
     height: 23px;
-    margin-bottom: 10px;
 }
 
 .highlight-search {

@@ -233,32 +233,6 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL) {
     }
 }
 
-const versions = {
-    java: ["1.21", "1.20.6", "1.20.5", "1.20.4", "1.20.3", "1.20.2", "1.20.1", "1.20", "1.19.4", "1.19.3",
-           "1.18", "1.17", "1.16", "1.15", "1.14", "1.13"],
-    bedrock: ["1.21.0?"],
-    earth: ["0.33.0"],
-    legends: ["1.18.19068"]
-};
-
-// Функція для оновлення опцій у селекті
-function updateOptions(id) {
-    const selectElement = document.getElementById('version-choice');
-
-    // Очищаємо всі попередні опції
-    selectElement.innerHTML = '';
-
-    // Додаємо нові опції з масиву відповідно до вибраної радіокнопки
-    if (versions[id]) {
-        versions[id].forEach(value => {
-            const option = document.createElement('option');
-            option.setAttribute('value', value);
-            option.textContent = value;
-            selectElement.appendChild(option);
-        });
-    }
-}
-
 // Додаємо обробник подій для всіх радіокнопок
 document.querySelectorAll('input[name="editions"]').forEach(radio => {
     radio.addEventListener('change', (event) => {
