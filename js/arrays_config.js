@@ -75,7 +75,7 @@ function fileFetch(url, array) {
             })
             .then(data => {
                 // Розділити отримані дані на масив рядків за символом '\n'
-                array = data.split('\n');
+                array = data.split('\r\n');
                 resolve(array); // Повертаємо масив рядків через resolve
             })
             .catch(error => {

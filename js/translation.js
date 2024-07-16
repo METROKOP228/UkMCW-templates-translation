@@ -34,8 +34,9 @@ function translateJava(text) {
     let en_uk = [];
     try {
         for (let i = 0; i < text.length; i++) {
+            let matches = [];
             if (text[i].includes("[[File:") || text[i].includes("[[Файл:")) {
-                var matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
+                matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
                 text[i] = text[i].replace(matches, 'ЗАМІНИТИ');
             }
             for (let j = 0; j < translations_java.length; j++) {
@@ -44,14 +45,19 @@ function translateJava(text) {
                     text[i] = text[i].replace(en_uk[0], en_uk[1]);
                 }
             }
-            text[i] = text[i].replace('ЗАМІНИТИ', matches)
+            if (matches.length > 0) {
+                for (let match of matches) {
+                    text[i] = text[i].replace('ЗАМІНИТИ', match);
+                }
+            }
         }
         text = text.join("\n");
         return text;
     } catch (error) {
-        textarea.value = "Error";
+        return "Error";
     }
 }
+
 
 function translateBedrock(text) {
     text = text.split("\n");
