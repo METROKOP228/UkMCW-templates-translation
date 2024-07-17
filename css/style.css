@@ -1,3 +1,12 @@
+:root {
+  --bg-color: #0000FF;
+  --alt-color: #FFFF00;
+  --btn-hover-bg-color: #A69D00;
+  --btn-hover-text-color: #FFFFFF;
+  --link-color: #FF0000;
+  --link-hover-color: #A60000;
+}
+
 @font-face {
     font-family: "Minecraft";
     src: url('../fonts/Minecraft.woff') format('woff'),
@@ -11,7 +20,7 @@
 }
 
 body {
-	background-color: blue;
+	background-color: var(--bg-color);
 }
 
 .header {
@@ -21,7 +30,7 @@ body {
 	align-items: center;
 	width: 1200px;
 	height: 50px;
-	border: 2px yellow dashed;
+	border: 2px var(--alt-color) dashed;
 }
 
 .header-img {
@@ -29,6 +38,50 @@ body {
     margin-right: 5px;
 }
 
+
+
+
+
+
+
+
+.settings-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none; /* Початково приховано */
+    z-index: 1000;
+}
+.settings-menu label {
+    margin-right: 10px;
+}
+.toggle-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Початково приховано */
+    z-index: 999;
+}
+
+input[type="color"] {
+    position: relative;
+    right: 0;
+}
 
 
 
@@ -45,7 +98,7 @@ body {
 	align-items: center;
 	width: 1200px;
 	height: 600px;
-	border: 2px yellow dashed;
+	border: 2px var(--alt-color) dashed;
 	position: relative;
 }
 
@@ -58,7 +111,7 @@ body {
 }
 
 .taContainer span {
-    color: yellow;
+    color: var(--alt-color);
 }
 
 .input {
@@ -82,8 +135,22 @@ body {
 	align-items: center;
 	margin: 10px;
     padding: 10px 20px;
-    background-color: #fff873;
-    color: blue;
+    background-color: var(--alt-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.settings-button {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    height: 40px;
+    padding: 0 10px;
+    background-color: var(--alt-color);
+    color: var(--bg-color);
     text-decoration: none;
     border: none;
     border-radius: 7px;
@@ -93,14 +160,15 @@ body {
 .button:hover,
 .button-tr:hover,
 .button-tr-names:hover,
-.search-button:hover {
-    background-color: #a69d00;
-    color: #fff;
+.search-button:hover,
+.settings-button:hover {
+    background-color: var(--btn-hover-bg-color);
+    color: var(--btn-hover-text-color);
 }
 
 .button-tr {
-    background-color: #fff873;
-    color: blue;
+    background-color: var(--alt-color);
+    color: var(--bg-color);
     border: 1px solid black;
     margin: 10px;
     height: 200px;
@@ -168,7 +236,7 @@ body {
 	flex-wrap: nowrap;
 	justify-content: left;
 	align-items: center;
-	border: 2px yellow dashed;
+	border: 2px var(--alt-color) dashed;
 	width: 1200px;
 	margin-bottom: 10px;
     padding: 10px;
@@ -177,7 +245,7 @@ body {
 .translate-names label,
 .translate-names p,
 .translate-names h2 {
-	color: yellow;
+	color: var(--alt-color);
 }
 
 .translate-names-a {
@@ -208,7 +276,7 @@ summary {
 
 details,
 details summary {
-    color: yellow;
+    color: var(--alt-color);
 }
 
 .flex-dir-needed {
@@ -249,15 +317,19 @@ details summary {
 }
 
 label a {
-    color: orange;
+    color: var(--link-color);
+}
+
+label a:hover {
+    color: var(--link-hover-color);
 }
 
 .search-button {
     position: relative;
     bottom: 10px;
     left: -165px;
-    background-color: #fff873;
-    color: blue;
+    background-color: var(--alt-color);
+    color: var(--bg-color);
     border: 1px solid black;
     font-size: 18px;
     height: 30px;
@@ -281,8 +353,8 @@ label a {
 }
 
 .highlight-search {
-    background-color: yellow;
-    color: blue;
+    background-color: var(--alt-color);
+    color: var(--bg-color);
 }
 
 .arrow {
@@ -302,14 +374,14 @@ label a {
 	flex-wrap: nowrap;
 	justify-content: left;
 	align-items: center;
-	border: 2px yellow dashed;
+	border: 2px var(--alt-color) dashed;
 	width: 1200px;
 	margin: 10px 0;
     padding: 10px;
 }
 
 .template-selection-container > * {
-	color: yellow;
+	color: var(--alt-color);
 }
 
 .template-selection-container > p {
@@ -400,21 +472,21 @@ label a {
 	align-items: center;
 	width: 1200px;
 	height: 50px;
-	border: 2px yellow dashed;
+	border: 2px var(--alt-color) dashed;
 	margin-top: 10px;
 }
 
 .footer > span {
-	color: yellow;
+	color: var(--alt-color);
 	margin: 3px;
 }
 
 .footer > a {
-	color: red;
+	color: var(--link-color);
 }
 
 .footer > a:hover {
-	color: #A60000;
+	color: var(--link-hover-color);
 }
 
 
@@ -442,7 +514,7 @@ div.CodeMirror {
     resize: none;
 }
 .cm-custom-link {
-    color: blue;
+    color: var(--bg-color);
     font-weight: bold;
 }
 .cm-custom-heading {
@@ -455,7 +527,7 @@ div.CodeMirror {
     color: purple;
 }
 .cm-custom-parameter-name {
-    color: blue;
+    color: var(--bg-color);
 }
 .cm-custom-template-name {
     color: #e500ff;

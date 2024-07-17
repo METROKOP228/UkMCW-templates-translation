@@ -502,3 +502,30 @@ document.getElementById('cs-search').addEventListener('change', function() {
         }
     }
 });
+
+function toggleMenu() {
+    const menu = document.getElementById('settingsMenu');
+    const overlay = document.getElementById('overlay');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+    menu.style.display = 'block';
+    overlay.style.display = 'block';
+    } else {
+    menu.style.display = 'none';
+    overlay.style.display = 'none';
+    }
+}
+
+function updateSettings() {
+    const bgColor = document.getElementById('bg-color').value;
+    const textColor = document.getElementById('text-color').value;
+    const btnHvBgColor = document.getElementById('btn-hover-bg-color').value;
+    const btnHvTextColor = document.getElementById('btn-hover-text-color').value;
+    const linkColor = document.getElementById('link-color').value;
+    const linkHvColor = document.getElementById('link-hover-color').value;
+    document.documentElement.style.setProperty('--bg-color', bgColor);
+    document.documentElement.style.setProperty('--alt-color', textColor);
+    document.documentElement.style.setProperty('--btn-hover-bg-color', btnHvBgColor);
+    document.documentElement.style.setProperty('--btn-hover-text-color', btnHvTextColor);
+    document.documentElement.style.setProperty('--link-color', linkColor);
+    document.documentElement.style.setProperty('--link-hover-color', linkHvColor);
+}
