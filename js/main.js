@@ -528,4 +528,52 @@ function updateSettings() {
     document.documentElement.style.setProperty('--btn-hover-text-color', btnHvTextColor);
     document.documentElement.style.setProperty('--link-color', linkColor);
     document.documentElement.style.setProperty('--link-hover-color', linkHvColor);
+
+    
+    localStorage.setItem('bgColor', bgColor);
+    localStorage.setItem('textColor', textColor);
+    localStorage.setItem('btnHvBgColor', btnHvBgColor);
+    localStorage.setItem('btnHvTextColor', btnHvTextColor);
+    localStorage.setItem('linkColor', linkColor);
+    localStorage.setItem('linkHvColor', linkHvColor);
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Завантаження збережених налаштувань
+    const savedBgColor = localStorage.getItem('bgColor');
+    const savedTextColor = localStorage.getItem('textColor');
+    const savedBtnHvBgColor = localStorage.getItem('btnHvBgColor');
+    const savedBtnHvTextColor = localStorage.getItem('btnHvTextColor');
+    const savedLinkColor = localStorage.getItem('linkColor');
+    const savedLinkHvColor = localStorage.getItem('linkHvColor');
+
+    if (savedBgColor) {
+        document.documentElement.style.setProperty('--bg-color', savedBgColor);
+        document.getElementById('bg-color').value = savedBgColor;
+    }
+
+    if (savedTextColor) {
+        document.documentElement.style.setProperty('--alt-color', savedTextColor);
+        document.getElementById('text-color').value = savedTextColor;
+    }
+
+    if (savedBtnHvBgColor) {
+        document.documentElement.style.setProperty('--btn-hover-bg-color', savedBtnHvBgColor);
+        document.getElementById('btn-hover-bg-color').value = savedBtnHvBgColor;
+    }
+
+    if (savedBtnHvTextColor) {
+        document.documentElement.style.setProperty('--btn-hover-text-color', savedBtnHvTextColor);
+        document.getElementById('btn-hover-text-color').value = savedBtnHvTextColor;
+    }
+
+    if (savedLinkColor) {
+        document.documentElement.style.setProperty('--link-color', savedLinkColor);
+        document.getElementById('link-color').value = savedLinkColor;
+    }
+
+    if (savedLinkHvColor) {
+        document.documentElement.style.setProperty('--link-hover-color', savedLinkHvColor);
+        document.getElementById('link-hover-color').value = savedLinkHvColor;
+    }
+});
