@@ -516,12 +516,12 @@ function toggleMenu() {
 }
 
 function updateSettings() {
-    const bgColor = document.getElementById('bg-color').value;
-    const textColor = document.getElementById('text-color').value;
-    const btnHvBgColor = document.getElementById('btn-hover-bg-color').value;
-    const btnHvTextColor = document.getElementById('btn-hover-text-color').value;
-    const linkColor = document.getElementById('link-color').value;
-    const linkHvColor = document.getElementById('link-hover-color').value;
+    var bgColor = document.getElementById('bg-color').value;
+    var textColor = document.getElementById('text-color').value;
+    var btnHvBgColor = document.getElementById('btn-hover-bg-color').value;
+    var btnHvTextColor = document.getElementById('btn-hover-text-color').value;
+    var linkColor = document.getElementById('link-color').value;
+    var linkHvColor = document.getElementById('link-hover-color').value;
     document.documentElement.style.setProperty('--bg-color', bgColor);
     document.documentElement.style.setProperty('--alt-color', textColor);
     document.documentElement.style.setProperty('--btn-hover-bg-color', btnHvBgColor);
@@ -577,3 +577,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('link-hover-color').value = savedLinkHvColor;
     }
 });
+
+function reset() {
+    document.getElementById('bg-color').value = '#0000FF';
+    document.getElementById('text-color').value = '#FFFF00';
+    document.getElementById('btn-hover-bg-color').value = '#A69D00';
+    document.getElementById('btn-hover-text-color').value= '#FFFFFF';
+    document.getElementById('link-color').value = '#FF0000';
+    document.getElementById('link-hover-color').value = '#A60000';
+    bgColor = '#0000FF';
+    textColor = '#FFFF00';
+    btnHvBgColor = '#A69D00';
+    btnHvTextColor = '#FFFFFF';
+    linkColor = '#FF0000';
+    linkHvColor = '#A60000';
+    document.documentElement.style.setProperty('--bg-color', bgColor);
+    document.documentElement.style.setProperty('--alt-color', textColor);
+    document.documentElement.style.setProperty('--btn-hover-bg-color', btnHvBgColor);
+    document.documentElement.style.setProperty('--btn-hover-text-color', btnHvTextColor);
+    document.documentElement.style.setProperty('--link-color', linkColor);
+    document.documentElement.style.setProperty('--link-hover-color', linkHvColor);
+    localStorage.setItem('bgColor', bgColor);
+    localStorage.setItem('textColor', textColor);
+    localStorage.setItem('btnHvBgColor', btnHvBgColor);
+    localStorage.setItem('btnHvTextColor', btnHvTextColor);
+    localStorage.setItem('linkColor', linkColor);
+    localStorage.setItem('linkHvColor', linkHvColor);
+}

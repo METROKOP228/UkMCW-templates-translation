@@ -58,15 +58,18 @@ body {
     display: none; /* Початково приховано */
     z-index: 1000;
 }
+
 .settings-menu label {
     margin-right: 10px;
 }
+
 .toggle-button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     margin-top: 20px;
 }
+
 .overlay {
     position: fixed;
     top: 0;
@@ -83,8 +86,23 @@ input[type="color"] {
     right: 0;
 }
 
+.reset-btn {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: yellow;
+    color: blue;
+    text-decoration: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
 
-
+.reset-btn:hover {
+    background-color: #A69D00;
+    color: white;
+}
 
 
 
