@@ -34,10 +34,14 @@ function translateJava(text) {
     let en_uk = [];
     try {
         for (let i = 0; i < text.length; i++) {
-            let matches = [];
+            let matches;
             if (text[i].includes("[[File:") || text[i].includes("[[Файл:")) {
                 matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
-                text[i] = text[i].replace(matches, 'ЗАМІНИТИ');
+                for (let j = 0; j < matches.length; j++) {
+                    for (let match of matches) {
+                        text[i] = text[i].replace(match, 'ЗАМІНИТИ')
+                    }
+                }
             }
             for (let j = 0; j < translations_java.length; j++) {
                 en_uk = translations_java[j].split("=");
@@ -47,14 +51,14 @@ function translateJava(text) {
             }
             if (matches.length > 0) {
                 for (let match of matches) {
-                    text[i] = text[i].replace('ЗАМІНИТИ', match);
+                    text[i] = text[i].replace('ЗАМІНИТИ', match)
                 }
             }
         }
         text = text.join("\n");
         return text;
     } catch (error) {
-        return "Error";
+        return error;
     }
 }
 

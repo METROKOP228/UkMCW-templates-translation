@@ -532,7 +532,7 @@ div.CodeMirror {
     resize: none;
 }
 .cm-custom-link {
-    color: var(--bg-color);
+    color: blue;
     font-weight: bold;
 }
 .cm-custom-heading {
@@ -543,9 +543,6 @@ div.CodeMirror {
 }
 .cm-custom-template {
     color: purple;
-}
-.cm-custom-parameter-name {
-    color: var(--bg-color);
 }
 .cm-custom-template-name {
     color: #e500ff;
