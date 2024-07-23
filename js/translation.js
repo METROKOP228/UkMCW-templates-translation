@@ -20,6 +20,9 @@ function translateNames() {
             case 'legends':
                 translateLegends(text);
                 break;
+            case 'education':
+                translateEducation(text);
+                break;
             default:
                 textarea.value = 'Error';
             }
@@ -124,6 +127,31 @@ function translateLegends(text) {
     }
 }
 
+function translateEducation(text) {
+    text = text.split("\n");
+    let en_uk = [];
+    try {
+        for (let i = 0; i < text.length; i++) {
+            for (let j = 0; j < translations_education.length; j++) {
+                en_uk = translations_education[j].split("=");
+                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
+                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                }
+            } 
+            for (let j = 0; j < translations_bedrock.length; j++) {
+                en_uk = translations_bedrock[j].split("=");
+                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
+                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                }
+            }
+        }
+        text = text.join("\n");
+        textarea.value = text;
+    } catch (error) {
+        textarea.value = "Error";
+    }
+}
+
 var isGlobal;
 var useRegex;
 var caseSensitive;
@@ -134,7 +162,7 @@ function searchMatches() {
     caseSensitive = document.getElementById("cs-search").checked;
     console.log(`Global: ${isGlobal}, regex: ${useRegex}, case sensitive: ${caseSensitive}`);
     if (isGlobal) {
-        searchInArrays(translations_java, translations_bedrock, translations_earth, translations_legends);
+        searchInArrays(translations_java, translations_bedrock, translations_earth, translations_legends, translations_education);
     } else {
         let radioButtonsEd = document.getElementsByName('editions');
         for (let i = 0; i < radioButtonsEd.length; i++) {
@@ -154,6 +182,9 @@ function searchMatches() {
                     case 'legends':
                         searchInArrays(undefined, undefined, undefined, translations_legends);
                         break;
+                    case 'education':
+                        searchInArrays(undefined, undefined, undefined, undefined, translations_education);
+                        break;
                 }
             }
         }
@@ -161,7 +192,7 @@ function searchMatches() {
     return;
 }
 
-function searchInArrays(arrayJ, arrayB, arrayE, arrayL) {
+function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
     const resultsContainer = document.getElementById("results-container");
     resultsContainer.innerHTML = ""; // Clear previous results
     const text = document.getElementById("text-to-search").value;
@@ -169,7 +200,7 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL) {
     let matches2 = [];
     let matches3 = [];
     let matches4 = [];
-    console.log(text);
+    let matches5 = [];
 
     if (text !== "") {
         let regex;
@@ -239,6 +270,15 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL) {
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayL.length; i++) {
                 searchAndHighlight(arrayL[i], matches4);
+            }
+        }
+        if (arrayEdu !== undefined) {
+            let element = '<span style="font-size: 25px;">Minecraft Education:</span>';
+            let resultElement = document.createElement('div');
+            resultElement.innerHTML = element;
+            resultsContainer.appendChild(resultElement);
+            for (let i = 0; i < arrayEdu.length; i++) {
+                searchAndHighlight(arrayEdu[i], matches4);
             }
         }
     }

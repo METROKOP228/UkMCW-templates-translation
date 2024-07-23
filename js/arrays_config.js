@@ -62,7 +62,16 @@ fileFetch(legendsUrl)
         console.error('Error fetching file:', error);
     });
 
+const educationUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/education/1.20.1305.0.txt';
+let translations_education = [];
 
+fileFetch(educationUrl)
+    .then(data => {
+        translations_education = data;
+    })
+    .catch(error => {
+        console.error('Error fetching file:', error);
+    });
 
 function fileFetch(url, array) {
     return new Promise((resolve, reject) => {
