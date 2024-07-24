@@ -237,56 +237,79 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
         };
 
         if (arrayJ !== undefined) {
-            let element = '<span style="font-size: 25px;">Java Edition:</span>';
+            let element = '<span style="font-size: 25px;" id="mcjeText">Java Edition:</span>';
             let resultElement = document.createElement('div');
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayJ.length; i++) {
                 searchAndHighlight(arrayJ[i], matches);
             }
+            if (matches[0] === undefined) {
+                document.getElementById('mcjeText').classList.add('hidden');
+            } else {
+                document.getElementById('mcjeText').classList.remove('hidden');
+            }
         }
         if (arrayB !== undefined) {
-            let element = '<span style="font-size: 25px;">Bedrock Edition:</span>';
+            let element = '<span style="font-size: 25px;" id="mcbeText">Bedrock Edition:</span>';
             let resultElement = document.createElement('div');
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayB.length; i++) {
                 searchAndHighlight(arrayB[i], matches2);
             }
+            if (matches2[0] === undefined) {
+                document.getElementById('mcbeText').classList.add('hidden');
+            } else {
+                document.getElementById('mcbeText').classList.remove('hidden');
+            }
         }
         if (arrayE !== undefined) {
-            let element = '<span style="font-size: 25px;">Minecraft Earth:</span>';
+            let element = '<span style="font-size: 25px;" id="mceText">Minecraft Earth:</span>';
             let resultElement = document.createElement('div');
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayE.length; i++) {
                 searchAndHighlight(arrayE[i], matches3);
             }
+            if (matches3[0] === undefined) {
+                document.getElementById('mceText').classList.add('hidden');
+            } else {
+                document.getElementById('mceText').classList.remove('hidden');
+            }
         }
         if (arrayL !== undefined) {
-            let element = '<span style="font-size: 25px;">Minecraft Legends:</span>';
+            let element = '<span style="font-size: 25px;" id="mclgText">Minecraft Legends:</span>';
             let resultElement = document.createElement('div');
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayL.length; i++) {
                 searchAndHighlight(arrayL[i], matches4);
             }
+            if (matches4[0] === undefined) {
+                document.getElementById('mclgText').classList.add('hidden');
+            } else {
+                document.getElementById('mclgText').classList.remove('hidden');
+            }
         }
         if (arrayEdu !== undefined) {
-            let element = '<span style="font-size: 25px;">Minecraft Education:</span>';
+            let element = '<span style="font-size: 25px;" id="mceeText">Minecraft Education:</span>';
             let resultElement = document.createElement('div');
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayEdu.length; i++) {
-                searchAndHighlight(arrayEdu[i], matches4);
+                searchAndHighlight(arrayEdu[i], matches5);
             }
+            if (matches5[0] === undefined) {
+                document.getElementById('mceeText').classList.add('hidden');
+            } else {
+                document.getElementById('mceeText').classList.remove('hidden');
+            }
+        }
+        if (matches[0] === undefined && matches2[0] === undefined && matches3[0] === undefined && matches4[0] === undefined && matches5[0] === undefined) {
+            let noMatches = document.createElement('div');
+            noMatches.innerHTML = '<i style="font-size: 25px;">Не знайдено жодних збігів</i>';
+            resultsContainer.appendChild(noMatches);
         }
     }
 }
-
-// Додаємо обробник подій для всіх радіокнопок
-document.querySelectorAll('input[name="editions"]').forEach(radio => {
-    radio.addEventListener('change', (event) => {
-        updateOptions(event.target.id);
-    });
-});
