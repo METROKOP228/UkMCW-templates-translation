@@ -62,7 +62,7 @@ fileFetch(legendsUrl)
         console.error('Error fetching file:', error);
     });
 
-const educationUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/education/1.20.1305.0.txt';
+const educationUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/education/1.21.202.0.txt';
 let translations_education = [];
 
 fileFetch(educationUrl)
