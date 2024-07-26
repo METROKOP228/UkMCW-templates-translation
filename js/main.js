@@ -23,7 +23,6 @@ const replacements_id = {
     "spritename": "назваспрайту",
     "nameid": "назваid",
     "aliasid": "псевдонімиid",
-    "form": "форма",
     "fluidtags": "теґирідини",
     "blocktags": "теґиблоку",
     "itemtags": "теґипредмету",
@@ -31,6 +30,7 @@ const replacements_id = {
     "translationkey": "ключперекладу",
     "translationtype": "типперекладу",
     "foot=": "підвал=",
+    "foot =": "підвал =",
     "spritetype=block": "типспрайту=блок",
     "spritetype=item": "типспрайту=предмет",
     "spritetype=entity": "типспрайту=сутність",
@@ -43,7 +43,8 @@ const replacements_id = {
     "form=entity": "форма=сутність",
     "form=biome": "форма=біом",
     "form=environment": "форма=оточення",
-    "form=effect": "форма=ефект"
+    "form=effect": "форма=ефект",
+    "form": "форма"
 };
 const replacements_sound = {
     "Sound table": "Звукова таблиця",
@@ -185,6 +186,24 @@ const replacements_block = {
     "group": "група",
     "caption": "підпис"
 };
+const replacements_drops = {
+    "DropsTableHead": "Голова таблиці дропу",
+    "DropsLine": "Рядок дропу",
+    "DropsTableFoot": "Підвал таблиці дропу",
+    "version": "версія",
+    "image": "зобр",
+    "namelink": "посиланняназви",
+    "namenote": "нотатканазви",
+    "name": "назва",
+    "rollchancenote": "нотаткашансунауспіх",
+    "rollchance": "шанснауспіх",
+    "lootingquantity": "кількістьзграбунком",
+    "quantitylimit": "обмежкількости",
+    "dropchance": "шансдропу",
+    "lootingchance": "шансзграбунком",
+    "playerkill": "вбивствогравця",
+    "quantity": "кількість"
+};
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 let months_uk = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
@@ -261,6 +280,8 @@ function translateuk() {
                     entity(text);
                 } else if (text.includes('{{Infobox block')) {
                     block(text);
+                } else if (text.includes('{{Drops')) {
+                    dropsTable(text);
                 } else if (text === "") {
                     textarea.value = "Введіть справжній текст шаблона, а не пустоту";
                 } else {
@@ -276,6 +297,8 @@ function translateuk() {
                 entity(text);
             } else if (id === 'block') {
                 block(text);
+            } else if (id === 'drops') {
+                dropsTable(text);
             }
             return;
         }
@@ -438,6 +461,18 @@ function block(text) {
         }
     }
     text = text.join("\n");
+    textarea.value = text;
+}
+
+function dropsTable(text) {
+    text = performReplacements(text, replacements_drops);
+    text = text.split("|");
+    for (let i = 0; i < text.length; i++) {
+        if (text[i].includes("назва")) {
+            text[i] = translateJava(text[i]);
+        }
+    }
+    text = text.join("|");
     textarea.value = text;
 }
 
