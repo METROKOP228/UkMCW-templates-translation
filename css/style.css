@@ -177,11 +177,16 @@ input[type="color"] {
 
 .button:hover,
 .button-tr:hover,
+.button-clear:hover,
 .button-tr-names:hover,
-.search-button:hover,
 .settings-button:hover {
     background-color: var(--btn-hover-bg-color);
     color: var(--btn-hover-text-color);
+}
+
+.buttons-tr {
+    display: flex;
+    flex-direction: column;
 }
 
 .button-tr {
@@ -192,6 +197,19 @@ input[type="color"] {
     height: 200px;
     width: 30px;
     cursor: pointer;
+}
+
+.button-clear {
+    background-color: var(--alt-color);
+    color: var(--bg-color);
+    border: 1px solid black;
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button-copy {

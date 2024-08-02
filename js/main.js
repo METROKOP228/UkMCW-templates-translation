@@ -558,12 +558,17 @@ function toggleMenu() {
     const menu = document.getElementById('settingsMenu');
     const overlay = document.getElementById('overlay');
     if (menu.style.display === 'none' || menu.style.display === '') {
-    menu.style.display = 'block';
-    overlay.style.display = 'block';
+        menu.style.display = 'block';
+        overlay.style.display = 'block';
     } else {
-    menu.style.display = 'none';
-    overlay.style.display = 'none';
+        menu.style.display = 'none';
+        overlay.style.display = 'none';
     }
+}
+
+function clearTextareas() {
+    editor.setValue('');
+    textarea.value = '';
 }
 
 function updateSettings() {
