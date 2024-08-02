@@ -517,14 +517,16 @@ function timeTracking() {
 
     intervalId = setInterval(function() {
         if (textarea.value !== previousValue) {
-            previousValue = textarea.value;
             let endTime = performance.now();
+            previousValue = textarea.value;
             let durationInSeconds = (endTime - startTime) / 1000;
             let durationRounded = durationInSeconds.toFixed(3);
 
-            timeTracker.textContent = `Час виконання: ${durationRounded} секунди`;
-
-            startTime = performance.now();
+            if (textarea.value !== '') {
+                timeTracker.textContent = `Час виконання: ${durationRounded} секунди`;
+            } else {
+                timeTracker.textContent = `Час виконання: 0 секунд`;
+            }
         }
     }, 10);
 }
