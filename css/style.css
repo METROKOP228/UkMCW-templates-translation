@@ -201,43 +201,6 @@ input[type="color"] {
     cursor: pointer;
 }
 
-.copy-notification {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: -100%;
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    z-index: 1000;
-}
-
-@keyframes slideInOut {
-    0% {
-        left: -100%;
-        opacity: 0;
-    }
-    10% {
-        left: 10%;
-        opacity: 1;
-    }
-    90% {
-        left: 10%;
-        opacity: 1;
-    }
-    100% {
-        left: 100%;
-        opacity: 0;
-    }
-}
-
-.copy-notification.show {
-    display: block;
-    animation: slideInOut 2s forwards;
-}
 
 
 
@@ -406,77 +369,14 @@ label a:hover {
 	font-size: 20px;
 }
 
-.radio-container {
-    display: inline-block;
-    position: relative;
-    width: 75px;
-    height: 75px;
+.mode-choice-radio {
+    scale: 6.5;
     margin: 0 75px;
-}
-
-.radio-container input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-
-.radio-container .custom-radio {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    border: 5px solid #878787;
-    border-radius: 50%;
-}
-
-.radio-container .custom-radio:hover {
-    border: 5px solid #46dbd6;
-}
-
-.radio-container input[type="radio"]:checked + .custom-radio {
-    background-color: #fff;
-}
-
-.radio-container .custom-radio::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    background-color: #000;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-.radio-container .custom-radio:hover::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    background-color: #46dbd6;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
-
-.radio-container input[type="radio"]:checked + .custom-radio::after {
-    display: block;
 }
 
 .editions-form > label {
     font-size: 15px;
 }
-
-
-
 
 
 

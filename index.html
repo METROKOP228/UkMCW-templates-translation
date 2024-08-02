@@ -49,43 +49,40 @@
 	    <button class="reset-btn" onclick="reset()">Скинути</button>
   	</div>
     <div class="template-selection-container">
-    	<label class="radio-container">
-	    	<input type="radio" class="mode-choice-radio" id="mc-template" name="modes" checked />
-	    	<span class="custom-radio"><span>
-    	</label>
+	    <input type="radio" class="mode-choice-radio" id="mc-template" name="modes" checked />
     	<div class="template-selection">
     		<h2>Переклад шаблонів</h2>
 	        <form>
 	        	<p>Виберіть шаблон:</p>
 	            <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
 	            <label for="auto">Автоматично</label>
-	            
+	            <br>
 	            <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
-	            <label for="id">ID таблиця</label>
-		        
+	            <label for="id">ID таблиця (ID table)</label>
+		        <br>
 	            <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
-	            <label for="sound">Звукова таблиця</label>
-	            <br><br>
+	            <label for="sound">Звукова таблиця (Sound table)</label>
+	            <br>
 	            <input type="radio" class="radio" id="vn" name="templates" value="Версія навігація">
-	            <label for="vn">Версія навігація</label>
-
+	            <label for="vn">Версія навігація (Infobox version)</label>
+	            <br>
 	            <input type="radio" class="radio" id="entity" name="templates" value="Сутність">
-	            <label for="entity">Сутність</label>
-
+	            <label for="entity">Сутність (Infobox entity)</label>
+	            <br>
 	            <input type="radio" class="radio" id="block" name="templates" value="Блок">
-	            <label for="block">Блок</label>
-
+	            <label for="block">Блок (Infobox block)</label>
+	            <br>
 	            <input type="radio" class="radio" id="drops" name="templates" value="Таблиця дропу">
-	            <label for="drops">Таблиця дропу</label>
+	            <label for="drops">Таблиця дропу (DropsTable)</label>
+	            <br>
+	            <input type="radio" class="radio" id="historyTable" name="templates" value="ТаблицяІсторії">
+	            <label for="drops">ТаблицяІсторії (HistoryTable)</label>
 	        </form>
     	</div>
     </div>
     <div class="translate-names">
     	<div class="translate-names-a">
-    		<label class="radio-container">
-	    		<input type="radio" class="mode-choice-radio" id="mc-name" name="modes" />
-		    	<span class="custom-radio"><span>
-	    	</label>
+	    	<input type="radio" class="mode-choice-radio" id="mc-name" name="modes" />
 	    	<div class="template-selection">
 		    	<h2>Переклад внутрішньоігрових назв</h2>
 		        <form class="editions-form">
@@ -179,8 +176,6 @@
             <span class="timeTracker">Час виконання: 0 секунд</span>
         </div>
     </div>
-
-    <div id="copy-notification" class="copy-notification">Текст скопійовано</div>
 
     <footer class="footer">
         <span>Створено користувачем </span><a href="https://uk.minecraft.wiki/w/Користувач:METROKOP228_UA">METROKOP228</a><span>для спільноти Української</span><a href="https://uk.minecraft.wiki">Minecraft Wiki</a><span>, 2024</span>

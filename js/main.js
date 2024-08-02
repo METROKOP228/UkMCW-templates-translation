@@ -9,9 +9,9 @@ const replacements_id = {
     "shownumericids": "показатичисловийid",
     "showaliasids": "показатипсевдонімиid",
     "showfluidtags": "показатитеґирідини",
-    "showblocktags": "показатитеґиблоку",
+    "showblocktags": "показатитеґиблока",
     "edition": "видання",
-    "showitemtags": "показатитеґипредмету",
+    "showitemtags": "показатитеґипредмета",
     "showentitytags": "показатитеґисутности",
     "showforms": "показатиформи",
     "notshowbeitemforms": "непоказуватиформипредмету",
@@ -24,8 +24,8 @@ const replacements_id = {
     "nameid": "назваid",
     "aliasid": "псевдонімиid",
     "fluidtags": "теґирідини",
-    "blocktags": "теґиблоку",
-    "itemtags": "теґипредмету",
+    "blocktags": "теґиблока",
+    "itemtags": "теґипредмета",
     "entitytags": "теґисутности",
     "translationkey": "ключперекладу",
     "translationtype": "типперекладу",
@@ -47,6 +47,8 @@ const replacements_id = {
     "form": "форма"
 };
 const replacements_sound = {
+    "SoundLine": "ЗвуковийРядок",
+    "SoundTable": "ЗвуковаТаблиця",
     "Sound table": "Звукова таблиця",
     "sound": "звук",
     "sound1": "звук1",
@@ -202,7 +204,19 @@ const replacements_drops = {
     "dropchance": "шансдропу",
     "lootingchance": "шансзграбунком",
     "playerkill": "вбивствогравця",
+    "=yes": "=так",
+    "=no": "=ні",
     "quantity": "кількість"
+};
+const replacements_history = {
+    "HistoryTable": "ТаблицяІсторії",
+    "HistoryLine": "РядокІсторії",
+    "|dev": "|збірка",
+    "|slink": "|поперпосилання",
+    "|link": "|посилання",
+    "|experiment": "|експеримент",
+    "|exp": "|експ",
+    "[[File:": "[[Файл:"
 };
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -282,6 +296,8 @@ function translateuk() {
                     block(text);
                 } else if (text.includes('{{Drops')) {
                     dropsTable(text);
+                } else if (text.includes('{{History')) {
+                    historyTable(text);
                 } else if (text === "") {
                     textarea.value = "Введіть справжній текст шаблона, а не пустоту";
                 } else {
@@ -476,16 +492,16 @@ function dropsTable(text) {
     textarea.value = text;
 }
 
+function historyTable(text) {
+    textarea.value = performReplacements(text, replacements_history);
+}
+
 function copy() {
     const textToCopy = document.getElementById("textareaOutput");
     textToCopy.select();
     document.execCommand("copy");
 
-    const notification = document.getElementById("copy-notification");
-    notification.classList.add("show");
-    setTimeout(() => {
-        notification.classList.remove("show");
-    }, 2000);
+    alert("Текст скопійовано!");
 }
 
 const timeTracker = document.querySelector('.timeTracker');
@@ -510,7 +526,7 @@ function timeTracking() {
 
             startTime = performance.now();
         }
-    }, 100);
+    }, 10);
 }
 
 document.getElementById('regex-search').addEventListener('change', function() {
