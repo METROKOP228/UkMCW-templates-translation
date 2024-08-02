@@ -315,6 +315,8 @@ function translateuk() {
                 block(text);
             } else if (id === 'drops') {
                 dropsTable(text);
+            } else if (id === 'historyTable') {
+                historyTable(text);
             }
             return;
         }
@@ -525,7 +527,7 @@ function timeTracking() {
             if (textarea.value !== '') {
                 timeTracker.textContent = `Час виконання: ${durationRounded} секунди`;
             } else {
-                timeTracker.textContent = `Час виконання: 0 секунд`;
+                timeTracker.textContent = 'Час виконання: 0 секунд';
             }
         }
     }, 10);
