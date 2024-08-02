@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Перекладач Minecraft Wiki</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="img/logo.png">
@@ -89,20 +89,6 @@
 		            <p>Виберіть видання/гру:</p>
 		            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
 		            <label for="java">Java Edition</label>
-
-		            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
-		            <label for="bedrock">Bedrock Edition</label>
-
-		            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
-		            <label for="earth">Minecraft Earth</label>
-
-		            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
-		            <label for="legends">Minecraft Legends</label>
-
-		            <input type="radio" class="radio" id="education" name="editions" value="Minecraft Education">
-		            <label for="education">Minecraft Education</label>
-		        </form>
-		        <div class="vc-container">
 			    	<select name="version-choice-je" id="version-choice-je">
 			    		<option value="1.21">1.21</option>
 			    		<option value="1.20.6">1.20.6</option>
@@ -121,19 +107,31 @@
 			    		<option value="1.14">1.14</option>
 			    		<option value="1.13">1.13</option>
 			    	</select>
+			    	<br>
+		            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
+		            <label for="bedrock">Bedrock Edition</label>
 			    	<select name="version-choice-be" id="version-choice-be">
 			    		<option value="1.21.0?">1.21.0?</option>
 			    	</select>
+			    	<br>
+		            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
+		            <label for="earth">Minecraft Earth</label>
 			    	<select name="version-choice-earth" id="version-choice-earth">
 			    		<option value="0.33.0">0.33.0</option>
 			    	</select>
+			    	<br>
+		            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
+		            <label for="legends">Minecraft Legends</label>
 			    	<select name="version-choice-legends" id="version-choice-legends">
 			    		<option value="1.18.19068">1.18.19068</option>
 			    	</select>
+			    	<br>
+		            <input type="radio" class="radio" id="education" name="editions" value="Minecraft Education">
+		            <label for="education">Minecraft Education</label>
 			    	<select name="version-choice-education" id="version-choice-education">
 			    		<option value="1.21.202.0">1.21.202.0</option>
 			    	</select>
-		    	</div>
+		        </form>
 	    	</div>
     	</div>
     	
@@ -181,7 +179,7 @@
     </div>
 
     <footer class="footer">
-        <span>Створено користувачем </span><a href="https://uk.minecraft.wiki/w/Користувач:METROKOP228_UA">METROKOP228</a><span>для спільноти Української</span><a href="https://uk.minecraft.wiki">Minecraft Wiki</a><span>, 2024</span>
+        <div>Створено користувачем <a href="https://uk.minecraft.wiki/w/Користувач:METROKOP228_UA">METROKOP228</a> для спільноти Української <a href="https://uk.minecraft.wiki">Minecraft Wiki</a>, 2024</div>
     </footer>
 
     <script src="js/main.js"></script>

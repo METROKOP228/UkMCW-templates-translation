@@ -9,11 +9,9 @@
 
 @font-face {
     font-family: "Minecraft";
-    src: url('../fonts/Minecraft.woff') format('woff');
+    src: url('../fonts/Minecraft.woff') format('woff'),
     font-weight: normal;
     font-style: normal;
-    margin: 0 auto;
-    padding: 0;
 }
 
 * {
@@ -22,32 +20,30 @@
 }
 
 body {
-    background-color: var(--bg-color);
-    margin: 0;
-    padding: 0;
-}
-
-.header, .container, .translate-names, .template-selection-container, .footer {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    padding: 10px;
-    box-sizing: border-box;
+	background-color: var(--bg-color);
 }
 
 .header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    height: 50px;
-    border: 2px var(--alt-color) dashed;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	width: 1200px;
+	height: 50px;
+	border: 2px var(--alt-color) dashed;
 }
 
 .header-img {
     width: 20px;
     margin-right: 5px;
 }
+
+
+
+
+
+
+
 
 .settings-menu {
     position: fixed;
@@ -108,20 +104,25 @@ input[type="color"] {
     color: white;
 }
 
+
+
+
+
 .container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    border: 2px var(--alt-color) dashed;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 1200px;
+	height: 600px;
+	border: 2px var(--alt-color) dashed;
+	position: relative;
 }
 
 .taContainer {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
+    width: 500px;
+    height: 420px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -132,25 +133,25 @@ input[type="color"] {
 }
 
 .input {
-    width: 100%;
-    max-width: 500px;
+    width: 500px;
     height: 400px;
     padding-top: 5px;
     resize: none;
     color: black;
     border: none;
     outline: none;
+    resize: none;
     font-size: 14px;
 }
 
 #textareaOutput {
-    background-color: #EEEEEE;
+	background-color: #EEEEEE;
 }
 
 .button {
-    display: flex;
-    align-items: center;
-    margin: 10px;
+	display: flex;
+	align-items: center;
+	margin: 10px;
     padding: 10px 20px;
     background-color: var(--alt-color);
     color: var(--bg-color);
@@ -218,43 +219,54 @@ input[type="color"] {
     cursor: pointer;
 }
 
+
+
+
+
+
+
+
+
+
 .translate-names {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    border: 2px var(--alt-color) dashed;
-    width: 100%;
-    margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: center;
+	border: 2px var(--alt-color) dashed;
+	width: 1200px;
+	margin-bottom: 10px;
     padding: 10px;
 }
 
 .translate-names label,
 .translate-names p,
 .translate-names h2 {
-    color: var(--alt-color);
+	color: var(--alt-color);
 }
 
 .translate-names-a {
     position: relative;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: left;
     align-items: center;
     margin-bottom: 10px;
-    width: 100%;
+    width: 1200px;
+    margin-bottom: 10px;
     padding: 10px;
 }
 
 details.search-text-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: left;
     align-items: center;
-    width: 100%;
+    margin-left: 200px;
+    width: 1000px;
 }
 
 summary {
@@ -279,21 +291,20 @@ details summary {
 
 .for-regex-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: rows;
 }
 
 .hidden {
     display: none;
 }
 .search-text {
-    width: 100%;
-    max-width: 300px;
+    width: 300px;
 }
 
 .global-search-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     margin-top: 10px;
 }
@@ -349,24 +360,31 @@ label a:hover {
     color: red;
 }
 
+
+
+
+
+
+
+
 .template-selection-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    border: 2px var(--alt-color) dashed;
-    width: 100%;
-    margin: 10px 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: left;
+	align-items: center;
+	border: 2px var(--alt-color) dashed;
+	width: 1200px;
+	margin: 10px 0;
     padding: 10px;
 }
 
 .template-selection-container > * {
-    color: var(--alt-color);
+	color: var(--alt-color);
 }
 
 .template-selection-container > p {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 .mode-choice-radio {
@@ -378,32 +396,53 @@ label a:hover {
     font-size: 15px;
 }
 
+
+
+
+
+
+
+
+
+
 .footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    border: 2px var(--alt-color) dashed;
-    margin-top: 10px;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 1200px;
+	height: 50px;
+	border: 2px var(--alt-color) dashed;
+	margin-top: 10px;
 }
 
-.footer > span {
-    color: var(--alt-color);
-    margin: 3px;
+.footer > div {
+	color: var(--alt-color);
+	margin: 3px;
 }
 
-.footer > a {
-    color: var(--link-color);
+.footer a {
+	color: var(--link-color);
 }
 
-.footer > a:hover {
-    color: var(--link-hover-color);
+.footer a:hover {
+	color: var(--link-hover-color);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 div.CodeMirror {
-    width: 100%;
-    max-width: 500px;
+    width: 500px;
     height: 420px;
     padding-top: 5px;
     font-size: 14px;
@@ -411,6 +450,7 @@ div.CodeMirror {
     color: black;
     border: none;
     outline: none;
+    resize: none;
 }
 .cm-custom-link {
     color: blue;
@@ -436,32 +476,4 @@ div.CodeMirror {
 }
 .cm-custom-comment {
     color: gray;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 800px) {
-    .header, .container, .translate-names, .template-selection-container, .footer {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .input, .search-text, .search-button {
-        width: 90%;
-    }
-
-    .translate-names-a, .settings-menu, .global-search-container {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .taContainer, .translate-names, .template-selection-container {
-        padding: 5px;
-    }
-
-    .button, .settings-button, .reset-btn {
-        width: 100%;
-        text-align: center;
-        margin: 5px 0;
-    }
 }
