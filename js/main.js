@@ -543,7 +543,6 @@ function translateBanners(text) {
     const bannerPatterns = {
         "Pale Dexter": { n: "Вертикальна смуга зліва", r: "вертикальною смугою зліва", vid: "f" },
         "Pase Sinister": { n: "Вертикальна смуга справа", r: "вертикальною смугою справа", vid: "f" },
-        "Pale": { n: "Стовп", r: "стовпом", vid: "m" },
         "Fess": { n: "Пояс", r: "поясом", vid: "m" },
         "Paly": { n: "Вертикальні смуги", r: "вертикальними смугами", vid: "pl" },
         "Saltire": { n: "Косий хрест", r: "косим хрестом", vid: "m" },
@@ -560,16 +559,17 @@ function translateBanners(text) {
         "Base Dexter Canton": { n: "Криж зліва знизу", r: "крижем зліва знизу", vid: "m" },
         "Base Sinister Canton": { n: "Криж справа знизу", r: "крижем справа знизу", vid: "m" },
         "Chief Dexter Canton": { n: "Криж зліва згори", r: "крижем зліва згори", vid: "m" },
+        "Chief Sinister Canton": { n: "Криж справа згори", r: "крижем зліва згори", vid: "m" },
         "Inverted Chevron": { n: "Шеврон згори", r: "шевроном згори", vid: "m" },
         "Chevron": { n: "Шеврон", r: "шевроном", vid: "m" },
-        "Base Intended": { n: "Зубці знизу", r: "зубцями знизу", vid: "pl" },
-        "Chief Intended": { n: "Зубці згори", r: "зубцями згори", vid: "pl" },
+        "Base Indented": { n: "Зубці знизу", r: "зубцями знизу", vid: "pl" },
+        "Chief Indented": { n: "Зубці згори", r: "зубцями згори", vid: "pl" },
         "Roundel": { n: "Круг", r: "кругом", vid: "m" },
         "Lozenge": { n: "Ромб", r: "ромбом", vid: "m" },
         "Bordure": { n: "Рамка", r: "рамкою", vid: "f" },
         "Field Masoned": { n: "Цегляний фон", r: "цегляним фоном", vid: "m" },
         "Base Gradient": { n: "Градієнт знизу", r: "градієнтом знизу", vid: "m" },
-        "Gradint": { n: "Градієнт згори", r: "градієнтом згори", vid: "m" },
+        "Gradient": { n: "Градієнт згори", r: "градієнтом згори", vid: "m" },
         "Creeper Charge": { n: "Емблема кріпера", r: "емблемою кріпера", vid: "f" },
         "Skull Charge": { n: "Емблема черепа", r: "емблемою черепа", vid: "f" },
         "Flower Charge": { n: "Емблема квітки", r: "емблемою квітки", vid: "f" },
@@ -580,6 +580,7 @@ function translateBanners(text) {
         "Guster": { n: "Порив", r: "поривом", vid: "m" },
         "Base": { n: "Основа", r: "основою", vid: "f" },
         "Bend": { n: "Діагональ зліва направо", r: "діагоналлю зліва направо", vid: "f" },
+        "Pale": { n: "Стовп", r: "стовпом", vid: "m" },
         "Chief": { n: "Верх", r: "верхом", vid: "m" }
     };
 
