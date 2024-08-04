@@ -218,6 +218,19 @@ const replacements_history = {
     "|exp": "|експ",
     "[[File:": "[[Файл:"
 };
+const replacements_looming = {
+    "{{Looming": "{{Ткацтво",
+    "{{looming": "{{ткацтво",
+    "|head": "|голова",
+    "| head": "| голова",
+    "|foot": "|підвал",
+    "| foot": "| підвал",
+    "name": "ім'я",
+    "Blink": "СтягПосилання",
+    "Olink": "ВихідПосилання",
+    "showdescription": "показатиопис",
+    "description": "опис"
+};
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 let months_uk = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
@@ -298,6 +311,8 @@ function translateuk() {
                     dropsTable(text);
                 } else if (text.includes('{{History')) {
                     historyTable(text);
+                } else if (text.includes('{{Looming')) {
+                    looming(text);
                 } else if (text === "") {
                     textarea.value = "Введіть справжній текст шаблона, а не пустоту";
                 } else {
@@ -317,6 +332,8 @@ function translateuk() {
                 dropsTable(text);
             } else if (id === 'historyTable') {
                 historyTable(text);
+            } else if (id === 'looming') {
+                looming(text);
             }
             return;
         }
@@ -496,6 +513,140 @@ function dropsTable(text) {
 
 function historyTable(text) {
     textarea.value = performReplacements(text, replacements_history);
+}
+
+function looming(text) {
+    textarea.value = translateJava(performReplacements(translateBanners(text), replacements_looming));
+}
+
+function translateBanners(text) {
+
+    const colors = {
+        "White": { n: "Білий", f: "білою", m: "білим", pl: "білими" },
+        "Light Gray": { n: "Світло-сірий", f: "світло-сірою", m: "світло-сірим", pl: "світло-сірими" },
+        "Gray": { n: "Сірий", f: "сірою", m: "сірим", pl: "сірими" },
+        "Black": { n: "Чорний", f: "чорною", m: "чорним", pl: "чорними" },
+        "Brown": { n: "Коричневий", f: "коричневою", m: "коричневим", pl: "коричневими" },
+        "Red": { n: "Червоний", f: "червоною", m: "червоним", pl: "червоними" },
+        "Orange": { n: "Помаранчевий", f: "помаранчевою", m: "помаранчевим", pl: "помаранчевими" },
+        "Yellow": { n: "Жовтий", f: "жовтою", m: "жовтим", pl: "жовтими" },
+        "Lime": { n: "Лаймовий", f: "лаймовою", m: "лаймовим", pl: "лаймовими" },
+        "Green": { n: "Зелений", f: "зеленою", m: "зеленим", pl: "зеленими" },
+        "Cyan": { n: "Бірюзовий", f: "бірюзовою", m: "бірюзовим", pl: "бірюзовими" },
+        "Light Blue": { n: "Блакитний", f: "блакитною", m: "блакитним", pl: "блакитними" },
+        "Blue": { n: "Синій", f: "синьою", m: "синім", pl: "синіми" },
+        "Purple": { n: "Фіолетовий", f: "фіолетовою", m: "фіолетовим", pl: "фіолетовими" },
+        "Magenta": { n: "Пурпуровий", f: "пурпуровою", m: "пурпуровим", pl: "пурпуровими" },
+        "Pink": { n: "Рожевий", f: "рожевою", m: "рожевим", pl: "рожевими" }
+    };
+
+    const bannerPatterns = {
+        "Pale Dexter": { n: "Вертикальна смуга зліва", r: "вертикальною смугою зліва", vid: "f" },
+        "Pase Sinister": { n: "Вертикальна смуга справа", r: "вертикальною смугою справа", vid: "f" },
+        "Pale": { n: "Стовп", r: "стовпом", vid: "m" },
+        "Fess": { n: "Пояс", r: "поясом", vid: "m" },
+        "Paly": { n: "Вертикальні смуги", r: "вертикальними смугами", vid: "pl" },
+        "Saltire": { n: "Косий хрест", r: "косим хрестом", vid: "m" },
+        "Cross": { n: "Хрест", r: "хрестом", vid: "m" },
+        "Per Bend Sinister": { n: "Верхня ліва половина", r: "верхньою лівою половиною", vid: "f" },
+        "Per Bend Inverted": { n: "Нижня ліва половина", r: "нижньою лівою половиною", vid: "f" },
+        "Per Bend Sinister Inverted": { n: "Нижня права половина", r: "нижньою правою половиною", vid: "f" },
+        "Bend Sinister": { n: "Діагональ справа наліво", r: "діагоналлю справа наліво", vid: "f" },
+        "Per Bend": { n: "Верхня права половина", r: "верхньою правою половиною", vid: "f" },
+        "Per Pale Inverted": { n: "Права половина", r: "правою половиною", vid: "f" },
+        "Per Pale": { n: "Ліва половина", r: "лівою половиною", vid: "f" },
+        "Per Fess Inverted": { n: "Нижня половина", r: "нижньою половиною", vid: "f" },
+        "Per Fess": { n: "Верхня половина", r: "верхньою половиною", vid: "f" },
+        "Base Dexter Canton": { n: "Криж зліва знизу", r: "крижем зліва знизу", vid: "m" },
+        "Base Sinister Canton": { n: "Криж справа знизу", r: "крижем справа знизу", vid: "m" },
+        "Chief Dexter Canton": { n: "Криж зліва згори", r: "крижем зліва згори", vid: "m" },
+        "Inverted Chevron": { n: "Шеврон згори", r: "шевроном згори", vid: "m" },
+        "Chevron": { n: "Шеврон", r: "шевроном", vid: "m" },
+        "Base Intended": { n: "Зубці знизу", r: "зубцями знизу", vid: "pl" },
+        "Chief Intended": { n: "Зубці згори", r: "зубцями згори", vid: "pl" },
+        "Roundel": { n: "Круг", r: "кругом", vid: "m" },
+        "Lozenge": { n: "Ромб", r: "ромбом", vid: "m" },
+        "Bordure": { n: "Рамка", r: "рамкою", vid: "f" },
+        "Field Masoned": { n: "Цегляний фон", r: "цегляним фоном", vid: "m" },
+        "Base Gradient": { n: "Градієнт знизу", r: "градієнтом знизу", vid: "m" },
+        "Gradint": { n: "Градієнт згори", r: "градієнтом згори", vid: "m" },
+        "Creeper Charge": { n: "Емблема кріпера", r: "емблемою кріпера", vid: "f" },
+        "Skull Charge": { n: "Емблема черепа", r: "емблемою черепа", vid: "f" },
+        "Flower Charge": { n: "Емблема квітки", r: "емблемою квітки", vid: "f" },
+        "Thing": { n: "Річ", r: "річчю", vid: "f" },
+        "Globe": { n: "Глобус", r: "глобусом", vid: "m" },
+        "Snout": { n: "Рило", r: "рилом", vid: "m" },
+        "Flow": { n: "Плин", r: "плином", vid: "m" },
+        "Guster": { n: "Порив", r: "поривом", vid: "m" },
+        "Base": { n: "Основа", r: "основою", vid: "f" },
+        "Bend": { n: "Діагональ зліва направо", r: "діагоналлю зліва направо", vid: "f" },
+        "Chief": { n: "Верх", r: "верхом", vid: "m" }
+    };
+
+    const regex = /(?:^|\[|=|\|)([^\|\]\[=\n]*?Banner[^\|\]\[=\n]*?)(?=\||\]|\n|$)/g;
+
+    const matches = [];
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+        matches.push(match[1]);
+    }
+
+    for (let match of matches) {
+        let usedColor;
+        let usedPattern;
+        let vidm;
+
+        for (let color in colors) {
+            if (match.includes(color)) {
+                usedColor = color;
+                break;
+            }
+        }
+
+        for (let pattern in bannerPatterns) {
+            if (match.includes(pattern)) {
+                usedPattern = pattern;
+                vidm = bannerPatterns[pattern].vid;
+                break;
+            }
+        }
+
+        if (usedPattern !== undefined)  {
+            if (usedColor !== undefined) {
+                if (match.includes("Dyed")) {
+                    text = text.replace(match, `Пофарбований стяг з ${colors[usedColor][vidm]} ${bannerPatterns[usedPattern].r}`);
+                } else {
+                    text = text.replace(match, `Стяг з ${colors[usedColor][vidm]} ${bannerPatterns[usedPattern].r}`);
+                }
+            } else if (match.includes("Dyed")) {
+                text = text.replace(match, `Пофарбований стяг з ${bannerPatterns[usedPattern].r}`);
+            } else if (match.includes("Banner Pattern")) {
+                text = text.replace(match, `Шаблон стяга з ${bannerPatterns[usedPattern].r}`);
+            } else {
+                text = text.replace(match, `Стяг з ${bannerPatterns[usedPattern].r}`);
+            }
+        } else if (usedColor !== undefined) {
+            text = text.replace(match, `${colors[usedColor].n} стяг`);
+        }
+    }
+
+    for (let pattern in bannerPatterns) {
+        if (text.includes(pattern)) {
+            text = text.replace(pattern, bannerPatterns[pattern].n);
+        }
+    }
+
+    text = text.split("\n");
+
+    for (let i = 0; i < text.length; i++) {
+        if (text[i].includes("Banner")) {
+            text[i] = text[i].replace("Banner", "Стяг");
+        }
+    }
+
+    text = text.join("\n");
+
+    return text;
 }
 
 function copy() {
