@@ -44,7 +44,8 @@ const replacements_id = {
     "form=biome": "форма=біом",
     "form=environment": "форма=оточення",
     "form=effect": "форма=ефект",
-    "form": "форма"
+    "form": "форма",
+    "Block entity": "Блок-сутність"
 };
 const replacements_sound = {
     "SoundLine": "ЗвуковийРядок",
@@ -71,16 +72,16 @@ const replacements_sound = {
     "nocat": "некат",
     "type": "тип",
     "Baby:": "Дитинча:",
-    "''varies''": "''варіюється''",
-    "master": "загальне",
-    "music": "музика",
-    "record": "платівка",
-    "weather": "погода",
-    "hostile": "ворожі",
-    "neutral": "нейтральні",
-    "player": "гравець",
+    "=''varies''": "=''варіюється''",
+    "=master": "=загальне",
+    "=music": "=музика",
+    "=record": "=платівка",
+    "=weather": "=погода",
+    "=hostile": "=ворожі",
+    "=neutral": "=нейтральні",
+    "=player": "=гравець",
     "source": "джерело",
-    "ambient": "середовище",
+    "=ambient": "=середовище",
     "voice": "голос",
     "dependent": "залежний",
     "''None''": "''Немає''",
@@ -108,14 +109,14 @@ const replacements_vn = {
     "internal": "внутрішній",
     "versioncode": "кодверсії",
     "prevparent": "поперверсія",
-    "|prev": "| попер",
+    "|prev": "|попер",
     "| prev": "| попер",
     "nextparent": "настверсія",
     "next": "наст",
     "type": "тип",
     "unreleased": "невипущено",
     "planned": "заплановано",
-    "|date": "| дата",
+    "|date": "|дата",
     "| date": "| дата",
     "compiled": "скомпільований",
     "devversions": "поперзбірки",
@@ -138,7 +139,8 @@ const replacements_vn = {
     "dl =": "зп =",
     "Client": "Клієнт",
     "Server": "Сервер",
-    "editorver": "editorвер"
+    "editorver": "editorвер",
+    "No corresponding server": "Немає відповідного сервера"
 };
 const replacements_entity = {
     "health": "здоров'я",
@@ -186,7 +188,8 @@ const replacements_block = {
     "invimage": "інвзображення",
     "image": "зобр",
     "group": "група",
-    "caption": "підпис"
+    "caption": "підпис",
+    "extratext": "додатковийтекст"
 };
 const replacements_drops = {
     "DropsTableHead": "Голова таблиці дропу",
@@ -225,15 +228,28 @@ const replacements_looming = {
     "| head": "| голова",
     "|foot": "|підвал",
     "| foot": "| підвал",
-    "name": "ім'я",
+    "name": "назва",
     "Blink": "СтягПосилання",
     "Olink": "ВихідПосилання",
     "showdescription": "показатиопис",
-    "description": "опис"
+    "description": "опис",
+    "ingredients": "інгредієнти"
 };
 
-let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-let months_uk = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
+const monthes = {
+    "January": "січня",
+    "February": "лютого",
+    "March": "березня",
+    "April": "квітня",
+    "May": "травня",
+    "June": "червня",
+    "July": "липня",
+    "August": "серпня",
+    "September": "вересня",
+    "October": "жовтня",
+    "November": "листопада",
+    "December": "грудня"
+};
 
 var textarea = document.getElementById('textareaOutput');
 
@@ -391,85 +407,37 @@ function sound_table(text) {
 
 function version_nav(text) {
     text = performReplacements(text, replacements_vn);
-    text = text.split("\n");
-    for (let i = 1; i < text.length; i++) {
-        if (text[i].includes("субтитри")) {
-            text[i] = translateJava(text[i]);
-        }
-    }
-    text = text.join("\n");
     let lines = text.split("\n");
 
-    if (text.includes('зобр2')) {;
-        for (let i = 0; i < lines.length; i++) {
-            let line = lines[i];
-            if (line.includes('зобр2')) {
-                image2_line = line;
-                break;
-            }
-        }
-        let edition = null;
-        m = image2_line.replace('.png', 'Тут потрібно розрізати');
-        if (m.includes('Bedrock')) {
-            if (m.includes('Edition')) {
-                m = m.replace("Bedrock Edition ", "Тут потрібно розрізати");
-            } else {
-                m = m.replace("Bedrock ", "Тут потрібно розрізати");
-            }
-            edition = "Bedrock";
-        } else if (m.includes('Pocket')) {
-            m = m.replace("Pocket Edition ", "Тут потрібно розрізати");
-            edition = "Pocket";
-        } else if (m.includes('Windows 10')) {
-            m = m.replace("Windows 10 Edition ", "Тут потрібно розрізати");
-            edition = "Windows 10";
-        } else if (m.includes('Java')) {
-            m = m.replace("Java Edition ", "Тут потрібно розрізати");
-            edition = "Java";
-        }
-        m = m.split("Тут потрібно розрізати");
-        if (edition !== null) {
-            let changed_image_line = m[0] + m[1] + " (" + edition + " Edition) меню.png" + m[2];
-            text = text.replace(image2_line, changed_image_line)
-        }
-    }
-    if (text.includes('дата')) {
-        for (let i = 0; i < lines.length; i++) {
-            let d_line = lines[i];
-            if (d_line.includes('дата')) {
-                date_line = d_line;
-                break;
-            }
-        }
-
-        let lines1 = null;
-        let date_line_new = null;
-        let date_line_after = null;
-        if (date_line.includes("<")) {
-            lines1 = date_line.split("<");
-            date_line_new = lines1[0];
-            date_line_after = '<' + lines1.slice(1).join('<');
-        } else if (date_line.includes("{{")) {
-            lines1 = date_line.split("{{");
-            date_line_new = lines1[0];
-            date_line_after = '{{' + lines1.slice(1).join('{{');
-        } else {
-            date_line_after = '';
-            date_line_new = date_line;
-        }
-        try {
-            for (let month = 0; month < months.length; month++) {
-                if (date_line_new.includes(months[month])) {
-                    let d = date_line_new.replace(',', 'Розрізати'); 
-                    d = d.replace(months[month] + " ", 'Розрізати');
-                    d = d.split('Розрізати');
-                    let changed_date_line = d[0] + d[1] + ' ' + months_uk[month] + d[2] + ' року' + date_line_after;
-
-                    text = text.replace(date_line, changed_date_line);
+    for (let line of lines) {
+        if (line.includes('зобр2')) {
+            image2_line = line;
+            let edition = null;
+            m = image2_line.replace('.png', 'Тут потрібно розрізати');
+            if (m.includes('Bedrock')) {
+                if (m.includes('Edition')) {
+                    m = m.replace("Bedrock Edition ", "Тут потрібно розрізати");
+                } else {
+                    m = m.replace("Bedrock ", "Тут потрібно розрізати");
                 }
+                edition = "Bedrock";
+            } else if (m.includes('Pocket')) {
+                m = m.replace("Pocket Edition ", "Тут потрібно розрізати");
+                edition = "Pocket";
+            } else if (m.includes('Windows 10')) {
+                m = m.replace("Windows 10 Edition ", "Тут потрібно розрізати");
+                edition = "Windows 10";
+            } else if (m.includes('Java')) {
+                m = m.replace("Java Edition ", "Тут потрібно розрізати");
+                edition = "Java";
             }
-        } catch (error) {
-            console.log("Error in date translation");
+            m = m.split("Тут потрібно розрізати");
+            if (edition !== null) {
+                let changed_image_line = m[0] + m[1] + " (" + edition + " Edition) меню.png" + m[2];
+                text = text.replace(image2_line, changed_image_line)
+            }
+        } else if (line.includes('дата')) {
+            text = text.replace(line, dateTranslation(line));
         }
     }
     textarea.value = text;
@@ -478,9 +446,9 @@ function version_nav(text) {
 function entity(text) {
     text = performReplacements(text, replacements_entity);
     text = text.split("\n");
-    for (let i = 1; i < text.length; i++) {
-        if (text[i].includes("інвзображення") || text[i].includes("корисніпредмети") || text[i].includes("{{дроп")) {
-            text[i] = translateJava(text[i]);
+    for (let line of text) {
+        if (line.includes("інвзображення") || line.includes("корисніпредмети") || line.includes("{{дроп")) {
+            line = translateJava(line);
         }
     }
     text = text.join("\n");
@@ -490,9 +458,9 @@ function entity(text) {
 function block(text) {
     text = performReplacements(text, replacements_block);
     text = text.split("\n");
-    for (let i = 1; i < text.length; i++) {
-        if (text[i].includes("інвзображення")) {
-            text[i] = translateJava(text[i]);
+    for (let line of text) {
+        if (line.includes("інвзображення")) {
+            line = translateJava(line);
         }
     }
     text = text.join("\n");
@@ -502,9 +470,9 @@ function block(text) {
 function dropsTable(text) {
     text = performReplacements(text, replacements_drops);
     text = text.split("|");
-    for (let i = 0; i < text.length; i++) {
-        if (text[i].includes("назва")) {
-            text[i] = translateJava(text[i]);
+    for (let line of text) {
+        if (line.includes("назва")) {
+            line = translateJava(line);
         }
     }
     text = text.join("|");
@@ -512,15 +480,20 @@ function dropsTable(text) {
 }
 
 function historyTable(text) {
-    textarea.value = performReplacements(text, replacements_history);
+    text = performReplacements(text, replacements_history);
+    text = text.split("|");
+    for (let i = 0; i < text.length; i++) {
+        for (let month in monthes) {
+            if (text[i].includes(month)) {
+                text[i] = dateTranslation(text[i]);
+            }
+        }
+    }
+    text = text.join("|");
+    textarea.value = text;
 }
 
 function looming(text) {
-    textarea.value = translateJava(performReplacements(translateBanners(text), replacements_looming));
-}
-
-function translateBanners(text) {
-
     const colors = {
         "White": { n: "Білий", f: "білою", m: "білим", pl: "білими" },
         "Light Gray": { n: "Світло-сірий", f: "світло-сірою", m: "світло-сірим", pl: "світло-сірими" },
@@ -539,10 +512,9 @@ function translateBanners(text) {
         "Magenta": { n: "Пурпуровий", f: "пурпуровою", m: "пурпуровим", pl: "пурпуровими" },
         "Pink": { n: "Рожевий", f: "рожевою", m: "рожевим", pl: "рожевими" }
     };
-
     const bannerPatterns = {
         "Pale Dexter": { n: "Вертикальна смуга зліва", r: "вертикальною смугою зліва", vid: "f" },
-        "Pase Sinister": { n: "Вертикальна смуга справа", r: "вертикальною смугою справа", vid: "f" },
+        "Pale Sinister": { n: "Вертикальна смуга справа", r: "вертикальною смугою справа", vid: "f" },
         "Fess": { n: "Пояс", r: "поясом", vid: "m" },
         "Paly": { n: "Вертикальні смуги", r: "вертикальними смугами", vid: "pl" },
         "Saltire": { n: "Косий хрест", r: "косим хрестом", vid: "m" },
@@ -566,6 +538,7 @@ function translateBanners(text) {
         "Chief Indented": { n: "Зубці згори", r: "зубцями згори", vid: "pl" },
         "Roundel": { n: "Круг", r: "кругом", vid: "m" },
         "Lozenge": { n: "Ромб", r: "ромбом", vid: "m" },
+        "Bordure Indented": { n: "Зубчата рамка", r: "зубчатою рамкою", vid: "f" },
         "Bordure": { n: "Рамка", r: "рамкою", vid: "f" },
         "Field Masoned": { n: "Цегляний фон", r: "цегляним фоном", vid: "m" },
         "Base Gradient": { n: "Градієнт знизу", r: "градієнтом знизу", vid: "m" },
@@ -639,15 +612,43 @@ function translateBanners(text) {
 
     text = text.split("\n");
 
-    for (let i = 0; i < text.length; i++) {
-        if (text[i].includes("Banner")) {
-            text[i] = text[i].replace("Banner", "Стяг");
+    for (let line of text) {
+        if (line.includes("Banner")) {
+            line = line.replace("Banner", "Стяг");
         }
     }
 
     text = text.join("\n");
 
-    return text;
+    textarea.value = translateJava(performReplacements(text, replacements_looming));
+}
+
+function dateTranslation(date) {
+    let lines1;
+    let date_line_new;
+    let date_line_after;
+    if (date.includes("<")) {
+        lines1 = date.split("<");
+        date_line_new = lines1[0];
+        date_line_after = '<' + lines1.slice(1).join('<');
+    } else if (date.includes("{{")) {
+        lines1 = date.split("{{");
+        date_line_new = lines1[0];
+        date_line_after = '{{' + lines1.slice(1).join('{{');
+    } else {
+        date_line_after = '';
+        date_line_new = date;
+    }
+    for (let [engMonth, ukrMonth] of Object.entries(monthes)) {
+        if (date_line_new.includes(engMonth)) {
+            let d = date_line_new.replace(',', 'Розрізати'); 
+            d = d.replace(`${engMonth} `, 'Розрізати');
+            d = d.split('Розрізати');
+            let changed_date_line = d[0] + d[1] + ' ' + ukrMonth + d[2] + ' року' + date_line_after;
+
+            return changed_date_line;
+        }
+    }
 }
 
 function copy() {
