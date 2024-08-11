@@ -315,7 +315,7 @@ function translateuk() {
                 console.log(text);
                 if (text.includes('{{ID table')) {
                     id_table(text);
-                } else if (text.includes('{{Sound table')) {
+                } else if (text.includes('{{Sound table') || text.includes('{{SoundTable')) {
                     sound_table(text);
                 } else if (text.includes('{{Version nav') || text.includes('{{Infobox version') || text.includes('{{infobox version')) {
                     version_nav(text);
@@ -394,15 +394,10 @@ function id_table(text) {
 }
 
 function sound_table(text) {
-    text = performReplacements(text, replacements_sound);
-    text = text.split("\n");
-    for (let i = 1; i < text.length; i++) {
-        if (text[i].includes("субтитри")) {
-            text[i] = translateJava(text[i]);
-        }
-    }
-    text = text.join("\n");
-    textarea.value = text;
+    textarea.value = text
+        .split("\n")
+        .map(segment => segment.includes("subtitle") ? translateJava(performReplacements(segment, replacements_sound)) : performReplacements(segment, replacements_sound))
+        .join("\n");
 }
 
 function version_nav(text) {
@@ -444,39 +439,24 @@ function version_nav(text) {
 }
 
 function entity(text) {
-    text = performReplacements(text, replacements_entity);
-    text = text.split("\n");
-    for (let line of text) {
-        if (line.includes("інвзображення") || line.includes("корисніпредмети") || line.includes("{{дроп")) {
-            line = translateJava(line);
-        }
-    }
-    text = text.join("\n");
-    textarea.value = text;
+    textarea.value = text
+        .split("\n")
+        .map(segment => (segment.includes("invimage") || segment.includes("usableitems") || segment.includes("{{drop")) ? translateJava(performReplacements(segment, replacements_entity)) : performReplacements(segment, replacements_entity))
+        .join("\n");
 }
 
 function block(text) {
-    text = performReplacements(text, replacements_block);
-    text = text.split("\n");
-    for (let line of text) {
-        if (line.includes("інвзображення")) {
-            line = translateJava(line);
-        }
-    }
-    text = text.join("\n");
-    textarea.value = text;
+    textarea.value = text
+        .split("\n")
+        .map(segment => segment.includes("invimage") ? translateJava(performReplacements(segment, replacements_block)) : performReplacements(segment, replacements_block))
+        .join("\n");
 }
 
 function dropsTable(text) {
-    text = performReplacements(text, replacements_drops);
-    text = text.split("|");
-    for (let line of text) {
-        if (line.includes("назва")) {
-            line = translateJava(line);
-        }
-    }
-    text = text.join("|");
-    textarea.value = text;
+    textarea.value = text
+        .split("|")
+        .map(segment => segment.includes("name") ? translateJava(performReplacements(segment, replacements_drops)) : performReplacements(segment, replacements_drops))
+        .join("|");
 }
 
 function historyTable(text) {
