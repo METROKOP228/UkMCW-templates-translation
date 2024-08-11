@@ -640,15 +640,25 @@ function dateTranslation(date) {
         date_line_new = date;
     }
     for (let [engMonth, ukrMonth] of Object.entries(monthes)) {
-        if (date_line_new.includes(engMonth)) {
+        if (date_line_new.includes(`${engMonth} `) && date_line_new.includes(',')) {
             let d = date_line_new.replace(',', 'Розрізати'); 
             d = d.replace(`${engMonth} `, 'Розрізати');
             d = d.split('Розрізати');
             let changed_date_line = d[0] + d[1] + ' ' + ukrMonth + d[2] + ' року' + date_line_after;
 
-            return changed_date_line;
+            let regexDate = new RegExp('.*\\d{1,2}.+\\d{4} року', 'g');
+
+            if (regexDate.test(changed_date_line)) {
+                console.log(`success: ${date}`);
+                return changed_date_line;
+            } else {
+                console.log(`unsuccess: ${date}`);
+                return date;
+            }
         }
     }
+
+    return date;
 }
 
 function copy() {
