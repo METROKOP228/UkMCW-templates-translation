@@ -251,8 +251,6 @@ const monthes = {
     "December": "грудня"
 };
 
-var textarea = document.getElementById('textareaOutput');
-
 CodeMirror.defineSimpleMode("customMode", {
     start: [
         { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" },             // Comments ( <-- something --> )
@@ -274,6 +272,27 @@ CodeMirror.defineSimpleMode("customMode", {
         { regex: /\|/, token: "custom-template" },                                 // Pipes within template
     ]
 });
+CodeMirror.defineSimpleMode("customMode2", {
+    start: [
+        { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" },             // Comments ( <-- something --> )
+        // { regex: /\{\{\#.*?\}\}/, token: "custom-parser" },             // Parser functions ( {{#something}} )
+        { regex: /==.*==/, token: "custom-heading" },                      // Headings ( == something == )
+        { regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter" },           // Parameters ( {{{something}}} )
+        { regex: /\{\{/, token: "custom-template", next: "template" },     // Templates ( {{ )
+        { regex: /\}\}/, token: "custom-template" },                       // Templates ( }} )
+        { regex: /\|/, token: "custom-template" },                         // Pipes ( | )
+        { regex: /\[\[(?:(?!\]\]|\|).)*\]\]/, token: "custom-link" },      // Links ( [[something]] )
+        { regex: /\[\[(.*?)\|/, token: "custom-link" },                    // Links ( [[something| )
+        { regex: /\]\]/, token: "custom-link" },                           // Links ( ]] )
+        { regex: /\<.*?\>/, token: "custom-tag" },                         // HTML tags ( <something></something> )
+    ],
+    template: [
+        { regex: /\b([^\|\}\n]+)/, toen: "custom-template-name", next: "start" }, // Template name without {{ and |, until | or }}
+        { regex: /#([^\|\}\n]+)/, token: "custom-parser-name", next: "start" },    // Parser name without {{ and |, until | or }}
+        { regex: /\}\}/, token: "custom-template", next: "start" },                // Template closing ( }} )
+        { regex: /\|/, token: "custom-template" },                                 // Pipes within template
+    ]
+});
 
 var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
     lineNumbers: true,
@@ -281,6 +300,14 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
     mode: "customMode",
     theme: "default"
 });
+
+var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), {
+    lineWrapping: true,
+    readonly: true,
+    mode: "",
+    theme: "default"
+});
+output.setOption("readOnly", "nocursor");
 
 const textareaInput = editor.getValue();
 
@@ -300,7 +327,6 @@ function translatetext() {
 }
 
 function translateuk() {
-    console.log(editor.getValue());
     const text = editor.getValue();
 
     let radioButtons = document.getElementsByName('templates');
@@ -330,9 +356,9 @@ function translateuk() {
                 } else if (text.includes('{{Looming')) {
                     looming(text);
                 } else if (text === "") {
-                    textarea.value = "Введіть справжній текст шаблона, а не пустоту";
+                    output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
-                    textarea.value = "Неможливо розпізнати шаблон";
+                    output.setValue("Неможливо розпізнати шаблон");
                 }
             } else if (id === 'id') {
                 id_table(text);
@@ -366,7 +392,50 @@ function performReplacements(text, replacementsObject) {
     return text;
 }
 
+function highlightAdditions(oldText, text, elClass) {
+    output.setValue(text);
+    let oldLines = oldText.split("\n");
+    let newLines = text.split("\n");
+
+    for (let i = 0; i < newLines.length; i++) {
+        if (i >= oldLines.length) {
+            // Якщо новий рядок довший ніж старий, виділити всю частину нового рядка
+            let pos = output.indexFromPos({line: i, ch: 0});
+            let from = output.posFromIndex(pos);
+            let to = output.posFromIndex(pos + newLines[i].length);
+            output.markText(from, to, {
+                className: elClass === undefined ? "cm-diff-added-green" : elClass,
+                inclusiveLeft: false,
+                inclusiveRight: false
+            });
+            continue;
+        }
+
+        let oldWords = oldLines[i].split(/\s+/);
+        let newWords = newLines[i].split(/\s+/);
+
+        let pos = output.indexFromPos({line: i, ch: 0});
+
+        for (let j = 0; j < newWords.length; j++) {
+            if (j >= oldWords.length || oldWords[j] !== newWords[j]) {
+                let from = output.posFromIndex(pos);
+                let to = output.posFromIndex(pos + newWords[j].length);
+
+                output.markText(from, to, {
+                    className: elClass === undefined ? "cm-diff-added-green" : elClass,
+                    inclusiveLeft: false,
+                    inclusiveRight: false
+                });
+            }
+
+            pos += newWords[j].length + 1;
+        }
+    }
+}
+
+
 function id_table(text) {
+    let oldText = text;
     let edition;
     text = performReplacements(text, replacements_id);
     text = text.split("\n");
@@ -390,17 +459,18 @@ function id_table(text) {
         }
     }
     text = text.join("\n");
-    textarea.value = text;
+    highlightAdditions(oldText, text);
 }
 
 function sound_table(text) {
-    textarea.value = text
+    highlightAdditions(text, text
         .split("\n")
         .map(segment => segment.includes("subtitle") ? translateJava(performReplacements(segment, replacements_sound)) : performReplacements(segment, replacements_sound))
-        .join("\n");
+        .join("\n"));
 }
 
 function version_nav(text) {
+    let oldText = text;
     text = performReplacements(text, replacements_vn);
     let lines = text.split("\n");
 
@@ -435,31 +505,32 @@ function version_nav(text) {
             text = text.replace(line, dateTranslation(line));
         }
     }
-    textarea.value = text;
+    highlightAdditions(oldText, text);
 }
 
 function entity(text) {
-    textarea.value = text
+    highlightAdditions(text, text
         .split("\n")
         .map(segment => (segment.includes("invimage") || segment.includes("usableitems") || segment.includes("{{drop")) ? translateJava(performReplacements(segment, replacements_entity)) : performReplacements(segment, replacements_entity))
-        .join("\n");
+        .join("\n"));
 }
 
 function block(text) {
-    textarea.value = text
+    highlightAdditions(text, text
         .split("\n")
         .map(segment => segment.includes("invimage") ? translateJava(performReplacements(segment, replacements_block)) : performReplacements(segment, replacements_block))
-        .join("\n");
+        .join("\n"));
 }
 
 function dropsTable(text) {
-    textarea.value = text
+    highlightAdditions(text, text
         .split("|")
         .map(segment => segment.includes("name") ? translateJava(performReplacements(segment, replacements_drops)) : performReplacements(segment, replacements_drops))
-        .join("|");
+        .join("|"));
 }
 
 function historyTable(text) {
+    let oldText = text;
     text = performReplacements(text, replacements_history);
     text = text.split("|");
     for (let i = 0; i < text.length; i++) {
@@ -470,10 +541,11 @@ function historyTable(text) {
         }
     }
     text = text.join("|");
-    textarea.value = text;
+    highlightAdditions(oldText, text);
 }
 
 function looming(text) {
+    let oldText = text;
     const colors = {
         "White": { n: "Білий", f: "білою", m: "білим", pl: "білими" },
         "Light Gray": { n: "Світло-сірий", f: "світло-сірою", m: "світло-сірим", pl: "світло-сірими" },
@@ -600,24 +672,25 @@ function looming(text) {
 
     text = text.join("\n");
 
-    textarea.value = translateJava(performReplacements(text, replacements_looming));
+    highlightAdditions(oldText, translateJava(performReplacements(text, replacements_looming)));
 }
 
 function dateTranslation(date) {
     let lines1;
-    let date_line_new;
-    let date_line_after;
+    let date_line_new = date;
+    let date_line_after = "";
     if (date.includes("<")) {
         lines1 = date.split("<");
         date_line_new = lines1[0];
         date_line_after = '<' + lines1.slice(1).join('<');
-    } else if (date.includes("{{")) {
+    } if (date.includes("{{")) {
         lines1 = date.split("{{");
         date_line_new = lines1[0];
         date_line_after = '{{' + lines1.slice(1).join('{{');
-    } else {
-        date_line_after = '';
-        date_line_new = date;
+    } if (date.includes("}}")) {
+        lines1 = date.split("}}");
+        date_line_new = lines1[0];
+        date_line_after = '}}' + lines1.slice(1).join('}}');
     }
     for (let [engMonth, ukrMonth] of Object.entries(monthes)) {
         if (date_line_new.includes(`${engMonth} `) && date_line_new.includes(',')) {
@@ -642,9 +715,20 @@ function dateTranslation(date) {
 }
 
 function copy() {
-    const textToCopy = document.getElementById("textareaOutput");
-    textToCopy.select();
-    document.execCommand("copy");
+    // Створення тимчасового textarea
+    let textarea = document.createElement('textarea');
+    textarea.value = output.getValue();
+    document.body.appendChild(textarea);
+    
+    // Вибір тексту
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length); // Для мобільних пристроїв
+    
+    // Копіювання тексту
+    document.execCommand('copy');
+    
+    // Видалення textarea
+    document.body.removeChild(textarea);
 
     alert("Текст скопійовано!");
 }
@@ -655,19 +739,19 @@ let intervalId = null; // Define intervalId outside the function to make it glob
 
 function timeTracking() {
     let startTime = performance.now();
-    let previousValue = textarea.value;
+    let previousValue = output.getValue();
     let intervalId = null;
 
     clearInterval(intervalId);
 
     intervalId = setInterval(function() {
-        if (textarea.value !== previousValue) {
+        if (output.getValue() !== previousValue) {
             let endTime = performance.now();
-            previousValue = textarea.value;
+            previousValue = output.getValue();
             let durationInSeconds = (endTime - startTime) / 1000;
             let durationRounded = durationInSeconds.toFixed(3);
 
-            if (textarea.value !== '') {
+            if (output.getValue() !== '') {
                 timeTracker.textContent = `Час виконання: ${durationRounded} секунди`;
             } else {
                 timeTracker.textContent = 'Час виконання: 0 секунд';
@@ -715,7 +799,7 @@ function toggleMenu() {
 
 function clearTextareas() {
     editor.setValue('');
-    textarea.value = '';
+    output.setValue('');
 }
 
 function updateSettings() {

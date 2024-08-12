@@ -9,10 +9,10 @@ function translateNames() {
 
             switch (id) {
             case 'java':
-                textarea.value = translateJava(text);
+                output.setValue(translateJava(text));
                 break;
             case 'bedrock':
-                textarea.value = translateBedrock(text);
+                output.setValue(translateBedrock(text));
                 break;
             case 'earth':
                 translateEarth(text);
@@ -24,7 +24,7 @@ function translateNames() {
                 translateEducation(text);
                 break;
             default:
-                textarea.value = 'Error';
+                output.setValue('Error');
             }
             return;
         }
@@ -83,7 +83,7 @@ function translateBedrock(text) {
         text = text.join("\n");
         return text;
     } catch (error) {
-        textarea.value = "Error";
+        output.setValue("Error");
     }
 }
 
@@ -101,9 +101,9 @@ function translateEarth(text) {
         }
 
         text = text.join("\n");
-        textarea.value = text;
+        output.setValue(text);
     } catch (error) {
-        textarea.value = "Error";
+        output.setValue("Error");
     }
 }
 
@@ -121,9 +121,9 @@ function translateLegends(text) {
         }
 
         text = text.join("\n");
-        textarea.value = text;
+        output.setValue(text);
     } catch (error) {
-        textarea.value = "Error";
+        output.setValue("Error");
     }
 }
 
@@ -146,9 +146,9 @@ function translateEducation(text) {
             }
         }
         text = text.join("\n");
-        textarea.value = text;
+        output.setValue(text);
     } catch (error) {
-        textarea.value = "Error";
+        output.setValue("Error");
     }
 }
 

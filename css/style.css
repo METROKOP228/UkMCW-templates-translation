@@ -130,7 +130,7 @@ input[type="color"] {
     flex-direction: column;
 }
 
-.taContainer span {
+.timeTracker {
     color: var(--alt-color);
 }
 
@@ -144,10 +144,6 @@ input[type="color"] {
     outline: none;
     resize: none;
     font-size: 14px;
-}
-
-#textareaOutput {
-	background-color: #EEEEEE;
 }
 
 .button {
@@ -219,6 +215,7 @@ input[type="color"] {
     top: 0;
     right: 0;
     cursor: pointer;
+    z-index: 999;
 }
 
 
@@ -482,4 +479,10 @@ div.CodeMirror {
 }
 .cm-custom-comment {
     color: gray;
+}
+.cm-diff-added-green {
+    background-color: #d4fcbc;
+}
+.cm-diff-added-blue {
+    background-color: #b7cfff;
 }
