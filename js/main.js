@@ -272,27 +272,6 @@ CodeMirror.defineSimpleMode("customMode", {
         { regex: /\|/, token: "custom-template" },                                 // Pipes within template
     ]
 });
-CodeMirror.defineSimpleMode("customMode2", {
-    start: [
-        { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" },             // Comments ( <-- something --> )
-        // { regex: /\{\{\#.*?\}\}/, token: "custom-parser" },             // Parser functions ( {{#something}} )
-        { regex: /==.*==/, token: "custom-heading" },                      // Headings ( == something == )
-        { regex: /\{\{\{.*?\}\}\}/, token: "custom-parameter" },           // Parameters ( {{{something}}} )
-        { regex: /\{\{/, token: "custom-template", next: "template" },     // Templates ( {{ )
-        { regex: /\}\}/, token: "custom-template" },                       // Templates ( }} )
-        { regex: /\|/, token: "custom-template" },                         // Pipes ( | )
-        { regex: /\[\[(?:(?!\]\]|\|).)*\]\]/, token: "custom-link" },      // Links ( [[something]] )
-        { regex: /\[\[(.*?)\|/, token: "custom-link" },                    // Links ( [[something| )
-        { regex: /\]\]/, token: "custom-link" },                           // Links ( ]] )
-        { regex: /\<.*?\>/, token: "custom-tag" },                         // HTML tags ( <something></something> )
-    ],
-    template: [
-        { regex: /\b([^\|\}\n]+)/, toen: "custom-template-name", next: "start" }, // Template name without {{ and |, until | or }}
-        { regex: /#([^\|\}\n]+)/, token: "custom-parser-name", next: "start" },    // Parser name without {{ and |, until | or }}
-        { regex: /\}\}/, token: "custom-template", next: "start" },                // Template closing ( }} )
-        { regex: /\|/, token: "custom-template" },                                 // Pipes within template
-    ]
-});
 
 var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
     lineNumbers: true,
