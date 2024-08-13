@@ -871,6 +871,27 @@ function reset() {
     localStorage.setItem('linkHvColor', linkHvColor);
 }
 
+function presetChoice(bgColor, textColor, btnHvBgColor, btnHvTextColor, linkColor, linkHvColor) {
+    document.getElementById('bg-color').value = bgColor;
+    document.getElementById('text-color').value = textColor;
+    document.getElementById('btn-hover-bg-color').value = btnHvBgColor;
+    document.getElementById('btn-hover-text-color').value= btnHvTextColor;
+    document.getElementById('link-color').value = linkColor;
+    document.getElementById('link-hover-color').value = linkHvColor;
+    document.documentElement.style.setProperty('--bg-color', bgColor);
+    document.documentElement.style.setProperty('--alt-color', textColor);
+    document.documentElement.style.setProperty('--btn-hover-bg-color', btnHvBgColor);
+    document.documentElement.style.setProperty('--btn-hover-text-color', btnHvTextColor);
+    document.documentElement.style.setProperty('--link-color', linkColor);
+    document.documentElement.style.setProperty('--link-hover-color', linkHvColor);
+    localStorage.setItem('bgColor', bgColor);
+    localStorage.setItem('textColor', textColor);
+    localStorage.setItem('btnHvBgColor', btnHvBgColor);
+    localStorage.setItem('btnHvTextColor', btnHvTextColor);
+    localStorage.setItem('linkColor', linkColor);
+    localStorage.setItem('linkHvColor', linkHvColor);
+}
+
 const submitButton = document.querySelector('.button-tr');
 
 // Додаємо обробник події на весь документ

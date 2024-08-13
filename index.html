@@ -47,6 +47,10 @@
 	    <label for="link-hover-color">Колір посилань при наведенні:</label>
 	    <input type="color" id="link-hover-color" name="link-hover-color" value="#A60000" onchange="updateSettings()">
 	    <button class="reset-btn" onclick="reset()">Скинути</button>
+	    <h2>Шаблони</h2>
+	    <button class="pers-presets-button" onclick="presetChoice('#b8b8ff', '#ffffff', '#9e9eff', '#ffffff', '#ffa8a8', '#e66b6b')">Світлий режим</button>
+	    <button class="pers-presets-button" onclick="presetChoice('#000033', '#0040ff', '#20367e', '#ffffff', '#00ffe1', '#ffffff')">Темний режим</button>
+	    <button class="pers-presets-button" onclick="presetChoice('#000000', '#bababa', '#808080', '#bababa', '#737373', '#404040')">Темніший режим</button>
   	</div>
     <div class="template-selection-container">
 	    <input type="radio" class="mode-choice-radio" id="mc-template" name="modes" checked />
