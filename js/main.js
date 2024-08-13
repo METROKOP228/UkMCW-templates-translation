@@ -870,3 +870,14 @@ function reset() {
     localStorage.setItem('linkColor', linkColor);
     localStorage.setItem('linkHvColor', linkHvColor);
 }
+
+const submitButton = document.querySelector('.button-tr');
+
+// Додаємо обробник події на весь документ
+document.addEventListener('keydown', function(event) {
+    // Перевіряємо, чи натиснуто Enter і чи фокус не знаходиться на інпуті
+    if (event.key === 'Enter' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        // Виконуємо натискання кнопки
+        submitButton.click();
+    }
+});
