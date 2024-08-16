@@ -63,6 +63,7 @@ const replacements_sound = {
     "subtitle=": "субтитри=",
     "source=block": "джерело=блок",
     "description": "опис",
+    "translationkeynote": "ключперекладунотатка",
     "translationkey": "ключперекладу",
     "pitch": "висотазвуку",
     "distance": "відстань",
@@ -88,7 +89,14 @@ const replacements_sound = {
     "templatepage": "сторінкашаблону",
     "overridesource": "перевизначитиджерело",
     "idnote": "idнотатка",
-    "translationkeynote": "ключперекладунотатка"
+    "Unused sound event": "Невикористана звукова подія",
+    "Once the block has broken": "Коли блок зламано",
+    "When the block is placed": "Коли блок розміщено",
+    "While the block is in the process of being broken": "Поки блок знаходиться в процесі руйнування",
+    "Falling on the block with fall damage": "Падіння на блок з отриманням шкоди",
+    "Walking on the block": "Ходіння по блоку",
+    "Jumping from the block": "Стрибання з блока",
+    "Falling on the block without fall damage": "Падіння на блок без отримання шкоди"
 };
 const replacements_vn = {
     "Version nav": "Версія навігація",
@@ -140,7 +148,8 @@ const replacements_vn = {
     "Client": "Клієнт",
     "Server": "Сервер",
     "editorver": "editorвер",
-    "No corresponding server": "Немає відповідного сервера"
+    "No corresponding server": "Немає відповідного сервера",
+    "vernum": "версія"
 };
 const replacements_entity = {
     "health": "здоров'я",
