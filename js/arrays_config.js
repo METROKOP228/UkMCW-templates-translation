@@ -1,11 +1,12 @@
-const javaVer = "1.21.1";
-let translations_java = [];
-const selectElementJava = document.getElementById('version-choice-je');
+let javaVer = "1.21.1";
 
-function fetchJavaFile(version) {
-    const javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/${version}.txt`;
-    
-    return fileFetch(javaUrl)
+function getSelectValue() {
+    const selectElement = document.getElementById('version-choice-je');
+    const selectedValue = selectElement.value;
+    // Тепер змінна selectedValue містить вибране значення
+    javaVer = selectedValue;
+    javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/${javaVer}.txt`;
+    fileFetch(javaUrl)
         .then(data => {
             translations_java = data;
         })
@@ -14,24 +15,28 @@ function fetchJavaFile(version) {
         });
 }
 
-function getSelectValueJava() {
-    ver = selectElementJava.value;
-    fetchJavaFile(ver);
-}
+document.getElementById('version-choice-je').addEventListener('change', getSelectValue);
 
-selectElementJava.addEventListener('change', getSelectValueJava);
+let javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/1.21.1.txt`;
+let translations_java = [];
 
-// Завантаження файлу за замовчуванням при завантаженні сторінки
-fetchJavaFile(javaVer);
+fileFetch(javaUrl)
+    .then(data => {
+        translations_java = data;
+    })
+    .catch(error => {
+        console.error('Error fetching file:', error);
+    });
 
-const bedrockVer = "1.21.20";
-let translations_bedrock = [];
-const selectElementBedrock = document.getElementById('version-choice-be');
+let bedrockVer = "1.21.1";
 
-function fetchBedrockFile(version) {
-    const bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/${version}.txt`;
-    
-    return fileFetch(bedrockUrl)
+function getSelectValueBedrock() {
+    const selectElement = document.getElementById('version-choice-be');
+    const selectedValue = selectElement.value;
+    // Тепер змінна selectedValue містить вибране значення
+    bedrockVer = selectedValue;
+    bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/${bedrockVer}.txt`;
+    fileFetch(bedrockUrl)
         .then(data => {
             translations_bedrock = data;
         })
@@ -40,12 +45,18 @@ function fetchBedrockFile(version) {
         });
 }
 
-function getSelectValueBedrock() {
-    ver = selectElementBedrock.value;
-    fetchBedrockFile(ver);
-}
+document.getElementById('version-choice-be').addEventListener('change', getSelectValueBedrock);
 
-selectElementBedrock.addEventListener('change', getSelectValueBedrock);
+let bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/1.21.20.txt`;
+let translations_bedrock = [];
+
+fileFetch(bedrockUrl)
+    .then(data => {
+        translations_bedrock = data;
+    })
+    .catch(error => {
+        console.error('Error fetching file:', error);
+    });
 
 const earthUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/earth/newest.txt';
 let translations_earth = [];
@@ -90,8 +101,10 @@ function fileFetch(url, array) {
                 return response.text();
             })
             .then(data => {
+                // Заміна всіх символів '\r\n' на '\n'
+                const normalizedData = data.replace(/\r\n/g, '\n');
                 // Розділити отримані дані на масив рядків за символом '\n'
-                array = data.split('\r\n');
+                const array = normalizedData.split('\n');
                 resolve(array); // Повертаємо масив рядків через resolve
             })
             .catch(error => {
