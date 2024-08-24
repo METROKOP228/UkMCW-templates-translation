@@ -290,12 +290,12 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
 });
 
 var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), {
+    readOnly: true,
     lineWrapping: true,
     readonly: true,
     mode: "",
     theme: "default"
 });
-output.setOption("readOnly", "nocursor");
 
 const textareaInput = editor.getValue();
 
