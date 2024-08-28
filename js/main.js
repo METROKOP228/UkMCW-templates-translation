@@ -228,7 +228,8 @@ const replacements_history = {
     "|link": "|посилання",
     "|experiment": "|експеримент",
     "|exp": "|експ",
-    "[[File:": "[[Файл:"
+    "[[File:": "[[Файл:",
+    "1.13/Flattening": "1.13 (Java Edition)/Flattening"
 };
 const replacements_looming = {
     "{{Looming": "{{Ткацтво",
@@ -243,6 +244,55 @@ const replacements_looming = {
     "showdescription": "показатиопис",
     "description": "опис",
     "ingredients": "інгредієнти"
+};
+const replacements_biome = {
+    "{{Infobox biome": "{{Біом",
+    "title": "назва",
+    "image": "зобр",
+    "group": "група",
+    "caption": "підпис",
+    "extratext": "додатковийтекст",
+    "imagesize": "зобррозмір",
+    "data": "дані",
+    "structures": "структури",
+    "features": "особливості",
+    "blocks": "блоки",
+    "temperature": "температура",
+    "downfall": "падіння",
+    "precipitation": "опади",
+    "snow_accumulation": "накопичення_снігу",
+    "skycolor": "колірнеба",
+    "fogcolor": "коліртуману",
+    "grasscolor": "коліртрави",
+    "foliagecolor": "колірлистя",
+    "watercolor": "колірводи",
+    "underwaterfogcolor": "колірпідводноготуману",
+    "EnvLink": "Посилання/Оточення",
+    "BlockLink": "Посилання/Блок",
+    "Yes": "Так",
+    "No": "Ні"
+};
+const replacements_spawn = {
+    "{{Spawn table": "{{Таблиця появи",
+    "{{Spawn row": "{{Ряд появи",
+    "title": "назва",
+    "image": "зобр",
+    "group": "група",
+    "caption": "підпис",
+    "edition": "видання",
+    "creature": "істота",
+    "monster": "монстр",
+    "ambient": "оточення",
+    "watercreature": "водянаістота",
+    "waterambient": "воднеоточення",
+    "underground": "підземний",
+    "name": "ім'я",
+    "weight": "вага",
+    "size": "розмір",
+    "charge": "заряд",
+    "budget": "витрати",
+    "note": "примітка",
+    "notename": "назвапримітки"
 };
 
 const monthes = {
@@ -343,6 +393,10 @@ function translateuk() {
                     historyTable(text);
                 } else if (text.includes('{{Looming')) {
                     looming(text);
+                } else if (text.includes('{{Infobox biome')) {
+                    biome(text);
+                } else if (text.includes('{{Spawn table') || text.includes('{{Spawn row')) {
+                    spawnTable(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -364,6 +418,10 @@ function translateuk() {
                 historyTable(text);
             } else if (id === 'looming') {
                 looming(text);
+            } else if (id === 'biome') {
+                biome(text);
+            } else if (id === 'spawnTable') {
+                spawnTable(text);
             }
             return;
         }
@@ -661,6 +719,20 @@ function looming(text) {
     text = text.join("\n");
 
     highlightAdditions(oldText, translateJava(performReplacements(text, replacements_looming)));
+}
+
+function biome(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => segment.includes("blocks") ? translateJava(performReplacements(segment, replacements_biome)) : performReplacements(segment, replacements_biome))
+        .join("\n"));
+}
+
+function spawnTable(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => segment.includes("Spawn row") ? translateJava(performReplacements(segment, replacements_spawn)) : performReplacements(segment, replacements_spawn))
+        .join("\n"));
 }
 
 function dateTranslation(date) {
