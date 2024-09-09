@@ -270,7 +270,11 @@ const replacements_biome = {
     "EnvLink": "Посилання/Оточення",
     "BlockLink": "Посилання/Блок",
     "Yes": "Так",
-    "No": "Ні"
+    "No": "Ні",
+    "{{only": "{{тільки",
+    "{{color": "{{колір",
+    "short=y": "короткий=т",
+    "short=1": "короткий=1"
 };
 const replacements_spawn = {
     "{{Spawn table": "{{Таблиця появи",
@@ -693,7 +697,7 @@ function looming(text) {
             } else if (match.includes("Dyed")) {
                 text = text.replace(match, `Пофарбований стяг з ${bannerPatterns[usedPattern].r}`);
             } else if (match.includes("Banner Pattern")) {
-                text = text.replace(match, `Шаблон стяга з ${bannerPatterns[usedPattern].r}`);
+                text = text.replace(match, `Візерунок стяга «${bannerPatterns[usedPattern].n}»`);
             } else {
                 text = text.replace(match, `Стяг з ${bannerPatterns[usedPattern].r}`);
             }
@@ -729,10 +733,31 @@ function biome(text) {
 }
 
 function spawnTable(text) {
-    highlightAdditions(text, text
-        .split("\n")
-        .map(segment => segment.includes("Spawn row") ? translateJava(performReplacements(segment, replacements_spawn)) : performReplacements(segment, replacements_spawn))
-        .join("\n"));
+    let oldText = text;
+    let edition;
+    text = performReplacements(text, replacements_spawn);
+    text = text.split("\n");
+    for (let i = 1; i < text.length; i++) {
+        if (text[i].includes('java') || text[i].includes('je') || text[i].includes('JE')) {
+            edition = "java";
+        } else if (text[i].includes('bedrock') || text[i].includes('be') || text[i].includes('BE')) {
+            edition = "bedrock";
+        }
+        
+        if (text[i].includes("Ряд появи")) {
+            console.log(edition);
+            switch (edition) {
+            case "bedrock":
+                text[i] = translateBedrock(text[i]);
+                break;
+            default:
+                text[i] = translateJava(text[i]);
+                break;
+            }
+        }
+    }
+    text = text.join("\n");
+    highlightAdditions(oldText, text);
 }
 
 function dateTranslation(date) {
