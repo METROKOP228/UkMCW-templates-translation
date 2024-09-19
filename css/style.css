@@ -183,7 +183,8 @@ input[type="color"] {
 .button-tr:hover,
 .button-clear:hover,
 .button-tr-names:hover,
-.settings-button:hover {
+.settings-button:hover,
+.search-button:hover {
     background-color: var(--btn-hover-bg-color);
     color: var(--btn-hover-text-color);
 }
