@@ -45,7 +45,8 @@ const replacements_id = {
     "form=environment": "форма=оточення",
     "form=effect": "форма=ефект",
     "form": "форма",
-    "Block entity": "Блок-сутність"
+    "Block entity": "Блок-сутність",
+    "No displayed name": "Немає відображуваного імені"
 };
 const replacements_sound = {
     "SoundLine": "ЗвуковийРядок",
@@ -728,7 +729,7 @@ function looming(text) {
 function biome(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => segment.includes("blocks") ? translateJava(performReplacements(segment, replacements_biome)) : performReplacements(segment, replacements_biome))
+        .map(segment => (segment.includes("blocks") || segment.includes("title")) ? translateJava(performReplacements(segment, replacements_biome)) : performReplacements(segment, replacements_biome))
         .join("\n"));
 }
 

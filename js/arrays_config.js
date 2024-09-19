@@ -28,7 +28,7 @@ fileFetch(javaUrl)
         console.error('Error fetching file:', error);
     });
 
-let bedrockVer = "1.21.1";
+let bedrockVer = "1.21.30";
 
 function getSelectValueBedrock() {
     const selectElement = document.getElementById('version-choice-be');
@@ -47,7 +47,7 @@ function getSelectValueBedrock() {
 
 document.getElementById('version-choice-be').addEventListener('change', getSelectValueBedrock);
 
-let bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/1.21.20.txt`;
+let bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/1.21.30.txt`;
 let translations_bedrock = [];
 
 fileFetch(bedrockUrl)
