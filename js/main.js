@@ -888,101 +888,62 @@ function clearTextareas() {
     output.setValue('');
 }
 
-function updateSettings() {
-    var bgColor = document.getElementById('bg-color').value;
-    var textColor = document.getElementById('text-color').value;
-    var btnHvBgColor = document.getElementById('btn-hover-bg-color').value;
-    var btnHvTextColor = document.getElementById('btn-hover-text-color').value;
-    var linkColor = document.getElementById('link-color').value;
-    var linkHvColor = document.getElementById('link-hover-color').value;
-    document.documentElement.style.setProperty('--bg-color', bgColor);
-    document.documentElement.style.setProperty('--alt-color', textColor);
-    document.documentElement.style.setProperty('--btn-hover-bg-color', btnHvBgColor);
-    document.documentElement.style.setProperty('--btn-hover-text-color', btnHvTextColor);
-    document.documentElement.style.setProperty('--link-color', linkColor);
-    document.documentElement.style.setProperty('--link-hover-color', linkHvColor);
-
-    
-    localStorage.setItem('bgColor', bgColor);
-    localStorage.setItem('textColor', textColor);
-    localStorage.setItem('btnHvBgColor', btnHvBgColor);
-    localStorage.setItem('btnHvTextColor', btnHvTextColor);
-    localStorage.setItem('linkColor', linkColor);
-    localStorage.setItem('linkHvColor', linkHvColor);
-}
-
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Завантаження збережених налаштувань
-    const savedBgColor = localStorage.getItem('bgColor');
-    const savedTextColor = localStorage.getItem('textColor');
-    const savedBtnHvBgColor = localStorage.getItem('btnHvBgColor');
-    const savedBtnHvTextColor = localStorage.getItem('btnHvTextColor');
-    const savedLinkColor = localStorage.getItem('linkColor');
-    const savedLinkHvColor = localStorage.getItem('linkHvColor');
+    if (localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookies-checkbox').checked = true;
+        // Завантаження збережених налаштувань
+        const savedBgColor = localStorage.getItem('bgColor');
+        const savedTextColor = localStorage.getItem('textColor');
+        const savedBtnHvBgColor = localStorage.getItem('btnHvBgColor');
+        const savedBtnHvTextColor = localStorage.getItem('btnHvTextColor');
+        const savedLinkColor = localStorage.getItem('linkColor');
+        const savedLinkHvColor = localStorage.getItem('linkHvColor');
 
-    if (savedBgColor) {
-        document.documentElement.style.setProperty('--bg-color', savedBgColor);
-        document.getElementById('bg-color').value = savedBgColor;
-    }
+        if (savedBgColor) {
+            document.documentElement.style.setProperty('--bg-color', savedBgColor);
+            document.getElementById('bg-color').value = savedBgColor;
+        }
 
-    if (savedTextColor) {
-        document.documentElement.style.setProperty('--alt-color', savedTextColor);
-        document.getElementById('text-color').value = savedTextColor;
-    }
+        if (savedTextColor) {
+            document.documentElement.style.setProperty('--alt-color', savedTextColor);
+            document.getElementById('text-color').value = savedTextColor;
+        }
 
-    if (savedBtnHvBgColor) {
-        document.documentElement.style.setProperty('--btn-hover-bg-color', savedBtnHvBgColor);
-        document.getElementById('btn-hover-bg-color').value = savedBtnHvBgColor;
-    }
+        if (savedBtnHvBgColor) {
+            document.documentElement.style.setProperty('--btn-hover-bg-color', savedBtnHvBgColor);
+            document.getElementById('btn-hover-bg-color').value = savedBtnHvBgColor;
+        }
 
-    if (savedBtnHvTextColor) {
-        document.documentElement.style.setProperty('--btn-hover-text-color', savedBtnHvTextColor);
-        document.getElementById('btn-hover-text-color').value = savedBtnHvTextColor;
-    }
+        if (savedBtnHvTextColor) {
+            document.documentElement.style.setProperty('--btn-hover-text-color', savedBtnHvTextColor);
+            document.getElementById('btn-hover-text-color').value = savedBtnHvTextColor;
+        }
 
-    if (savedLinkColor) {
-        document.documentElement.style.setProperty('--link-color', savedLinkColor);
-        document.getElementById('link-color').value = savedLinkColor;
-    }
+        if (savedLinkColor) {
+            document.documentElement.style.setProperty('--link-color', savedLinkColor);
+            document.getElementById('link-color').value = savedLinkColor;
+        }
 
-    if (savedLinkHvColor) {
-        document.documentElement.style.setProperty('--link-hover-color', savedLinkHvColor);
-        document.getElementById('link-hover-color').value = savedLinkHvColor;
+        if (savedLinkHvColor) {
+            document.documentElement.style.setProperty('--link-hover-color', savedLinkHvColor);
+            document.getElementById('link-hover-color').value = savedLinkHvColor;
+        }
+    } else {
+        document.getElementById('cookies-checkbox').checked = false;
     }
 });
 
-function reset() {
-    document.getElementById('bg-color').value = '#0000FF';
-    document.getElementById('text-color').value = '#FFFF00';
-    document.getElementById('btn-hover-bg-color').value = '#A69D00';
-    document.getElementById('btn-hover-text-color').value= '#FFFFFF';
-    document.getElementById('link-color').value = '#FF0000';
-    document.getElementById('link-hover-color').value = '#A60000';
-    bgColor = '#0000FF';
-    textColor = '#FFFF00';
-    btnHvBgColor = '#A69D00';
-    btnHvTextColor = '#FFFFFF';
-    linkColor = '#FF0000';
-    linkHvColor = '#A60000';
-    document.documentElement.style.setProperty('--bg-color', bgColor);
-    document.documentElement.style.setProperty('--alt-color', textColor);
-    document.documentElement.style.setProperty('--btn-hover-bg-color', btnHvBgColor);
-    document.documentElement.style.setProperty('--btn-hover-text-color', btnHvTextColor);
-    document.documentElement.style.setProperty('--link-color', linkColor);
-    document.documentElement.style.setProperty('--link-hover-color', linkHvColor);
-    localStorage.setItem('bgColor', bgColor);
-    localStorage.setItem('textColor', textColor);
-    localStorage.setItem('btnHvBgColor', btnHvBgColor);
-    localStorage.setItem('btnHvTextColor', btnHvTextColor);
-    localStorage.setItem('linkColor', linkColor);
-    localStorage.setItem('linkHvColor', linkHvColor);
-}
-
-function presetChoice(bgColor, textColor, btnHvBgColor, btnHvTextColor, linkColor, linkHvColor) {
+function presetChoice(
+    bgColor=document.getElementById('bg-color').value,
+    textColor=document.getElementById('text-color').value,
+    btnHvBgColor=document.getElementById('btn-hover-bg-color').value,
+    btnHvTextColor=document.getElementById('btn-hover-text-color').value,
+    linkColor=document.getElementById('link-color').value,
+    linkHvColor=document.getElementById('link-hover-color').value) {
     document.getElementById('bg-color').value = bgColor;
     document.getElementById('text-color').value = textColor;
     document.getElementById('btn-hover-bg-color').value = btnHvBgColor;
-    document.getElementById('btn-hover-text-color').value= btnHvTextColor;
+    document.getElementById('btn-hover-text-color').value = btnHvTextColor;
     document.getElementById('link-color').value = linkColor;
     document.getElementById('link-hover-color').value = linkHvColor;
     document.documentElement.style.setProperty('--bg-color', bgColor);
@@ -991,12 +952,14 @@ function presetChoice(bgColor, textColor, btnHvBgColor, btnHvTextColor, linkColo
     document.documentElement.style.setProperty('--btn-hover-text-color', btnHvTextColor);
     document.documentElement.style.setProperty('--link-color', linkColor);
     document.documentElement.style.setProperty('--link-hover-color', linkHvColor);
-    localStorage.setItem('bgColor', bgColor);
-    localStorage.setItem('textColor', textColor);
-    localStorage.setItem('btnHvBgColor', btnHvBgColor);
-    localStorage.setItem('btnHvTextColor', btnHvTextColor);
-    localStorage.setItem('linkColor', linkColor);
-    localStorage.setItem('linkHvColor', linkHvColor);
+    if (localStorage.getItem('cookieConsent')) {
+        localStorage.setItem('bgColor', bgColor);
+        localStorage.setItem('textColor', textColor);
+        localStorage.setItem('btnHvBgColor', btnHvBgColor);
+        localStorage.setItem('btnHvTextColor', btnHvTextColor);
+        localStorage.setItem('linkColor', linkColor);
+        localStorage.setItem('linkHvColor', linkHvColor);
+    }
 }
 
 const submitButton = document.querySelector('.button-tr');
@@ -1008,4 +971,33 @@ document.addEventListener('keydown', function(event) {
         // Виконуємо натискання кнопки
         submitButton.click();
     }
+});
+
+document.getElementById("cookies-checkbox").addEventListener('change', function() {
+    if (this.checked) {
+        localStorage.setItem('cookieConsent', 'true');
+    } else {
+        localStorage.clear();
+    }
+});
+
+
+
+window.onload = function() {
+    if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+    }
+}
+
+// Подія для кнопки "Погоджуюсь"
+document.getElementById('agree-btn').addEventListener('click', function() {
+    localStorage.setItem('cookieConsent', 'true'); // Зберігаємо згоду у localStorage
+    document.getElementById('cookie-banner').style.display = 'none';
+    document.getElementById('cookies-checkbox').checked = true;
+});
+
+document.getElementById('disagree-btn').addEventListener('click', function() {
+    localStorage.clear();
+    document.getElementById('cookie-banner').style.display = 'none';
+    document.getElementById('cookies-checkbox').checked = false;
 });

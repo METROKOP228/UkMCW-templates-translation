@@ -39,14 +39,78 @@ body {
     margin-right: 5px;
 }
 
+#cookie-banner {
+    flex-direction: row;
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: none;
+}
+#cookie-banner #agree-btn {
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#cookie-banner #agree-btn:hover {
+    background-color: #45a049;
+}
+#cookie-banner #disagree-btn {
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#cookie-banner #disagree-btn:hover {
+    background-color: #b70000;
+}
+#cookies-checkbox {
+    width: 35px;
+    height: 35px;
+    appearance: none; /* Прибираємо стандартний чекбокс */
+    -webkit-appearance: none;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+#cookies-checkbox::before {
+    content: "✖"; /* Символ хрестика */
+    color: red;
+    border: 3px solid red;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
 
-
-
-
+/* Зелена галочка, коли чекбокс вибраний */
+#cookies-checkbox:checked::before {
+    content: "✔"; /* Символ галочки */
+    color: green;
+    border: 3px solid green;
+    font-size: 25px;
+}
+#cookies-checkbox:hover {
+    border-color: #888; /* Зміна кольору меж при наведенні */
+}
 
 
 
 .settings-menu {
+    width: 500px;
+    height: 500px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -58,6 +122,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: none; /* Початково приховано */
     z-index: 10000;
+    overflow: auto;
 }
 
 .settings-menu label {

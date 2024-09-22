@@ -9,17 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/mode/simple.min.js"></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXVXN34CHR"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-SXVXN34CHR');
-	</script>
 </head>
 <body>
+    <div id="cookie-banner">
+    	<div>Ми використовуємо файли кукі для покращення вашого досвіду на нашому сайті (Пізніше ви зможете змінити свій вибір у налаштуваннях)</div>
+        <button id="agree-btn">Погоджуюсь</button>
+        <button id="disagree-btn">Не погоджуюсь</button>
+    </div>
     <header class="header">
         <a href="https://uk.minecraft.wiki" class="button"><img src="img/logo.png" class="header-img">Перейти до Minecraft Wiki</a>
         <a href="https://discord.gg/japqvP7" class="button"><img src="img/discord-logo.png" class="header-img">Discord Української Minecraft Wiki</a>
@@ -28,29 +24,32 @@
     </header>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
     <div class="settings-menu" id="settingsMenu">
-    	<h1>ПЕРСОНАЛІЗАЦІЯ</h1>
+    	<h1>НАЛАШТУВАННЯ</h1>
+	    <h2>Тема</h2>
 	    <label for="bg-color">Колір фону/тексту кнопок:</label>
-	    <input type="color" id="bg-color" name="bg-color" value="#0000FF" onchange="updateSettings()">
+	    <input type="color" id="bg-color" name="bg-color" value="#0000FF" onchange="presetChoice()">
 	    <br><br>
 	    <label for="text-color">Колір тексту/фону кнопок:</label>
-	    <input type="color" id="text-color" name="text-color" value="#FFFF00" onchange="updateSettings()">
+	    <input type="color" id="text-color" name="text-color" value="#FFFF00" onchange="presetChoice()">
 	    <br><br>
 	    <label for="btn-hover-bg-color">Колір фону наведення на кнопки:</label>
-	    <input type="color" id="btn-hover-bg-color" name="btn-hover-bg-color" value="#A69D00" onchange="updateSettings()">
+	    <input type="color" id="btn-hover-bg-color" name="btn-hover-bg-color" value="#A69D00" onchange="presetChoice()">
 	    <br><br>
 	    <label for="btn-hover-text-color">Колір тексту наведення на кнопки:</label>
-	    <input type="color" id="btn-hover-text-color" name="btn-hover-text-color" value="#FFFFFF" onchange="updateSettings()">
+	    <input type="color" id="btn-hover-text-color" name="btn-hover-text-color" value="#FFFFFF" onchange="presetChoice()">
 	    <br><br>
 	    <label for="link-color">Колір посилань:</label>
-	    <input type="color" id="link-color" name="link-color" value="#FF0000" onchange="updateSettings()">
+	    <input type="color" id="link-color" name="link-color" value="#FF0000" onchange="presetChoice()">
 	    <br><br>
 	    <label for="link-hover-color">Колір посилань при наведенні:</label>
-	    <input type="color" id="link-hover-color" name="link-hover-color" value="#A60000" onchange="updateSettings()">
-	    <button class="reset-btn" onclick="reset()">Скинути</button>
-	    <h2>Шаблони</h2>
+	    <input type="color" id="link-hover-color" name="link-hover-color" value="#A60000" onchange="presetChoice()">
+	    <button class="reset-btn" onclick="presetChoice('#0000FF', '#FFFF00', '#A69D00', '#FFFFFF', '#FF0000', '#A60000')">Скинути</button>
+	    <h3>Шаблони</h3>
 	    <button class="pers-presets-button" onclick="presetChoice('#b8b8ff', '#ffffff', '#9e9eff', '#ffffff', '#ffa8a8', '#e66b6b')">Світлий режим</button>
 	    <button class="pers-presets-button" onclick="presetChoice('#000033', '#0040ff', '#20367e', '#ffffff', '#00ffe1', '#ffffff')">Темний режим</button>
 	    <button class="pers-presets-button" onclick="presetChoice('#000000', '#bababa', '#808080', '#bababa', '#737373', '#404040')">Темніший режим</button>
+	    <h2>Кукі</h2>
+	    Використовувати кукі?<br><input type="checkbox" id="cookies-checkbox">
   	</div>
     <div class="template-selection-container">
 	    <input type="radio" class="mode-choice-radio" id="mc-template" name="modes" checked />
@@ -101,7 +100,7 @@
 		        <form class="editions-form">
 		            <p>Виберіть видання/гру:</p>
 		            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
-		            <label for="java">Java Edition</label>
+		            <label for="java">Java Edition: </label>
 			    	<select name="version-choice-je" id="version-choice-je">
 			    		<option value="1.21.1">1.21.1</option>
 			    		<option value="1.21">1.21</option>
@@ -123,7 +122,7 @@
 			    	</select>
 			    	<br>
 		            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
-		            <label for="bedrock">Bedrock Edition</label>
+		            <label for="bedrock">Bedrock Edition: </label>
 			    	<select name="version-choice-be" id="version-choice-be">
 			    		<option value="1.21.30">1.21.30</option>
 			    		<option value="1.21.20">1.21.20</option>
@@ -131,22 +130,16 @@
 			    	</select>
 			    	<br>
 		            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
-		            <label for="earth">Minecraft Earth</label>
-			    	<select name="version-choice-earth" id="version-choice-earth">
-			    		<option value="0.33.0">0.33.0</option>
-			    	</select>
+		            <label for="earth">Minecraft Earth: 0.33.0</label>
 			    	<br>
 		            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
-		            <label for="legends">Minecraft Legends</label>
-			    	<select name="version-choice-legends" id="version-choice-legends">
-			    		<option value="1.18.19068">1.18.19068</option>
-			    	</select>
+		            <label for="legends">Minecraft Legends: 1.18.19068</label>
 			    	<br>
 		            <input type="radio" class="radio" id="education" name="editions" value="Minecraft Education">
-		            <label for="education">Minecraft Education</label>
-			    	<select name="version-choice-education" id="version-choice-education">
+		            <label for="education">Minecraft Education: 1.21.202.0</label>
+			    	<!--<select name="version-choice-education" id="version-choice-education">
 			    		<option value="1.21.202.0">1.21.202.0</option>
-			    	</select>
+			    	</select>-->
 		        </form>
 	    	</div>
     	</div>
