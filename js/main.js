@@ -315,6 +315,7 @@ const monthes = {
     "December": "грудня"
 };
 
+
 CodeMirror.defineSimpleMode("customMode", {
     start: [
         { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" },             // Comments ( <-- something --> )
@@ -355,17 +356,10 @@ var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), 
 const textareaInput = editor.getValue();
 
 function translatetext() {
-    let radioButtons = document.getElementsByName('modes');
-    for (let i = 0; i < radioButtons.length; i++) {
-        if (radioButtons[i].checked) {
-            let id = radioButtons[i].id;
-            console.log(id);
-            if (id === "mc-template") {
-                translateuk();
-            } else if (id === "mc-name") {
-                translateNames();
-            }
-        }
+    if (document.querySelector(".tab-btn-active").id === "mc-tmp") {
+        translateuk();
+    } else if (document.querySelector(".tab-btn-active").id === "mc-name") {
+        translateNames();
     }
 }
 
@@ -976,6 +970,7 @@ document.addEventListener('keydown', function(event) {
 document.getElementById("cookies-checkbox").addEventListener('change', function() {
     if (this.checked) {
         localStorage.setItem('cookieConsent', 'true');
+        presetChoice();
     } else {
         localStorage.clear();
     }
@@ -994,6 +989,7 @@ document.getElementById('agree-btn').addEventListener('click', function() {
     localStorage.setItem('cookieConsent', 'true'); // Зберігаємо згоду у localStorage
     document.getElementById('cookie-banner').style.display = 'none';
     document.getElementById('cookies-checkbox').checked = true;
+    presetChoice();
 });
 
 document.getElementById('disagree-btn').addEventListener('click', function() {
@@ -1001,3 +997,22 @@ document.getElementById('disagree-btn').addEventListener('click', function() {
     document.getElementById('cookie-banner').style.display = 'none';
     document.getElementById('cookies-checkbox').checked = false;
 });
+
+function openTab(tabId) {
+    // Сховати всі вкладки
+    var tabs = document.getElementsByClassName('tab');
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = 'none';
+    }
+
+    // Показати активну вкладку
+    document.getElementById(tabId).style.display = 'flex';
+
+    // Зняти активність з усіх кнопок
+    var buttons = document.querySelectorAll('.tab-buttons button');
+    buttons.forEach(button => button.classList.remove('tab-btn-active'));
+
+    // Додати активність до натиснутої кнопки
+    event.target.classList.add('tab-btn-active');
+    clearTextareas();
+}

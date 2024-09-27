@@ -180,17 +180,42 @@ input[type="color"] {
 
 
 
+main.content-container {
+    width: 1200px;
+    margin: 10px auto;
+}
+
+.non-btn-content {
+    border: 2px var(--alt-color) dashed;
+}
+
+.tab-buttons {
+    display: flex;
+}
+
+.tab-buttons button.tab-btn-active {
+    background-color: var(--btn-hover-bg-color);
+    color: var(--btn-hover-text-color);
+}
+
+.tab-btn {
+    background-color: var(--alt-color);
+    color: var(--bg-color);
+    margin-right: 5px;
+    border: 2px var(--alt-color) dashed;
+    border-bottom: none;
+    padding: 10px;
+}
+
 .container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
-	width: 1200px;
 	height: 600px;
-	border: 2px var(--alt-color) dashed;
+    border-top: none;
 	position: relative;
-    margin: 10px auto;
 }
 
 .taContainer {
@@ -298,7 +323,6 @@ input[type="color"] {
 
 
 
-
 .translate-names {
     position: relative;
 	display: flex;
@@ -306,11 +330,7 @@ input[type="color"] {
 	flex-wrap: nowrap;
 	justify-content: left;
 	align-items: center;
-	border: 2px var(--alt-color) dashed;
-	width: 1200px;
-	margin-bottom: 10px;
-    padding: 10px;
-    margin: 0 auto;
+    border-bottom: none;
 }
 
 .translate-names label,
@@ -324,11 +344,8 @@ input[type="color"] {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: left;
     align-items: center;
-    margin-bottom: 10px;
     width: 1200px;
-    margin-bottom: 10px;
     padding: 10px;
     margin: 0 auto;
 }
@@ -446,11 +463,8 @@ label a:hover {
 	flex-wrap: nowrap;
 	justify-content: left;
 	align-items: center;
-	border: 2px var(--alt-color) dashed;
-	width: 1200px;
-	margin: 10px 0;
+    border-bottom: none;
     padding: 10px;
-    margin: 10px auto;
 }
 
 .template-selection-container > * {
@@ -461,9 +475,8 @@ label a:hover {
 	font-size: 20px;
 }
 
-.mode-choice-radio {
-    scale: 6.5;
-    margin: 0 75px;
+.template-selection {
+    margin-left: 150px;
 }
 
 .editions-form > label {

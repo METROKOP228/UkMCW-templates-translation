@@ -51,141 +51,147 @@
 	    <h2>Кукі</h2>
 	    Використовувати кукі?<br><input type="checkbox" id="cookies-checkbox">
   	</div>
-    <div class="template-selection-container">
-	    <input type="radio" class="mode-choice-radio" id="mc-template" name="modes" checked />
-    	<div class="template-selection">
-    		<h2>Переклад шаблонів</h2>
-	        <form class="templates-form">
-	        	<p>Виберіть шаблон:</p>
-	            <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
-	            <label for="auto">Автоматично</label>
-	            <br>
-	            <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
-	            <label for="id">ID таблиця (ID table)</label>
-		        <br>
-	            <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
-	            <label for="sound">Звукова таблиця (Sound table)</label>
-	            <br>
-	            <input type="radio" class="radio" id="vn" name="templates" value="Версія навігація">
-	            <label for="vn">Версія навігація (Infobox version)</label>
-	            <br>
-	            <input type="radio" class="radio" id="entity" name="templates" value="Сутність">
-	            <label for="entity">Сутність (Infobox entity)</label>
-	            <br>
-	            <input type="radio" class="radio" id="block" name="templates" value="Блок">
-	            <label for="block">Блок (Infobox block)</label>
-	            <br>
-	            <input type="radio" class="radio" id="drops" name="templates" value="Таблиця дропу">
-	            <label for="drops">Таблиця дропу (DropsTable)</label>
-	            <br>
-	            <input type="radio" class="radio" id="historyTable" name="templates" value="ТаблицяІсторії">
-	            <label for="historyTable">ТаблицяІсторії (HistoryTable)</label>
-	            <br>
-	            <input type="radio" class="radio" id="looming" name="templates" value="Ткацтво">
-	            <label for="looming">Ткацтво (Looming)</label>
-	            <br>
-	            <input type="radio" class="radio" id="biome" name="templates" value="Біом">
-	            <label for="biome">Біом (Infobox biome)</label>
-	            <br>
-	            <input type="radio" class="radio" id="spawnTable" name="templates" value="Таблиця появи">
-	            <label for="spawnTable">Таблиця появи (Spawn table)</label>
-	        </form>
-    	</div>
-    </div>
-    <div class="translate-names">
-    	<div class="translate-names-a">
-	    	<input type="radio" class="mode-choice-radio" id="mc-name" name="modes" />
-	    	<div class="template-selection">
-		    	<h2>Переклад внутрішньоігрових назв</h2>
-		        <form class="editions-form">
-		            <p>Виберіть видання/гру:</p>
-		            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
-		            <label for="java">Java Edition: </label>
-			    	<select name="version-choice-je" id="version-choice-je">
-			    		<option value="1.21.1">1.21.1</option>
-			    		<option value="1.21">1.21</option>
-			    		<option value="1.20.6">1.20.6</option>
-			    		<option value="1.20.5">1.20.5</option>
-			    		<option value="1.20.4">1.20.4</option>
-			    		<option value="1.20.3">1.20.3</option>
-			    		<option value="1.20.2">1.20.2</option>
-			    		<option value="1.20.1">1.20.1</option>
-			    		<option value="1.20">1.20</option>
-			    		<option value="1.19.4">1.19.4</option>
-			    		<option value="1.19.3">1.19.3</option>
-			    		<option value="1.18">1.18</option>
-			    		<option value="1.17">1.17</option>
-			    		<option value="1.16">1.16</option>
-			    		<option value="1.15">1.15</option>
-			    		<option value="1.14">1.14</option>
-			    		<option value="1.13">1.13</option>
-			    	</select>
-			    	<br>
-		            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
-		            <label for="bedrock">Bedrock Edition: </label>
-			    	<select name="version-choice-be" id="version-choice-be">
-			    		<option value="1.21.30">1.21.30</option>
-			    		<option value="1.21.20">1.21.20</option>
-			    		<option value="1.21.0">1.21.0</option>
-			    	</select>
-			    	<br>
-		            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
-		            <label for="earth">Minecraft Earth: 0.33.0</label>
-			    	<br>
-		            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
-		            <label for="legends">Minecraft Legends: 1.18.19068</label>
-			    	<br>
-		            <input type="radio" class="radio" id="education" name="editions" value="Minecraft Education">
-		            <label for="education">Minecraft Education: 1.21.202.0</label>
-			    	<!--<select name="version-choice-education" id="version-choice-education">
-			    		<option value="1.21.202.0">1.21.202.0</option>
-			    	</select>-->
-		        </form>
-	    	</div>
-    	</div>
-    	
-		<details class="search-text-container">
-        	<summary>Шукати серед рядків перекладу</summary>
-        	<div class="flex-dir-needed">
-	        	<div class="not-search-btn">
-        			<div class="search-text-wrapper">
-			        	<span>Текст для пошуку:</span>
-			        	<div class="for-regex-container">
-				        	<span id="regex-slash" class="hidden">/</span>
-				        	<input id="text-to-search" type="text" class="search-text" name="search-text">
-				        	<span id="regex-slash2" class="hidden">/g</span>
+  	<main class="content-container">
+	    <div class="tab-buttons">
+	        <button id="mc-tmp" class="tab-btn tab-btn-active" onclick="openTab('tab1')">Переклад шаблонів</button>
+	        <button id="mc-name" class="tab-btn" onclick="openTab('tab2')">Переклад внутрішньоігрових назв</button>
+	    </div>
+	    <div class="non-btn-content">
+		    <div class="template-selection-container tab tab-content" id="tab1" style="display: flex;">
+		    	<div class="template-selection">
+		    		<h2>Переклад шаблонів</h2>
+			        <form class="templates-form">
+			        	<p>Виберіть шаблон:</p>
+			            <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
+			            <label for="auto">Автоматично</label>
+			            <br>
+			            <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
+			            <label for="id">ID таблиця (ID table)</label>
+				        <br>
+			            <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
+			            <label for="sound">Звукова таблиця (Sound table)</label>
+			            <br>
+			            <input type="radio" class="radio" id="vn" name="templates" value="Версія навігація">
+			            <label for="vn">Версія навігація (Infobox version)</label>
+			            <br>
+			            <input type="radio" class="radio" id="entity" name="templates" value="Сутність">
+			            <label for="entity">Сутність (Infobox entity)</label>
+			            <br>
+			            <input type="radio" class="radio" id="block" name="templates" value="Блок">
+			            <label for="block">Блок (Infobox block)</label>
+			            <br>
+			            <input type="radio" class="radio" id="drops" name="templates" value="Таблиця дропу">
+			            <label for="drops">Таблиця дропу (DropsTable)</label>
+			            <br>
+			            <input type="radio" class="radio" id="historyTable" name="templates" value="ТаблицяІсторії">
+			            <label for="historyTable">ТаблицяІсторії (HistoryTable)</label>
+			            <br>
+			            <input type="radio" class="radio" id="looming" name="templates" value="Ткацтво">
+			            <label for="looming">Ткацтво (Looming)</label>
+			            <br>
+			            <input type="radio" class="radio" id="biome" name="templates" value="Біом">
+			            <label for="biome">Біом (Infobox biome)</label>
+			            <br>
+			            <input type="radio" class="radio" id="spawnTable" name="templates" value="Таблиця появи">
+			            <label for="spawnTable">Таблиця появи (Spawn table)</label>
+			        </form>
+		    	</div>
+		    </div>
+		    <div class="translate-names tab tab-content" style="display: none;" id="tab2">
+		    	<div class="translate-names-a">
+			    	<div class="template-selection">
+				    	<h2>Переклад внутрішньоігрових назв</h2>
+				        <form class="editions-form">
+				            <p>Виберіть видання/гру:</p>
+				            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
+				            <label for="java">Java Edition: </label>
+					    	<select name="version-choice-je" id="version-choice-je">
+					    		<option value="1.21.1">1.21.1</option>
+					    		<option value="1.21">1.21</option>
+					    		<option value="1.20.6">1.20.6</option>
+					    		<option value="1.20.5">1.20.5</option>
+					    		<option value="1.20.4">1.20.4</option>
+					    		<option value="1.20.3">1.20.3</option>
+					    		<option value="1.20.2">1.20.2</option>
+					    		<option value="1.20.1">1.20.1</option>
+					    		<option value="1.20">1.20</option>
+					    		<option value="1.19.4">1.19.4</option>
+					    		<option value="1.19.3">1.19.3</option>
+					    		<option value="1.18">1.18</option>
+					    		<option value="1.17">1.17</option>
+					    		<option value="1.16">1.16</option>
+					    		<option value="1.15">1.15</option>
+					    		<option value="1.14">1.14</option>
+					    		<option value="1.13">1.13</option>
+					    	</select>
+					    	<br>
+				            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
+				            <label for="bedrock">Bedrock Edition: </label>
+					    	<select name="version-choice-be" id="version-choice-be">
+					    		<option value="1.21.30">1.21.30</option>
+					    		<option value="1.21.20">1.21.20</option>
+					    		<option value="1.21.0">1.21.0</option>
+					    	</select>
+					    	<br>
+				            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
+				            <label for="earth">Minecraft Earth: 0.33.0</label>
+					    	<br>
+				            <input type="radio" class="radio" id="legends" name="editions" value="Minecraft Legends">
+				            <label for="legends">Minecraft Legends: 1.18.19068</label>
+					    	<br>
+				            <input type="radio" class="radio" id="education" name="editions" value="Minecraft Education">
+				            <label for="education">Minecraft Education: 1.21.202.0</label>
+					    	<!--<select name="version-choice-education" id="version-choice-education">
+					    		<option value="1.21.202.0">1.21.202.0</option>
+					    	</select>-->
+				        </form>
+			    	</div>
+		    	</div>
+		    	
+				<details class="search-text-container">
+		        	<summary>Шукати серед рядків перекладу</summary>
+		        	<div class="flex-dir-needed">
+			        	<div class="not-search-btn">
+		        			<div class="search-text-wrapper">
+					        	<span>Текст для пошуку:</span>
+					        	<div class="for-regex-container">
+						        	<span id="regex-slash" class="hidden">/</span>
+						        	<input id="text-to-search" type="text" class="search-text" name="search-text">
+						        	<span id="regex-slash2" class="hidden">/g</span>
+					        	</div>
+				        	</div>
+				        	<div class="global-search-container">
+					        	<input id="global-search" class="global-search" type="checkbox" checked>
+					        	<label for="global-search">Глобальний пошук</label>
+				        	</div>
+				        	<div class="global-search-container">
+					        	<input id="regex-search" class="global-search" type="checkbox">
+					        	<label for="regex-search">Вважати рядок <a href="https://uk.wikipedia.org/wiki/Регулярний_вираз">регулярним виразом</a></label>
+				        	</div>
+				        	<div class="global-search-container">
+					        	<input id="cs-search" class="global-search" type="checkbox" checked>
+					        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
+				        	</div>
 			        	</div>
+			        	<button class="search-button" onclick="searchMatches();">Шукати</button>
 		        	</div>
-		        	<div class="global-search-container">
-			        	<input id="global-search" class="global-search" type="checkbox" checked>
-			        	<label for="global-search">Глобальний пошук</label>
-		        	</div>
-		        	<div class="global-search-container">
-			        	<input id="regex-search" class="global-search" type="checkbox">
-			        	<label for="regex-search">Вважати рядок <a href="https://uk.wikipedia.org/wiki/Регулярний_вираз">регулярним виразом</a></label>
-		        	</div>
-		        	<div class="global-search-container">
-			        	<input id="cs-search" class="global-search" type="checkbox" checked>
-			        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
-		        	</div>
-	        	</div>
-	        	<button class="search-button" onclick="searchMatches();">Шукати</button>
-        	</div>
-        	<div id="results-container"></div>
-        </details>
-    </div>
-    <div class="container">
-        <textarea id="textareaInput" class="input"></textarea>
-        <div class="buttons-tr">
-        	<button class="button-tr" onclick="timeTracking(); translatetext();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
-        	<button class="button-clear" onclick="clearTextareas();"><img src="img/clear.png" width="25px"></button>
-        </div>
-        <div class="taContainer">
-            <textarea id="textareaOutput" class="input" readonly></textarea>
-            <button class="button-copy" onclick="copy()"><img src="img/copy.png" width="20px" height="20px"></button>
-            <span class="timeTracker">Час виконання: 0 секунд</span>
-        </div>
-    </div>
+		        	<div id="results-container"></div>
+		        </details>
+		    </div>
+		    <div class="container">
+		        <textarea id="textareaInput" class="input"></textarea>
+		        <div class="buttons-tr">
+		        	<button class="button-tr" onclick="timeTracking(); translatetext();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
+		        	<button class="button-clear" onclick="clearTextareas();"><img src="img/clear.png" width="25px"></button>
+		        </div>
+		        <div class="taContainer">
+		            <textarea id="textareaOutput" class="input" readonly></textarea>
+		            <button class="button-copy" onclick="copy()"><img src="img/copy.png" width="20px" height="20px"></button>
+		            <span class="timeTracker">Час виконання: 0 секунд</span>
+		        </div>
+		    </div>
+		</div>
+	</main>
 
     <footer class="footer">
         <div>Створено користувачем <a href="https://uk.minecraft.wiki/w/Користувач:METROKOP228_UA">METROKOP228</a> для спільноти Української <a href="https://uk.minecraft.wiki">Minecraft Wiki</a>, 2024</div>
