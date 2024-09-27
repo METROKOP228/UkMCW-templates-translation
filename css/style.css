@@ -121,7 +121,7 @@ body {
     background-color: #c9c9c9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: none; /* Початково приховано */
-    z-index: 10000;
+    z-index: 100000;
     overflow: auto;
 }
 
@@ -170,9 +170,6 @@ input[type="color"] {
     color: white;
 }
 
-.pers-presets-button {
-
-}
 
 
 
@@ -193,18 +190,48 @@ main.content-container {
     display: flex;
 }
 
-.tab-buttons button.tab-btn-active {
-    background-color: var(--btn-hover-bg-color);
-    color: var(--btn-hover-text-color);
+.tab-buttons .tab-btn-active {
+    background-color: var(--bg-color);
+    color: var(--alt-color);
+}
+
+.tab-btn:not(.tab-btn-active) {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.tab-btn:not(.tab-btn-active)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-color); /* Основний колір фону */
+    filter: brightness(80%); /* Затемнює фон */
+    z-index: -1; /* Щоб залишатися позаду тексту та бордера */
 }
 
 .tab-btn {
-    background-color: var(--alt-color);
-    color: var(--bg-color);
+    position: relative;
+    color: var(--alt-color);
+    background-color: var(--bg-color);
     margin-right: 5px;
     border: 2px var(--alt-color) dashed;
     border-bottom: none;
     padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.tab-btn.tab-btn-active::after {
+    content: ''; /* Псевдоелемент не містить тексту */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px; /* Розміщуємо бордер на 2 пікселі нижче елемента */
+    height: 2px; /* Висота лінії */
+    background-color: var(--bg-color); /* Колір бордера */
 }
 
 .container {
