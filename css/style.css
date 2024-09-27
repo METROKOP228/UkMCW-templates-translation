@@ -41,7 +41,7 @@ body {
 
 #cookie-banner {
     flex-direction: row;
-    z-index: 99;
+    z-index: 99999;
     position: fixed;
     bottom: 0;
     left: 0;
