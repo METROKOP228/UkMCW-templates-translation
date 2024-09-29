@@ -249,6 +249,7 @@ const replacements_looming = {
 const replacements_biome = {
     "{{Infobox biome": "{{Біом",
     "title": "назва",
+    "imagesize": "зобр1розмір",
     "image": "зобр",
     "group": "група",
     "caption": "підпис",
@@ -278,6 +279,7 @@ const replacements_biome = {
     "short=1": "короткий=1"
 };
 const replacements_spawn = {
+    "Spawn attempt succeeds only in slime chunks.": "Спроба заспавнитися вдається лише в слимакових чанках.",
     "{{Spawn table": "{{Таблиця появи",
     "{{Spawn row": "{{Ряд появи",
     "title": "назва",
