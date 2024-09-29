@@ -107,6 +107,17 @@ body {
 }
 
 
+.svg {
+    fill: var(--bg-color);
+}
+
+.svg:hover {
+    fill: var(--btn-hover-text-color);
+}
+
+.svg-parent:hover .svg {
+    fill: var(--btn-hover-text-color);
+}
 
 .settings-menu {
     width: 500px;

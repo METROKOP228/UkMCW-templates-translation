@@ -254,7 +254,6 @@ const replacements_biome = {
     "group": "група",
     "caption": "підпис",
     "extratext": "додатковийтекст",
-    "imagesize": "зобррозмір",
     "data": "дані",
     "structures": "структури",
     "features": "особливості",
