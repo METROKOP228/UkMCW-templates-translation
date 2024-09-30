@@ -301,6 +301,36 @@ const replacements_spawn = {
     "notename": "назвапримітки"
 };
 
+const replacements_item = {
+    "{{Infobox item": "{{Предмет",
+    "title": "назва",
+    "imagesize": "зобр1розмір",
+    "image": "зобр",
+    "group": "група",
+    "caption": "підпис",
+    "extratext": "додатковийтекст",
+    "rarity": "рідкісність",
+    "durability": "міцн",
+    "armor": "захист",
+    "renewable": "поновл",
+    "stackable": "склад",
+    "heals": "відновлює",
+    "effects": "ефекти",
+    "Yes": "Так",
+    "No": "Ні",
+    "hunger": "голод",
+    "Renewable resource#Vault|except via ominous vault": "Поновлювані ресурси#Сховище|хіба що через зловісне сховище",
+    "Common": "Звичайний",
+    "Uncommon": "Незвичайний",
+    "Rare": "Рідкісний",
+    "Epic": "Епічний",
+    "only": "тільки",
+    "short": "короткий",
+    "upcoming": "заплановане",
+    "until": "доки",
+    "+1 in": "+1 у"
+};
+    
 const monthes = {
     "January": "січня",
     "February": "лютого",
@@ -397,6 +427,8 @@ function translateuk() {
                     biome(text);
                 } else if (text.includes('{{Spawn table') || text.includes('{{Spawn row')) {
                     spawnTable(text);
+                } else if (text.includes('{{Infobox item') {
+                    item(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -422,6 +454,8 @@ function translateuk() {
                 biome(text);
             } else if (id === 'spawnTable') {
                 spawnTable(text);
+            } else if (id === 'item') {
+                item(text);
             }
             return;
         }
@@ -754,6 +788,13 @@ function spawnTable(text) {
     }
     text = text.join("\n");
     highlightAdditions(oldText, text);
+}
+
+function item(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_item)) : performReplacements(segment, replacements_item))
+        .join("\n"));
 }
 
 function dateTranslation(date) {
