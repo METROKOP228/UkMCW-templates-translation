@@ -1,7 +1,7 @@
 let javaVer = "1.21.1";
 
 function getSelectValue() {
-    const selectElement = document.getElementById('version-choice-je');
+    const selectElement = document.getElementById('version-choice-java');
     const selectedValue = selectElement.value;
     // Тепер змінна selectedValue містить вибране значення
     javaVer = selectedValue;
@@ -15,7 +15,7 @@ function getSelectValue() {
         });
 }
 
-document.getElementById('version-choice-je').addEventListener('change', getSelectValue);
+document.getElementById('version-choice-java').addEventListener('change', getSelectValue);
 
 let javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/1.21.1.txt`;
 let translations_java = [];
@@ -31,7 +31,7 @@ fileFetch(javaUrl)
 let bedrockVer = "1.21.30";
 
 function getSelectValueBedrock() {
-    const selectElement = document.getElementById('version-choice-be');
+    const selectElement = document.getElementById('version-choice-bedrock');
     const selectedValue = selectElement.value;
     // Тепер змінна selectedValue містить вибране значення
     bedrockVer = selectedValue;
@@ -45,7 +45,7 @@ function getSelectValueBedrock() {
         });
 }
 
-document.getElementById('version-choice-be').addEventListener('change', getSelectValueBedrock);
+document.getElementById('version-choice-bedrock').addEventListener('change', getSelectValueBedrock);
 
 let bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/1.21.30.txt`;
 let translations_bedrock = [];

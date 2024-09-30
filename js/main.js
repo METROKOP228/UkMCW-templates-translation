@@ -1,5 +1,5 @@
 const replacements_id = {
-    "=y": "=т",
+    "=y\n": "=т\n",
     "ID table": "ID таблиця",
     "editions": "видання",
     "{{edition|": "{{el|",
@@ -305,6 +305,7 @@ const replacements_item = {
     "{{Infobox item": "{{Предмет",
     "title": "назва",
     "imagesize": "зобр1розмір",
+    "invimage": "інвзображення",
     "image": "зобр",
     "group": "група",
     "caption": "підпис",
@@ -346,7 +347,6 @@ const monthes = {
     "December": "грудня"
 };
 
-
 CodeMirror.defineSimpleMode("customMode", {
     start: [
         { regex: /\<\-\-.*?\-\-\>/, token: "custom-comment" },             // Comments ( <-- something --> )
@@ -375,6 +375,15 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
     mode: "customMode",
     theme: "default"
 });
+editor.refresh();
+
+var editor2 = CodeMirror.fromTextArea(document.getElementById("textareaInput2"), {
+    lineNumbers: true,
+    lineWrapping: true,
+    mode: "customMode",
+    theme: "default"
+});
+editor2.refresh();
 
 var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), {
     readOnly: true,
@@ -384,7 +393,7 @@ var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), 
     theme: "default"
 });
 
-const textareaInput = editor.getValue();
+var output2 = document.getElementById("textareaOutput2");
 
 function translatetext() {
     if (document.querySelector(".tab-btn-active").id === "mc-tmp") {
@@ -522,7 +531,7 @@ function id_table(text) {
     for (let i = 1; i < text.length; i++) {
         if (text[i].includes('java') || text[i].includes('je') || text[i].includes('JE')) {
             edition = "java";
-        } else if (text[i].includes('bedrock') || text[i].includes('be') || text[i].includes('BE')) {
+        } if (text[i].includes('bedrock') || text[i].includes('be') || text[i].includes('BE')) {
             edition = "bedrock";
         }
         
@@ -836,10 +845,10 @@ function dateTranslation(date) {
     return date;
 }
 
-function copy() {
+function copy(num) {
     // Створення тимчасового textarea
     let textarea = document.createElement('textarea');
-    textarea.value = output.getValue();
+    textarea.value = num === 1 ? output.getValue() : output2.value;
     document.body.appendChild(textarea);
     
     // Вибір тексту
@@ -853,33 +862,6 @@ function copy() {
     document.body.removeChild(textarea);
 
     alert("Текст скопійовано!");
-}
-
-const timeTracker = document.querySelector('.timeTracker');
-
-let intervalId = null; // Define intervalId outside the function to make it global
-
-function timeTracking() {
-    let startTime = performance.now();
-    let previousValue = output.getValue();
-    let intervalId = null;
-
-    clearInterval(intervalId);
-
-    intervalId = setInterval(function() {
-        if (output.getValue() !== previousValue) {
-            let endTime = performance.now();
-            previousValue = output.getValue();
-            let durationInSeconds = (endTime - startTime) / 1000;
-            let durationRounded = durationInSeconds.toFixed(3);
-
-            if (output.getValue() !== '') {
-                timeTracker.textContent = `Час виконання: ${durationRounded} секунди`;
-            } else {
-                timeTracker.textContent = 'Час виконання: 0 секунд';
-            }
-        }
-    }, 10);
 }
 
 document.getElementById('regex-search').addEventListener('change', function() {
@@ -919,9 +901,10 @@ function toggleMenu() {
     }
 }
 
-function clearTextareas() {
-    editor.setValue('');
-    output.setValue('');
+function clearTextareas(num) {
+    num === 1
+        ? (editor.setValue(''), output.setValue(''))
+        : (editor2.setValue(''), output2.value = '');
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -998,17 +981,6 @@ function presetChoice(
     }
 }
 
-const submitButton = document.querySelector('.button-tr');
-
-// Додаємо обробник події на весь документ
-document.addEventListener('keydown', function(event) {
-    // Перевіряємо, чи натиснуто Enter і чи фокус не знаходиться на інпуті
-    if (event.key === 'Enter' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-        // Виконуємо натискання кнопки
-        submitButton.click();
-    }
-});
-
 document.getElementById("cookies-checkbox").addEventListener('change', function() {
     if (this.checked) {
         localStorage.setItem('cookieConsent', 'true');
@@ -1056,5 +1028,39 @@ function openTab(tabId) {
 
     // Додати активність до натиснутої кнопки
     event.target.classList.add('tab-btn-active');
-    clearTextareas();
+    if (tabId === "tab2") {
+        editor2.setValue("");
+    }
 }
+
+const url = new URL(window.location.href);
+const params = new URLSearchParams(url.search);
+
+const tabVar = params.get('tab'); // url var 1
+const modeVar = params.get('mode'); // url var 2
+const textVar = params.get('text'); // url var 4
+// example: https://metrokop228.github.io/UkMCW-templates-translation?tab=2&mode=java&text=Wolf
+if (tabVar === "2") {
+    document.getElementById('mc-name').click();
+    if (modeVar) {
+        document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
+    }
+    if (textVar) {
+        editor2.setValue(textVar);
+        setTimeout(() => {
+            document.getElementById('button-tr2').click();
+        }, 100);
+    }
+} else {
+    if (modeVar) {
+        document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
+    }
+    if (textVar) {
+        editor.setValue(textVar);
+        setTimeout(() => {
+            document.getElementById('button-tr1').click();
+        }, 100);
+    }
+}
+
+console.log(tabVar + modeVar + textVar)

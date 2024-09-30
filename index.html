@@ -57,6 +57,11 @@
 	        <button id="mc-name" class="tab-btn" onclick="openTab('tab2')">Переклад внутрішньоігрових назв</button>
 	    </div>
 	    <div class="non-btn-content">
+
+
+		    <!-- ПЕРЕКЛАД ШАБЛОНІВ -->
+
+
 		    <div class="template-selection-container tab tab-content" id="tab1" style="display: flex;">
 		    	<div class="template-selection">
 		    		<h2>Переклад шаблонів</h2>
@@ -99,7 +104,23 @@
 			            <label for="item">Предмет (Infobox item)</label>
 			        </form>
 		    	</div>
+				<div class="container">
+			        <textarea id="textareaInput" class="input"></textarea>
+			        <div class="buttons-tr">
+			        	<button class="button-tr" id="button-tr1" onclick="translatetext();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
+			        	<button class="button-clear" onclick="clearTextareas(1);"><img src="img/clear.png" width="25px"></button>
+			        </div>
+			        <div class="taContainer">
+			            <textarea id="textareaOutput" class="input" readonly></textarea>
+			            <button class="button-copy" onclick="copy(1)"><img src="img/copy.png" width="20px" height="20px"></button>
+			        </div>
+			    </div>
 		    </div>
+
+
+		    <!-- ПЕРЕКЛАД ВНУТРІШНЬОІГРОВИХ НАЗВ -->
+
+
 		    <div class="translate-names tab tab-content" style="display: none;" id="tab2">
 		    	<div class="translate-names-a">
 			    	<div class="template-selection">
@@ -108,7 +129,7 @@
 				            <p>Виберіть видання/гру:</p>
 				            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
 				            <label for="java">Java Edition: </label>
-					    	<select name="version-choice-je" id="version-choice-je">
+					    	<select name="version-choice-java" id="version-choice-java">
 					    		<option value="1.21.1">1.21.1</option>
 					    		<option value="1.21">1.21</option>
 					    		<option value="1.20.6">1.20.6</option>
@@ -130,7 +151,7 @@
 					    	<br>
 				            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
 				            <label for="bedrock">Bedrock Edition: </label>
-					    	<select name="version-choice-be" id="version-choice-be">
+					    	<select name="version-choice-bedrock" id="version-choice-bedrock">
 					    		<option value="1.21.30">1.21.30</option>
 					    		<option value="1.21.20">1.21.20</option>
 					    		<option value="1.21.0">1.21.0</option>
@@ -180,19 +201,19 @@
 		        	</div>
 		        	<div id="results-container"></div>
 		        </details>
+				<div class="container">
+			        <textarea id="textareaInput2" class="input"></textarea>
+			        <div class="buttons-tr">
+			        	<button class="button-tr button-tr2" id="button-tr2" onclick="translateNames();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
+			        	<button class="button-clear" onclick="clearTextareas(2);"><img src="img/clear.png" width="25px"></button>
+			        </div>
+			        <div class="taContainer">
+			            <textarea id="textareaOutput2" class="input" readonly></textarea>
+			            <button class="button-copy" onclick="copy(2)"><img src="img/copy.png" width="20px" height="20px"></button>
+			        </div>
+			    </div>
 		    </div>
-		    <div class="container">
-		        <textarea id="textareaInput" class="input"></textarea>
-		        <div class="buttons-tr">
-		        	<button class="button-tr" onclick="timeTracking(); translatetext();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
-		        	<button class="button-clear" onclick="clearTextareas();"><img src="img/clear.png" width="25px"></button>
-		        </div>
-		        <div class="taContainer">
-		            <textarea id="textareaOutput" class="input" readonly></textarea>
-		            <button class="button-copy" onclick="copy()"><img src="img/copy.png" width="20px" height="20px"></button>
-		            <span class="timeTracker">Час виконання: 0 секунд</span>
-		        </div>
-		    </div>
+		    
 		</div>
 	</main>
 
@@ -200,8 +221,7 @@
         <div>Створено користувачем <a href="https://uk.minecraft.wiki/w/Користувач:METROKOP228_UA">METROKOP228</a> для спільноти Української <a href="https://uk.minecraft.wiki">Minecraft Wiki</a>, 2024</div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/translation.js"></script>
     <script src="js/arrays_config.js"></script>
-</body>
+    <script src="js/translation.js"></script>
+    <script src="js/main.js"></script></body>
 </html>

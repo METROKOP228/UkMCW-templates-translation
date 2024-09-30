@@ -1,5 +1,5 @@
 function translateNames() {
-    let text = editor.getValue();
+    let text = editor2.getValue();
     let radioButtonsEd = document.getElementsByName('editions');
 
     for (let i = 0; i < radioButtonsEd.length; i++) {
@@ -9,10 +9,10 @@ function translateNames() {
 
             switch (id) {
             case 'java':
-                output.setValue(translateJava(text));
+                output2.value = translateJava(text);
                 break;
             case 'bedrock':
-                output.setValue(translateBedrock(text));
+                output2.value = translateBedrock(text);
                 break;
             case 'earth':
                 translateEarth(text);
@@ -24,7 +24,7 @@ function translateNames() {
                 translateEducation(text);
                 break;
             default:
-                output.setValue('Error');
+                output2.value = 'Error';
             }
             return;
         }
@@ -101,9 +101,9 @@ function translateEarth(text) {
         }
 
         text = text.join("\n");
-        output.setValue(text);
+        output2.value = text;
     } catch (error) {
-        output.setValue("Error");
+        output2.value = "Error";
     }
 }
 
@@ -121,9 +121,9 @@ function translateLegends(text) {
         }
 
         text = text.join("\n");
-        output.setValue(text);
+        output2.value = text;
     } catch (error) {
-        output.setValue("Error");
+        output2.value = "Error";
     }
 }
 
@@ -146,9 +146,9 @@ function translateEducation(text) {
             }
         }
         text = text.join("\n");
-        output.setValue(text);
+        output2.value = text;
     } catch (error) {
-        output.setValue("Error");
+        output2.value = "Error";
     }
 }
 
