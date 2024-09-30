@@ -427,7 +427,7 @@ function translateuk() {
                     biome(text);
                 } else if (text.includes('{{Spawn table') || text.includes('{{Spawn row')) {
                     spawnTable(text);
-                } else if (text.includes('{{Infobox item') {
+                } else if (text.includes('{{Infobox item')) {
                     item(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
