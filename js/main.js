@@ -384,6 +384,7 @@ var editor2 = CodeMirror.fromTextArea(document.getElementById("textareaInput2"),
     theme: "default"
 });
 editor2.refresh();
+editor2.setValue("");
 
 var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), {
     readOnly: true,
@@ -1028,9 +1029,6 @@ function openTab(tabId) {
 
     // Додати активність до натиснутої кнопки
     event.target.classList.add('tab-btn-active');
-    if (tabId === "tab2") {
-        editor2.setValue("");
-    }
 }
 
 const url = new URL(window.location.href);
@@ -1040,27 +1038,64 @@ const tabVar = params.get('tab'); // url var 1
 const modeVar = params.get('mode'); // url var 2
 const textVar = params.get('text'); // url var 4
 // example: https://metrokop228.github.io/UkMCW-templates-translation?tab=2&mode=java&text=Wolf
-if (tabVar === "2") {
-    document.getElementById('mc-name').click();
-    if (modeVar) {
-        document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
+window.onload = function() {
+    if (tabVar === "2") {
+        document.getElementById('mc-name').click();
+        if (modeVar) {
+            document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
+        }
+        if (textVar) {
+            editor2.setValue(textVar);
+            setTimeout(() => {
+                document.getElementById('button-tr2').click();
+            }, 200);
+        }
+    } else {
+        if (modeVar) {
+            document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
+        }
+        if (textVar) {
+            editor.setValue(textVar);
+            setTimeout(() => {
+                document.getElementById('button-tr1').click();
+            }, 200);
+        }
     }
-    if (textVar) {
-        editor2.setValue(textVar);
-        setTimeout(() => {
-            document.getElementById('button-tr2').click();
-        }, 100);
-    }
-} else {
-    if (modeVar) {
-        document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
-    }
-    if (textVar) {
-        editor.setValue(textVar);
-        setTimeout(() => {
-            document.getElementById('button-tr1').click();
-        }, 100);
-    }
+    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}`)
 }
 
-console.log(tabVar + modeVar + textVar)
+function getLink(tab) {
+    let link = "https://metrokop228.github.io/UkMCW-templates-translation";
+    const getCheckedId = (name) => {
+        const elements = document.getElementsByName(name);
+        for (let element of elements) {
+            if (element.checked) return element.id;
+        }
+    };
+
+    if (tab === 2) {
+        link += `?tab=${tab}`;
+        const mode = getCheckedId("editions") || "java";
+        if (mode !== "java") link += `&mode=${encodeURIComponent(mode)}`;
+        if (editor2.getValue()) link += `&text=${encodeURIComponent(editor2.getValue())}`;
+    } else {
+        const mode = getCheckedId("templates") || "auto";
+        if (mode !== "auto") {
+            link += `?mode=${encodeURIComponent(mode)}`;
+            if (editor.getValue()) link += `&text=${encodeURIComponent(editor.getValue())}`;
+        } else if (editor.getValue()) {
+            link += `?text=${encodeURIComponent(editor.getValue())}`;
+        }
+    }
+
+    console.log("Link: " + link);
+
+    // Копіювання посилання в буфер обміну
+    navigator.clipboard.writeText(link).then(() => {
+        console.log("Link copied to clipboard!");
+        alert("Посилання скопійовано :)");
+    }).catch(err => {
+        console.error("Could not copy link: ", err);
+    });
+}
+
