@@ -55,6 +55,7 @@
 	    <div class="tab-buttons">
 	        <button id="mc-tmp" class="tab-btn tab-btn-active" onclick="openTab('tab1')">Переклад шаблонів</button>
 	        <button id="mc-name" class="tab-btn" onclick="openTab('tab2')">Переклад внутрішньоігрових назв</button>
+	        <button id="mc-name-search" class="tab-btn" onclick="openTab('tab3')">Пошук серед внутрішньоігрових назв</button>
 	    </div>
 	    <div class="non-btn-content">
 
@@ -172,36 +173,6 @@
 				        </form>
 			    	</div>
 		    	</div>
-		    	
-				<details class="search-text-container">
-		        	<summary>Шукати серед рядків перекладу</summary>
-		        	<div class="flex-dir-needed">
-			        	<div class="not-search-btn">
-		        			<div class="search-text-wrapper">
-					        	<span>Текст для пошуку:</span>
-					        	<div class="for-regex-container">
-						        	<span id="regex-slash" class="hidden">/</span>
-						        	<input id="text-to-search" type="text" class="search-text" name="search-text">
-						        	<span id="regex-slash2" class="hidden">/g</span>
-					        	</div>
-				        	</div>
-				        	<div class="global-search-container">
-					        	<input id="global-search" class="global-search" type="checkbox" checked>
-					        	<label for="global-search">Глобальний пошук</label>
-				        	</div>
-				        	<div class="global-search-container">
-					        	<input id="regex-search" class="global-search" type="checkbox">
-					        	<label for="regex-search">Вважати рядок <a href="https://uk.wikipedia.org/wiki/Регулярний_вираз">регулярним виразом</a></label>
-				        	</div>
-				        	<div class="global-search-container">
-					        	<input id="cs-search" class="global-search" type="checkbox" checked>
-					        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
-				        	</div>
-			        	</div>
-			        	<button class="search-button" onclick="searchMatches();">Шукати</button>
-		        	</div>
-		        	<div id="results-container"></div>
-		        </details>
 				<div class="container">
 			        <textarea id="textareaInput2" class="input"></textarea>
 			        <div class="buttons-tr">
@@ -215,7 +186,85 @@
 			        </div>
 			    </div>
 		    </div>
-		    
+
+		    <!-- ПОШУК СЕРЕД ВНУТРІШНЬОІГРОВИХ НАЗВ -->
+
+		    <div class="names-search-container tab tab-content" style="display: none;" id="tab3">
+			    <h2>Пошук серед внутрішньоігрових назв</h2>
+		    	<div class="flex-dir-needed">
+		        	<div class="not-search-btn">
+	        			<div class="fdrow">
+	        				<div class="search-text-wrapper">
+					        	<span>Текст для пошуку:</span>
+					        	<div class="for-regex-container">
+						        	<span id="regex-slash" class="hidden">/</span>
+						        	<input id="text-to-search" type="text" class="search-text" name="search-text">
+						        	<span id="regex-slash2" class="hidden">/g</span>
+					        	</div>
+	        				</div>
+	        				<button class="button-clear" onclick="getLink(3);"><img src="img/link.png" width="20px"></button>
+			        	</div>
+			        	<div class="global-search-container">
+				        	<input id="global-search" class="global-search" type="checkbox" checked>
+				        	<label for="global-search">Глобальний пошук</label>
+			        	</div>
+			        	<div class="global-search-container">
+				        	<input id="regex-search" class="global-search" type="checkbox">
+				        	<label for="regex-search">Вважати рядок <a href="https://uk.wikipedia.org/wiki/Регулярний_вираз">регулярним виразом</a></label>
+			        	</div>
+			        	<div class="global-search-container">
+				        	<input id="cs-search" class="global-search" type="checkbox" checked>
+				        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
+			        	</div>
+		        	</div>
+		        	<button class="search-button" onclick="searchMatches();">Шукати</button>
+	        		<form class="editions-form">
+			            <p>Виберіть видання/гру:</p>
+			            <input type="radio" class="radio" id="java2" name="editions2" value="Java Edition" checked>
+			            <label for="java2">Java Edition: </label>
+				    	<select name="version-choice-java" id="version-choice-java">
+				    		<option value="1.21.1">1.21.1</option>
+				    		<option value="1.21">1.21</option>
+				    		<option value="1.20.6">1.20.6</option>
+				    		<option value="1.20.5">1.20.5</option>
+				    		<option value="1.20.4">1.20.4</option>
+				    		<option value="1.20.3">1.20.3</option>
+				    		<option value="1.20.2">1.20.2</option>
+				    		<option value="1.20.1">1.20.1</option>
+				    		<option value="1.20">1.20</option>
+				    		<option value="1.19.4">1.19.4</option>
+				    		<option value="1.19.3">1.19.3</option>
+				    		<option value="1.18">1.18</option>
+				    		<option value="1.17">1.17</option>
+				    		<option value="1.16">1.16</option>
+				    		<option value="1.15">1.15</option>
+				    		<option value="1.14">1.14</option>
+				    		<option value="1.13">1.13</option>
+				    	</select>
+				    	<br>
+			            <input type="radio" class="radio" id="bedrock2" name="editions2" value="Bedrock Edition">
+			            <label for="bedrock2">Bedrock Edition: </label>
+				    	<select name="version-choice-bedrock" id="version-choice-bedrock">
+				    		<option value="1.21.30">1.21.30</option>
+				    		<option value="1.21.20">1.21.20</option>
+				    		<option value="1.21.0">1.21.0</option>
+				    	</select>
+				    	<br>
+			            <input type="radio" class="radio" id="earth2" name="editions2" value="Minecraft Earth">
+			            <label for="earth2">Minecraft Earth: 0.33.0</label>
+				    	<br>
+			            <input type="radio" class="radio" id="legends2" name="editions2" value="Minecraft Legends">
+			            <label for="legends2">Minecraft Legends: 1.18.19068</label>
+				    	<br>
+			            <input type="radio" class="radio" id="education2" name="editions2" value="Minecraft Education">
+			            <label for="education2">Minecraft Education: 1.21.202.0</label>
+				    	<!--<select name="version-choice-education" id="version-choice-education">
+				    		<option value="1.21.202.0">1.21.202.0</option>
+				    	</select>-->
+			        </form>
+	        	</div>
+	        	<div id="results-container"></div>
+		    </div>
 		</div>
 	</main>
 

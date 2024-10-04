@@ -1007,11 +1007,14 @@ function openTab(tabId) {
     // Сховати всі вкладки
     var tabs = document.getElementsByClassName('tab');
     for (var i = 0; i < tabs.length; i++) {
-        tabs[i].style.display = 'none';
+        tabs[i].style.display = 'none';;
     }
 
     // Показати активну вкладку
     document.getElementById(tabId).style.display = 'flex';
+    setTimeout(() => {
+      editor2.refresh();
+    }, 0);
 
     // Зняти активність з усіх кнопок
     var buttons = document.querySelectorAll('.tab-buttons button');
@@ -1026,10 +1029,11 @@ const params = new URLSearchParams(url.search);
 
 const tabVar = params.get('tab'); // url var 1
 const modeVar = params.get('mode'); // url var 2
+const modesVar = params.get('modes'); // url var 3
 const textVar = params.get('text'); // url var 4
 // example: https://metrokop228.github.io/UkMCW-templates-translation?tab=2&mode=java&text=Wolf
 window.onload = function() {
-    if (tabVar === "2") {
+    if (tabVar == "2") {
         document.getElementById('mc-name').click();
         if (modeVar) {
             document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
@@ -1038,6 +1042,30 @@ window.onload = function() {
             editor2.setValue(textVar);
             setTimeout(() => {
                 document.getElementById('button-tr2').click();
+            }, 200);
+        }
+    } else if (tabVar == "3") {
+        document.getElementById('mc-name-search').click();
+        if (modeVar) {
+            for (let i = 0; i < document.getElementsByName('editions2').length; i++) {
+                if (document.getElementsByName('editions2')[i].id == modeVar) {
+                    document.getElementsByName('editions2')[i].checked = true; // Вибрати радіокнопку
+                }
+            }
+        }
+        if (modesVar) {
+            if (modesVar.includes("g")) {
+                document.getElementById("global-search").click();
+            } if (modesVar.includes("r")) {
+                document.getElementById("regex-search").click();
+            } if (modesVar.includes("i")) {
+                document.getElementById("cs-search").click();
+            }
+        } 
+        if (textVar) {
+            document.getElementById("text-to-search").value = textVar;
+            setTimeout(() => {
+                searchMatches();
             }, 200);
         }
     } else {
@@ -1051,13 +1079,11 @@ window.onload = function() {
             }, 200);
         }
     }
-    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}`)
+    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}, Modes: ${modesVar}`)
 
     if (!localStorage.getItem('cookieConsent')) {
         document.getElementById('cookie-banner').style.display = 'flex';
     }
-
-    editor2.refresh();
 }
 
 function getLink(tab) {
@@ -1069,11 +1095,21 @@ function getLink(tab) {
         }
     };
 
-    if (tab === 2) {
+    if (tab == 2) {
         link += `?tab=${tab}`;
         const mode = getCheckedId("editions") || "java";
         if (mode !== "java") link += `&mode=${encodeURIComponent(mode)}`;
         if (editor2.getValue()) link += `&text=${encodeURIComponent(editor2.getValue())}`;
+    } else if (tab == 3) {
+        const mode = getCheckedId("editions2") || "java";
+        link += `?tab=${tab}`;
+        if (mode !== "java") link += `&mode=${encodeURIComponent(mode)}`;
+        let modes = "";
+        if (!document.getElementById("global-search").checked) modes += 'g';
+        if (document.getElementById("regex-search").checked) modes += 'r';
+        if (!document.getElementById("cs-search").checked) modes += 'i';
+        if (modes) link += `&modes=${modes}`;
+        if (document.getElementById("text-to-search").value) link += `&text=${encodeURIComponent(document.getElementById("text-to-search").value)}`;
     } else {
         const mode = getCheckedId("templates") || "auto";
         if (mode !== "auto") {

@@ -164,25 +164,25 @@ function searchMatches() {
     if (isGlobal) {
         searchInArrays(translations_java, translations_bedrock, translations_earth, translations_legends, translations_education);
     } else {
-        let radioButtonsEd = document.getElementsByName('editions');
+        let radioButtonsEd = document.getElementsByName('editions2');
         for (let i = 0; i < radioButtonsEd.length; i++) {
             if (radioButtonsEd[i].checked) {
                 let id = radioButtonsEd[i].id;
                 console.log(id);
                 switch (id) {
-                    case 'java':
+                    case 'java2':
                         searchInArrays(translations_java);
                         break;
-                    case 'bedrock':
+                    case 'bedrock2':
                         searchInArrays(undefined, translations_bedrock);
                         break;
-                    case 'earth':
+                    case 'earth2':
                         searchInArrays(undefined, undefined, translations_earth);
                         break;
-                    case 'legends':
+                    case 'legends2':
                         searchInArrays(undefined, undefined, undefined, translations_legends);
                         break;
-                    case 'education':
+                    case 'education2':
                         searchInArrays(undefined, undefined, undefined, undefined, translations_education);
                         break;
                 }

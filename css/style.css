@@ -106,6 +106,10 @@ body {
     border-color: #888; /* Зміна кольору меж при наведенні */
 }
 
+.fdrow {
+    display: flex;
+    flex-direction: row;
+}
 
 .svg {
     fill: var(--bg-color);
@@ -382,21 +386,30 @@ main.content-container {
     margin: 0 auto;
 }
 
-details.search-text-container {
+
+
+
+
+
+
+.names-search-container {
+    position: relative;
     display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: left;
-    align-items: center;
-    margin-left: 200px;
-    width: 1000px;
+    width: 1200px;
+    padding: 10px;
+    margin: 0 auto;
 }
 
-summary {
-    margin-bottom: 25px;
+.names-search-container h2 {
+    margin-left: 150px;
 }
 
-details,
-details summary {
+.names-search-container label,
+.names-search-container p,
+.names-search-container div,
+.names-search-container h2 {
     color: var(--alt-color);
 }
 
@@ -404,6 +417,16 @@ details summary {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 150px;
+}
+
+#results-container {
+    margin-left: 150px;
+}
+
+.highlight-search {
+    background-color: var(--alt-color);
+    color: var(--bg-color);
 }
 
 .search-text-wrapper {
@@ -481,7 +504,6 @@ label a:hover {
 .arrow {
     color: red;
 }
-
 
 
 
