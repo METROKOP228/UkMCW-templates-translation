@@ -375,7 +375,6 @@ var editor = CodeMirror.fromTextArea(document.getElementById("textareaInput"), {
     mode: "customMode",
     theme: "default"
 });
-editor.refresh();
 
 var editor2 = CodeMirror.fromTextArea(document.getElementById("textareaInput2"), {
     lineNumbers: true,
@@ -383,8 +382,6 @@ var editor2 = CodeMirror.fromTextArea(document.getElementById("textareaInput2"),
     mode: "customMode",
     theme: "default"
 });
-editor2.refresh();
-editor2.setValue("");
 
 var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), {
     readOnly: true,
@@ -992,13 +989,6 @@ document.getElementById("cookies-checkbox").addEventListener('change', function(
 });
 
 
-
-window.onload = function() {
-    if (!localStorage.getItem('cookieConsent')) {
-        document.getElementById('cookie-banner').style.display = 'flex';
-    }
-}
-
 // Подія для кнопки "Погоджуюсь"
 document.getElementById('agree-btn').addEventListener('click', function() {
     localStorage.setItem('cookieConsent', 'true'); // Зберігаємо згоду у localStorage
@@ -1062,6 +1052,12 @@ window.onload = function() {
         }
     }
     console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}`)
+
+    if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+    }
+
+    editor2.refresh();
 }
 
 function getLink(tab) {

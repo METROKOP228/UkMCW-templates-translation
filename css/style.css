@@ -222,6 +222,7 @@ main.content-container {
     background-color: var(--bg-color); /* Основний колір фону */
     filter: brightness(80%); /* Затемнює фон */
     z-index: -1; /* Щоб залишатися позаду тексту та бордера */
+    border-radius: 3px 3px 0 0;
 }
 
 .tab-btn {
@@ -253,7 +254,6 @@ main.content-container {
 	align-items: center;
     width: 100%;
 	height: 600px;
-    border-top: none;
 	position: relative;
 }
 
@@ -363,7 +363,6 @@ main.content-container {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: left;
-    border-bottom: none;
 }
 
 .translate-names label,
@@ -495,7 +494,6 @@ label a:hover {
     flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: left;
-    border-bottom: none;
     padding: 10px;
 }
 
