@@ -57,7 +57,8 @@
 <br>
 <input type="radio" class="radio" id="spawnTable" name="templates" value="Таблиця появи">
 <label for="spawnTable">Таблиця появи (Spawn table)</label>
-```,  де ви заміняєте id та value у input а також у label, там де for="" пишите id інпута і змінюєте текст відносно вашого шаблону
+```
+,  де ви заміняєте id та value у input а також у label, там де for="" пишите id інпута і змінюєте текст відносно вашого шаблону
 * Відкрийте файл main.js у папці js та зробіть кілька доповнень:
 ** Додайте масив із назвою replacements_назваШаблону і додайте у нього рядки, які мають перекладатися по типу
 ```js
@@ -110,7 +111,8 @@ else if (text.includes('{{Spawn table') || text.includes('{{Spawn row')) {
 ```js
 else if (text.includes('{{назва шаблону')) {
       функція(text);
-}```
+}
+```
 , а після
 ```js
  else if (id === 'spawnTable') {
