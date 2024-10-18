@@ -199,7 +199,8 @@ const replacements_block = {
     "image": "зобр",
     "group": "група",
     "caption": "підпис",
-    "extratext": "додатковийтекст"
+    "extratext": "додатковийтекст",
+    "tntres": "вибухост"
 };
 const replacements_drops = {
     "DropsTableHead": "Голова таблиці дропу",

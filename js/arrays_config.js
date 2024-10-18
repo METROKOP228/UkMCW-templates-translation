@@ -1,62 +1,64 @@
 let javaVer = "1.21.1";
 
 function getSelectValue() {
-    const selectElement = document.getElementById('version-choice-java');
-    const selectedValue = selectElement.value;
+    const selectedValue = document.getElementById('version-choice-java').value;
     // Тепер змінна selectedValue містить вибране значення
-    javaVer = selectedValue;
-    javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/${javaVer}.txt`;
-    fileFetch(javaUrl)
+    fileFetch(`https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/${selectedValue}.txt`)
         .then(data => {
             translations_java = data;
         })
         .catch(error => {
-            console.error('Error fetching file:', error);
+            console.error('Error fetching file translations_java:', error);
+        });
+
+    const selectedValue2 = document.getElementById('version-choice-java2').value;
+    // Тепер змінна selectedValue містить вибране значення
+    fileFetch(`https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/${selectedValue2}.txt`)
+        .then(data => {
+            translations_java2 = data;
+        })
+        .catch(error => {
+            console.error('Error fetching file translations_java2:', error);
         });
 }
 
 document.getElementById('version-choice-java').addEventListener('change', getSelectValue);
+document.getElementById('version-choice-java2').addEventListener('change', getSelectValue);
 
 let javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/1.21.1.txt`;
 let translations_java = [];
+let translations_java2 = [];
 
-fileFetch(javaUrl)
-    .then(data => {
-        translations_java = data;
-    })
-    .catch(error => {
-        console.error('Error fetching file:', error);
-    });
+getSelectValue();
 
 let bedrockVer = "1.21.30";
 
 function getSelectValueBedrock() {
-    const selectElement = document.getElementById('version-choice-bedrock');
-    const selectedValue = selectElement.value;
-    // Тепер змінна selectedValue містить вибране значення
-    bedrockVer = selectedValue;
-    bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/${bedrockVer}.txt`;
-    fileFetch(bedrockUrl)
+    fileFetch(`https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/${document.getElementById('version-choice-bedrock').value}.txt`)
         .then(data => {
             translations_bedrock = data;
         })
         .catch(error => {
-            console.error('Error fetching file:', error);
+            console.error('Error fetching file translations_bedrock:', error);
+        });
+
+    fileFetch(`https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/${document.getElementById('version-choice-bedrock2').value}.txt`)
+        .then(data => {
+            translations_bedrock2 = data;
+        })
+        .catch(error => {
+            console.error('Error fetching file translations_bedrock2:', error);
         });
 }
 
 document.getElementById('version-choice-bedrock').addEventListener('change', getSelectValueBedrock);
+document.getElementById('version-choice-bedrock2').addEventListener('change', getSelectValueBedrock);
 
 let bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/1.21.30.txt`;
 let translations_bedrock = [];
+let translations_bedrock2 = [];
 
-fileFetch(bedrockUrl)
-    .then(data => {
-        translations_bedrock = data;
-    })
-    .catch(error => {
-        console.error('Error fetching file:', error);
-    });
+getSelectValueBedrock();
 
 const earthUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/earth/newest.txt';
 let translations_earth = [];

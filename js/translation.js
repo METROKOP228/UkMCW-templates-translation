@@ -162,7 +162,7 @@ function searchMatches() {
     caseSensitive = document.getElementById("cs-search").checked;
     console.log(`Global: ${isGlobal}, regex: ${useRegex}, case sensitive: ${caseSensitive}`);
     if (isGlobal) {
-        searchInArrays(translations_java, translations_bedrock, translations_earth, translations_legends, translations_education);
+        searchInArrays(translations_java2, translations_bedrock2, translations_earth, translations_legends, translations_education);
     } else {
         let radioButtonsEd = document.getElementsByName('editions2');
         for (let i = 0; i < radioButtonsEd.length; i++) {
@@ -171,10 +171,10 @@ function searchMatches() {
                 console.log(id);
                 switch (id) {
                     case 'java2':
-                        searchInArrays(translations_java);
+                        searchInArrays(translations_java2);
                         break;
                     case 'bedrock2':
-                        searchInArrays(undefined, translations_bedrock);
+                        searchInArrays(undefined, translations_bedrock2);
                         break;
                     case 'earth2':
                         searchInArrays(undefined, undefined, translations_earth);
