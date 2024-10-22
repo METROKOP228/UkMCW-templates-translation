@@ -55,8 +55,14 @@
 	    <div class="tab-buttons">
 	        <button id="mc-tmp" class="tab-btn tab-btn-active" onclick="openTab('tab1')">Переклад шаблонів</button>
 	        <button id="mc-name" class="tab-btn" onclick="openTab('tab2')">Переклад внутрішньоігрових назв</button>
+	        <button id="mc-name-search" class="tab-btn" onclick="openTab('tab3')">Пошук серед внутрішньоігрових назв</button>
 	    </div>
 	    <div class="non-btn-content">
+
+
+		    <!-- ПЕРЕКЛАД ШАБЛОНІВ -->
+
+
 		    <div class="template-selection-container tab tab-content" id="tab1" style="display: flex;">
 		    	<div class="template-selection">
 		    		<h2>Переклад шаблонів</h2>
@@ -99,7 +105,24 @@
 			            <label for="item">Предмет (Infobox item)</label>
 			        </form>
 		    	</div>
+				<div class="container">
+			        <textarea id="textareaInput" class="input"></textarea>
+			        <div class="buttons-tr">
+			        	<button class="button-clear" onclick="getLink(1);"><img src="img/link.png" width="20px"></button>
+			        	<button class="button-tr" id="button-tr1" onclick="translatetext();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
+			        	<button class="button-clear" onclick="clearTextareas(1);"><img src="img/clear.png" width="25px"></button>
+			        </div>
+			        <div class="taContainer">
+			            <textarea id="textareaOutput" class="input" readonly></textarea>
+			            <button class="button-copy" onclick="copy(1)"><img src="img/copy.png" width="20px" height="20px"></button>
+			        </div>
+			    </div>
 		    </div>
+
+
+		    <!-- ПЕРЕКЛАД ВНУТРІШНЬОІГРОВИХ НАЗВ -->
+
+
 		    <div class="translate-names tab tab-content" style="display: none;" id="tab2">
 		    	<div class="translate-names-a">
 			    	<div class="template-selection">
@@ -108,7 +131,7 @@
 				            <p>Виберіть видання/гру:</p>
 				            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
 				            <label for="java">Java Edition: </label>
-					    	<select name="version-choice-je" id="version-choice-je">
+					    	<select name="version-choice-java" id="version-choice-java">
 					    		<option value="1.21.1">1.21.1</option>
 					    		<option value="1.21">1.21</option>
 					    		<option value="1.20.6">1.20.6</option>
@@ -130,7 +153,7 @@
 					    	<br>
 				            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
 				            <label for="bedrock">Bedrock Edition: </label>
-					    	<select name="version-choice-be" id="version-choice-be">
+					    	<select name="version-choice-bedrock" id="version-choice-bedrock">
 					    		<option value="1.21.30">1.21.30</option>
 					    		<option value="1.21.20">1.21.20</option>
 					    		<option value="1.21.0">1.21.0</option>
@@ -150,48 +173,97 @@
 				        </form>
 			    	</div>
 		    	</div>
-		    	
-				<details class="search-text-container">
-		        	<summary>Шукати серед рядків перекладу</summary>
-		        	<div class="flex-dir-needed">
-			        	<div class="not-search-btn">
-		        			<div class="search-text-wrapper">
+				<div class="container">
+			        <textarea id="textareaInput2" class="input"></textarea>
+			        <div class="buttons-tr">
+			        	<button class="button-clear" onclick="getLink(2);"><img src="img/link.png" width="20px"></button>
+			        	<button class="button-tr button-tr2" id="button-tr2" onclick="translateNames();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
+			        	<button class="button-clear" onclick="clearTextareas(2);"><img src="img/clear.png" width="25px"></button>
+			        </div>
+			        <div class="taContainer">
+			            <textarea id="textareaOutput2" class="input" readonly></textarea>
+			            <button class="button-copy" onclick="copy(2)"><img src="img/copy.png" width="20px" height="20px"></button>
+			        </div>
+			    </div>
+		    </div>
+
+		    <!-- ПОШУК СЕРЕД ВНУТРІШНЬОІГРОВИХ НАЗВ -->
+
+		    <div class="names-search-container tab tab-content" style="display: none;" id="tab3">
+			    <h2>Пошук серед внутрішньоігрових назв</h2>
+		    	<div class="flex-dir-needed">
+		        	<div class="not-search-btn">
+	        			<div class="fdrow">
+	        				<div class="search-text-wrapper">
 					        	<span>Текст для пошуку:</span>
 					        	<div class="for-regex-container">
 						        	<span id="regex-slash" class="hidden">/</span>
 						        	<input id="text-to-search" type="text" class="search-text" name="search-text">
 						        	<span id="regex-slash2" class="hidden">/g</span>
 					        	</div>
-				        	</div>
-				        	<div class="global-search-container">
-					        	<input id="global-search" class="global-search" type="checkbox" checked>
-					        	<label for="global-search">Глобальний пошук</label>
-				        	</div>
-				        	<div class="global-search-container">
-					        	<input id="regex-search" class="global-search" type="checkbox">
-					        	<label for="regex-search">Вважати рядок <a href="https://uk.wikipedia.org/wiki/Регулярний_вираз">регулярним виразом</a></label>
-				        	</div>
-				        	<div class="global-search-container">
-					        	<input id="cs-search" class="global-search" type="checkbox" checked>
-					        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
-				        	</div>
+	        				</div>
+	        				<button class="button-clear" onclick="getLink(3);"><img src="img/link.png" width="20px"></button>
 			        	</div>
-			        	<button class="search-button" onclick="searchMatches();">Шукати</button>
+			        	<div class="global-search-container">
+				        	<input id="global-search" class="global-search" type="checkbox" checked>
+				        	<label for="global-search">Глобальний пошук</label>
+			        	</div>
+			        	<div class="global-search-container">
+				        	<input id="regex-search" class="global-search" type="checkbox">
+				        	<label for="regex-search">Вважати рядок <a href="https://uk.wikipedia.org/wiki/Регулярний_вираз">регулярним виразом</a></label>
+			        	</div>
+			        	<div class="global-search-container">
+				        	<input id="cs-search" class="global-search" type="checkbox" checked>
+				        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
+			        	</div>
 		        	</div>
-		        	<div id="results-container"></div>
-		        </details>
-		    </div>
-		    <div class="container">
-		        <textarea id="textareaInput" class="input"></textarea>
-		        <div class="buttons-tr">
-		        	<button class="button-tr" onclick="timeTracking(); translatetext();">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
-		        	<button class="button-clear" onclick="clearTextareas();"><img src="img/clear.png" width="25px"></button>
-		        </div>
-		        <div class="taContainer">
-		            <textarea id="textareaOutput" class="input" readonly></textarea>
-		            <button class="button-copy" onclick="copy()"><img src="img/copy.png" width="20px" height="20px"></button>
-		            <span class="timeTracker">Час виконання: 0 секунд</span>
-		        </div>
+		        	<button class="search-button" onclick="searchMatches();">Шукати</button>
+	        		<form class="editions-form">
+			            <p>Виберіть видання/гру:</p>
+			            <input type="radio" class="radio" id="java2" name="editions2" value="Java Edition" checked>
+			            <label for="java2">Java Edition: </label>
+				    	<select name="version-choice-java2" id="version-choice-java2">
+				    		<option value="1.21.1">1.21.1</option>
+				    		<option value="1.21">1.21</option>
+				    		<option value="1.20.6">1.20.6</option>
+				    		<option value="1.20.5">1.20.5</option>
+				    		<option value="1.20.4">1.20.4</option>
+				    		<option value="1.20.3">1.20.3</option>
+				    		<option value="1.20.2">1.20.2</option>
+				    		<option value="1.20.1">1.20.1</option>
+				    		<option value="1.20">1.20</option>
+				    		<option value="1.19.4">1.19.4</option>
+				    		<option value="1.19.3">1.19.3</option>
+				    		<option value="1.18">1.18</option>
+				    		<option value="1.17">1.17</option>
+				    		<option value="1.16">1.16</option>
+				    		<option value="1.15">1.15</option>
+				    		<option value="1.14">1.14</option>
+				    		<option value="1.13">1.13</option>
+				    	</select>
+				    	<br>
+			            <input type="radio" class="radio" id="bedrock2" name="editions2" value="Bedrock Edition">
+			            <label for="bedrock2">Bedrock Edition: </label>
+				    	<select name="version-choice-bedrock2" id="version-choice-bedrock2">
+				    		<option value="1.21.30">1.21.30</option>
+				    		<option value="1.21.20">1.21.20</option>
+				    		<option value="1.21.0">1.21.0</option>
+				    	</select>
+				    	<br>
+			            <input type="radio" class="radio" id="earth2" name="editions2" value="Minecraft Earth">
+			            <label for="earth2">Minecraft Earth: 0.33.0</label>
+				    	<br>
+			            <input type="radio" class="radio" id="legends2" name="editions2" value="Minecraft Legends">
+			            <label for="legends2">Minecraft Legends: 1.18.19068</label>
+				    	<br>
+			            <input type="radio" class="radio" id="education2" name="editions2" value="Minecraft Education">
+			            <label for="education2">Minecraft Education: 1.21.202.0</label>
+				    	<!--<select name="version-choice-education" id="version-choice-education">
+				    		<option value="1.21.202.0">1.21.202.0</option>
+				    	</select>-->
+			        </form>
+	        	</div>
+	        	<div id="results-container"></div>
 		    </div>
 		</div>
 	</main>
@@ -200,8 +272,7 @@
         <div>Створено користувачем <a href="https://uk.minecraft.wiki/w/Користувач:METROKOP228_UA">METROKOP228</a> для спільноти Української <a href="https://uk.minecraft.wiki">Minecraft Wiki</a>, 2024</div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/translation.js"></script>
     <script src="js/arrays_config.js"></script>
-</body>
+    <script src="js/translation.js"></script>
+    <script src="js/main.js"></script></body>
 </html>

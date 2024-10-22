@@ -1,5 +1,5 @@
 function translateNames() {
-    let text = editor.getValue();
+    let text = editor2.getValue();
     let radioButtonsEd = document.getElementsByName('editions');
 
     for (let i = 0; i < radioButtonsEd.length; i++) {
@@ -9,10 +9,10 @@ function translateNames() {
 
             switch (id) {
             case 'java':
-                output.setValue(translateJava(text));
+                output2.value = translateJava(text);
                 break;
             case 'bedrock':
-                output.setValue(translateBedrock(text));
+                output2.value = translateBedrock(text);
                 break;
             case 'earth':
                 translateEarth(text);
@@ -24,7 +24,7 @@ function translateNames() {
                 translateEducation(text);
                 break;
             default:
-                output.setValue('Error');
+                output2.value = 'Error';
             }
             return;
         }
@@ -101,9 +101,9 @@ function translateEarth(text) {
         }
 
         text = text.join("\n");
-        output.setValue(text);
+        output2.value = text;
     } catch (error) {
-        output.setValue("Error");
+        output2.value = "Error";
     }
 }
 
@@ -121,9 +121,9 @@ function translateLegends(text) {
         }
 
         text = text.join("\n");
-        output.setValue(text);
+        output2.value = text;
     } catch (error) {
-        output.setValue("Error");
+        output2.value = "Error";
     }
 }
 
@@ -146,9 +146,9 @@ function translateEducation(text) {
             }
         }
         text = text.join("\n");
-        output.setValue(text);
+        output2.value = text;
     } catch (error) {
-        output.setValue("Error");
+        output2.value = "Error";
     }
 }
 
@@ -162,27 +162,27 @@ function searchMatches() {
     caseSensitive = document.getElementById("cs-search").checked;
     console.log(`Global: ${isGlobal}, regex: ${useRegex}, case sensitive: ${caseSensitive}`);
     if (isGlobal) {
-        searchInArrays(translations_java, translations_bedrock, translations_earth, translations_legends, translations_education);
+        searchInArrays(translations_java2, translations_bedrock2, translations_earth, translations_legends, translations_education);
     } else {
-        let radioButtonsEd = document.getElementsByName('editions');
+        let radioButtonsEd = document.getElementsByName('editions2');
         for (let i = 0; i < radioButtonsEd.length; i++) {
             if (radioButtonsEd[i].checked) {
                 let id = radioButtonsEd[i].id;
                 console.log(id);
                 switch (id) {
-                    case 'java':
-                        searchInArrays(translations_java);
+                    case 'java2':
+                        searchInArrays(translations_java2);
                         break;
-                    case 'bedrock':
-                        searchInArrays(undefined, translations_bedrock);
+                    case 'bedrock2':
+                        searchInArrays(undefined, translations_bedrock2);
                         break;
-                    case 'earth':
+                    case 'earth2':
                         searchInArrays(undefined, undefined, translations_earth);
                         break;
-                    case 'legends':
+                    case 'legends2':
                         searchInArrays(undefined, undefined, undefined, translations_legends);
                         break;
-                    case 'education':
+                    case 'education2':
                         searchInArrays(undefined, undefined, undefined, undefined, translations_education);
                         break;
                 }
