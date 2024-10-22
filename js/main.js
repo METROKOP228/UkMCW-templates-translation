@@ -311,7 +311,6 @@ const replacements_item = {
     "group": "група",
     "caption": "підпис",
     "extratext": "додатковийтекст",
-    "invimage": "інвзображення",
     "rarity": "рідкісність",
     "durability": "міцн",
     "armor": "захист",
