@@ -1,4 +1,4 @@
-let javaVer = "1.21.1";
+let javaVer = "1.21.3";
 
 function getSelectValue() {
     const selectedValue = document.getElementById('version-choice-java').value;
@@ -25,13 +25,13 @@ function getSelectValue() {
 document.getElementById('version-choice-java').addEventListener('change', getSelectValue);
 document.getElementById('version-choice-java2').addEventListener('change', getSelectValue);
 
-let javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/1.21.1.txt`;
+let javaUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/java/1.21.3.txt`;
 let translations_java = [];
 let translations_java2 = [];
 
 getSelectValue();
 
-let bedrockVer = "1.21.30";
+let bedrockVer = "1.21.40";
 
 function getSelectValueBedrock() {
     fileFetch(`https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/${document.getElementById('version-choice-bedrock').value}.txt`)
@@ -54,7 +54,7 @@ function getSelectValueBedrock() {
 document.getElementById('version-choice-bedrock').addEventListener('change', getSelectValueBedrock);
 document.getElementById('version-choice-bedrock2').addEventListener('change', getSelectValueBedrock);
 
-let bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/1.21.30.txt`;
+let bedrockUrl = `https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/1.21.40.txt`;
 let translations_bedrock = [];
 let translations_bedrock2 = [];
 
