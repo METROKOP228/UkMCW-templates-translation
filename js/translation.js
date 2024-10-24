@@ -9,10 +9,10 @@ function translateNames() {
 
             switch (id) {
             case 'java':
-                output2.value = translateJava(text);
+                output2.setValue(translateJava(text));
                 break;
             case 'bedrock':
-                output2.value = translateBedrock(text);
+                output2.setValue(translateBedrock(text));
                 break;
             case 'earth':
                 translateEarth(text);
@@ -23,8 +23,6 @@ function translateNames() {
             case 'education':
                 translateEducation(text);
                 break;
-            default:
-                output2.value = 'Error';
             }
             return;
         }
@@ -101,9 +99,9 @@ function translateEarth(text) {
         }
 
         text = text.join("\n");
-        output2.value = text;
+        output2.setValue(text);
     } catch (error) {
-        output2.value = "Error";
+        output2.setValue("Error");
     }
 }
 
@@ -121,9 +119,9 @@ function translateLegends(text) {
         }
 
         text = text.join("\n");
-        output2.value = text;
+        output2.setValue(text);
     } catch (error) {
-        output2.value = "Error";
+        output2.setValue("Error");
     }
 }
 
@@ -146,9 +144,9 @@ function translateEducation(text) {
             }
         }
         text = text.join("\n");
-        output2.value = text;
+        output2.setValue(text);
     } catch (error) {
-        output2.value = "Error";
+        output2.setValue("Error");
     }
 }
 

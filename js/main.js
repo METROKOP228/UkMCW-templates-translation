@@ -387,12 +387,16 @@ var editor2 = CodeMirror.fromTextArea(document.getElementById("textareaInput2"),
 var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), {
     readOnly: true,
     lineWrapping: true,
-    readonly: true,
     mode: "",
     theme: "default"
 });
 
-var output2 = document.getElementById("textareaOutput2");
+var output2 = CodeMirror.fromTextArea(document.getElementById("textareaOutput2"), {
+    readOnly: true,
+    lineWrapping: true,
+    mode: "",
+    theme: "default"
+});
 
 function translatetext() {
     if (document.querySelector(".tab-btn-active").id === "mc-tmp") {
@@ -847,7 +851,7 @@ function dateTranslation(date) {
 function copy(num) {
     // Створення тимчасового textarea
     let textarea = document.createElement('textarea');
-    textarea.value = num === 1 ? output.getValue() : output2.value;
+    textarea.value = num === 1 ? output.getValue() : output2.getValue();
     document.body.appendChild(textarea);
     
     // Вибір тексту
@@ -903,7 +907,7 @@ function toggleMenu() {
 function clearTextareas(num) {
     num === 1
         ? (editor.setValue(''), output.setValue(''))
-        : (editor2.setValue(''), output2.value = '');
+        : (editor2.setValue(''), output2.setValue(''));
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -916,6 +920,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const savedBtnHvTextColor = localStorage.getItem('btnHvTextColor');
         const savedLinkColor = localStorage.getItem('linkColor');
         const savedLinkHvColor = localStorage.getItem('linkHvColor');
+        const savedTAColor = localStorage.getItem('TATheme');
 
         if (savedBgColor) {
             document.documentElement.style.setProperty('--bg-color', savedBgColor);
@@ -945,6 +950,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (savedLinkHvColor) {
             document.documentElement.style.setProperty('--link-hover-color', savedLinkHvColor);
             document.getElementById('link-hover-color').value = savedLinkHvColor;
+        }
+
+        if (savedTAColor) {
+            editor.setOption('theme', savedTAColor);
+            editor2.setOption('theme', savedTAColor);
+            output.setOption('theme', savedTAColor);
+            output2.setOption('theme', savedTAColor);
         }
     } else {
         document.getElementById('cookies-checkbox').checked = false;
@@ -979,6 +991,17 @@ function presetChoice(
         localStorage.setItem('linkHvColor', linkHvColor);
     }
 }
+
+function setTheme(theme) {
+    editor.setOption('theme', theme);
+    editor2.setOption('theme', theme);
+    output.setOption('theme', theme);
+    output2.setOption('theme', theme);
+    if (localStorage.getItem('cookieConsent')) {
+        localStorage.setItem('TATheme', theme);
+    }
+}
+
 
 document.getElementById("cookies-checkbox").addEventListener('change', function() {
     if (this.checked) {

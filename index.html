@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/mode/simple.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
 </head>
 <body>
     <div id="cookie-banner">
@@ -43,11 +44,16 @@
 	    <br><br>
 	    <label for="link-hover-color">Колір посилань при наведенні:</label>
 	    <input type="color" id="link-hover-color" name="link-hover-color" value="#A60000" onchange="presetChoice()">
-	    <button class="reset-btn" onclick="presetChoice('#0000FF', '#FFFF00', '#A69D00', '#FFFFFF', '#FF0000', '#A60000')">Скинути</button>
+	    <br><br>
+	    <span>Тема текстових полей:</span>
+	    <br>
+	    <button class="textareas-color-button" onclick="setTheme('default')">Усталена (Світла)</button>
+	    <button class="textareas-color-button" onclick="setTheme('dracula')">Дракула (Темна)</button>
+	    <button class="reset-btn" onclick="presetChoice('#0000FF', '#FFFF00', '#A69D00', '#FFFFFF', '#FF0000', '#A60000'); setTheme('default');">Скинути</button>
 	    <h3>Шаблони</h3>
-	    <button class="pers-presets-button" onclick="presetChoice('#b8b8ff', '#ffffff', '#9e9eff', '#ffffff', '#ffa8a8', '#e66b6b')">Світлий режим</button>
-	    <button class="pers-presets-button" onclick="presetChoice('#000033', '#0040ff', '#20367e', '#ffffff', '#00ffe1', '#ffffff')">Темний режим</button>
-	    <button class="pers-presets-button" onclick="presetChoice('#000000', '#bababa', '#808080', '#bababa', '#737373', '#404040')">Темніший режим</button>
+	    <button class="pers-presets-button" onclick="presetChoice('#b8b8ff', '#ffffff', '#9e9eff', '#ffffff', '#ffa8a8', '#e66b6b'); setTheme('default');">Світлий режим</button>
+	    <button class="pers-presets-button" onclick="presetChoice('#000033', '#0040ff', '#20367e', '#ffffff', '#00ffe1', '#ffffff'); setTheme('dracula');">Темний режим</button>
+	    <button class="pers-presets-button" onclick="presetChoice('#000000', '#bababa', '#808080', '#bababa', '#737373', '#404040'); setTheme('dracula');">Темніший режим</button>
 	    <h2>Кукі</h2>
 	    Використовувати кукі?<br><input type="checkbox" id="cookies-checkbox">
   	</div>

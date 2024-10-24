@@ -638,6 +638,7 @@ div.CodeMirror {
     outline: none;
     resize: none;
 }
+
 .cm-custom-link {
     color: blue;
     font-weight: bold;
@@ -666,6 +667,6 @@ div.CodeMirror {
 .cm-diff-added-green {
     background-color: #d4fcbc;
 }
-.cm-diff-added-blue {
-    background-color: #b7cfff;
+.cm-s-dracula .cm-diff-added-green {
+    background-color: #007235;
 }
