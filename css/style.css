@@ -21,6 +21,7 @@
 
 body {
 	background-color: var(--bg-color);
+    overflow-y: scroll;
 }
 
 .header {
@@ -208,12 +209,26 @@ main.content-container {
 .tab-buttons .tab-btn-active {
     background-color: var(--bg-color);
     color: var(--alt-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 300px;
+    overflow: visible;
 }
 
 .tab-btn:not(.tab-btn-active) {
     position: relative;
     z-index: 1;
     cursor: pointer;
+    width: 55px;
+}
+
+.tab-btn:not(.tab-btn-active):hover {
+    width: 300px;
+}
+
+.tab-btn:not(.tab-btn-active):hover span {
+    opacity: 1;
 }
 
 .tab-btn:not(.tab-btn-active)::before {
@@ -230,6 +245,9 @@ main.content-container {
 }
 
 .tab-btn {
+    display: flex;
+    flex-direction: row;
+    height: 55px;
     position: relative;
     color: var(--alt-color);
     background-color: var(--bg-color);
@@ -238,6 +256,24 @@ main.content-container {
     border-bottom: none;
     padding: 10px;
     border-radius: 5px 5px 0 0;
+    transition: width 0.7s ease-in-out;
+    overflow: hidden;
+}
+
+.tab-btn span {
+    opacity: 0;
+}
+
+.tab-btn-active span {
+    opacity: 1;
+}
+
+.tab-btn svg * {
+    stroke: var(--alt-color);
+}
+
+.tab-btn svg {
+    flex-shrink: 0;
 }
 
 .tab-btn.tab-btn-active::after {
@@ -249,6 +285,18 @@ main.content-container {
     height: 2px; /* Висота лінії */
     background-color: var(--bg-color); /* Колір бордера */
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 .container {
 	display: flex;

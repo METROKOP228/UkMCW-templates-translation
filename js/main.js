@@ -1004,25 +1004,30 @@ document.getElementById('disagree-btn').addEventListener('click', function() {
     document.getElementById('cookies-checkbox').checked = false;
 });
 
-function openTab(tabId) {
-    // Сховати всі вкладки
-    var tabs = document.getElementsByClassName('tab');
-    for (var i = 0; i < tabs.length; i++) {
-        tabs[i].style.display = 'none';;
+function openTab(tabId, btnId) {
+    if (document.querySelector(".tab-btn-active").id !== btnId) {
+        // Сховати всі вкладки
+        var tabs = document.getElementsByClassName('tab');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = 'none';
+        }
+        document.getElementById(tabId).style.display = 'flex';
+
+        // Показати активну вкладку
+        var activeButton = document.getElementById(btnId);
+
+        activeButton.style.display = 'flex';
+
+        editor2.refresh();
+
+        // Зняти активність з усіх кнопок та очистити їхній текст
+        var buttons = document.querySelectorAll('.tab-buttons button');
+        buttons.forEach(button => {
+            button.classList.remove('tab-btn-active');
+        });
+
+        activeButton.classList.add('tab-btn-active');
     }
-
-    // Показати активну вкладку
-    document.getElementById(tabId).style.display = 'flex';
-    setTimeout(() => {
-      editor2.refresh();
-    }, 0);
-
-    // Зняти активність з усіх кнопок
-    var buttons = document.querySelectorAll('.tab-buttons button');
-    buttons.forEach(button => button.classList.remove('tab-btn-active'));
-
-    // Додати активність до натиснутої кнопки
-    event.target.classList.add('tab-btn-active');
 }
 
 const url = new URL(window.location.href);

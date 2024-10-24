@@ -53,9 +53,22 @@
   	</div>
   	<main class="content-container">
 	    <div class="tab-buttons">
-	        <button id="mc-tmp" class="tab-btn tab-btn-active" onclick="openTab('tab1')">Переклад шаблонів</button>
-	        <button id="mc-name" class="tab-btn" onclick="openTab('tab2')">Переклад внутрішньоігрових назв</button>
-	        <button id="mc-name-search" class="tab-btn" onclick="openTab('tab3')">Пошук серед внутрішньоігрових назв</button>
+	        <button id="mc-tmp" class="tab-btn tab-btn-active" onclick="openTab('tab1', 'mc-tmp')">
+	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30"><rect x="12" y="8" width="40" height="48" rx="4" ry="4" fill="none" stroke="#000" stroke-width="3"/><line x1="16" y1="16" x2="48" y2="16" stroke="#000" stroke-width="3"/><line x1="16" y1="24" x2="48" y2="24" stroke="#000" stroke-width="3"/><line x1="16" y1="32" x2="40" y2="32" stroke="#000" stroke-width="3"/><path d="M32 48 L48 32 L40 24 L24 40 Z" fill="none" stroke="#000" stroke-width="3"/><line x1="36" y1="36" x2="40" y2="40" stroke="#000" stroke-width="3"/></svg>
+	        	<span>Переклад шаблонів</span>
+	        </button>
+	        <button id="mc-name" class="tab-btn" onclick="openTab('tab2', 'mc-name')">
+	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30"><path d="M12 16 H52 V48 H12 Z" fill="none" stroke="#000" stroke-width="3"/><line x1="12" y1="32" x2="52" y2="32" stroke="#000" stroke-width="3"/><rect x="12" y="8" width="40" height="48" rx="4" ry="4" fill="none" stroke="#000" stroke-width="3"/><line x1="16" y1="20" x2="48" y2="20" stroke="#000" stroke-width="3"/><line x1="16" y1="28" x2="48" y2="28" stroke="#000" stroke-width="3"/><line x1="16" y1="44" x2="48" y2="44" stroke="#000" stroke-width="3"/></svg>
+	        	<span>Переклад внутрішньоігрових назв</span>
+	    	</button>
+	        <button id="mc-name-search" class="tab-btn" onclick="openTab('tab3', 'mc-name-search')">
+	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30"><rect x="10" y="20" width="30" height="24" fill="none" stroke="#000" stroke-width="3"/><line x1="14" y1="26" x2="34" y2="26" stroke="#000" stroke-width="3"/><line x1="14" y1="34" x2="34" y2="34" stroke="#000" stroke-width="3"/><circle cx="46" cy="34" r="8" fill="none" stroke="#000" stroke-width="3"/><line x1="50" y1="38" x2="56" y2="44" stroke="#000" stroke-width="3"/></svg>
+				<span>Пошук серед внутрішньоігрових назв</span>
+	    	</button>
+	        <button id="mc-name-compare" class="tab-btn" onclick="openTab('tab4', 'mc-name-compare')">
+	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30"><rect x="8" y="12" width="22" height="40" fill="none" stroke="#000" stroke-width="3"/><rect x="34" y="12" width="22" height="40" fill="none" stroke="#000" stroke-width="3"/><line x1="14" y1="20" x2="26" y2="20" stroke="#000" stroke-width="3"/><line x1="40" y1="20" x2="52" y2="20" stroke="#000" stroke-width="3"/><line x1="18" y1="28" x2="22" y2="28" stroke="#000" stroke-width="3"/><line x1="42" y1="28" x2="46" y2="28" stroke="#000" stroke-width="3"/><polyline points="30,28 36,32 30,36" fill="none" stroke="#000" stroke-width="3"/></svg>
+	        	<span>Порівняння мовних файлів</span>
+	        </button>
 	    </div>
 	    <div class="non-btn-content">
 
@@ -268,6 +281,9 @@
 			        </form>
 	        	</div>
 	        	<div id="results-container"></div>
+		    </div>
+		    <div class="compare-container tab tab-content" id="tab4" style="display: flex;">
+		    	<h1 style="color:var(--alt-color); display: flex; justify-content: center; width:100%;">WIP, coming soon</h1>
 		    </div>
 		</div>
 	</main>
