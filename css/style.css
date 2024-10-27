@@ -24,6 +24,58 @@ body {
     overflow-y: scroll;
 }
 
+input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: var(--alt-color);
+}
+input[type="radio"]:checked {
+    background-color: var(--bg-color);
+    border: 5px solid var(--alt-color);
+}
+input[type="radio"]:hover {
+    background-color: var(--btn-hover-bg-color);
+}
+input[type="radio"]:checked:hover {
+    background-color: var(--btn-hover-text-color);
+    border-color: var(--btn-hover-bg-color);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+}
+input[type="checkbox"] {
+    background-color: var(--alt-color);
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M4,4 L28,28 M28,4 L4,28" stroke="red" stroke-width="6" stroke-linecap="round" /></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M4,4 L28,28 M28,4 L4,28" stroke="red" stroke-width="6" stroke-linecap="round" /></svg>');
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+input[type="checkbox"]:checked {
+    background-color: var(--alt-color);
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818" fill="green" /></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M11.941,28.877l-11.941-11.942l5.695-5.696l6.246,6.246l14.364-14.364L32,8.818" fill="green" /></svg>');
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+input[type="checkbox"]:hover {
+    background-color: var(--btn-hover-bg-color);
+}
+button {
+    appearance: none;
+}
+
+
+
+
+
+
 .header {
 	display: flex;
 	flex-wrap: nowrap;
@@ -78,33 +130,6 @@ body {
 #cookies-checkbox {
     width: 35px;
     height: 35px;
-    appearance: none; /* Прибираємо стандартний чекбокс */
-    -webkit-appearance: none;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-#cookies-checkbox::before {
-    content: "✖"; /* Символ хрестика */
-    color: red;
-    border: 3px solid red;
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-/* Зелена галочка, коли чекбокс вибраний */
-#cookies-checkbox:checked::before {
-    content: "✔"; /* Символ галочки */
-    color: green;
-    border: 3px solid green;
-    font-size: 25px;
-}
-#cookies-checkbox:hover {
-    border-color: #888; /* Зміна кольору меж при наведенні */
 }
 
 .fdrow {
@@ -132,13 +157,13 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #c9c9c9;
+    background-color: var(--bg-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: none; /* Початково приховано */
     z-index: 100000;
     overflow: auto;
+    color: var(--alt-color);
 }
 
 .settings-menu label {
@@ -169,8 +194,10 @@ input[type="color"] {
 }
 
 .reset-btn {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: 20px;
     padding: 10px 20px;
     background-color: yellow;
@@ -184,6 +211,13 @@ input[type="color"] {
 .reset-btn:hover {
     background-color: #A69D00;
     color: white;
+}
+
+.pers-presets-button,
+.textareas-color-button {
+    background-color: var(--alt-color);
+    color: var(--bg-color);
+    border: none;
 }
 
 
@@ -224,6 +258,8 @@ main.content-container {
 }
 
 .tab-btn:not(.tab-btn-active):hover {
+    display: flex;
+    align-items: center;
     width: 300px;
 }
 
@@ -368,7 +404,9 @@ main.content-container {
 .button-tr:hover,
 .button-clear:hover,
 .settings-button:hover,
-.search-button:hover {
+.search-button:hover,
+.pers-presets-button:hover,
+.textareas-color-button:hover {
     background-color: var(--btn-hover-bg-color);
     color: var(--btn-hover-text-color);
 }
@@ -381,7 +419,7 @@ main.content-container {
 .button-tr {
     background-color: var(--alt-color);
     color: var(--bg-color);
-    border: 1px solid black;
+    border: none;
     margin: 10px;
     height: 200px;
     width: 30px;
@@ -391,7 +429,7 @@ main.content-container {
 .button-clear {
     background-color: var(--alt-color);
     color: var(--bg-color);
-    border: 1px solid black;
+    border: none;
     margin: 10px;
     height: 30px;
     width: 30px;
@@ -548,7 +586,7 @@ label a:hover {
     left: -165px;
     background-color: var(--alt-color);
     color: var(--bg-color);
-    border: 1px solid black;
+    border: none;
     font-size: 18px;
     height: 30px;
     width: 175px;
