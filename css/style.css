@@ -356,6 +356,14 @@ main.content-container {
     cursor: pointer;
 }
 
+.settings-button svg {
+    color: var(--bg-color);
+}
+
+.settings-button:hover svg {
+    color: var(--btn-hover-text-color);
+}
+
 .button:hover,
 .button-tr:hover,
 .button-clear:hover,
@@ -394,6 +402,8 @@ main.content-container {
 }
 
 .button-copy {
+    border: none;
+    background-color: var(--alt-color);
     position: absolute;
     top: 0;
     right: 0;
@@ -401,8 +411,24 @@ main.content-container {
     z-index: 999;
 }
 
+.button-copy svg {
+    color: var(--bg-color);
+}
 
+.button-copy:hover {
+    background-color: var(--btn-hover-bg-color);
+}
 
+.button-copy:hover svg {
+    color: var(--btn-hover-text-color);
+}
+
+.button-clear svg g {
+    fill: var(--bg-color);
+}
+.button-clear:hover svg g {
+    fill: var(--btn-hover-text-color);
+}
 
 
 
