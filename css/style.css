@@ -26,6 +26,8 @@ body {
 
 input[type="radio"] {
     appearance: none;
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
     width: 16px;
     height: 16px;
     border-radius: 8px;
@@ -45,6 +47,8 @@ input[type="radio"]:checked:hover {
 
 input[type="checkbox"] {
     appearance: none;
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
     width: 16px;
     height: 16px;
 }
@@ -69,7 +73,56 @@ input[type="checkbox"]:hover {
 }
 button {
     appearance: none;
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
 }
+input[type="text"] {
+    appearance: none;
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
+    background-color: var(--bg-color);
+    border: 2px solid var(--alt-color);
+    color: var(--alt-color);
+    outline: none;
+}
+input[type="text"]::placeholder {
+    color: var(--alt-color);
+    opacity: 0.7;
+}
+select {
+    appearance: none;
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
+    outline: none;
+    background-color: var(--bg-color);
+    border: 2px solid var(--alt-color);
+    color: var(--alt-color);
+}
+select:hover {
+    border: 2px solid var(--btn-hover-bg-color);
+    color: var(--btn-hover-bg-color);
+}
+select:hover option {
+    color: var(--alt-color);
+}
+input[type="color"] {
+    appearance: none;
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
+    border: 3px solid var(--alt-color);
+    background-color: var(--bg-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+input[type="color"]:hover {
+    border: 3px solid var(--btn-hover-bg-color);
+}
+
+
+
+
+
 
 
 
