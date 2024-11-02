@@ -2,7 +2,7 @@
 
 <b>https://metrokop228.github.io/UkMCW-templates-translation/</b>
 
-Якщо потрібна докладна інформація по використанню, заходіть у наш дискорд - <a href="https://discord.gg/japqvP7">Українська Minecraft Wiki</a>
+Якщо потрібна докладна інформація по використанню, заходіть у наш дискорд - <a href="https://discord.gg/japqvP7">Українськомовна Minecraft Wiki</a>
 
 <h1>Використання</h1>
 Докладна інформація щодо використання вебсайту
@@ -16,8 +16,8 @@
 <h2>Переклад внутрішньоігрових назв</h2>
 Даний розділ дозволяє перекласти будь які назви із певного видання/гри. Підтримувані ігри:<br>
 <ul>
-  <li>Minecraft Java Edition</li>
-  <li>Minecraft Bedrock Edition</li>
+  <li>Minecraft: Java Edition</li>
+  <li>Minecraft: Bedrock Edition</li>
   <li>Minecraft Earth</li>
   <li>Minecraft Legends</li>
   <li>Minecraft Education</li>
@@ -94,7 +94,7 @@ function назваШаблону(text) {
         .join("\n"));
 }
 ```
-title замінюєте на англ назву параметра шаблону, для якого потрібен переклад назв Java Edition, якщо переклад назв JE не потрібен, то вставляєте наступне:
+title замінюєте на англ. назву параметра шаблону, для якого потрібен переклад назв Java Edition, якщо переклад назв JE не потрібен, то вставляєте наступне:
 ```js
 function назваШаблону(text) {
     highlightAdditions(text, text
