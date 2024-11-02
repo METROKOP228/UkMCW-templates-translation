@@ -44,8 +44,8 @@ function translateJava(text) {
                     }
                 }
             }
-            for (let j = 0; j < translations_java.length; j++) {
-                en_uk = translations_java[j].split("=");
+            for (let j = 0; j < translations_java[jeVer].length; j++) {
+                en_uk = translations_java[jeVer][j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
                     text[i] = text[i].replace(en_uk[0], en_uk[1]);
                 }
@@ -70,8 +70,8 @@ function translateBedrock(text) {
     let en_uk = [];
     try {
         for (let i = 0; i < text.length; i++) {
-            for (let j = 0; j < translations_bedrock.length; j++) {
-                en_uk = translations_bedrock[j].split("=");
+            for (let j = 0; j < translations_bedrock[beVer].length; j++) {
+                en_uk = translations_bedrock[beVer][j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
                     text[i] = text[i].replace(en_uk[0], en_uk[1]);
                 }
@@ -160,7 +160,7 @@ function searchMatches() {
     caseSensitive = document.getElementById("cs-search").checked;
     console.log(`Global: ${isGlobal}, regex: ${useRegex}, case sensitive: ${caseSensitive}`);
     if (isGlobal) {
-        searchInArrays(translations_java2, translations_bedrock2, translations_earth, translations_legends, translations_education);
+        searchInArrays(translations_java[jeVer2], translations_bedrock[beVer2], translations_earth, translations_legends, translations_education);
     } else {
         let radioButtonsEd = document.getElementsByName('editions2');
         for (let i = 0; i < radioButtonsEd.length; i++) {
@@ -169,10 +169,10 @@ function searchMatches() {
                 console.log(id);
                 switch (id) {
                     case 'java2':
-                        searchInArrays(translations_java2);
+                        searchInArrays(translations_java[jeVer2]);
                         break;
                     case 'bedrock2':
-                        searchInArrays(undefined, translations_bedrock2);
+                        searchInArrays(undefined, translations_bedrock[beVer2]);
                         break;
                     case 'earth2':
                         searchInArrays(undefined, undefined, translations_earth);
