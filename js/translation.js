@@ -1,3 +1,5 @@
+// ПЕРЕКЛАД ВНУТРІШНЬОІГРОВИХ НАЗВ
+
 function translateNames() {
     let text = editor2.getValue();
     let radioButtonsEd = document.getElementsByName('editions');
@@ -149,6 +151,17 @@ function translateEducation(text) {
         output2.setValue("Error");
     }
 }
+
+
+
+
+
+
+
+
+
+
+// ПОШУК СЕРЕД ВНУТРІШНЬОІГРОВИХ НАЗВ
 
 var isGlobal;
 var useRegex;
@@ -311,3 +324,182 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
         }
     }
 }
+
+
+
+
+
+
+
+// ПОРІВНЯННЯ ІГРОВИХ ФАЙЛІВ
+
+function parse_lines(lines) {
+    parsed_dict = {};
+
+    for (const line of lines) {
+        if (line.includes('=')) {
+            let [key, value] = line.split('=', 2);
+            parsed_dict[key.trim()] = value.trim();
+        }
+    }
+    return parsed_dict;
+}
+
+function find_new_lines(old_dict, new_dict) {
+    const new_lines = {};
+    for (const key in new_dict) {
+        if (!(key in old_dict)) {
+            new_lines[key] = new_dict[key];
+        }
+    }
+    return new_lines;
+}
+
+function find_changed_lines(old_dict, new_dict) {
+    const changed_lines = {};
+    for (const key in new_dict) {
+        if (key in old_dict) {
+            if (old_dict[key] !== new_dict[key]) {
+                changed_lines[key] = `<span class="changesHover">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover">${new_dict[key]}</span>`;
+            }
+        }
+    }
+    return changed_lines;
+}
+
+function find_removed_lines(old_dict, new_dict) {
+    const removed_lines = {};
+    for (const key in old_dict) {
+        if (!(key in new_dict)) {
+            removed_lines[key] = `${old_dict[key]}`;
+        }
+    }
+    return removed_lines;
+}
+
+function insert_changes(new_lines, changed_lines, removed_lines) {
+    let compareText = '<br><br><span style="font-size: 25px;" id="Нові рядки">Нові рядки:</span><br>';
+    const sortedNewLines = Object.entries(new_lines)
+        .sort((a, b) => b[1].length - a[1].length);
+
+    for (const [key, value] of sortedNewLines) {
+        compareText += `<span class="changesHover">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover">${value}</span><br>`;
+    }
+
+    compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
+    const sortedChangedLines = Object.entries(changed_lines)
+        .sort((a, b) => b[1].length - a[1].length);
+
+    for (const [key, value] of sortedChangedLines) {
+        compareText += `<span class="arrow">${key}:</span> ${value}<br>`;
+    }
+
+    compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
+
+    const sortedRemovedLines = Object.entries(removed_lines)
+        .sort((a, b) => b[1].length - a[1].length);
+
+    for (const [key, value] of sortedRemovedLines) {
+        compareText += `<span class="changesHover">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover">${value}</span><br>`;
+    }
+
+    let compareDiv = document.createElement('div');
+    compareDiv.innerHTML = `<span>${compareText}</span>`;
+    document.getElementById("compare-results-container").appendChild(compareDiv);
+}
+
+function trackChanges() {
+    document.getElementById("compare-results-container").innerHTML = '';
+    let old_dict = {};
+    let new_dict = {};
+    if (document.getElementById("edition-choice-changes").value === "Java Edition") {
+        old_dict = parse_lines(translations_java[document.getElementById("compare-version-1").value]);
+        new_dict = parse_lines(translations_java[document.getElementById("compare-version-2").value]);
+    } else if (document.getElementById("edition-choice-changes").value === "Bedrock Edition") {
+        old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value]);
+        new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value]);
+    }
+
+    const new_lines = find_new_lines(old_dict, new_dict);
+    const changed_lines = find_changed_lines(old_dict, new_dict);
+    const removed_lines = find_removed_lines(old_dict, new_dict);
+
+    insert_changes(new_lines, changed_lines, removed_lines);
+    console.log("Зміни вставлено у код");
+}
+
+function syncCompareOptions() {
+    const selectedValue = document.getElementById('edition-choice-changes').value; // Отримуємо значення вибраного варіанту
+    const version1Select = document.getElementById('compare-version-1');
+    const version2Select = document.getElementById('compare-version-2');
+
+    // Очищаємо попередні опції
+    version1Select.innerHTML = '';
+    version2Select.innerHTML = '';
+
+    // Вибираємо версії в залежності від вибору
+    let versions;
+    if (selectedValue === "Java Edition") {
+        versions = java_vers; // Ваша змінна з версіями Java
+    } else {
+        versions = bedrock_vers; // Ваша змінна з версіями Bedrock
+    }
+
+    // Додаємо опцію "Версія"
+    const defaultOption = document.createElement('option');
+    defaultOption.text = "Версія";
+    defaultOption.value = ""; // Додаємо пусте значення
+    version1Select.add(defaultOption);
+    version2Select.add(defaultOption.cloneNode(true)); // Клон для другого select
+
+    // Додаємо нові опції до select
+    versions.forEach(function(version) {
+        const option = document.createElement('option');
+        option.text = version; // Текст опції
+        option.value = version; // Значення опції
+        version1Select.add(option);
+        version2Select.add(option.cloneNode(true)); // Клон для другого select
+    });
+
+    // Вимкнути опцію, якщо потрібно
+    if (version1Select.options.length > 1) {
+        version1Select.options[1].disabled = true; // Вимкнути другу опцію
+    }
+    
+    if (version2Select.options.length > 0) {
+        version2Select.options[version2Select.options.length - 1].disabled = true; // Вимкнути останню опцію
+    }
+}
+
+document.getElementById('edition-choice-changes').addEventListener('change', syncCompareOptions);
+document.getElementById('compare-version-1').addEventListener('change', function() {
+    this.options[0].disabled = true;
+    const selectedValue = this.value;
+
+    const selectedIndex = this.selectedIndex;
+
+    // Розблокувати всі option в другому select
+    for (let i = 0; i < document.getElementById('compare-version-2').options.length; i++) {
+        document.getElementById('compare-version-2').options[i].disabled = false; // Спочатку розблокувати всі
+    }
+
+    // Заблокувати option з індексами вищими або рівними вибраному
+    for (let i = selectedIndex; i < document.getElementById('compare-version-2').options.length; i++) {
+        document.getElementById('compare-version-2').options[i].disabled = true; // Заблокувати
+    }
+});
+document.getElementById('compare-version-2').addEventListener('change', function() {
+    this.options[0].disabled = true;
+    const selectedValue = this.value;
+    const selectedIndex = this.selectedIndex;
+
+    // Розблокувати всі option в другому select
+    for (let i = 0; i < document.getElementById('compare-version-2').options.length; i++) {
+        document.getElementById('compare-version-1').options[i].disabled = false; // Спочатку розблокувати всі
+    }
+
+    // Заблокувати option з індексами нижчими за вибраний
+    for (let i = 0; i <= selectedIndex; i++) {
+        document.getElementById('compare-version-1').options[i].disabled = true; // Заблокувати
+    }
+});

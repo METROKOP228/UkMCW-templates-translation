@@ -294,7 +294,67 @@
 
 		    
 		    <div class="compare-container tab tab-content" id="tab4" style="display: none;">
-		    	<h1 style="color:var(--alt-color); display: flex; justify-content: center; width:100%;">WIP, coming soon</h1>
+		    	<h2>Порівняння ігрових файлів</h2>
+		    	<div class="compare-wrapper">
+			    	<span>Виберіть видання: </span>
+			    	<select name="edition-choice-changes" id="edition-choice-changes">
+			    		<option value="Java Edition">Java Edition</option>
+			    		<option value="Bedrock Edition">Bedrock Edition</option>
+			    		<option value="Minecraft Earth" disabled>Minecraft Earth</option>
+			    		<option value="Minecraft Legends" disabled>Minecraft Legends</option>
+			    		<option value="Minecraft Education" disabled>Minecraft Education</option>
+			    	</select>
+		    	</div>
+		    	<div class="compare-wrapper">
+		    		<span>Виберіть першу версію: </span>
+		    		<select name="compare-version-1" id="compare-version-1">
+			    		<option value="">Версія</option>
+			    		<option value="1.21.3" disabled>1.21.3</option>
+			    		<option value="1.21.1">1.21.1</option>
+			    		<option value="1.21">1.21</option>
+			    		<option value="1.20.6">1.20.6</option>
+			    		<option value="1.20.5">1.20.5</option>
+			    		<option value="1.20.4">1.20.4</option>
+			    		<option value="1.20.3">1.20.3</option>
+			    		<option value="1.20.2">1.20.2</option>
+			    		<option value="1.20.1">1.20.1</option>
+			    		<option value="1.20">1.20</option>
+			    		<option value="1.19.4">1.19.4</option>
+			    		<option value="1.19.3">1.19.3</option>
+			    		<option value="1.18">1.18</option>
+			    		<option value="1.17">1.17</option>
+			    		<option value="1.16">1.16</option>
+			    		<option value="1.15">1.15</option>
+			    		<option value="1.14">1.14</option>
+			    		<option value="1.13">1.13</option>
+		    		</select>
+		    	</div>
+		    	<div class="compare-wrapper">
+		    		<span>Виберіть другу версію: </span>
+		    		<select name="compare-version-2" id="compare-version-2">
+			    		<option value="">Версія</option>
+			    		<option value="1.21.3">1.21.3</option>
+			    		<option value="1.21.1">1.21.1</option>
+			    		<option value="1.21">1.21</option>
+			    		<option value="1.20.6">1.20.6</option>
+			    		<option value="1.20.5">1.20.5</option>
+			    		<option value="1.20.4">1.20.4</option>
+			    		<option value="1.20.3">1.20.3</option>
+			    		<option value="1.20.2">1.20.2</option>
+			    		<option value="1.20.1">1.20.1</option>
+			    		<option value="1.20">1.20</option>
+			    		<option value="1.19.4">1.19.4</option>
+			    		<option value="1.19.3">1.19.3</option>
+			    		<option value="1.18">1.18</option>
+			    		<option value="1.17">1.17</option>
+			    		<option value="1.16">1.16</option>
+			    		<option value="1.15">1.15</option>
+			    		<option value="1.14">1.14</option>
+			    		<option value="1.13" disabled>1.13</option>
+		    		</select>
+		    	</div>
+		        <button class="generate-button" onclick="trackChanges();">Генерувати</button>
+		    	<div id="compare-results-container"></div>
 		    </div>
 		</div>
 	</main>

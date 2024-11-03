@@ -1060,6 +1060,8 @@ const tabVar = params.get('tab'); // url var 1
 const modeVar = params.get('mode'); // url var 2
 const modesVar = params.get('modes'); // url var 3
 const textVar = params.get('text'); // url var 4
+const ver1Var = params.get('ver1'); // url var 5
+const ver2Var = params.get('ver2'); // url var 6
 // example: https://metrokop228.github.io/UkMCW-templates-translation?tab=2&mode=java&text=Wolf
 window.onload = function() {
     if (tabVar == "2") {
@@ -1097,6 +1099,32 @@ window.onload = function() {
                 searchMatches();
             }, 200);
         }
+    } else if (tabVar == "4") {
+        document.getElementById('mc-name-compare').click();
+        if (modeVar) {
+            for (option in document.getElementById('edition-choice-changes').options) {
+                if (document.getElementById('edition-choice-changes').options[option].value === modeVar && document.getElementById('edition-choice-changes').options[option].disabled === false) {
+                    document.getElementById('edition-choice-changes').value = modeVar;
+                    syncCompareOptions();
+                }
+            }
+        }
+        if (ver1Var) {
+            for (option in document.getElementById('compare-version-1').options) {
+                if (document.getElementById('compare-version-1').options[option].value === ver1Var && document.getElementById('compare-version-1').options[option].disabled === false) {
+                    document.getElementById('compare-version-1').value = ver1Var;
+
+                    if (ver2Var > ver1Var) {
+                        for (option in document.getElementById('compare-version-2').options) {
+                            if (document.getElementById('compare-version-2').options[option].value === ver2Var && document.getElementById('compare-version-2').options[option].disabled === false) {
+                                document.getElementById('compare-version-2').value = ver2Var;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        generateComparison();
     } else {
         if (modeVar) {
             document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
@@ -1108,10 +1136,30 @@ window.onload = function() {
             }, 200);
         }
     }
-    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}, Modes: ${modesVar}`)
+    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}, Modes: ${modesVar}, Ver1: ${ver1Var}, Ver2: ${ver2Var}`)
 
     if (!localStorage.getItem('cookieConsent')) {
         document.getElementById('cookie-banner').style.display = 'flex';
+    }
+}
+
+function generateComparison() {
+    if (document.getElementById('edition-choice-changes').value === "Java Edition") {
+        if (translations_java[document.getElementById('compare-version-1').value] !== undefined && translations_java[document.getElementById('compare-version-2').value] !== undefined) {
+            trackChanges();
+        } else {
+            setTimeout(() => {
+                generateComparison();
+            }, 200);
+        }
+    } else {
+        if (translations_bedrock[document.getElementById('compare-version-1').value] !== undefined && translations_bedrock[document.getElementById('compare-version-2').value] !== undefined) {
+            trackChanges();
+        } else {
+            setTimeout(() => {
+                generateComparison();
+            }, 200);
+        }
     }
 }
 
