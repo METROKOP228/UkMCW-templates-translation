@@ -429,49 +429,48 @@ function trackChanges() {
 }
 
 function syncCompareOptions() {
-    let selectedValue;
     setTimeout(() => {
+        let selectedValue;
         selectedValue = document.getElementById('edition-choice-changes').value; // Отримуємо значення вибраного варіанту
-    }, 200);
-    const version1Select = document.getElementById('compare-version-1');
-    const version2Select = document.getElementById('compare-version-2');
+        // Вибираємо версії в залежності від вибору
+        let versionsSelect;
+        if (selectedValue === "Java Edition") {
+            versionsSelect = java_vers; // Ваша змінна з версіями Java
+        } else {
+            versionsSelect = bedrock_vers; // Ваша змінна з версіями Bedrock
+        }
+        const version1Select = document.getElementById('compare-version-1');
+        const version2Select = document.getElementById('compare-version-2');
 
-    // Очищаємо попередні опції
-    version1Select.innerHTML = '';
-    version2Select.innerHTML = '';
+        // Очищаємо попередні опції
+        version1Select.innerHTML = '';
+        version2Select.innerHTML = '';
 
-    // Вибираємо версії в залежності від вибору
-    let versionsSelect;
-    if (selectedValue === "Java Edition") {
-        versionsSelect = java_vers; // Ваша змінна з версіями Java
-    } else {
-        versionsSelect = bedrock_vers; // Ваша змінна з версіями Bedrock
-    }
+        // Додаємо опцію "Версія"
+        const defaultOption = document.createElement('option');
+        defaultOption.text = "Версія";
+        defaultOption.value = ""; // Додаємо пусте значення
+        version1Select.add(defaultOption);
+        version2Select.add(defaultOption.cloneNode(true)); // Клон для другого select
 
-    // Додаємо опцію "Версія"
-    const defaultOption = document.createElement('option');
-    defaultOption.text = "Версія";
-    defaultOption.value = ""; // Додаємо пусте значення
-    version1Select.add(defaultOption);
-    version2Select.add(defaultOption.cloneNode(true)); // Клон для другого select
+        // Додаємо нові опції до select
+        versionsSelect.forEach(function(version) {
+            const option = document.createElement('option');
+            option.text = version; // Текст опції
+            option.value = version; // Значення опції
+            version1Select.add(option);
+            version2Select.add(option.cloneNode(true)); // Клон для другого select
+        });
 
-    // Додаємо нові опції до select
-    versionsSelect.forEach(function(version) {
-        const option = document.createElement('option');
-        option.text = version; // Текст опції
-        option.value = version; // Значення опції
-        version1Select.add(option);
-        version2Select.add(option.cloneNode(true)); // Клон для другого select
-    });
-
-    // Вимкнути опцію, якщо потрібно
-    if (version1Select.options.length > 1) {
-        version1Select.options[1].disabled = true; // Вимкнути другу опцію
-    }
-    
-    if (version2Select.options.length > 0) {
-        version2Select.options[version2Select.options.length - 1].disabled = true; // Вимкнути останню опцію
-    }
+        // Вимкнути опцію, якщо потрібно
+        if (version1Select.options.length > 1) {
+            version1Select.options[1].disabled = true; // Вимкнути другу опцію
+        }
+        
+        if (version2Select.options.length > 0) {
+            version2Select.options[version2Select.options.length - 1].disabled = true; // Вимкнути останню опцію
+        }
+    }, 200); 
 }
 
 document.getElementById('edition-choice-changes').addEventListener('change', syncCompareOptions);
