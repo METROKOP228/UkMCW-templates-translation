@@ -1,5 +1,7 @@
-var jeVer = '1.21.3'
-var jeVer2 = '1.21.3'
+var jeVer = document.getElementById('version-choice-java').value
+var jeVer2 = document.getElementById('version-choice-java2').value
+
+const newestJeVer = '1.21.3'
 
 const translations_java = {};
 var java_vers = Array.from(document.getElementById("version-choice-java").options).map(option => option.value);
@@ -13,15 +15,23 @@ for (let verJ of java_vers) {
         });
 }
 document.getElementById('version-choice-java').addEventListener('change', function() {
-    jeVer = document.getElementById('version-choice-java').value;
+    syncVers();
 });
 document.getElementById('version-choice-java2').addEventListener('change', function() {
-    jeVer2 = document.getElementById('version-choice-java2').value;
+    syncVers();
 });
+function syncVers() {
+    jeVer = document.getElementById('version-choice-java').value;
+    jeVer2 = document.getElementById('version-choice-java2').value;
+    beVer = document.getElementById('version-choice-bedrock').value;
+    beVer2 = document.getElementById('version-choice-bedrock2').value;
+}
 
 
 var beVer = '1.21.40'
 var beVer2 = '1.21.40'
+
+const newestBeVer = '1.21.40'
 
 const translations_bedrock = {};
 var bedrock_vers = Array.from(document.getElementById("version-choice-bedrock").options).map(option => option.value);
@@ -35,10 +45,10 @@ for (let verB of bedrock_vers) {
         });
 }
 document.getElementById('version-choice-bedrock').addEventListener('change', function() {
-    beVer = document.getElementById('version-choice-bedrock').value;
+    syncVers();
 });
 document.getElementById('version-choice-bedrock2').addEventListener('change', function() {
-    beVer2 = document.getElementById('version-choice-bedrock2').value;
+    syncVers();
 });
 
 

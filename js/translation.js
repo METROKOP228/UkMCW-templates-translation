@@ -49,7 +49,7 @@ function translateJava(text) {
             for (let j = 0; j < translations_java[jeVer].length; j++) {
                 en_uk = translations_java[jeVer][j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
             }
             if (matches.length > 0) {
@@ -75,7 +75,7 @@ function translateBedrock(text) {
             for (let j = 0; j < translations_bedrock[beVer].length; j++) {
                 en_uk = translations_bedrock[beVer][j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
             }
         }
@@ -95,7 +95,7 @@ function translateEarth(text) {
             for (let j = 0; j < translations_earth.length; j++) {
                 en_uk = translations_earth[j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
             }
         }
@@ -115,7 +115,7 @@ function translateLegends(text) {
             for (let j = 0; j < translations_legends.length; j++) {
                 en_uk = translations_legends[j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
             }
         }
@@ -135,13 +135,13 @@ function translateEducation(text) {
             for (let j = 0; j < translations_education.length; j++) {
                 en_uk = translations_education[j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
             } 
             for (let j = 0; j < translations_bedrock.length; j++) {
                 en_uk = translations_bedrock[j].split("=");
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(en_uk[0], en_uk[1]);
+                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
             }
         }
@@ -360,7 +360,7 @@ function find_changed_lines(old_dict, new_dict) {
     for (const key in new_dict) {
         if (key in old_dict) {
             if (old_dict[key] !== new_dict[key]) {
-                changed_lines[key] = `<span class="changesHover">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover">${new_dict[key]}</span>`;
+                changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText('${old_dict[key]}'))(););">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText('${new_dict[key]}'))();">${new_dict[key]}</span>`;
             }
         }
     }
@@ -383,7 +383,7 @@ function insert_changes(new_lines, changed_lines, removed_lines) {
         .sort((a, b) => b[1].length - a[1].length);
 
     for (const [key, value] of sortedNewLines) {
-        compareText += `<span class="changesHover">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover">${value}</span><br>`;
+        compareText += `<span class="changesHover" onclick="(() => copyText('${key}'))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText('${value}'))();">${value}</span><br><hr>`;
     }
 
     compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
@@ -391,22 +391,22 @@ function insert_changes(new_lines, changed_lines, removed_lines) {
         .sort((a, b) => b[1].length - a[1].length);
 
     for (const [key, value] of sortedChangedLines) {
-        compareText += `<span class="arrow">${key}:</span> ${value}<br>`;
+        compareText += `<span class="arrow">${key}:</span> ${value}<br><hr>`;
     }
 
     compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
-
     const sortedRemovedLines = Object.entries(removed_lines)
         .sort((a, b) => b[1].length - a[1].length);
 
     for (const [key, value] of sortedRemovedLines) {
-        compareText += `<span class="changesHover">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover">${value}</span><br>`;
+        compareText += `<span class="changesHover" onclick="(() => copyText('${key}'))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText('${value}'))();">${value}</span><br><hr>`;
     }
 
     let compareDiv = document.createElement('div');
     compareDiv.innerHTML = `<span>${compareText}</span>`;
     document.getElementById("compare-results-container").appendChild(compareDiv);
 }
+
 
 function trackChanges() {
     document.getElementById("compare-results-container").innerHTML = '';
@@ -429,7 +429,10 @@ function trackChanges() {
 }
 
 function syncCompareOptions() {
-    const selectedValue = document.getElementById('edition-choice-changes').value; // Отримуємо значення вибраного варіанту
+    let selectedValue;
+    setTimeout(() => {
+        selectedValue = document.getElementById('edition-choice-changes').value; // Отримуємо значення вибраного варіанту
+    }, 200);
     const version1Select = document.getElementById('compare-version-1');
     const version2Select = document.getElementById('compare-version-2');
 
@@ -438,11 +441,11 @@ function syncCompareOptions() {
     version2Select.innerHTML = '';
 
     // Вибираємо версії в залежності від вибору
-    let versions;
+    let versionsSelect;
     if (selectedValue === "Java Edition") {
-        versions = java_vers; // Ваша змінна з версіями Java
+        versionsSelect = java_vers; // Ваша змінна з версіями Java
     } else {
-        versions = bedrock_vers; // Ваша змінна з версіями Bedrock
+        versionsSelect = bedrock_vers; // Ваша змінна з версіями Bedrock
     }
 
     // Додаємо опцію "Версія"
@@ -453,7 +456,7 @@ function syncCompareOptions() {
     version2Select.add(defaultOption.cloneNode(true)); // Клон для другого select
 
     // Додаємо нові опції до select
-    versions.forEach(function(version) {
+    versionsSelect.forEach(function(version) {
         const option = document.createElement('option');
         option.text = version; // Текст опції
         option.value = version; // Значення опції
@@ -503,3 +506,5 @@ document.getElementById('compare-version-2').addEventListener('change', function
         document.getElementById('compare-version-1').options[i].disabled = true; // Заблокувати
     }
 });
+
+syncCompareOptions();

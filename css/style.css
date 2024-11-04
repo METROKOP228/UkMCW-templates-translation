@@ -17,6 +17,8 @@
 * {
     box-sizing: border-box;
     font-family: "Minecraft", sans-serif;
+    -moz-scrollbar-width: thin;
+    -moz-scrollbar-color: var(--alt-color) var(--bg-color);
 }
 
 body {
@@ -123,8 +125,32 @@ input[type="color"]:hover {
     border: 3px solid var(--btn-hover-bg-color);
 }
 
+/* Основний стиль скролбару */
+::-webkit-scrollbar {
+    width: 12px; /* Ширина вертикального скролбару */
+    height: 12px; /* Висота горизонтального скролбару */
+}
 
+/* Стиль фону скролбару */
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+}
 
+/* Стиль самої "ручки" скролбару */
+::-webkit-scrollbar-thumb {
+    background-color: var(--alt-color);
+    border-radius: 10px;
+    border: 2px solid var(--bg-color); /* Додає відступ між треком і ручкою */
+}
+
+/* Стиль "ручки" при наведенні */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--btn-hover-bg-color);
+}
+
+hr {
+    border: 1px solid var(--alt-color);
+}
 
 
 
@@ -726,6 +752,7 @@ label a:hover {
 .changesHover:hover {
     background-color: var(--btn-hover-bg-color);
     color: var(--btn-hover-text-color);
+    cursor: pointer;
 }
 
 .generate-button {
