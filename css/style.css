@@ -755,6 +755,11 @@ label a:hover {
     cursor: pointer;
 }
 
+.changesHover:hover .highlight-search {
+    background-color: var(--btn-hover-text-color);
+    color: var(--btn-hover-bg-color);
+}
+
 .generate-button {
     background-color: var(--alt-color);
     color: var(--bg-color);
