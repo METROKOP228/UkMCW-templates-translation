@@ -225,27 +225,41 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
         }
 
         const searchAndHighlight = (el, arrayName) => {
-            const matchFound = useRegex ? regex.test(el) : (caseSensitive ? el.includes(text) : el.toLowerCase().includes(text.toLowerCase()));
+            // Визначаємо регулярний вираз для пошуку
+            const flags = caseSensitive ? 'g' : 'gi';
+            const searchRegex = useRegex ? regex : new RegExp(text, flags);
+
+            // Перевіряємо, чи знайдений збіг
+            const matchFound = useRegex 
+                ? regex.test(el) 
+                : (caseSensitive ? el.includes(text) : el.toLowerCase().includes(text.toLowerCase()));
 
             if (matchFound) {
+                // Розділяємо елемент на частини за знаком "="
                 let els = el.split("=");
-                el = els[0] + ` <span class="arrow"> --&gt; </span> ` + els[1];
-                arrayName.push(el);
+                
+                // Підсвічуємо всі збіги в частинах елемента
+                const replaceParts = els.map(part => 
+                    part.replace(searchRegex, match => `<span class="highlight-search">${match}</span>`)
+                );
 
-                let highlightedEl;
-                if (useRegex) {
-                    highlightedEl = el.replace(regex, (match) => `<span class="highlight-search">${match}</span>`);
-                } else {
-                    highlightedEl = caseSensitive 
-                        ? el.replace(new RegExp(text, 'g'), (match) => `<span class="highlight-search">${match}</span>`)
-                        : el.replace(new RegExp(text, 'gi'), (match) => `<span class="highlight-search">${match}</span>`);
-                }
+                // Екрануємо `, " і \ в текстах els[0] та els[1]
+                const escapedEls0 = els[0].replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/`/g, '\\`');
+                const escapedEls1 = els[1].replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/`/g, '\\`');
 
+                // Формуємо відформатований HTML з екранованими символами
+                const processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span><hr>`;
+                
+                // Додаємо до масиву результатів
+                arrayName.push(processedEl);
+
+                // Відображаємо результат у контейнері результатів
                 let resultElement = document.createElement('div');
-                resultElement.innerHTML = highlightedEl;
+                resultElement.innerHTML = processedEl;
                 resultsContainer.appendChild(resultElement);
             }
         };
+
 
         if (arrayJ !== undefined) {
             let element = '<span style="font-size: 25px;" id="mcjeText">Java Edition:</span>';
@@ -360,7 +374,7 @@ function find_changed_lines(old_dict, new_dict) {
     for (const key in new_dict) {
         if (key in old_dict) {
             if (old_dict[key] !== new_dict[key]) {
-                changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText('${old_dict[key]}'))(););">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText('${new_dict[key]}'))();">${new_dict[key]}</span>`;
+                changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText(\`${old_dict[key]}\`))(););">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${new_dict[key]}\`))();">${new_dict[key]}</span>`;
             }
         }
     }
@@ -383,7 +397,7 @@ function insert_changes(new_lines, changed_lines, removed_lines) {
         .sort((a, b) => b[1].length - a[1].length);
 
     for (const [key, value] of sortedNewLines) {
-        compareText += `<span class="changesHover" onclick="(() => copyText('${key}'))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText('${value}'))();">${value}</span><br><hr>`;
+        compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
     }
 
     compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
@@ -399,7 +413,7 @@ function insert_changes(new_lines, changed_lines, removed_lines) {
         .sort((a, b) => b[1].length - a[1].length);
 
     for (const [key, value] of sortedRemovedLines) {
-        compareText += `<span class="changesHover" onclick="(() => copyText('${key}'))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText('${value}'))();">${value}</span><br><hr>`;
+        compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
     }
 
     let compareDiv = document.createElement('div');

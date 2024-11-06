@@ -873,7 +873,7 @@ function copyText(text) {
             alert("Текст скопійовано!");
         })
         .catch(err => {
-            console.error("Помилка при копіюванні тексту: ", err);
+            alert("Помилка при копіюванні тексту: ", err);
         });
 }
 
