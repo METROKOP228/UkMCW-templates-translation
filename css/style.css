@@ -452,6 +452,7 @@ main.content-container {
 	display: flex;
 	align-items: center;
 	margin: 10px;
+    max-height: 40px;
     padding: 10px 20px;
     background-color: var(--alt-color);
     color: var(--bg-color);
@@ -459,6 +460,14 @@ main.content-container {
     border: none;
     border-radius: 7px;
     cursor: pointer;
+}
+
+.button .svg-wiki {
+    stroke: var(--btn-hover-bg-color);
+}
+
+.button:hover .svg-wiki {
+    stroke: var(--btn-hover-text-color);
 }
 
 .settings-button {

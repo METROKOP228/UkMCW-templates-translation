@@ -137,12 +137,6 @@ function translateEducation(text) {
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
                     text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
-            } 
-            for (let j = 0; j < translations_bedrock.length; j++) {
-                en_uk = translations_bedrock[j].split("=");
-                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
-                }
             }
         }
         text = text.join("\n");
@@ -426,20 +420,26 @@ function trackChanges() {
     document.getElementById("compare-results-container").innerHTML = '';
     let old_dict = {};
     let new_dict = {};
-    if (document.getElementById("edition-choice-changes").value === "Java Edition") {
-        old_dict = parse_lines(translations_java[document.getElementById("compare-version-1").value]);
-        new_dict = parse_lines(translations_java[document.getElementById("compare-version-2").value]);
-    } else if (document.getElementById("edition-choice-changes").value === "Bedrock Edition") {
-        old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value]);
-        new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value]);
+    if ((translations_java[document.getElementById("compare-version-1").value] && translations_java[document.getElementById("compare-version-2").value]) || (translations_bedrock[document.getElementById("compare-version-1").value] && translations_bedrock[document.getElementById("compare-version-2").value])) {    
+        if (document.getElementById("edition-choice-changes").value === "Java Edition") {
+            old_dict = parse_lines(translations_java[document.getElementById("compare-version-1").value]);
+            new_dict = parse_lines(translations_java[document.getElementById("compare-version-2").value]);
+        } else if (document.getElementById("edition-choice-changes").value === "Bedrock Edition") {
+            old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value]);
+            new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value]);
+        }
+
+        const new_lines = find_new_lines(old_dict, new_dict);
+        const changed_lines = find_changed_lines(old_dict, new_dict);
+        const removed_lines = find_removed_lines(old_dict, new_dict);
+
+        insert_changes(new_lines, changed_lines, removed_lines);
+        console.log("Зміни вставлено у код");
+    } else {
+        let compareDiv = document.createElement('div');
+        compareDiv.innerHTML = `<h3>Помилка: Невибрана версія або погане підключення до інтернету</h3>`;
+        document.getElementById("compare-results-container").appendChild(compareDiv);
     }
-
-    const new_lines = find_new_lines(old_dict, new_dict);
-    const changed_lines = find_changed_lines(old_dict, new_dict);
-    const removed_lines = find_removed_lines(old_dict, new_dict);
-
-    insert_changes(new_lines, changed_lines, removed_lines);
-    console.log("Зміни вставлено у код");
 }
 
 function syncCompareOptions() {

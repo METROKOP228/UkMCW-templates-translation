@@ -684,7 +684,7 @@ function looming(text) {
         "Lozenge": { n: "Ромб", r: "ромбом", vid: "m" },
         "Bordure Indented": { n: "Зубчата рамка", r: "зубчатою рамкою", vid: "f" },
         "Bordure": { n: "Рамка", r: "рамкою", vid: "f" },
-        "Field Masoned": { n: "Цегляний фон", r: "цегляним фоном", vid: "m" },
+        "Field Masoned": { n: "Цегляне тло", r: "цегляним тлом", vid: "m" },
         "Base Gradient": { n: "Градієнт знизу", r: "градієнтом знизу", vid: "m" },
         "Gradient": { n: "Градієнт згори", r: "градієнтом згори", vid: "m" },
         "Creeper Charge": { n: "Емблема кріпера", r: "емблемою кріпера", vid: "f" },
