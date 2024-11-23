@@ -111,19 +111,30 @@ select:hover option {
 select option:disabled {
     color: var(--btn-hover-bg-color);
 }
+
+
 input[type="color"] {
     appearance: none;
     -webkit-appearance: none; /* Для Safari */
     -moz-appearance: none; /* Для Firefox */
-    border: 3px solid var(--alt-color);
-    background-color: var(--bg-color);
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
+    border: none;
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
 }
-input[type="color"]:hover {
-    border: 3px solid var(--btn-hover-bg-color);
+input[type="color"]::-webkit-color-swatch {
+    border: 2px solid var(--alt-color);
 }
+input[type="color"]::-moz-color-swatch {
+    border: 2px solid var(--alt-color);
+}
+input[type="color"]::-webkit-color-swatch:hover {
+    border: 2px solid var(--btn-hover-bg-color);
+}
+input[type="color"]::-moz-color-swatch:hover {
+    border: 2px solid var(--btn-hover-bg-color);
+}
+
 
 /* Основний стиль скролбару */
 ::-webkit-scrollbar {
