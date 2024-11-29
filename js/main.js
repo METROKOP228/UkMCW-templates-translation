@@ -168,6 +168,7 @@ const replacements_entity = {
     "usableitems": "корисніпредмети",
     "rarity": "рідкісність",
     "notes": "примітки",
+    "extratext": "додатковийтекст",
     "invimage": "інвзображення",
     "image": "зобр",
     "{{Infobox entity": "{{Сутність",
@@ -191,10 +192,10 @@ const replacements_block = {
     "heals": "відн",
     "flammable": "займист",
     "lavasusceptible": "загорвлави",
-    "=No": "=Ні",
-    "= No": "= Ні",
-    "=Yes": "=Так",
-    "= Yes": "= Так",
+    "yes": "так",
+    "no": "ні",
+    "Yes": "Так",
+    "No": "Ні",
     "invimage": "інвзображення",
     "image": "зобр",
     "group": "група",
@@ -218,8 +219,10 @@ const replacements_drops = {
     "dropchance": "шансдропу",
     "lootingchance": "шансзграбунком",
     "playerkill": "вбивствогравця",
-    "=yes": "=так",
-    "=no": "=ні",
+    "yes": "так",
+    "no": "ні",
+    "Yes": "Так",
+    "No": "Ні",
     "quantity": "кількість"
 };
 const replacements_history = {
@@ -271,6 +274,8 @@ const replacements_biome = {
     "underwaterfogcolor": "колірпідводноготуману",
     "EnvLink": "Посилання/Оточення",
     "BlockLink": "Посилання/Блок",
+    "yes": "так",
+    "no": "ні",
     "Yes": "Так",
     "No": "Ні",
     "{{only": "{{тільки",
@@ -334,6 +339,13 @@ const replacements_item = {
 };
 
 const replacements_itemEntity = {
+    "{{Infobox item entity": "{{Предмет-сутність",
+    "title": "назва",
+    "invimage": "інвзображення",
+    "image": "зобр",
+    "group": "група",
+    "caption": "підпис",
+    "extratext": "додатковийтекст",
     "rarity": "рідкісність",
     "durability": "міцн",
     "renewable": "поновл",
