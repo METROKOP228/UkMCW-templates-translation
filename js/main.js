@@ -458,6 +458,8 @@ function translateuk() {
                     spawnTable(text);
                 } else if (text.includes('{{Infobox item')) {
                     item(text);
+                } else if (text.includes('{{Infobox item entity') {
+                    itemEntity(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -485,6 +487,8 @@ function translateuk() {
                 spawnTable(text);
             } else if (id === 'item') {
                 item(text);
+            } else if (id === 'itemEntity') {
+                itemEntity(text);
             }
             return;
         }
@@ -823,6 +827,13 @@ function item(text) {
     highlightAdditions(text, text
         .split("\n")
         .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_item)) : performReplacements(segment, replacements_item))
+        .join("\n"));
+}
+
+function itemEntity(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_itemEntity)) : performReplacements(segment, replacements_itemEntity))
         .join("\n"));
 }
 
