@@ -192,10 +192,10 @@ const replacements_block = {
     "heals": "відн",
     "flammable": "займист",
     "lavasusceptible": "загорвлави",
-    "=No": "=Ні",
-    "= No": "= Ні",
-    "=Yes": "=Так",
-    "= Yes": "= Так",
+    "yes": "так",
+    "no": "ні",
+    "Yes": "Так",
+    "No": "Ні",
     "invimage": "інвзображення",
     "image": "зобр",
     "group": "група",
@@ -219,9 +219,10 @@ const replacements_drops = {
     "dropchance": "шансдропу",
     "lootingchance": "шансзграбунком",
     "playerkill": "вбивствогравця",
-    "=yes": "=так",
-    "=no": "=ні",
-    
+    "yes": "так",
+    "no": "ні",
+    "Yes": "Так",
+    "No": "Ні",
     "quantity": "кількість"
 };
 const replacements_history = {
@@ -273,6 +274,8 @@ const replacements_biome = {
     "underwaterfogcolor": "колірпідводноготуману",
     "EnvLink": "Посилання/Оточення",
     "BlockLink": "Посилання/Блок",
+    "yes": "так",
+    "no": "ні",
     "Yes": "Так",
     "No": "Ні",
     "{{only": "{{тільки",
