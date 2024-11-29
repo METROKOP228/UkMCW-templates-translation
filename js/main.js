@@ -458,7 +458,7 @@ function translateuk() {
                     spawnTable(text);
                 } else if (text.includes('{{Infobox item')) {
                     item(text);
-                } else if (text.includes('{{Infobox item entity') {
+                } else if (text.includes('{{Infobox item entity')) {
                     itemEntity(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
