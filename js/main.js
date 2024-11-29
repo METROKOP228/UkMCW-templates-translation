@@ -332,6 +332,23 @@ const replacements_item = {
     "until": "доки",
     "+1 in": "+1 у"
 };
+
+const replacements_itemEntity = {
+    "rarity": "рідкісність",
+    "durability": "міцн",
+    "renewable": "поновл",
+    "stackable": "склад",
+    "flammable": "займист",
+    "size": "розмір",
+    "networkid": "мережевийid",
+    "drops": "дроп",
+    "health": "здоров'я",
+    "type": "тип",
+    "Common": "Звичайний",
+    "Uncommon": "Незвичайний",
+    "Rare": "Рідкісний",
+    "Epic": "Епічний",
+};
     
 const monthes = {
     "January": "січня",
@@ -441,6 +458,8 @@ function translateuk() {
                     spawnTable(text);
                 } else if (text.includes('{{Infobox item')) {
                     item(text);
+                } else if (text.includes('{{Infobox item entity') {
+                    itemEntity(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -468,6 +487,8 @@ function translateuk() {
                 spawnTable(text);
             } else if (id === 'item') {
                 item(text);
+            } else if (id === 'itemEntity') {
+                itemEntity(text);
             }
             return;
         }
@@ -806,6 +827,13 @@ function item(text) {
     highlightAdditions(text, text
         .split("\n")
         .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_item)) : performReplacements(segment, replacements_item))
+        .join("\n"));
+}
+
+function itemEntity(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_itemEntity)) : performReplacements(segment, replacements_itemEntity))
         .join("\n"));
 }
 
