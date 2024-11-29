@@ -332,6 +332,23 @@ const replacements_item = {
     "until": "доки",
     "+1 in": "+1 у"
 };
+
+const replacements_itemEntity = {
+    "rarity": "рідкісність",
+    "durability": "міцн",
+    "renewable": "поновл",
+    "stackable": "склад",
+    "flammable": "займист",
+    "size": "розмір",
+    "networkid": "мережевийid",
+    "drops": "дроп",
+    "health": "здоров'я",
+    "type": "тип",
+    "Common": "Звичайний",
+    "Uncommon": "Незвичайний",
+    "Rare": "Рідкісний",
+    "Epic": "Епічний",
+};
     
 const monthes = {
     "January": "січня",
