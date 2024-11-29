@@ -168,6 +168,7 @@ const replacements_entity = {
     "usableitems": "корисніпредмети",
     "rarity": "рідкісність",
     "notes": "примітки",
+    "extratext": "додатковийтекст",
     "invimage": "інвзображення",
     "image": "зобр",
     "{{Infobox entity": "{{Сутність",
@@ -220,6 +221,7 @@ const replacements_drops = {
     "playerkill": "вбивствогравця",
     "=yes": "=так",
     "=no": "=ні",
+    
     "quantity": "кількість"
 };
 const replacements_history = {
@@ -334,6 +336,13 @@ const replacements_item = {
 };
 
 const replacements_itemEntity = {
+    "{{Infobox item entity": "{{Предмет-сутність",
+    "title": "назва",
+    "invimage": "інвзображення",
+    "image": "зобр",
+    "group": "група",
+    "caption": "підпис",
+    "extratext": "додатковийтекст",
     "rarity": "рідкісність",
     "durability": "міцн",
     "renewable": "поновл",
