@@ -192,8 +192,10 @@ const replacements_block = {
     "heals": "відн",
     "flammable": "займист",
     "lavasusceptible": "загорвлави",
-    "yes": "так",
-    "no": "ні",
+    "= yes": "= так",
+    "= no": "= ні",
+    "=yes": "=так",
+    "=no": "=ні",
     "Yes": "Так",
     "No": "Ні",
     "invimage": "інвзображення",
@@ -219,8 +221,10 @@ const replacements_drops = {
     "dropchance": "шансдропу",
     "lootingchance": "шансзграбунком",
     "playerkill": "вбивствогравця",
-    "yes": "так",
-    "no": "ні",
+    "= yes": "= так",
+    "= no": "= ні",
+    "=yes": "=так",
+    "=no": "=ні",
     "Yes": "Так",
     "No": "Ні",
     "quantity": "кількість"
@@ -274,8 +278,10 @@ const replacements_biome = {
     "underwaterfogcolor": "колірпідводноготуману",
     "EnvLink": "Посилання/Оточення",
     "BlockLink": "Посилання/Блок",
-    "yes": "так",
-    "no": "ні",
+    "= yes": "= так",
+    "= no": "= ні",
+    "=yes": "=так",
+    "=no": "=ні",
     "Yes": "Так",
     "No": "Ні",
     "{{only": "{{тільки",
@@ -468,10 +474,10 @@ function translateuk() {
                     biome(text);
                 } else if (text.includes('{{Spawn table') || text.includes('{{Spawn row')) {
                     spawnTable(text);
-                } else if (text.includes('{{Infobox item')) {
-                    item(text);
                 } else if (text.includes('{{Infobox item entity')) {
                     itemEntity(text);
+                } else if (text.includes('{{Infobox item')) {
+                    item(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
