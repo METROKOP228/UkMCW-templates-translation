@@ -17,6 +17,11 @@
         <button id="agree-btn">Прийняти</button>
         <button id="disagree-btn">Відхилити</button>
     </div>
+    <div id="loading-screen">
+    	Завантаження…
+    	<span>Зачекайте, доки завантажаться необхідні ресурси</span>
+    	<progress id="progress-bar" value="0" max="40"> 0% </progress>
+    </div>
     <header class="header">
         <a href="https://uk.minecraft.wiki" class="button">
         	<svg class="header-img" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,85 175,50 175,95 100,130" fill="#00428B" /><polygon points="100,10 175,50 100,85 100,130 25,95 25,50" fill="#0261CA" /><polygon points="100,130 175,95 175,140 100,180" fill="#B39700" /><polygon points="100,130 25,95 25,140 100,180" fill="#FFD700" /><polygon points="100,10 175,50 175,140 100,180 25,140 25,50" fill="transparent" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="25" y1="50" x2="100" y2="85" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="175" y1="50" x2="100" y2="85" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="25" y1="95" x2="100" y2="130" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="175" y1="95" x2="100" y2="130" stroke="black" stroke-width="10" class="svg-wiki" /><line  x1="100" y1="85" x2="100" y2="180" stroke="black" stroke-width="10" class="svg-wiki" /></svg>
@@ -158,26 +163,7 @@
 				            <p>Виберіть видання/гру:</p>
 				            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
 				            <label for="java">Java Edition: </label>
-					    	<select name="version-choice-java" id="version-choice-java">
-				    			<option value="1.21.3">1.21.3</option>
-					    		<option value="1.21.1">1.21.1</option>
-					    		<option value="1.21">1.21</option>
-					    		<option value="1.20.6">1.20.6</option>
-					    		<option value="1.20.5">1.20.5</option>
-					    		<option value="1.20.4">1.20.4</option>
-					    		<option value="1.20.3">1.20.3</option>
-					    		<option value="1.20.2">1.20.2</option>
-					    		<option value="1.20.1">1.20.1</option>
-					    		<option value="1.20">1.20</option>
-					    		<option value="1.19.4">1.19.4</option>
-					    		<option value="1.19.3">1.19.3</option>
-					    		<option value="1.18">1.18</option>
-					    		<option value="1.17">1.17</option>
-					    		<option value="1.16">1.16</option>
-					    		<option value="1.15">1.15</option>
-					    		<option value="1.14">1.14</option>
-					    		<option value="1.13">1.13</option>
-					    	</select>
+					    	<select name="version-choice-java" id="version-choice-java"></select>
 					    	<br>
 				            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
 				            <label for="bedrock">Bedrock Edition: </label>
@@ -251,26 +237,7 @@
 			            <p>Виберіть видання/гру:</p>
 			            <input type="radio" class="radio" id="java2" name="editions2" value="Java Edition" checked>
 			            <label for="java2">Java Edition: </label>
-				    	<select name="version-choice-java2" id="version-choice-java2">
-				    		<option value="1.21.3">1.21.3</option>
-				    		<option value="1.21.1">1.21.1</option>
-				    		<option value="1.21">1.21</option>
-				    		<option value="1.20.6">1.20.6</option>
-				    		<option value="1.20.5">1.20.5</option>
-				    		<option value="1.20.4">1.20.4</option>
-				    		<option value="1.20.3">1.20.3</option>
-				    		<option value="1.20.2">1.20.2</option>
-				    		<option value="1.20.1">1.20.1</option>
-				    		<option value="1.20">1.20</option>
-				    		<option value="1.19.4">1.19.4</option>
-				    		<option value="1.19.3">1.19.3</option>
-				    		<option value="1.18">1.18</option>
-				    		<option value="1.17">1.17</option>
-				    		<option value="1.16">1.16</option>
-				    		<option value="1.15">1.15</option>
-				    		<option value="1.14">1.14</option>
-				    		<option value="1.13">1.13</option>
-				    	</select>
+				    	<select name="version-choice-java2" id="version-choice-java2"></select>
 				    	<br>
 			            <input type="radio" class="radio" id="bedrock2" name="editions2" value="Bedrock Edition">
 			            <label for="bedrock2">Bedrock Edition: </label>

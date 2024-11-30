@@ -47,7 +47,7 @@ function translateJava(text) {
                 }
             }
             for (let j = 0; j < translations_java[jeVer].length; j++) {
-                en_uk = translations_java[jeVer][j].split("=");
+                en_uk = translations_java[jeVer][j];
                 if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
                     text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
                 }
@@ -61,7 +61,7 @@ function translateJava(text) {
         text = text.join("\n");
         return text;
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return text;
     }
 }
@@ -218,19 +218,31 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
             }
         }
 
-        const searchAndHighlight = (el, arrayName) => {
+        const searchAndHighlight = (el, arrayName, arrays=false) => {
             // Визначаємо регулярний вираз для пошуку
             const flags = caseSensitive ? 'g' : 'gi';
             const searchRegex = useRegex ? regex : new RegExp(text, flags);
 
             // Перевіряємо, чи знайдений збіг
-            const matchFound = useRegex 
-                ? regex.test(el) 
-                : (caseSensitive ? el.includes(text) : el.toLowerCase().includes(text.toLowerCase()));
+            let matchFound;
+            if (arrays) {
+                for (let elel of el) {
+                    matchFound = useRegex 
+                        ? regex.test(elel) 
+                        : (caseSensitive ? elel.includes(text) : elel.toLowerCase().includes(text.toLowerCase()));
+                    if (matchFound) {
+                        break;
+                    }
+                }
+            } else {             
+                matchFound = useRegex 
+                    ? regex.test(el) 
+                    : (caseSensitive ? el.includes(text) : el.toLowerCase().includes(text.toLowerCase()));
+            }
 
             if (matchFound) {
-                // Розділяємо елемент на частини за знаком "="
-                let els = el.split("=");
+                let els;
+                els = arrays ? el : el.split("=");
                 
                 // Підсвічуємо всі збіги в частинах елемента
                 const replaceParts = els.map(part => 
@@ -238,12 +250,16 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
                 );
 
                 // Екрануємо `, " і \ в текстах els[0] та els[1]
-                const escapedEls0 = els[0].replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/`/g, '\\`');
-                const escapedEls1 = els[1].replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/`/g, '\\`');
+                let escapedEls0 = els[0].replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/`/g, '\\`');
+                let escapedEls1 = els[1].replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/`/g, '\\`');
 
                 // Формуємо відформатований HTML з екранованими символами
-                const processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span><hr>`;
-                
+                let processedEl;
+                if (arrays) {
+                    processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span> <small class="changesHover" onclick="(() => copyText(\`${els[2]}\`))();">(${replaceParts[2]})</small><hr>`;
+                } else {
+                    processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span><hr>`;
+                }
                 // Додаємо до масиву результатів
                 arrayName.push(processedEl);
 
@@ -261,7 +277,7 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayJ.length; i++) {
-                searchAndHighlight(arrayJ[i], matches);
+                searchAndHighlight(arrayJ[i], matches, true);
             }
             if (matches[0] === undefined) {
                 document.getElementById('mcjeText').classList.add('hidden');
@@ -341,13 +357,21 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
 
 // ПОРІВНЯННЯ ІГРОВИХ ФАЙЛІВ
 
-function parse_lines(lines) {
+function parse_lines(lines, arrays=false) {
     parsed_dict = {};
 
-    for (const line of lines) {
-        if (line.includes('=')) {
-            let [key, value] = line.split('=', 2);
+    if (arrays) {
+        for (const line of lines) {
+            let key = line[0]
+            let value = line[1]
             parsed_dict[key.trim()] = value.trim();
+        }
+    } else {
+        for (const line of lines) {
+            if (line.includes('=')) {
+                let [key, value] = line.split('=', 2);
+                parsed_dict[key.trim()] = value.trim();
+            }
         }
     }
     return parsed_dict;
@@ -422,12 +446,14 @@ function trackChanges() {
     let new_dict = {};
     if ((translations_java[document.getElementById("compare-version-1").value] && translations_java[document.getElementById("compare-version-2").value]) || (translations_bedrock[document.getElementById("compare-version-1").value] && translations_bedrock[document.getElementById("compare-version-2").value])) {    
         if (document.getElementById("edition-choice-changes").value === "Java Edition") {
-            old_dict = parse_lines(translations_java[document.getElementById("compare-version-1").value]);
-            new_dict = parse_lines(translations_java[document.getElementById("compare-version-2").value]);
+            old_dict = parse_lines(translations_java[document.getElementById("compare-version-1").value], true);
+            new_dict = parse_lines(translations_java[document.getElementById("compare-version-2").value], true);
         } else if (document.getElementById("edition-choice-changes").value === "Bedrock Edition") {
             old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value]);
             new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value]);
         }
+        console.log(old_dict);
+        console.log(new_dict);
 
         const new_lines = find_new_lines(old_dict, new_dict);
         const changed_lines = find_changed_lines(old_dict, new_dict);
