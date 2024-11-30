@@ -203,7 +203,11 @@ const replacements_block = {
     "group": "група",
     "caption": "підпис",
     "extratext": "додатковийтекст",
-    "tntres": "вибухост"
+    "tntres": "вибухост",
+    "Common": "Звичайний",
+    "Uncommon": "Незвичайний",
+    "Rare": "Рідкісний",
+    "Epic": "Епічний"
 };
 const replacements_drops = {
     "DropsTableHead": "Голова таблиці дропу",
@@ -365,7 +369,7 @@ const replacements_itemEntity = {
     "Common": "Звичайний",
     "Uncommon": "Незвичайний",
     "Rare": "Рідкісний",
-    "Epic": "Епічний",
+    "Epic": "Епічний"
 };
     
 const monthes = {
