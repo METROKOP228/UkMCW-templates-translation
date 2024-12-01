@@ -35,14 +35,18 @@ function trackProgress() {
 }
 
 async function processVersions() {
-    await Promise.all(versJson.map(async (ver) => {
-        await createVerArray(ver);
-        processedTranslations++; // Оновлюємо прогрес
-    }));
-    await Promise.all(versLang.map(async (ver) => {
-        await createVerArrayLang(ver);
-        processedTranslations++; // Оновлюємо прогрес
-    }));
+
+    // Обробка всіх версій з versJson та versLang
+    await Promise.all([
+        ...versJson.map(async (ver) => {
+            await createVerArray(ver);
+            processedTranslations++; // Оновлюємо прогрес
+        }),
+        ...versLang.map(async (ver) => {
+            await createVerArrayLang(ver);
+            processedTranslations++; // Оновлюємо прогрес
+        })
+    ]);
 
     // Об'єднуємо дані після обробки всіх версій
     for (const ver of [...versJson, ...versLang]) {
@@ -54,10 +58,10 @@ async function processVersions() {
             const ukValue = ukObj[key] || "";
             return [enValue, ukValue, key];
         });
+        translations_java[ver].sort((a, b) => b[0].length - a[0].length);
     }
-
-    console.log('Translations:', translations_java);
 }
+console.log(translations_java)
 
 // Викликаємо прогрес і обробку версій
 trackProgress();

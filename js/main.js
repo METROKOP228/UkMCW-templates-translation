@@ -1125,6 +1125,38 @@ const ver2Var = params.get('ver2'); // url var 6
 // example: https://metrokop228.github.io/UkMCW-templates-translation?tab=2&mode=java&text=Wolf
 window.onload = function() {
     if (tabVar == "2") {
+        timeoutForTr2();
+    } else if (tabVar == "3") {
+        timeoutForSearch();
+    } else if (tabVar == "4") {
+        timeoutForComparison();
+    } else {
+        timeoutForTemplates();
+    }
+    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}, Modes: ${modesVar}, Ver: ${verVar}, Ver2: ${ver2Var}`)
+
+    if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+    }
+}
+
+function timeoutForTemplates() {
+    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.0'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
+        if (modeVar) {
+            document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
+        }
+        if (textVar) {
+            editor.setValue(textVar);
+            document.getElementById('button-tr1').click();
+        }
+    } else {
+        setTimeout(() => {
+            timeoutForTemplates();
+        }, 200);
+    }
+}
+function timeoutForTr2() {
+    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.0'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
         document.getElementById('mc-name').click();
         if (modeVar) {
             document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
@@ -1144,9 +1176,16 @@ window.onload = function() {
         }
         if (textVar) {
             editor2.setValue(textVar);
-            timeoutForTr2();
+            document.getElementById('button-tr2').click();
         }
-    } else if (tabVar == "3") {
+    } else {
+        setTimeout(() => {
+            timeoutForTr2();
+        }, 200);
+    }
+}
+function timeoutForSearch() {
+    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.0'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
         document.getElementById('mc-name-search').click();
         if (modeVar) {
             for (let i = 0; i < document.getElementsByName('editions2').length; i++) {
@@ -1161,13 +1200,15 @@ window.onload = function() {
                     document.getElementById('version-choice-java2').value = verVar;
                 }
             }
+        }
+        if (ver2Var) {
             for (option in document.getElementById('version-choice-bedrock2').options) {
                 if (document.getElementById('version-choice-bedrock2').options[option].value === verVar && document.getElementById('version-choice-bedrock2').options[option].disabled === false) {
                     document.getElementById('version-choice-bedrock2').value = verVar;
                 }
             }
-            syncVers();
         }
+        syncVers();
         if (modesVar) {
             if (modesVar.includes("g")) {
                 document.getElementById("global-search").click();
@@ -1179,9 +1220,16 @@ window.onload = function() {
         }
         if (textVar) {
             document.getElementById("text-to-search").value = textVar;
-            timeoutForSearch();
+            searchMatches();
         }
-    } else if (tabVar == "4") {
+    } else {
+        setTimeout(() => {
+            timeoutForSearch();
+        }, 200);
+    }
+}
+function timeoutForComparison() {
+    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.0'] !== undefined) {
         document.getElementById('mc-name-compare').click();
         if (modeVar) {
             for (option in document.getElementById('edition-choice-changes').options) {
@@ -1193,6 +1241,7 @@ window.onload = function() {
         }
         if (verVar) {
             for (option in document.getElementById('compare-version-1').options) {
+                console.log(document.getElementById('compare-version-1').options[option].value)
                 if (document.getElementById('compare-version-1').options[option].value === verVar && document.getElementById('compare-version-1').options[option].disabled === false) {
                     document.getElementById('compare-version-1').value = verVar;
 
@@ -1206,45 +1255,6 @@ window.onload = function() {
                 }
             }
         }
-        timeoutForComparison();
-    } else {
-        if (modeVar) {
-            document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
-        }
-        if (textVar) {
-            editor.setValue(textVar);
-            setTimeout(() => {
-                document.getElementById('button-tr1').click();
-            }, 200);
-        }
-    }
-    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}, Modes: ${modesVar}, Ver: ${verVar}, Ver2: ${ver2Var}`)
-
-    if (!localStorage.getItem('cookieConsent')) {
-        document.getElementById('cookie-banner').style.display = 'flex';
-    }
-}
-
-function timeoutForTr2() {
-    if (translations_java['1.13'] !== undefined && translations_bedrock['1.21.0'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
-        document.getElementById('button-tr2').click();
-    } else {
-        setTimeout(() => {
-            timeoutForTr2();
-        }, 200);
-    }
-}
-function timeoutForSearch() {
-    if (translations_java['1.13'] !== undefined && translations_bedrock['1.21.0'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
-        searchMatches();
-    } else {
-        setTimeout(() => {
-            timeoutForSearch();
-        }, 200);
-    }
-}
-function timeoutForComparison() {
-    if (translations_java['1.13'] !== undefined && translations_bedrock['1.21.0'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
         trackChanges();
     } else {
         setTimeout(() => {
@@ -1277,10 +1287,9 @@ function getLink(tab) {
         link += `?tab=${tab}`;
         if (mode !== "java") {
             link += `&mode=${encodeURIComponent(mode)}`;
-            if (document.getElementById("version-choice-bedrock2").value !== newestBeVer) link += `&ver=${encodeURIComponent(document.getElementById("version-choice-bedrock2").value)}`;
-        } else {
-            if (document.getElementById("version-choice-java2").value !== newestJeVer) link += `&ver=${encodeURIComponent(document.getElementById("version-choice-java2").value)}`;
-        }
+        } 
+        if (document.getElementById("version-choice-java2").value !== newestJeVer) link += `&ver=${encodeURIComponent(document.getElementById("version-choice-java2").value)}`;
+        if (document.getElementById("version-choice-bedrock2").value !== newestBeVer) link += `&ver2=${encodeURIComponent(document.getElementById("version-choice-bedrock2").value)}`;
         let modes = "";
         if (!document.getElementById("global-search").checked) modes += 'g';
         if (document.getElementById("regex-search").checked) modes += 'r';

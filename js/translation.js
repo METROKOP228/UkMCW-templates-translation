@@ -33,6 +33,7 @@ function translateNames() {
 
 // Don't even try to optimize
 function translateJava(text) {
+    console.log(text)
     text = text.split("\n");
     let en_uk = [];
     try {
@@ -48,9 +49,9 @@ function translateJava(text) {
             }
             for (let j = 0; j < translations_java[jeVer].length; j++) {
                 en_uk = translations_java[jeVer][j];
-                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
-                }
+
+                let patternTJ = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+                text[i] = text[i].replace(patternTJ, en_uk[1]);
             }
             if (matches.length > 0) {
                 for (let match of matches) {
@@ -469,48 +470,46 @@ function trackChanges() {
 }
 
 function syncCompareOptions() {
-    setTimeout(() => {
-        let selectedValue;
-        selectedValue = document.getElementById('edition-choice-changes').value; // Отримуємо значення вибраного варіанту
-        // Вибираємо версії в залежності від вибору
-        let versionsSelect;
-        if (selectedValue === "Java Edition") {
-            versionsSelect = java_vers; // Ваша змінна з версіями Java
-        } else {
-            versionsSelect = bedrock_vers; // Ваша змінна з версіями Bedrock
-        }
-        const version1Select = document.getElementById('compare-version-1');
-        const version2Select = document.getElementById('compare-version-2');
+    let selectedValue;
+    selectedValue = document.getElementById('edition-choice-changes').value; // Отримуємо значення вибраного варіанту
+    // Вибираємо версії в залежності від вибору
+    let versionsSelect;
+    if (selectedValue === "Java Edition") {
+        versionsSelect = java_vers; // Ваша змінна з версіями Java
+    } else {
+        versionsSelect = bedrock_vers; // Ваша змінна з версіями Bedrock
+    }
+    const version1Select = document.getElementById('compare-version-1');
+    const version2Select = document.getElementById('compare-version-2');
 
-        // Очищаємо попередні опції
-        version1Select.innerHTML = '';
-        version2Select.innerHTML = '';
+    // Очищаємо попередні опції
+    version1Select.innerHTML = '';
+    version2Select.innerHTML = '';
 
-        // Додаємо опцію "Версія"
-        const defaultOption = document.createElement('option');
-        defaultOption.text = "Версія";
-        defaultOption.value = ""; // Додаємо пусте значення
-        version1Select.add(defaultOption);
-        version2Select.add(defaultOption.cloneNode(true)); // Клон для другого select
+    // Додаємо опцію "Версія"
+    const defaultOption = document.createElement('option');
+    defaultOption.text = "Версія";
+    defaultOption.value = ""; // Додаємо пусте значення
+    version1Select.add(defaultOption);
+    version2Select.add(defaultOption.cloneNode(true)); // Клон для другого select
 
-        // Додаємо нові опції до select
-        versionsSelect.forEach(function(version) {
-            const option = document.createElement('option');
-            option.text = version; // Текст опції
-            option.value = version; // Значення опції
-            version1Select.add(option);
-            version2Select.add(option.cloneNode(true)); // Клон для другого select
-        });
+    // Додаємо нові опції до select
+    versionsSelect.forEach(function(version) {
+        const option = document.createElement('option');
+        option.text = version; // Текст опції
+        option.value = version; // Значення опції
+        version1Select.add(option);
+        version2Select.add(option.cloneNode(true)); // Клон для другого select
+    });
 
-        // Вимкнути опцію, якщо потрібно
-        if (version1Select.options.length > 1) {
-            version1Select.options[1].disabled = true; // Вимкнути другу опцію
-        }
-        
-        if (version2Select.options.length > 0) {
-            version2Select.options[version2Select.options.length - 1].disabled = true; // Вимкнути останню опцію
-        }
-    }, 200); 
+    // Вимкнути опцію, якщо потрібно
+    if (version1Select.options.length > 1) {
+        version1Select.options[1].disabled = true; // Вимкнути другу опцію
+    }
+    
+    if (version2Select.options.length > 0) {
+        version2Select.options[version2Select.options.length - 1].disabled = true; // Вимкнути останню опцію
+    }
 }
 
 document.getElementById('edition-choice-changes').addEventListener('change', syncCompareOptions);
