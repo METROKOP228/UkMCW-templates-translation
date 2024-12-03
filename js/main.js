@@ -207,7 +207,11 @@ const replacements_block = {
     "Common": "Звичайний",
     "Uncommon": "Незвичайний",
     "Rare": "Рідкісний",
-    "Epic": "Епічний"
+    "Epic": "Епічний",
+    "common": "звичайний",
+    "uncommon": "незвичайний",
+    "rare": "рідкісний",
+    "epic": "епічний"
 };
 const replacements_drops = {
     "DropsTableHead": "Голова таблиці дропу",
@@ -341,6 +345,10 @@ const replacements_item = {
     "Uncommon": "Незвичайний",
     "Rare": "Рідкісний",
     "Epic": "Епічний",
+    "common": "звичайний",
+    "uncommon": "незвичайний",
+    "rare": "рідкісний",
+    "epic": "епічний",
     "only": "тільки",
     "short": "короткий",
     "upcoming": "заплановане",
@@ -369,7 +377,11 @@ const replacements_itemEntity = {
     "Common": "Звичайний",
     "Uncommon": "Незвичайний",
     "Rare": "Рідкісний",
-    "Epic": "Епічний"
+    "Epic": "Епічний",
+    "common": "звичайний",
+    "uncommon": "незвичайний",
+    "rare": "рідкісний",
+    "epic": "епічний"
 };
     
 const monthes = {
