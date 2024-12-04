@@ -91,6 +91,9 @@ input[type="text"]::placeholder {
     color: var(--alt-color);
     opacity: 0.7;
 }
+input[type="text"]:disabled {
+    cursor: not-allowed;
+}
 select {
     appearance: none;
     -webkit-appearance: none; /* Для Safari */
@@ -111,8 +114,6 @@ select:hover option {
 select option:disabled {
     color: var(--btn-hover-bg-color);
 }
-
-
 input[type="color"] {
     appearance: none;
     -webkit-appearance: none; /* Для Safari */
@@ -531,6 +532,7 @@ main.content-container {
 .search-button:hover,
 .settings-button:hover,
 .generate-button:hover,
+#interwiki-button:hover,
 .pers-presets-button:hover,
 .textareas-color-button:hover {
     background-color: var(--btn-hover-bg-color);
@@ -780,6 +782,23 @@ label a:hover {
 
 
 
+.get-interwiki {
+    margin-left: 150px;
+}
+
+#interwiki-button {
+    background-color: var(--alt-color);
+    color: var(--bg-color);
+    border: none;
+    font-size: 18px;
+    height: 30px;
+    width: 300px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
 
 
 .compare-container {
@@ -812,6 +831,17 @@ label a:hover {
     cursor: pointer;
     border-radius: 5px;
 }
+
+
+.history-container {
+    color: var(--alt-color);
+    width: 1050px;
+    margin-left: 150px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 

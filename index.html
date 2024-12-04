@@ -85,6 +85,10 @@
 	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30"><rect x="8" y="12" width="22" height="40" fill="none" stroke="#000" stroke-width="3"/><rect x="34" y="12" width="22" height="40" fill="none" stroke="#000" stroke-width="3"/><line x1="14" y1="20" x2="26" y2="20" stroke="#000" stroke-width="3"/><line x1="40" y1="20" x2="52" y2="20" stroke="#000" stroke-width="3"/><line x1="18" y1="28" x2="22" y2="28" stroke="#000" stroke-width="3"/><line x1="42" y1="28" x2="46" y2="28" stroke="#000" stroke-width="3"/><polyline points="30,28 36,32 30,36" fill="none" stroke="#000" stroke-width="3"/></svg>
 	        	<span>Порівняння мовних файлів</span>
 	        </button>
+	        <button id="mc-name-history" class="tab-btn" onclick="openTab('tab5', 'mc-name-history')">
+	        	<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="12" fill="none" stroke="#000" stroke-width="2" class=""/><line x1="14" y1="14" x2="14" y2="10" stroke="#000" stroke-width="2"/><line x1="14" y1="14" x2="22" y2="14" stroke="#000" stroke-width="2"/><line x1="14" y1="14" x2="11" y2="22" stroke="#000" stroke-width="2"/></svg>
+	        	<span>Історія рядка (JE)</span>
+	        </button>
 	    </div>
 	    <div class="non-btn-content">
 
@@ -94,6 +98,7 @@
 
 		    <div class="template-selection-container tab tab-content" id="tab1" style="display: flex;">
 		    	<div class="template-selection">
+		    		<h1>Переклад вікі</h1>
 		    		<h2>Переклад шаблонів</h2>
 			        <form class="templates-form">
 			        	<p>Виберіть шаблон:</p>
@@ -149,6 +154,13 @@
 			            <button class="button-copy" onclick="copy(1)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg></button>
 			        </div>
 			    </div>
+			    <div class="get-interwiki">
+		    		<h2>Отримати інтервікі</h2>
+		    		<label for="get-interwiki-input">Введіть назву статті англійською:</label>
+		    		<input type="text" id="get-interwiki-input" placeholder="Назва статті">
+		    		<button id="interwiki-button">Отримати інтервікі</button>
+		    		<br><h4">Інтервікі: </h4><input id="interwiki-result" type="text" disabled>
+		    	</div>
 		    </div>
 
 
@@ -264,9 +276,7 @@
 	        	<div id="results-container"></div>
 		    </div>
 
-
-
-
+		    <!-- Порівняння файлів перекладу версій -->
 		    
 		    <div class="compare-container tab tab-content" id="tab4" style="display: none;">
 		    	<h2>Порівняння ігрових файлів</h2>
@@ -287,6 +297,12 @@
 		    	</div>
 		        <button class="generate-button" onclick="trackChanges();">Генерувати</button>
 		    	<div id="compare-results-container"></div>
+		    </div>
+
+		    <!-- Перегляд історії рядка -->
+
+		    <div class="history-container tab tab-content" id="tab5" style="display: none;">
+		    	<h1>WIP, скоро буде додано</h1>
 		    </div>
 		</div>
 	</main>

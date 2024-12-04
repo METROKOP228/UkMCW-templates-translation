@@ -910,6 +910,31 @@ function dateTranslation(date) {
     return date;
 }
 
+document.getElementById('interwiki-button').addEventListener('click', async () => {
+    let input = document.getElementById("get-interwiki-input");
+    let articleName = input.value.trim();
+    if (!articleName) {
+        alert('Будь ласка, введіть назву статті!');
+        return;
+    }
+
+    const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=${encodeURIComponent(articleName)}&prop=langlinks&lllang=uk&format=json&origin=*`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        // Отримання інтервікі на англійську
+        const pages = data?.query?.pages || {};
+        const page = Object.values(pages)[0];
+        const langlink = page?.langlinks?.[0]?.['*'] || 'Посилання не знайдено.';
+        document.getElementById('interwiki-result').value = langlink;
+    } catch (error) {
+        console.error('Помилка:', error);
+        document.getElementById('interwiki-result').value = 'Не вдалося отримати дані. Перевірте з’єднання.';
+    }
+});
+
 function copy(num) {
     // Створення тимчасового textarea
     let textarea = document.createElement('textarea');

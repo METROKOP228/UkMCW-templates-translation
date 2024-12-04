@@ -61,7 +61,6 @@ async function processVersions() {
         translations_java[ver].sort((a, b) => b[0].length - a[0].length);
     }
 }
-console.log(translations_java)
 
 // Викликаємо прогрес і обробку версій
 trackProgress();
@@ -132,26 +131,32 @@ async function createVerArray(ver) {
 }
 
 async function createVerArrayLang(ver) {
-    let url = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/${ver}/assets/minecraft/lang/uk_ua.lang`;
+    // Початкові URL для завантаження
+    let ukUrl = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/${ver}/assets/minecraft/lang/uk_ua.lang`;
+    let ukAltUrl = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/${ver}/assets/minecraft/lang/uk_UA.lang`;
     let enUrl = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/${ver}/assets/minecraft/lang/en_us.lang`;
+    let enAltUrl = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/${ver}/assets/minecraft/lang/en_US.lang`;
 
     try {
-        const [ukResponse, enResponse] = await Promise.all([
-            fetch(url),
-            fetch(enUrl)
+        // Завантаження файлів з первинними URL
+        let [ukResponse, enResponse] = await Promise.all([
+            fetch(ukUrl),  // Якщо перший запит не вдасться, спробуємо інший
+            fetch(enUrl)   // Якщо перший запит не вдасться, спробуємо інший
         ]);
 
-        if (!ukResponse.ok) {
-            throw new Error(`Error fetching UK file: ${ukResponse.statusText}`);
-        }
-        if (!enResponse.ok) {
-            throw new Error(`Error fetching EN file: ${enResponse.statusText}`);
+        // Перевірка статусу відповіді
+        if (!ukResponse.ok || !enResponse.ok) {
+            [ukResponse, enResponse] = await Promise.all([
+                fetch(ukAltUrl),  // Якщо перший запит не вдасться, спробуємо інший
+                fetch(enAltUrl)   // Якщо перший запит не вдасться, спробуємо інший
+            ]);
         }
 
+        // Отримуємо текст із обох відповідей
         const ukText = await ukResponse.text();
         const enText = await enResponse.text();
 
-        // Перетворення тексту у об'єкт
+        // Перетворення тексту у об'єкт для української версії
         const ukObj = {};
         ukText.trim().split('\n').forEach(line => {
             if (line.includes('=')) {
@@ -160,6 +165,7 @@ async function createVerArrayLang(ver) {
             }
         });
 
+        // Перетворення тексту у об'єкт для англійської версії
         const enObj = {};
         enText.trim().split('\n').forEach(line => {
             if (line.includes('=')) {
@@ -168,13 +174,15 @@ async function createVerArrayLang(ver) {
             }
         });
 
+        // Збереження оброблених даних
         objsUk[ver] = ukObj;
         objsEn[ver] = enObj;
 
     } catch (error) {
-        console.error(`Error processing version ${ver}:`, error);
+        console.log(`Error processing version ${ver}:`, error);
     }
 }
+
 
 document.getElementById('version-choice-java').addEventListener('change', function() {
     syncVers();
