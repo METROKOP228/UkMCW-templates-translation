@@ -833,15 +833,6 @@ label a:hover {
 }
 
 
-.history-container {
-    color: var(--alt-color);
-    width: 1050px;
-    margin-left: 150px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
 
 
 

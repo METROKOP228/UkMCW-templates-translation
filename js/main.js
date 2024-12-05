@@ -1278,7 +1278,6 @@ function timeoutForComparison() {
         }
         if (verVar) {
             for (option in document.getElementById('compare-version-1').options) {
-                console.log(document.getElementById('compare-version-1').options[option].value)
                 if (document.getElementById('compare-version-1').options[option].value === verVar && document.getElementById('compare-version-1').options[option].disabled === false) {
                     document.getElementById('compare-version-1').value = verVar;
 

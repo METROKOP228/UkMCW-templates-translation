@@ -363,9 +363,10 @@ function parse_lines(lines, arrays=false) {
 
     if (arrays) {
         for (const line of lines) {
-            let key = line[0]
-            let value = line[1]
-            parsed_dict[key.trim()] = value.trim();
+            let key = line[2].trim();
+            let valueEn = line[0].trim();
+            let valueUk = line[1].trim();
+            parsed_dict[key] = { en: valueEn, uk: valueUk};
         }
     } else {
         for (const line of lines) {
@@ -388,12 +389,18 @@ function find_new_lines(old_dict, new_dict) {
     return new_lines;
 }
 
-function find_changed_lines(old_dict, new_dict) {
+function find_changed_lines(old_dict, new_dict, java) {
     const changed_lines = {};
     for (const key in new_dict) {
         if (key in old_dict) {
-            if (old_dict[key] !== new_dict[key]) {
-                changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText(\`${old_dict[key]}\`))(););">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${new_dict[key]}\`))();">${new_dict[key]}</span>`;
+            if (java) {
+                if (old_dict[key].uk !== new_dict[key].uk) {
+                    changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText(\`${old_dict[key].uk}\`))(););">${old_dict[key].uk}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${new_dict[key].uk}\`))();">${new_dict[key].uk}</span>`;
+                }
+            } else {
+                if (old_dict[key] !== new_dict[key]) {
+                    changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText(\`${old_dict[key]}\`))(););">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${new_dict[key]}\`))();">${new_dict[key]}</span>`;
+                }
             }
         }
     }
@@ -404,35 +411,65 @@ function find_removed_lines(old_dict, new_dict) {
     const removed_lines = {};
     for (const key in old_dict) {
         if (!(key in new_dict)) {
-            removed_lines[key] = `${old_dict[key]}`;
+            removed_lines[key] = old_dict[key];
         }
     }
     return removed_lines;
 }
 
-function insert_changes(new_lines, changed_lines, removed_lines) {
+function insert_changes(new_lines, changed_lines, removed_lines, java) {
     let compareText = '<br><br><span style="font-size: 25px;" id="Нові рядки">Нові рядки:</span><br>';
-    const sortedNewLines = Object.entries(new_lines)
-        .sort((a, b) => b[1].length - a[1].length);
 
-    for (const [key, value] of sortedNewLines) {
-        compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
-    }
+    if (java) {
 
-    compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
-    const sortedChangedLines = Object.entries(changed_lines)
-        .sort((a, b) => b[1].length - a[1].length);
+        for (const key in new_lines) {
+            const { en, uk } = new_lines[key]; // Деструктуризація об'єкта
+            compareText += `<span class="changesHover" onclick="(() => copyText(\`${en}\`))();">${en}</span> 
+            <span class="arrow"> --&gt; </span> 
+            <span class="changesHover" onclick="(() => copyText(\`${uk}\`))();">${uk}</span> 
+            <small class="changesHover" onclick="(() => copyText(\`${key}\`))();">(${key})</small><br><hr>`;
+        }
+        compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
+        const sortedChangedLines = Object.entries(changed_lines)
+            .sort((a, b) => b[1].length - a[1].length);
 
-    for (const [key, value] of sortedChangedLines) {
-        compareText += `<span class="arrow">${key}:</span> ${value}<br><hr>`;
-    }
+        for (const [key, value] of sortedChangedLines) {
+            compareText += `<span class="arrow">${key}:</span> ${value}<br><hr>`;
+        }
 
-    compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
-    const sortedRemovedLines = Object.entries(removed_lines)
-        .sort((a, b) => b[1].length - a[1].length);
+        compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
 
-    for (const [key, value] of sortedRemovedLines) {
-        compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
+
+        for (const key in removed_lines) {
+            const { en, uk } = removed_lines[key]; // Деструктуризація об'єкта
+            compareText += `<span class="changesHover" onclick="(() => copyText(\`${en}\`))();">${en}</span> 
+            <span class="arrow"> --&gt; </span> 
+            <span class="changesHover" onclick="(() => copyText(\`${uk}\`))();">${uk}</span> 
+            <small class="changesHover" onclick="(() => copyText(\`${key}\`))();">(${key})</small><br><hr>`;
+        }
+    } else {
+        const sortedNewLines = Object.entries(new_lines)
+            .sort((a, b) => b[1].length - a[1].length);
+
+        for (const [key, value] of sortedNewLines) {
+            compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
+        }
+
+        compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
+        const sortedChangedLines = Object.entries(changed_lines)
+            .sort((a, b) => b[1].length - a[1].length);
+
+        for (const [key, value] of sortedChangedLines) {
+            compareText += `<span class="arrow">${key}:</span> ${value}<br><hr>`;
+        }
+
+        compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
+        const sortedRemovedLines = Object.entries(removed_lines)
+            .sort((a, b) => b[1].length - a[1].length);
+
+        for (const [key, value] of sortedRemovedLines) {
+            compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
+        }
     }
 
     let compareDiv = document.createElement('div');
@@ -445,22 +482,29 @@ function trackChanges() {
     document.getElementById("compare-results-container").innerHTML = '';
     let old_dict = {};
     let new_dict = {};
-    if ((translations_java[document.getElementById("compare-version-1").value] && translations_java[document.getElementById("compare-version-2").value]) || (translations_bedrock[document.getElementById("compare-version-1").value] && translations_bedrock[document.getElementById("compare-version-2").value])) {    
+    if ((translations_java[document.getElementById("compare-version-1").value] && translations_java[document.getElementById("compare-version-2").value]) || (translations_bedrock[document.getElementById("compare-version-1").value] && translations_bedrock[document.getElementById("compare-version-2").value])) {
+        let new_lines = find_new_lines(old_dict, new_dict);
+        let changed_lines = find_changed_lines(old_dict, new_dict);
+        let removed_lines = find_removed_lines(old_dict, new_dict);
         if (document.getElementById("edition-choice-changes").value === "Java Edition") {
             old_dict = parse_lines(translations_java[document.getElementById("compare-version-1").value], true);
             new_dict = parse_lines(translations_java[document.getElementById("compare-version-2").value], true);
+
+            new_lines = find_new_lines(old_dict, new_dict);
+            changed_lines = find_changed_lines(old_dict, new_dict, true);
+            removed_lines = find_removed_lines(old_dict, new_dict);
+
+            insert_changes(new_lines, changed_lines, removed_lines, true);
         } else if (document.getElementById("edition-choice-changes").value === "Bedrock Edition") {
             old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value]);
             new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value]);
+
+            new_lines = find_new_lines(old_dict, new_dict);
+            changed_lines = find_changed_lines(old_dict, new_dict, false);
+            removed_lines = find_removed_lines(old_dict, new_dict);
+
+            insert_changes(new_lines, changed_lines, removed_lines, false);
         }
-        console.log(old_dict);
-        console.log(new_dict);
-
-        const new_lines = find_new_lines(old_dict, new_dict);
-        const changed_lines = find_changed_lines(old_dict, new_dict);
-        const removed_lines = find_removed_lines(old_dict, new_dict);
-
-        insert_changes(new_lines, changed_lines, removed_lines);
         console.log("Зміни вставлено у код");
     } else {
         let compareDiv = document.createElement('div');
