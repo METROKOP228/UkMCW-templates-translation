@@ -911,28 +911,40 @@ function dateTranslation(date) {
 }
 
 document.getElementById('interwiki-button').addEventListener('click', async () => {
-    let input = document.getElementById("get-interwiki-input");
-    let articleName = input.value.trim();
-    if (!articleName) {
-        alert('Будь ласка, введіть назву статті!');
+    let input = document.getElementById("textareaInputInterwiki");
+
+    let value = input.value;
+
+    if (!input.value) {
+        alert('Будь ласка, введіть текст!');
         return;
     }
 
-    const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=${encodeURIComponent(articleName)}&prop=langlinks&lllang=uk&format=json&origin=*`;
+    let articleNames = [];
 
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+    const matches = value.match(/\[\[(.*?)\]\]/g)?.map(match => match.slice(2, -2)) || [];
 
-        // Отримання інтервікі на англійську
-        const pages = data?.query?.pages || {};
-        const page = Object.values(pages)[0];
-        const langlink = page?.langlinks?.[0]?.['*'] || 'Посилання не знайдено.';
-        document.getElementById('interwiki-result').value = langlink;
-    } catch (error) {
-        console.error('Помилка:', error);
-        document.getElementById('interwiki-result').value = 'Не вдалося отримати дані. Перевірте з’єднання.';
+    let newText = value;
+
+    for (match of matches) {
+        const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=${encodeURIComponent(match)}&prop=langlinks&lllang=uk&format=json&origin=*`;
+
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            // Отримання інтервікі на англійську
+            const pages = data?.query?.pages || {};
+            const page = Object.values(pages)[0];
+            const langlink = page?.langlinks?.[0]?.['*'] || match;
+            newText = newText.replace(match, langlink)
+        } catch (error) {
+            console.error('Помилка: ', error);
+            document.getElementById('interwiki-result').value = 'Не вдалося отримати дані. Перевірте з’єднання.';
+        }
     }
+
+    document.getElementById("textareaOutputInterwiki").value = newText;
 });
 
 function copy(num) {

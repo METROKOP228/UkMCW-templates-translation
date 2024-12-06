@@ -150,12 +150,19 @@
 			            <button class="button-copy" onclick="copy(1)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg></button>
 			        </div>
 			    </div>
+
+			    <hr>
+
 			    <div class="get-interwiki">
-		    		<h2>Отримати інтервікі</h2>
-		    		<label for="get-interwiki-input">Введіть назву статті англійською:</label>
-		    		<input type="text" id="get-interwiki-input" placeholder="Назва статті">
-		    		<button id="interwiki-button">Отримати інтервікі</button>
-		    		<br><h4">Інтервікі: </h4><input id="interwiki-result" type="text" disabled>
+			    	<div class="interwiki-intro">
+		    			<h2>Отримати інтервікі</h2>
+		    			<span>Введіть англійську назву(и) статті для перекладу (між [[ та ]]):</span>
+		    		</div>
+			        <div class="interwikiTaContainer">
+				        <textarea id="textareaInputInterwiki" class="input"></textarea>
+			    		<button class="button-tr" id="interwiki-button">П<br>е<br>р<br>е<br>к<br>л<br>а<br>с<br>т<br>и</button>
+				        <textarea id="textareaOutputInterwiki" class="input" readonly></textarea>
+			        </div>
 		    	</div>
 		    </div>
 

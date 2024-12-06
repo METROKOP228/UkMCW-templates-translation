@@ -162,6 +162,7 @@ input[type="color"]::-moz-color-swatch:hover {
 
 hr {
     border: 1px solid var(--alt-color);
+    width: 100%;
 }
 
 
@@ -782,20 +783,21 @@ label a:hover {
 
 
 
-.get-interwiki {
+.interwiki-intro {
     margin-left: 150px;
+    margin-bottom: 50px;
 }
 
-#interwiki-button {
-    background-color: var(--alt-color);
-    color: var(--bg-color);
-    border: none;
-    font-size: 18px;
-    height: 30px;
-    width: 300px;
-    cursor: pointer;
-    border-radius: 5px;
+.interwikiTaContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 0;
 }
+
 
 
 
