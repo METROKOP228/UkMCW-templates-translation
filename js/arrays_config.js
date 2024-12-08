@@ -198,10 +198,10 @@ function syncVers() {
 }
 
 
-var beVer = '1.21.40'
-var beVer2 = '1.21.40'
+var beVer = '1.21.50'
+var beVer2 = '1.21.50'
 
-const newestBeVer = '1.21.40'
+const newestBeVer = '1.21.50'
 
 const translations_bedrock = {};
 var bedrock_vers = Array.from(document.getElementById("version-choice-bedrock").options).map(option => option.value);
