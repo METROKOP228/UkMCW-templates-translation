@@ -449,6 +449,20 @@ var output2 = CodeMirror.fromTextArea(document.getElementById("textareaOutput2")
     theme: "default"
 });
 
+var editorI = CodeMirror.fromTextArea(document.getElementById("textareaInputInterwiki"), {
+    lineNumbers: true,
+    lineWrapping: true,
+    mode: "",
+    theme: "default"
+});
+
+var outputI = CodeMirror.fromTextArea(document.getElementById("textareaOutputInterwiki"), {
+    readOnly: true,
+    lineWrapping: true,
+    mode: "",
+    theme: "default"
+});
+
 function translatetext() {
     if (document.querySelector(".tab-btn-active").id === "mc-tmp") {
         translateuk();
@@ -911,41 +925,66 @@ function dateTranslation(date) {
 }
 
 document.getElementById('interwiki-button').addEventListener('click', async () => {
-    let input = document.getElementById("textareaInputInterwiki");
+    let value = editorI.getValue();
 
-    let value = input.value;
-
-    if (!input.value) {
+    if (!value) {
         alert('Будь ласка, введіть текст!');
         return;
     }
 
-    let articleNames = [];
-
     const matches = value.match(/\[\[(.*?)\]\]/g)?.map(match => match.slice(2, -2)) || [];
-
     let newText = value;
 
-    for (match of matches) {
+    // Масив для підсвічування
+    const highlights = [];
+
+    for (let match of matches) {
         const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=${encodeURIComponent(match)}&prop=langlinks&lllang=uk&format=json&origin=*`;
 
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
 
-            // Отримання інтервікі на англійську
+            // Отримання інтервікі на українську
             const pages = data?.query?.pages || {};
             const page = Object.values(pages)[0];
-            const langlink = page?.langlinks?.[0]?.['*'] || match;
-            newText = newText.replace(match, langlink)
+            const langlink = page?.langlinks?.[0]?.['*'] || null;
+
+            if (langlink) {
+                newText = newText.replace(`[[${match}]]`, `[[${langlink}]]`);
+
+                // Зберігаємо інформацію про успішний переклад
+                highlights.push({
+                    text: `[[${langlink}]]`,
+                    className: 'cm-interwiki-green',
+                });
+            } else {
+                // Зберігаємо інформацію про невдалий переклад
+                highlights.push({
+                    text: `[[${match}]]`,
+                    className: 'cm-interwiki-red',
+                });
+            }
         } catch (error) {
             console.error('Помилка: ', error);
             document.getElementById('interwiki-result').value = 'Не вдалося отримати дані. Перевірте з’єднання.';
         }
     }
 
-    document.getElementById("textareaOutputInterwiki").value = newText;
+    // Оновлюємо текст у редакторі
+    outputI.setValue(newText);
+
+    // Додаємо підсвічування
+    highlights.forEach(({ text, className }) => {
+        const startIndex = newText.indexOf(text);
+        if (startIndex !== -1) {
+            const startPos = outputI.posFromIndex(startIndex);
+            const endPos = outputI.posFromIndex(startIndex + text.length);
+            outputI.markText(startPos, endPos, { className });
+        }
+    });
 });
+
 
 function copy(num) {
     // Створення тимчасового textarea
@@ -1064,8 +1103,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (savedTAColor) {
             editor.setOption('theme', savedTAColor);
             editor2.setOption('theme', savedTAColor);
+            editorI.setOption('theme', savedTAColor);
             output.setOption('theme', savedTAColor);
             output2.setOption('theme', savedTAColor);
+            outputI.setOption('theme', savedTAColor);
         }
     } else {
         document.getElementById('cookies-checkbox').checked = false;
@@ -1104,8 +1145,10 @@ function presetChoice(
 function setTheme(theme) {
     editor.setOption('theme', theme);
     editor2.setOption('theme', theme);
+    editorI.setOption('theme', theme);
     output.setOption('theme', theme);
     output2.setOption('theme', theme);
+    outputI.setOption('theme', theme);
     if (localStorage.getItem('cookieConsent')) {
         localStorage.setItem('TATheme', theme);
     }

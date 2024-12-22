@@ -135,7 +135,25 @@ input[type="color"]::-webkit-color-swatch:hover {
 input[type="color"]::-moz-color-swatch:hover {
     border: 2px solid var(--btn-hover-bg-color);
 }
-
+progress {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 50%;
+    height: 10%;
+    border-radius: 20px;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    border: 5px solid var(--alt-color);
+}
+progress::-webkit-progress-bar {
+    background-color: var(--bg-color); /* Фон */
+}
+progress::-webkit-progress-value {
+    background-color: var(--btn-hover-bg-color); /* Колір прогресу */
+}
+progress::-moz-progress-bar {
+    background-color: var(--btn-hover-bg-color); /* Колір заповнення */
+}
 
 /* Основний стиль скролбару */
 ::-webkit-scrollbar {
@@ -919,4 +937,16 @@ div.CodeMirror {
 }
 .cm-s-dracula .cm-diff-added-green {
     background-color: #007235;
+}
+.cm-interwiki-green {
+    background-color: #b5ff87;
+}
+.cm-interwiki-red {
+    background-color: #ff7c7c;
+}
+.cm-s-dracula .cm-interwiki-green {
+    background-color: #007235;
+}
+.cm-s-dracula .cm-interwiki-red {
+    background-color: #ff5656;
 }
