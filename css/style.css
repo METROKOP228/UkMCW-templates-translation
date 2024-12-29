@@ -183,7 +183,9 @@ hr {
     width: 100%;
 }
 
-
+ul {
+    list-style-type: square;
+}
 
 
 
@@ -389,7 +391,7 @@ main.content-container {
     display: flex;
 }
 
-.tab-buttons .tab-btn-active {
+.tab-buttons .tab-btn-active:not(.tab-btn-right) {
     background-color: var(--bg-color);
     color: var(--alt-color);
     display: flex;
@@ -406,7 +408,7 @@ main.content-container {
     width: 55px;
 }
 
-.tab-btn:not(.tab-btn-active):hover {
+.tab-btn:not(.tab-btn-active):not(.tab-btn-right):hover {
     display: flex;
     align-items: center;
     width: 300px;
@@ -471,6 +473,11 @@ main.content-container {
     background-color: var(--bg-color); /* Колір бордера */
 }
 
+.tab-btn.tab-btn-right {
+    margin-left: auto;
+    margin-right: 0;
+    overflow: visible;
+}
 
 
 
@@ -865,6 +872,26 @@ label a:hover {
     border-radius: 5px;
 }
 
+
+
+
+
+
+
+
+.thanks-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 1196px;
+    flex-direction: column;
+    color: var(--alt-color);
+}
+
+.thanks-container a {
+    color: var(--link-color);
+}
 
 
 

@@ -1109,7 +1109,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             outputI.setOption('theme', savedTAColor);
         }
         document.getElementById("local-storage-req").style.display = "block";
-        document.getElementById("choice-load-java").value = localStorage.getItem("loadJava");
+        if (localStorage.getItem("loadJava")) {
+            document.getElementById("choice-load-java").value = localStorage.getItem("loadJava");
+        }
     } else {
         document.getElementById('cookies-checkbox').checked = false;
     }
