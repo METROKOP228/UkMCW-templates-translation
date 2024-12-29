@@ -1108,6 +1108,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             output2.setOption('theme', savedTAColor);
             outputI.setOption('theme', savedTAColor);
         }
+        document.getElementById("local-storage-req").style.display = "block";
+        document.getElementById("choice-load-java").value = localStorage.getItem("loadJava");
     } else {
         document.getElementById('cookies-checkbox').checked = false;
     }
@@ -1154,13 +1156,20 @@ function setTheme(theme) {
     }
 }
 
+document.getElementById("choice-load-java").addEventListener('change', function() {
+    if (localStorage.getItem('cookieConsent')) {
+        localStorage.setItem('loadJava', this.value);
+    } 
+});
 
 document.getElementById("cookies-checkbox").addEventListener('change', function() {
     if (this.checked) {
         localStorage.setItem('cookieConsent', 'true');
         presetChoice();
+        document.getElementById("local-storage-req").style.display = "block";
     } else {
         localStorage.clear();
+        document.getElementById("local-storage-req").style.display = "none";
     }
 });
 
@@ -1171,12 +1180,14 @@ document.getElementById('agree-btn').addEventListener('click', function() {
     document.getElementById('cookie-banner').style.display = 'none';
     document.getElementById('cookies-checkbox').checked = true;
     presetChoice();
+    document.getElementById("local-storage-req").style.display = "block";
 });
 
 document.getElementById('disagree-btn').addEventListener('click', function() {
     localStorage.clear();
     document.getElementById('cookie-banner').style.display = 'none';
     document.getElementById('cookies-checkbox').checked = false;
+    document.getElementById("local-storage-req").style.display = "none";
 });
 
 function openTab(tabId, btnId) {

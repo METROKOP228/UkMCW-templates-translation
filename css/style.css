@@ -306,6 +306,15 @@ hr {
     margin-right: 10px;
 }
 
+.settings-menu h2::before {
+    content: "";
+    display: block;
+    width: 95%;
+    height: 2px;
+    background-color: var(--alt-color); /* Колір лінії */
+    margin-bottom: 8px; /* Відступ між лінією та заголовком */
+}
+
 .toggle-button {
     padding: 10px 20px;
     font-size: 16px;
@@ -354,6 +363,10 @@ input[type="color"] {
     background-color: var(--alt-color);
     color: var(--bg-color);
     border: none;
+}
+
+#local-storage-req {
+    display: none;
 }
 
 

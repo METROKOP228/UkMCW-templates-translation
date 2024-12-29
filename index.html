@@ -64,8 +64,17 @@
 	    <button class="pers-presets-button" onclick="presetChoice('#b8b8ff', '#ffffff', '#9e9eff', '#ffffff', '#ffa8a8', '#e66b6b'); setTheme('default');">Світлий режим</button>
 	    <button class="pers-presets-button" onclick="presetChoice('#000033', '#0040ff', '#20367e', '#ffffff', '#00ffe1', '#ffffff'); setTheme('dracula');">Темний режим</button>
 	    <button class="pers-presets-button" onclick="presetChoice('#000000', '#bababa', '#808080', '#bababa', '#737373', '#404040'); setTheme('dracula');">Темніший режим</button>
-	    <h2>Кукі</h2>
-	    Використовувати кукі?<br><input type="checkbox" id="cookies-checkbox">
+	    <h2>LocalStorage</h2>
+	    Зберігати дані в localStorage?<br><input type="checkbox" id="cookies-checkbox">
+		<div id="local-storage-req">
+		    <h2>Інше</h2>
+		    Завантажувати версії Java
+		    <select name="choice-load-java" id="choice-load-java">
+				<option value="all">Усі</option>
+				<option value="major">Мажорні</option>
+			</select>
+			<br><i><small>Вимагає перезавантаження сторінки</small></i>
+		</div>
   	</div>
   	<main class="content-container">
 	    <div class="tab-buttons">
