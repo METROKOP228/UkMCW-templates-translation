@@ -1112,6 +1112,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (localStorage.getItem("loadJava")) {
             document.getElementById("choice-load-java").value = localStorage.getItem("loadJava");
         }
+        if (localStorage.getItem("loadingScreen")) {
+            document.getElementById("loading-screen-checkbox").checked = localStorage.getItem("loadingScreen") === "true";
+        }
     } else {
         document.getElementById('cookies-checkbox').checked = false;
     }
@@ -1173,6 +1176,12 @@ document.getElementById("cookies-checkbox").addEventListener('change', function(
         localStorage.clear();
         document.getElementById("local-storage-req").style.display = "none";
     }
+});
+
+document.getElementById("loading-screen-checkbox").addEventListener('change', function() {
+    if (localStorage.getItem('cookieConsent')) {
+        localStorage.setItem('loadingScreen', this.checked);
+    } 
 });
 
 

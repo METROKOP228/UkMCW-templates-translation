@@ -65,15 +65,20 @@
 	    <button class="pers-presets-button" onclick="presetChoice('#000033', '#0040ff', '#20367e', '#ffffff', '#00ffe1', '#ffffff'); setTheme('dracula');">Темний режим</button>
 	    <button class="pers-presets-button" onclick="presetChoice('#000000', '#bababa', '#808080', '#bababa', '#737373', '#404040'); setTheme('dracula');">Темніший режим</button>
 	    <h2>LocalStorage</h2>
-	    Зберігати дані в localStorage?<br><input type="checkbox" id="cookies-checkbox">
+	    Зберігати дані в localStorage?<br><input type="checkbox" class="settings-checkbox" id="cookies-checkbox">
 		<div id="local-storage-req">
 		    <h2>Інше</h2>
-		    Завантажувати версії Java
-		    <select name="choice-load-java" id="choice-load-java">
-				<option value="all">Усі</option>
-				<option value="major">Мажорні</option>
-			</select>
-			<br><i><small>Вимагає перезавантаження сторінки</small></i>
+		    Вантажити<select name="choice-load-java" id="choice-load-java">
+				<option value="all">усі</option>
+				<option value="major">мажорні</option>
+				<option value="last">лише останню</option>
+			</select>версію(ї) Java <span class="link-text">*</span>
+			<i><small>Пришвидшить завантаження сторінки</small></i>
+
+			<br><br>Показувати екран завантаження? <span class="link-text">*</span><br><input type="checkbox" class="settings-checkbox" id="loading-screen-checkbox" checked>
+
+
+			<p class="link-text">* — Вимагає перезавантаження сторінки</p>
 		</div>
   	</div>
   	<main class="content-container">

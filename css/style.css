@@ -102,7 +102,7 @@ select {
     background-color: var(--bg-color);
     border: 2px solid var(--alt-color);
     color: var(--alt-color);
-    margin-left: 5px;
+    margin: 0 5px;
 }
 select:hover {
     border: 2px solid var(--btn-hover-bg-color);
@@ -243,13 +243,13 @@ ul {
 #cookie-banner #disagree-btn:hover {
     background-color: #b70000;
 }
-#cookies-checkbox {
+.settings-menu .settings-checkbox {
     width: 35px;
     height: 35px;
 }
 
 #loading-screen {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     gap: 25px;
@@ -369,6 +369,10 @@ input[type="color"] {
 
 #local-storage-req {
     display: none;
+}
+
+.link-text {
+    color: var(--link-color);
 }
 
 

@@ -9,6 +9,8 @@ if (localStorage.getItem('cookieConsent') && localStorage.getItem('loadJava') ==
     versJson = [ "1.21.4", "1.20.6", "1.19.4", "1.18.2", "1.17.1", "1.16.5", "1.15.2", "1.14.4", "1.13.2" ]
 
     versLang = [ "1.12.2", "1.11.2" ]
+} else if (localStorage.getItem('cookieConsent') && localStorage.getItem('loadJava') === "last") {
+    versJson = ["1.21.4"]
 } else {
     versJson = 
         [ "1.21.4", "1.21.3", "1.21.1", "1.21", "1.20.6", "1.20.5", "1.20.4", "1.20.3", "1.20.2", "1.20.1",
@@ -21,6 +23,7 @@ if (localStorage.getItem('cookieConsent') && localStorage.getItem('loadJava') ==
 
 newestJeVer = versJson[0]
 
+
 let screen = document.getElementById("loading-screen");
 let bar = document.getElementById("progress-bar");
 
@@ -28,6 +31,7 @@ let totalTranslations = versJson.length + versLang.length;
 let processedTranslations = 0;
 
 function trackProgress() {
+    screen.style.display = "flex";
     if (processedTranslations < totalTranslations) {
         bar.value = processedTranslations;
         bar.max = totalTranslations; // встановлюємо максимальне значення прогресбару
@@ -68,7 +72,9 @@ async function processVersions() {
 }
 
 // Викликаємо прогрес і обробку версій
-trackProgress();
+if (localStorage.getItem("loadingScreen") !== "false") {
+    trackProgress();
+}
 processVersions();
 
 function syncJavaVers() {
