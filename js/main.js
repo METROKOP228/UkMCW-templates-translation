@@ -73,6 +73,7 @@ const replacements_sound = {
     "foot=": "підвал=",
     "nocat": "некат",
     "type": "тип",
+    "title": "назва",
     "Baby:": "Дитинча:",
     "=''varies''": "=''варіюється''",
     "=master": "=загальне",
@@ -381,7 +382,13 @@ const replacements_itemEntity = {
     "common": "звичайний",
     "uncommon": "незвичайний",
     "rare": "рідкісний",
-    "epic": "епічний"
+    "epic": "епічний",
+    "= yes": "= так",
+    "= no": "= ні",
+    "=yes": "=так",
+    "=no": "=ні",
+    "Yes": "Так",
+    "No": "Ні"
 };
     
 const monthes = {
@@ -625,6 +632,7 @@ function id_table(text) {
 
 function sound_table(text) {
     highlightAdditions(text, text
+        .replace(/\{\{(.*)\[\[sound type\]\] / ,"[[Тип звуку]] {{$1")
         .split("\n")
         .map(segment => segment.includes("subtitle") ? translateJava(performReplacements(segment, replacements_sound)) : performReplacements(segment, replacements_sound))
         .join("\n"));
