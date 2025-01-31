@@ -1,6 +1,7 @@
 const replacements_id = {
     "=y\n": "=т\n",
     "ID table": "ID таблиця",
+    "ID_table": "ID таблиця",
     "editions": "видання",
     "{{edition|": "{{el|",
     "firstcolumnname": "назвапершогостовпця",
@@ -281,11 +282,11 @@ const replacements_biome = {
     "precipitation": "опади",
     "snow_accumulation": "накопичення_снігу",
     "skycolor": "колірнеба",
+    "underwaterfogcolor": "колірпідводноготуману",
     "fogcolor": "коліртуману",
     "grasscolor": "коліртрави",
     "foliagecolor": "колірлистя",
     "watercolor": "колірводи",
-    "underwaterfogcolor": "колірпідводноготуману",
     "EnvLink": "Посилання/Оточення",
     "BlockLink": "Посилання/Блок",
     "= yes": "= так",
@@ -320,7 +321,9 @@ const replacements_spawn = {
     "charge": "заряд",
     "budget": "витрати",
     "note": "примітка",
-    "notename": "назвапримітки"
+    "notename": "назвапримітки",
+    "Upcoming": "Заплановане",
+    "Until": "Доки"
 };
 
 const replacements_item = {
@@ -492,7 +495,7 @@ function translateuk() {
             if (id === 'auto') {
                 console.log('yea')
                 console.log(text);
-                if (text.includes('{{ID table')) {
+                if (text.includes('{{ID table') || text.includes('{{ID_table')) {
                     id_table(text);
                 } else if (text.includes('{{Sound table') || text.includes('{{SoundTable')) {
                     sound_table(text);
