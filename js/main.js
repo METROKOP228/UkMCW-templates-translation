@@ -1249,6 +1249,7 @@ const modesVar = params.get('modes'); // url var 3
 const textVar = params.get('text'); // url var 4
 const verVar = params.get('ver'); // url var 5
 const ver2Var = params.get('ver2'); // url var 6
+const advVar = params.get('adv'); // url var 7
 // example: https://metrokop228.github.io/UkMCW-templates-translation?tab=2&mode=java&text=Wolf
 window.onload = function() {
     if (tabVar == "2") {
@@ -1260,7 +1261,7 @@ window.onload = function() {
     } else {
         timeoutForTemplates();
     }
-    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}, Modes: ${modesVar}, Ver: ${verVar}, Ver2: ${ver2Var}`)
+    console.log(`Tab: ${tabVar}, Mode: ${modeVar}, Text: ${textVar}, Modes: ${modesVar}, Ver: ${verVar}, Ver2: ${ver2Var}, Advanced?: ${advVar}`)
 
     if (!localStorage.getItem('cookieConsent')) {
         document.getElementById('cookie-banner').style.display = 'flex';
@@ -1300,6 +1301,9 @@ function timeoutForTr2() {
                 }
             }
             syncVers();
+        }
+        if (advVar) {
+            document.getElementById('advanced-replacement').checked = advVar;
         }
         if (textVar) {
             editor2.setValue(textVar);
@@ -1407,6 +1411,7 @@ function getLink(tab) {
         } else {
             if (document.getElementById("version-choice-java").value !== newestJeVer) link += `&ver=${encodeURIComponent(document.getElementById("version-choice-java").value)}`;
         }
+        if (document.getElementById("advanced-replacement").checked) link += `&adv=${encodeURIComponent(document.getElementById("advanced-replacement").checked)}`;
         if (editor2.getValue()) link += `&text=${encodeURIComponent(editor2.getValue())}`;
     } else if (tab === 3) {
         const mode = getCheckedId("editions2") || "java";
