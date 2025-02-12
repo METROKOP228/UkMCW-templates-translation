@@ -946,6 +946,7 @@ document.getElementById('interwiki-button').addEventListener('click', async () =
     }
 
     const matches = value.match(/\[\[(.*?)\]\]/g)?.map(match => match.slice(2, -2)) || [];
+    const templateMatches = value.match(/{{(.*?)}}/g)?.map(match => 'Template:' + match.slice(2, -2)) || [];
     let newText = value;
 
     // Масив для підсвічування
@@ -975,6 +976,39 @@ document.getElementById('interwiki-button').addEventListener('click', async () =
                 // Зберігаємо інформацію про невдалий переклад
                 highlights.push({
                     text: `[[${match}]]`,
+                    className: 'cm-interwiki-red',
+                });
+            }
+        } catch (error) {
+            console.error('Помилка: ', error);
+            document.getElementById('interwiki-result').value = 'Не вдалося отримати дані. Перевірте з’єднання.';
+        }
+    }
+
+    for (let match of templateMatches) {
+        const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=${encodeURIComponent(match)}&prop=langlinks&lllang=uk&format=json&origin=*`;
+
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            // Отримання інтервікі на українську
+            const pages = data?.query?.pages || {};
+            const page = Object.values(pages)[0];
+            const langlink = page?.langlinks?.[0]?.['*'] || null;
+
+            if (langlink) {
+                newText = newText.replace(`{{${match.replace("Template:", "")}}}`, `{{${langlink.replace("Шаблон:", "")}}}`);
+
+                // Зберігаємо інформацію про успішний переклад
+                highlights.push({
+                    text: `{{${langlink.replace("Шаблон:", "")}}}`,
+                    className: 'cm-interwiki-green',
+                });
+            } else {
+                // Зберігаємо інформацію про невдалий переклад
+                highlights.push({
+                    text: `{{${match.replace("Template:", "")}}}`,
                     className: 'cm-interwiki-red',
                 });
             }
