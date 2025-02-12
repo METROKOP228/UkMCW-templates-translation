@@ -11,19 +11,19 @@ function translateNames() {
 
             switch (id) {
             case 'java':
-                output2.setValue(translateJava(text));
+                output2.setValue(translateNamesTemplate(text, translations_java[jeVer], true));
                 break;
             case 'bedrock':
-                output2.setValue(translateBedrock(text));
+                output2.setValue(translateNamesTemplate(text, translations_bedrock[beVer], false));
                 break;
             case 'earth':
-                translateEarth(text);
+                output2.setValue(translateNamesTemplate(text, translations_earth, false));
                 break;
             case 'legends':
-                translateLegends(text);
+                output2.setValue(translateNamesTemplate(text, translations_legends, false));
                 break;
             case 'education':
-                translateEducation(text);
+                output2.setValue(translateNamesTemplate(text, translations_education, false));
                 break;
             }
             return;
@@ -31,8 +31,60 @@ function translateNames() {
     }
 }
 
+function translateNamesTemplate(text, iArray, arrays) {
+    template = document.getElementById("advanced-replacement").checked;
+    console.log(text);
+    text = text.split("\n");
+    let en_uk = [];
+    for (let i = 0; i < text.length; i++) {
+        let matches = [];
+        if (text[i].includes("[[File:") || text[i].includes("[[Файл:")) {
+            matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
+            for (let match of matches) {
+                text[i] = text[i].replace(match, 'ЗАМІНИТИ');
+            }
+        }
+        if (arrays) {
+            for (let j = 0; j < iArray.length; j++) {
+                en_uk = iArray[j];
+                let searchTerm = en_uk[0];
+                let replacement = en_uk[1];
+                
+                if (template) {
+                    let patternTJ = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                    text[i] = text[i].replace(patternTJ, replacement);
+                } else {
+                    let patternTJ = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+                    text[i] = text[i].replace(patternTJ, replacement);
+                }
+            }
+        } else {
+            for (let j = 0; j < iArray.length; j++) {
+                en_uk = iArray[j].split("=");
+                if (template) {
+                    let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                    text[i] = text[i].replace(patternT, en_uk[1]);
+                } else {
+                    let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+                    text[i] = text[i].replace(patternT, en_uk[1]);
+                }
+            }
+        }
+        if (matches.length > 0) {
+            for (let match of matches) {
+                text[i] = text[i].replace('ЗАМІНИТИ', match);
+            }
+        }
+    }
+    text = text.join("\n");
+    return text;
+}
+
+
 // Don't even try to optimize
-function translateJava(text) {
+function translateNamesTemplatea(text, iArray, arrays) {
+    template = true;
+
     console.log(text)
     text = text.split("\n");
     let en_uk = [];
@@ -47,11 +99,21 @@ function translateJava(text) {
                     }
                 }
             }
-            for (let j = 0; j < translations_java[jeVer].length; j++) {
-                en_uk = translations_java[jeVer][j];
+            if (arrays) {
+                for (let j = 0; j < iArray.length; j++) {
+                    en_uk = iArray[j];
 
-                let patternTJ = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
-                text[i] = text[i].replace(patternTJ, en_uk[1]);
+                    // I just fucking forgot what next line does but i'll assume it's useful
+                    let patternTJ = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+                    text[i] = text[i].replace(patternTJ, en_uk[1]);
+                }
+            } else {
+                for (let j = 0; j < iArray.length; j++) {
+                    en_uk = iArray[j].split("=");
+                    if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
+                        text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
+                    }
+                }
             }
             if (matches.length > 0) {
                 for (let match of matches) {
@@ -67,84 +129,24 @@ function translateJava(text) {
     }
 }
 
+function translateJava(text) {
+    translateNamesTemplate(text, translations_java[jeVer], true)
+}
 
 function translateBedrock(text) {
-    text = text.split("\n");
-    let en_uk = [];
-    try {
-        for (let i = 0; i < text.length; i++) {
-            for (let j = 0; j < translations_bedrock[beVer].length; j++) {
-                en_uk = translations_bedrock[beVer][j].split("=");
-                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
-                }
-            }
-        }
-
-        text = text.join("\n");
-        return text;
-    } catch (error) {
-        output.setValue("Error");
-    }
+    translateNamesTemplate(text, translations_bedrock[beVer], false)
 }
 
 function translateEarth(text) {
-    text = text.split("\n");
-    let en_uk = [];
-    try {
-        for (let i = 0; i < text.length; i++) {
-            for (let j = 0; j < translations_earth.length; j++) {
-                en_uk = translations_earth[j].split("=");
-                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
-                }
-            }
-        }
-
-        text = text.join("\n");
-        output2.setValue(text);
-    } catch (error) {
-        output2.setValue("Error");
-    }
+    translateNamesTemplate(text, translations_earth, false)
 }
 
 function translateLegends(text) {
-    text = text.split("\n");
-    let en_uk = [];
-    try {
-        for (let i = 0; i < text.length; i++) {
-            for (let j = 0; j < translations_legends.length; j++) {
-                en_uk = translations_legends[j].split("=");
-                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
-                }
-            }
-        }
-
-        text = text.join("\n");
-        output2.setValue(text);
-    } catch (error) {
-        output2.setValue("Error");
-    }
+    translateNamesTemplate(text, translations_legends, false)
 }
 
 function translateEducation(text) {
-    text = text.split("\n");
-    let en_uk = [];
-    try {
-        for (let i = 0; i < text.length; i++) {
-            for (let j = 0; j < translations_education.length; j++) {
-                en_uk = translations_education[j].split("=");
-                if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                    text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
-                }
-            }
-        }
-        text = text.join("\n");
-        output2.setValue(text);
-    } catch (error) {
-        output2.setValue("Error");
-    }
+    translateNamesTemplate(text, translations_education, false)
 }
 
 
