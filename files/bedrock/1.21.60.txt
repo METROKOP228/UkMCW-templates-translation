@@ -10831,4 +10831,8 @@ keyboard.keyName.rbracket.short=]=]
 potion.potency.4=V=V
 selectTemplate.help=?=?
 trade.excalamation=!=!
+<<<<<<< HEAD
 trade.question=?=?
+=======
+trade.question=?=?
+>>>>>>> f9a475220fecbc2c8118d05a1cc4a3d439ebbd38
