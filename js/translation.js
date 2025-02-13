@@ -11,19 +11,19 @@ function translateNames() {
 
             switch (id) {
             case 'java':
-                output2.setValue(translateNamesTemplate(text, translations_java[jeVer], true));
+                output2.setValue(translateNamesTemplate(text, translations_java[jeVer], true, false));
                 break;
             case 'bedrock':
-                output2.setValue(translateNamesTemplate(text, translations_bedrock[beVer], false));
+                output2.setValue(translateNamesTemplate(text, translations_bedrock[beVer], false, true));
                 break;
             case 'earth':
-                output2.setValue(translateNamesTemplate(text, translations_earth, false));
+                output2.setValue(translateNamesTemplate(text, translations_earth, false, false));
                 break;
             case 'legends':
-                output2.setValue(translateNamesTemplate(text, translations_legends, false));
+                output2.setValue(translateNamesTemplate(text, translations_legends, false, false));
                 break;
             case 'education':
-                output2.setValue(translateNamesTemplate(text, translations_education, false));
+                output2.setValue(translateNamesTemplate(text, translations_education, false, false));
                 break;
             }
             return;
@@ -31,9 +31,8 @@ function translateNames() {
     }
 }
 
-function translateNamesTemplate(text, iArray, arrays) {
+function translateNamesTemplate(text, iArray, arrays, trKeys) {
     template = document.getElementById("advanced-replacement").checked;
-    console.log(text);
     text = text.split("\n");
     let en_uk = [];
     for (let i = 0; i < text.length; i++) {
@@ -60,13 +59,23 @@ function translateNamesTemplate(text, iArray, arrays) {
             }
         } else {
             for (let j = 0; j < iArray.length; j++) {
-                en_uk = iArray[j].split("=");
+                if (trKeys) {
+                    let parts = iArray[j].split("=");
+                    en_uk = [parts.slice(1, -1).join("="), parts[parts.length - 1]];
+                } else {
+                    en_uk = iArray[j].split("=");
+                }
+                if (!(en_uk || en_uk[0] || en_uk[1]) || en_uk[0].length < 3 || en_uk[1].length < 3) continue
                 if (template) {
                     let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
                     text[i] = text[i].replace(patternT, en_uk[1]);
                 } else {
-                    let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
-                    text[i] = text[i].replace(patternT, en_uk[1]);
+                    try {
+                        let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+                        text[i] = text[i].replace(patternT, en_uk[1]);
+                    } catch {
+                        console.log('Помилка; Рядок: ' + en_uk);
+                    }
                 }
             }
         }
@@ -80,73 +89,24 @@ function translateNamesTemplate(text, iArray, arrays) {
     return text;
 }
 
-
-// Don't even try to optimize
-function translateNamesTemplatea(text, iArray, arrays) {
-    template = true;
-
-    console.log(text)
-    text = text.split("\n");
-    let en_uk = [];
-    try {
-        for (let i = 0; i < text.length; i++) {
-            let matches = [];
-            if (text[i].includes("[[File:") || text[i].includes("[[Файл:")) {
-                matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
-                for (let j = 0; j < matches.length; j++) {
-                    for (let match of matches) {
-                        text[i] = text[i].replace(match, 'ЗАМІНИТИ');
-                    }
-                }
-            }
-            if (arrays) {
-                for (let j = 0; j < iArray.length; j++) {
-                    en_uk = iArray[j];
-
-                    // I just fucking forgot what next line does but i'll assume it's useful
-                    let patternTJ = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
-                    text[i] = text[i].replace(patternTJ, en_uk[1]);
-                }
-            } else {
-                for (let j = 0; j < iArray.length; j++) {
-                    en_uk = iArray[j].split("=");
-                    if (text[i].includes(en_uk[0]) && en_uk[1] !== undefined) {
-                        text[i] = text[i].replace(new RegExp(en_uk[0], 'g'), en_uk[1]);
-                    }
-                }
-            }
-            if (matches.length > 0) {
-                for (let match of matches) {
-                    text[i] = text[i].replace('ЗАМІНИТИ', match);
-                }
-            }
-        }
-        text = text.join("\n");
-        return text;
-    } catch (error) {
-        console.error(error);
-        return text;
-    }
-}
-
 function translateJava(text) {
-    translateNamesTemplate(text, translations_java[jeVer], true)
+    translateNamesTemplate(text, translations_java[jeVer], true, false)
 }
 
 function translateBedrock(text) {
-    translateNamesTemplate(text, translations_bedrock[beVer], false)
+    translateNamesTemplate(text, translations_bedrock[beVer], false, true)
 }
 
 function translateEarth(text) {
-    translateNamesTemplate(text, translations_earth, false)
+    translateNamesTemplate(text, translations_earth, false, false)
 }
 
 function translateLegends(text) {
-    translateNamesTemplate(text, translations_legends, false)
+    translateNamesTemplate(text, translations_legends, false, false)
 }
 
 function translateEducation(text) {
-    translateNamesTemplate(text, translations_education, false)
+    translateNamesTemplate(text, translations_education, false, false)
 }
 
 
@@ -221,7 +181,7 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
             }
         }
 
-        const searchAndHighlight = (el, arrayName, arrays=false) => {
+        const searchAndHighlight = (el, arrayName, arrays=false, trKeys=false) => {
             // Визначаємо регулярний вираз для пошуку
             const flags = caseSensitive ? 'g' : 'gi';
             const searchRegex = useRegex ? regex : new RegExp(text, flags);
@@ -237,6 +197,10 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
                         break;
                     }
                 }
+            } else if (trKeys) {
+                matchFound = useRegex 
+                    ? regex.test(el) 
+                    : (caseSensitive ? el.includes(text) : el.toLowerCase().includes(text.toLowerCase()));
             } else {             
                 matchFound = useRegex 
                     ? regex.test(el) 
@@ -260,6 +224,8 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
                 let processedEl;
                 if (arrays) {
                     processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span> <small class="changesHover" onclick="(() => copyText(\`${els[2]}\`))();">(${replaceParts[2]})</small><hr>`;
+                } else if (trKeys) {
+                    processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[1]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${els[2]}\`))();">${replaceParts[2]}</span> <small class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">(${replaceParts[0]})</small><hr>`;
                 } else {
                     processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span><hr>`;
                 }
@@ -294,7 +260,7 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayB.length; i++) {
-                searchAndHighlight(arrayB[i], matches2);
+                searchAndHighlight(arrayB[i], matches2, false, true);
             }
             if (matches2[0] === undefined) {
                 document.getElementById('mcbeText').classList.add('hidden');
@@ -372,10 +338,11 @@ function parse_lines(lines, arrays=false) {
         }
     } else {
         for (const line of lines) {
-            if (line.includes('=')) {
-                let [key, value] = line.split('=', 2);
-                parsed_dict[key.trim()] = value.trim();
-            }
+            if (!(line || line[0] || line[1] || line[2] || line.split("=").length === 2)) continue
+            let key = line.split("=")[0].trim();
+            let valueEn = line.split("=")[1].trim();
+            let valueUk = line.split("=")[2].trim();
+            parsed_dict[key] = { en: valueEn, uk: valueUk};
         }
     }
     return parsed_dict;
@@ -391,18 +358,12 @@ function find_new_lines(old_dict, new_dict) {
     return new_lines;
 }
 
-function find_changed_lines(old_dict, new_dict, java) {
+function find_changed_lines(old_dict, new_dict) {
     const changed_lines = {};
     for (const key in new_dict) {
         if (key in old_dict) {
-            if (java) {
-                if (old_dict[key].uk !== new_dict[key].uk) {
-                    changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText(\`${old_dict[key].uk}\`))(););">${old_dict[key].uk}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${new_dict[key].uk}\`))();">${new_dict[key].uk}</span>`;
-                }
-            } else {
-                if (old_dict[key] !== new_dict[key]) {
-                    changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText(\`${old_dict[key]}\`))(););">${old_dict[key]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${new_dict[key]}\`))();">${new_dict[key]}</span>`;
-                }
+            if (old_dict[key].uk !== new_dict[key].uk) {
+                changed_lines[key] = `<span class="changesHover" onclick="copyText((() => copyText(\`${old_dict[key].uk}\`))(););">${old_dict[key].uk}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${new_dict[key].uk}\`))();">${new_dict[key].uk}</span>`;
             }
         }
     }
@@ -419,59 +380,33 @@ function find_removed_lines(old_dict, new_dict) {
     return removed_lines;
 }
 
-function insert_changes(new_lines, changed_lines, removed_lines, java) {
+function insert_changes(new_lines, changed_lines, removed_lines) {
     let compareText = '<br><br><span style="font-size: 25px;" id="Нові рядки">Нові рядки:</span><br>';
 
-    if (java) {
+    for (const key in new_lines) {
+        const { en, uk } = new_lines[key]; // Деструктуризація об'єкта
+        compareText += `<span class="changesHover" onclick="(() => copyText(\`${en}\`))();">${en}</span> 
+        <span class="arrow"> --&gt; </span> 
+        <span class="changesHover" onclick="(() => copyText(\`${uk}\`))();">${uk}</span> 
+        <small class="changesHover" onclick="(() => copyText(\`${key}\`))();">(${key})</small><br><hr>`;
+    }
+    compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
+    const sortedChangedLines = Object.entries(changed_lines)
+        .sort((a, b) => b[1].length - a[1].length);
 
-        for (const key in new_lines) {
-            const { en, uk } = new_lines[key]; // Деструктуризація об'єкта
-            compareText += `<span class="changesHover" onclick="(() => copyText(\`${en}\`))();">${en}</span> 
-            <span class="arrow"> --&gt; </span> 
-            <span class="changesHover" onclick="(() => copyText(\`${uk}\`))();">${uk}</span> 
-            <small class="changesHover" onclick="(() => copyText(\`${key}\`))();">(${key})</small><br><hr>`;
-        }
-        compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
-        const sortedChangedLines = Object.entries(changed_lines)
-            .sort((a, b) => b[1].length - a[1].length);
+    for (const [key, value] of sortedChangedLines) {
+        compareText += `<span class="arrow">${key}:</span> ${value}<br><hr>`;
+    }
 
-        for (const [key, value] of sortedChangedLines) {
-            compareText += `<span class="arrow">${key}:</span> ${value}<br><hr>`;
-        }
-
-        compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
+    compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
 
 
-        for (const key in removed_lines) {
-            const { en, uk } = removed_lines[key]; // Деструктуризація об'єкта
-            compareText += `<span class="changesHover" onclick="(() => copyText(\`${en}\`))();">${en}</span> 
-            <span class="arrow"> --&gt; </span> 
-            <span class="changesHover" onclick="(() => copyText(\`${uk}\`))();">${uk}</span> 
-            <small class="changesHover" onclick="(() => copyText(\`${key}\`))();">(${key})</small><br><hr>`;
-        }
-    } else {
-        const sortedNewLines = Object.entries(new_lines)
-            .sort((a, b) => b[1].length - a[1].length);
-
-        for (const [key, value] of sortedNewLines) {
-            compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
-        }
-
-        compareText += '<br><span style="font-size: 25px;" id="Змінені рядки">Змінені рядки:</span><br>';
-        const sortedChangedLines = Object.entries(changed_lines)
-            .sort((a, b) => b[1].length - a[1].length);
-
-        for (const [key, value] of sortedChangedLines) {
-            compareText += `<span class="arrow">${key}:</span> ${value}<br><hr>`;
-        }
-
-        compareText += '<br><span style="font-size: 25px;" id="Видалені рядки">Видалені рядки:</span><br>';
-        const sortedRemovedLines = Object.entries(removed_lines)
-            .sort((a, b) => b[1].length - a[1].length);
-
-        for (const [key, value] of sortedRemovedLines) {
-            compareText += `<span class="changesHover" onclick="(() => copyText(\`${key}\`))();">${key}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${value}\`))();">${value}</span><br><hr>`;
-        }
+    for (const key in removed_lines) {
+        const { en, uk } = removed_lines[key]; // Деструктуризація об'єкта
+        compareText += `<span class="changesHover" onclick="(() => copyText(\`${en}\`))();">${en}</span> 
+        <span class="arrow"> --&gt; </span> 
+        <span class="changesHover" onclick="(() => copyText(\`${uk}\`))();">${uk}</span> 
+        <small class="changesHover" onclick="(() => copyText(\`${key}\`))();">(${key})</small><br><hr>`;
     }
 
     let compareDiv = document.createElement('div');
@@ -493,19 +428,19 @@ function trackChanges() {
             new_dict = parse_lines(translations_java[document.getElementById("compare-version-2").value], true);
 
             new_lines = find_new_lines(old_dict, new_dict);
-            changed_lines = find_changed_lines(old_dict, new_dict, true);
+            changed_lines = find_changed_lines(old_dict, new_dict);
             removed_lines = find_removed_lines(old_dict, new_dict);
 
-            insert_changes(new_lines, changed_lines, removed_lines, true);
+            insert_changes(new_lines, changed_lines, removed_lines);
         } else if (document.getElementById("edition-choice-changes").value === "Bedrock Edition") {
             old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value]);
             new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value]);
 
             new_lines = find_new_lines(old_dict, new_dict);
-            changed_lines = find_changed_lines(old_dict, new_dict, false);
+            changed_lines = find_changed_lines(old_dict, new_dict);
             removed_lines = find_removed_lines(old_dict, new_dict);
 
-            insert_changes(new_lines, changed_lines, removed_lines, false);
+            insert_changes(new_lines, changed_lines, removed_lines);
         }
         console.log("Зміни вставлено у код");
     } else {

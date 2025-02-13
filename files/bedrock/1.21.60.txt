@@ -30,13 +30,11 @@ options.snooper.desc=We want to collect information about your machine to help i
 store.realmsPlus.noTrial.description.iap.contentSub=Your Realm and the 150+ marketplace packs included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! You’ll be billed %s/month and you can cancel your subscription to stop future charges by accessing subscriptions settings.=Ваш Realm і понад 150 пакетів вмісту з ринку, що входять до Marketplace Pass, стануть доступними відразу ж. Одночасно можуть грати до 10 гравців, які отримують доступ до світів у вашому Realm безкоштовно! Вам виставлятиметься рахунок %s/місяць, а щоб зупинити оплату підписки, її можна скасувати в параметрах підписок.
 howtoplay.enderChest.text.1=All Ender Chests in a world are linked. Items placed into an Ender Chest are accessible in any other Ender Chest. However, the contents of the Ender Chests are specific for each player. This allows players to store items in any Ender Chest, and retrieve them from other Ender Chests in different positions in the world.=Усі скрині Ендеру у світі пов’язані між собою. Предмети, розміщені в скрині Ендеру, доступні в будь-якій іншій скрині Ендеру. Проте вміст скринь Ендеру особливий для кожного користувача. Це дає змогу гравцям зберігати предмети в будь-якій скрині Ендеру та діставати їх з інших скринь Ендеру в різних куточках світу.
 howtoplay.creativeMode.text.4.keyboard=To fly when in Creative Mode, press :_input_key.jump: twice quickly. To exit flying, repeat the action. To fly faster, push :_input_key.forward: twice in rapid succession or press :_input_key.sprint: while flying. When in flying mode, you can hold down :_input_key.jump: to move up and :_input_key.sneak: to move down.=Щоб летіти у творчому режимі, двічі швидко натисніть :_input_key.jump:. Щоб припинити політ, повторіть дію. Щоб летіти швидше, двічі штовхніть :_input_key.forward: у швидкій послідовності або натисніть :_input_key.sprint: під час польоту. У режимі польоту утримайте :_input_key.jump:, щоб переміститися вгору, і :_input_key.sneak:, щоб переміститися вниз.
-realmsSettingsScreen.consumableToSubscriptionTransitionInfo=You can't extend your Realm right now. We have now introduced subscriptions for Realms and you can buy a new subscription as soon as your Realm has expired in %d days. But don't worry! We will give you 14 extra days for free and your Realm will be kept online, so you will have plenty of time to extend it by then.=Цей Realm не можна подовжити зараз. Ми запровадили підписку на Realms, і ви зможете придбати нову підписку, щойно спливе термін дії вашого Realm через %d дн. Але не хвилюйтеся! Ми збережемо безкоштовний доступ до вашого Realm протягом 14 додаткових днів, тому ви матимете достатньо часу, щоб подовжити його.
 howtoplay.realms_stories.text.5=Get to know who is part of the Realm by using the Members tab. It's a list of all the players who can play here. You can see who the Realm owner is, who the operators are, and who has joined Realms Stories for this Realm. There are search, sort, and filter options to help you find exactly who you're looking for.=На вкладці «Учасники» можна переглянути, хто приєднався до Realm. Тут наведено список усіх гравців, які мають доступ. Ви можете побачити, хто є власником Realm, операторами, а хто приєднався до Історій Realms. Щоб знайти певних користувачів, задійте параметри пошуку, сортування та фільтрування.
 howtoplay.hostAndPlayerOptions.text.1.notTouch=When playing with cheats on, host options will allow you to teleport yourself or friends, change the weather, set the time of day, and change the entry point or world spawn of your game. Once cheats have been enabled, you can find these options in the chat window by pressing the [/] button next to the chat bar.=Коли ви граєте з увімкнутими чітами, параметри хоста дають змогу телепортувати себе або друзів, змінити погоду, встановити час дня та змінити точку входу або місце призову світу в грі. Якщо ви ввімкнули чіти, ви можете знайти ці параметри у вікні чату, натиснувши кнопку [/] поруч із панеллю чату.
 howtoplay.trading.text.2=You can find out what a villager is offering as trade by interacting with them. A villager may adjust the price of a trade whenever a player trades with it. A villager may run out of stock, temporarily disabling the trade if it is used too frequently. Trades usually involve buying or selling items for emeralds.=Ви дізнаєтеся, чим торгує селянин, взаємодіючи з ним. Селянин може змінити ціну предмета будь-коли. Якщо звертатися до селянина надто часто, у нього можуть закінчитися предмети й він тимчасово припинить торгівлю. Зазвичай валютою є смарагди.
 howtoplay.scaffolding.text.1.windowsmr_controller=Scaffolding can help you create huge structures safely! You can walk inside scaffolding and stand on it. If you have a column of scaffolding you can go upward by standing in the scaffolding and pressing :windowsmr_right_touchpad:. If you want to travel downward you can press and hold :windowsmr_right_stick:.=Риштування допомагає безпечно зводити величезні будівлі! На риштування можна заходити та стояти на ньому. Якщо звести багаторівневе риштування, ви зможете підійматися ним, натискаючи :windowsmr_right_touchpad:. Щоб спуститися вниз, натисніть та утримуйте :windowsmr_right_stick:.
 store.csb.recurring.offerTrial=Marketplace Pass is an ongoing subscription with a recurring subscription fee which is charged automatically every month until the subscription is cancelled.%s150+ marketplace packs will be immediately available. You can cancel your subscription to stop future charges by accessing subscriptions settings.=Marketplace Pass — це подовжувана підписка з автоматичним щомісячним списанням коштів до моменту скасування підписки.%sПонад 150 пакетів вмісту з ринку стануть доступні відразу. Ви можете скасувати підписку в параметрах підписок, щоб припинити стягнення плати в майбутньому.
-options.viewSubscriptions.consumableToSubscriptionTransitionInfo=You can't extend your Realm right now. We have now introduced subscriptions for Realms and you can buy a new subscription as soon as your Realm has expired. But don't worry! We will give you 14 extra days for free and your Realm will be kept online, so you will have plenty of time to extend it by then.=Цей Realm не можна подовжити зараз. Ми запровадили підписку на Realms, і ви зможете придбати нову підписку, щойно спливе термін дії вашого Realm. Але не хвилюйтеся! Ми збережемо безкоштовний доступ до вашого Realm протягом 14 додаткових днів, тому ви матимете достатньо часу, щоб подовжити його.
 trial.tabbed_upsell.seeds.description=Unlock the full Minecraft experience and get access to Seeds! Seeds help you discover new biomes - survive on ice plains, ascend extreme hills, or trek across deserts. Start with unique templates or explore random new worlds! Access Seeds, Creative mode, Multiplayer and more by buying Minecraft today!=Розблокуйте повну версію Minecraft і спробуйте сіди! Сіди допомагають знаходити нові біоми — виживати на льодових рівнинах, сходити на височенні пагорби або долати пустелі. Почніть із унікальних шаблонів або досліджуйте випадкові нові світи! Отримайте сіди, творчий режим, мультиплеєр і багато іншого, купивши Minecraft уже сьогодні!
 trial.thanks_for_testing.xbl.description=With the full Minecraft experience, you get Creative mode, achievements, and more, plus with a Microsoft account you can meet others in the Minecraft community! You’ll be able to join friends’ worlds, make new friends on Servers, and sync your Marketplace purchases to everywhere you play Minecraft.=Повна версія Minecraft – це творчий режим, досягнення та багато іншого, а з обліковим записом Microsoft ви зможете познайомитися з іншими членами спільноти Minecraft! Ви зможете приєднатися до світів своїх друзів, знаходьте нових друзів на серверах і синхронізуйте покупки на Ринку скрізь, де ви граєте в Minecraft.
 store.realmsPlus.startTrial.description.contentSub=Your Realm and the 150+ marketplace packs included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! Your first month will be free, and you'll be billed %s/month afterwards and can cancel at any time.=Ваш Realm і понад 150 пакетів вмісту з ринку, що входять до Marketplace Pass, стануть доступними відразу ж. Одночасно можуть грати до 10 гравців, які отримують доступ до світів у вашому Realm безкоштовно! Перший місяць для вас буде безкоштовний, а після цього вам виставлятиметься рахунок %s/місяць. Ви можете скасувати підписку в будь-який час.
@@ -412,11 +410,13 @@ howtoplay.playingTogether.text.10=Open the game menu to see a list of players cu
 joincode.confirmation.start_hosting.message=If you start hosting, we will create a code for you to give to other players so they can join your world. Would you like to start hosting?=Якщо ви станете хостом, ми створимо код, який вам потрібно повідомити іншим гравцям, щоб вони змогли приєднатися до вашого світу. Хочете стати хостом?
 options.filelocation.external.warning.body=External Storage has changed its location, and you could lose your worlds on some devices. Please visit the following page for details: %s=Змінилося розташування зовнішнього сховища, і ви можете втратити свої світи на деяких пристроях. Докладні відомості наведено на сторінці: %s
 stream.unavailable.account_not_bound=Before you can broadcast Minecraft through Twitch, you will need to link your Twitch account on mojang.com. Would you like to do that now?=Щоб транслювати гру Minecraft через Twitch, потрібно пов’язати свій обліковий запис Twitch на сайті mojang.com. Хочете зробити це зараз?
+resourcePack.warning.multiple.addon.message=Stacking multiple Add-Ons may result in unpredictable experiences. World loading times could vary, and Add-Ons might behave unexpectedly.=Накопичення кількох доповнень може призвести до непередбачуваних ситуацій. Час завантаження світу може відрізнятися, при цьому самі доповнення можуть функціонувати некоректно.
 howtoplay.playingTogether.text.7=You and up to 10 friends get 24/7 access to a world that's always online. Explore, get creative, or try curated content from Marketplace.=Ви та максимум 10 друзів отримуєте цілодобовий доступ до світу, який завжди онлайн. Досліджуйте, проявляйте творчий підхід або спробуйте ретельно підібраний вміст на Ринку.
 progressScreen.message.modifiedWorldWarning.5=Advanced Tip: An Add-On includes both a Behavior Pack and a Resource Pack. Make sure both packs are activated to ensure the Add-On works!=Корисна підказка: доповнення містить як пакет поведінки, так і пакет ресурсів. Переконайтеся, що обидва пакети активовані, щоб доповнення працювало!
 disconnectionScreen.connectionLost=The connection to the host was lost. If that world is still being hosted, please check your internet connection and try to connect again.=Втрачено зв’язок із хостом. Якщо цей світ все ще керується хостом, перевірте підключення до Інтернету та спробуйте підключитися ще раз.
 permissions.nocheats.message.noachievements=Certain commands like teleport are only available with cheats ON. Cheats can also be turned on through the Game menu under Game Settings.=Деякі команди, як-от телепорт, доступні лише за ввімкнутих чітів. Чіти також можна ввімкнути в меню гри в параметрах гри.
 realmsSharingScreen.badInviteMessage=The invite link is either incorrect or deactivated. Ask the Realm's owner for an updated link and make sure you've entered it correctly.=Посилання на запрошення неправильне, або його було деактивовано. Зверніться до власника Realm за оновленим посиланням і переконайтеся, що ви ввели його правильно.
+resourcePack.warning.remove.body=Removing packs from previously played worlds may result in permanent data loss. We strongly recommend making a copy of your world first!=Видалення пакетів із раніше відтворених світів може призвести до незворотної втрати даних. Ми наполегливо рекомендуємо спочатку зробити копію свого світу!
 options.activateExperimentalGameplayCreate.message=Be careful! You're activating features that are still under development. Your world might crash, break, or not work with future updates.=Будьте обережні! Ви активуєте функції, які ще перебувають у розробці. Ваш світ може "впасти", зламатися або не працювати з майбутніми оновленнями.
 disconnectionScreen.nowifi=It appears you are unable to connect to your network, please connect to a Wi-Fi network or enable 'Use Mobile Data' in profile settings.=Схоже, не вдається підключитися до вашої мережі. Підключіться до мережі Wi-Fi або виберіть «Використовувати мобільні дані» в параметрах профілю.
 realmsCreateScreen.incomplete.override.renew=You are attempting to create a new realm but a prior purchase was found for renewing a realm. Would you like to apply that purchase now?=Ви намагаєтеся створити новий Realm, але раніше вже починали покупку для поновлення Realm. Хочете завершити ту покупку зараз?
@@ -489,6 +489,7 @@ accessibility.popup.message.xbl=We've detected that your account has "Let games 
 howtoplay.jigsawBlocks.text.1=Jigsaw Blocks give creators the ability to generate large structures in the world by connecting multiple structure templates.=Блоки-пазли дають творцям можливість генерувати великі споруди у світі, з’єднуючи кілька шаблонів таких споруд.
 beginnerTips.12=The world of Minecraft is endlessly surprising. You'll find lots of different animals, plants, and even §f§k§a§b§r §f§k§a§b§r=Світ Minecraft сповнений сюрпризів. Тут ви знайдете багато різних тварин, рослин і навіть §f§k§a§b§r §f§k§a§b§r
 progressScreen.message.unownedTemplate=It looks like you do not own the Marketplace template this world is based on. You can purchase it from Minecraft Marketplace.=Схоже, у вас немає шаблону з Ринку, на якому базується цей світ. Ви можете придбати його на Ринку Minecraft.
+options.filterProfanity.tooltip=Turns on profanity filtering. When on, a text filter is applied to what you see. When off, you can see most text unfiltered.=Вмикає фільтрування ненормативної лексики. Якщо цей параметр увімкнений, до того, що ви бачите, застосовується текстовий фільтр. Якщо цей параметр вимкнено, більшість тексту відображається без фільтра.
 options.maxFramerate.tooltip=Lower the game's maximum framerate to improve battery life and device health. Actual framerate may fall below the set limit.=Знизьте максимальну частоту кадрів у грі, щоб покращити час автономної роботи та функціональність пристрою. Фактична частота кадрів може бути нижчою встановленого ліміту.
 howtoplay.worldBuilder.text.1=To place or use certain Minecraft Education blocks or items, a player must possess a special ability called 'World Builder'.=Щоб розміщати або використовувати окремі блоки чи елементи Minecraft Education, гравець повинен мати спеціальну можливість під назвою "Творець світів".
 howtoplay.structureBlocks.text.2=To get a Structure Block you must use the /give slash command. To use a Structure Block, you must have Operator permissions.=Щоб отримати структурний блок, необхідно скористатися консольною командою /give. Щоб використати структурний блок, потрібно мати дозволи оператора.
@@ -566,7 +567,6 @@ howtoplay.fireworks.text.7=Fireworks can be fired from a dispenser. This will sh
 howtoplay.anvil.text.2=All items can be renamed, although only items with durability can be repaired or enchanted with Books on the Anvil.=Перейменувати можна всі предмети, а ось відновити або зачарувати за допомогою книг на ковадлі можна лише предмети тривалого вжитку.
 joincode.confirmation.generate_code.message=Making a new join code will not stop your multiplayer game. The new code will be used to invite additional players.=Створення нового коду приєднання не зупинить вашу гру в мультиплеєрі. За допомогою нового коду можна буде запросити інших гравців.
 realmsSettingsScreen.offerError.content=A purchase is already pending. You cannot make another purchase until it has been resolved. Please try again later.=Покупка вже очікує на обробку. Ви не можете здійснити ще одну покупку, поки не буде оброблено цю. Спробуйте ще раз згодом.
-autosave.info.nx=When you see this icon, we are saving your game. Do not turn off your Nintendo Switch while this icon is on screen.=Коли відображається ця піктограма, ми зберігаємо гру. Не вимикайте Nintendo Switch, поки бачите цю піктограму на екрані.
 disconnectionScreen.outdatedServerRealmsNonOwner.title=The Realm you are attempting to access is a different version. Contact the owner of the Realm to address the issue.=Realm, у який ви хочете ввійти, працює в іншій версії. Зверніться до власника реалму, щоб вирішити цю проблему.
 store.sign_in_warning.no_xbl_and_local_content=You have previously downloaded content or used Minecoins in the Marketplace that are only available on this device.=Ви раніше завантажували вміст або використовували на Ринку Minecoins, які доступні лише на цьому пристрої.
 howtoplay.dispensers.text.4=Dispensers can also be used to place items as well, such as Pumpkins on Iron Golems and equipment on Armor Stands.=Розподілювачі також можна використовувати для розміщення предметів, наприклад гарбузів на залізних големах і обладнання на стійці для обладунку.
@@ -593,6 +593,7 @@ course.edu.conInfoHostTooltipTextScreenReader=You can share the Connection I D i
 permissions.description.visitors=Visitors can freely explore your world, but cannot interact with blocks, items, or entities. Trust Players Off.=Відвідувачі можуть вільно досліджувати ваш світ, але не можуть взаємодіяти з блоками, предметами та сутностями. Функція надійних гравців вимкнута.
 howtoplay.selectingItems.text.3.nottouch=Some items, like buckets, fishing rods, and bows, can be used by tapping the build/use button :_input_key.use:.=Деякі предмети, такі як відра, вудки та луки, можна використовувати, натиснувши кнопку будівництва/використання :_input_key.use:.
 howtoplay.bedsNew.text.1=A soft bed lets you sleep through the night. You'll need wool to craft one, as well as a safe spot to place it.=М’яке ліжко дозволяє спати всю ніч. Вам знадобиться вовна, щоб створити його, а також безпечне місце для його розміщення.
+options.viewSubscriptions.consumableToSubscriptionTransitionInfo=This Realm is not associated with a recurring subscription. Once it expires, you will be able to reactivate it.=Цей Realm не пов’язаний із періодичною підпискою. Щойно термін його дії закінчиться, ви зможете його повторно активувати.
 store.popup.xblRequired.message=You need to sign in before unlocking items in the store so that we can remember what you have already unlocked.=Перш ніж намагатися розблокувати щось у магазині, потрібно ввійти в систему, щоб ми знали, що ви вже маєте.
 howtoplay.bedsNew.text.2=Sleeping in a bed will also set your §espawn point§f, meaning that if you die, you'll reappear right back home!=Сон у ліжку також встановить ваше §eмісце призову§f, тож якщо ви помрете, то знову з'явитеся просто вдома!
 storage_migration.resume_transfer.description.out_of_space=We're in the middle of moving your data to a new location on your device, but you don't have enough free space.=Ми переміщаємо ваші дані до нового розташування на вашому пристрої, але у вас недостатньо вільного місця.
@@ -624,7 +625,6 @@ authentication.toast.refreshFailed.body=There's something wrong with your accoun
 commands.spreadplayers.failure.teams=Could not spread %1$s teams around %2$s,%3$s (too many players for space - try using spread of at most %4$s)=Не вдалося розсіяти %1$s команди по %2$s,%3$s (забагато гравців для цієї території: спробуйте розсіяти не більше %4$s)
 autosave.info.desktop=When you see this icon, we are saving your game. Do not turn off your computer while this icon is on screen.=Коли відображається ця піктограма, ми зберігаємо гру. Не вимикайте комп’ютер, поки бачите цю піктограму на екрані.
 progressScreen.dialog.message.resourcePack.required=This world has required Resource Packs from Add-Ons applied to it. Would you like to download them and join?=До цього світу застосовано необхідні пакети ресурсів із доповнень. Бажаєте завантажити їх і приєднатися?
-resourcePack.warning.remove.body=Adding or removing Packs after playing a world might break the world and cause you to lose what you created.=Якщо додати або видалити пакети після гри у світі, світ може поламатися, а ви втратите все, що створили.
 realmsSettingsScreen.inviteLinkURLTTS=Invite link titled %s. Textblock. %s. This link will let people join your Realm. You can share it anywhere.=Запрошувальне посилання під назвою %s. Текстовий блок. %s. Це посилання дасть змогу людям приєднатися до вашого Realm. Ви можете поділитися ним будь-де.
 permissions.description.operators=Operators are members who can set player permissions and use commands to have more control over your world.=Оператори – це учасники, які можуть установлювати дозволи гравців і використовувати команди для розширеного керування вашим світом.
 howtoplay.mining.text.1=Not all crafting materials are on the surface - some may require you to dig underground or into a mountain.=Не всі крафтові матеріали знаходяться на поверхні — щоб знайти деякі з них, потрібно буде копати вглиб землі або крізь гору.
@@ -651,6 +651,7 @@ codeScreen.editor.description.tynker=Mod your world with Tynker! Build mini-game
 commands.structure.y.tooLow=Cannot place blocks outside of the world. Try a value greater than %d for the Y component of <to: x y z>.=Не можна розмістити блоки за межами світу. Спробуйте значення %d або більше для компонента Y у координатах <to: x y z>.
 howtoplay.addons.text.3=Stacking, or adding multiple Add-Ons, can increase loading times, and could result in unexpected results.=Накопичення або додавання кількох доповнень може збільшити час завантаження та призвести до неочікуваних результатів.
 createWorldScreen.eduCloud.about.body=Filename: '%1$s'%2$sLast updated: %3$s%4$sTo download, click OK and then click the 'Download' button.%5$s=Назва файлу: %1$s%2$sОстаннє оновлення: %3$s%4$sЩоб завантажити, натисніть OK, а потім – кнопку «Завантажити».%5$s
+store.addon.update.realms.body1=This world may not look or behave in the same way as non-modified worlds and you can't earn achievements.=Цей світ може виглядати або функціонувати не так, як немодифіковані світи, і ви не можете заробляти досягнення.
 howtoplay.tools.text.6.touch=The Hoe is required for tilling Dirt to plant crops. Tap Dirt or Grass blocks to turn them into Farmland.=Мотикою орють землю, щоб саджати там рослини. Торкніться блока землі або трави, щоб перетворити його на ґрунт.
 store.csb.landing.info.line1=Dive into story-driven adventures by downloading and playing one of the many themed worlds and mini-games=Поринути в сюжетні пригоди, завантаживши один із численних тематичних світів або зігравши в одну з міні-ігор
 howtoplay.difficulty.text.2=No hostile mobs will spawn except for shulkers and the Ender Dragon, but they won't do any damage to you.=Не призиватимуться ворожі моби, крім шалкерів і дракона Ендеру, але вони не завдаватимуть вам жодної шкоди.
@@ -664,7 +665,7 @@ commands.structure.y.tooHigh=Cannot place blocks outside of the world. Try a val
 howtoplay.movingAround.text.3a.keyboard=Move around the world using :_input_key.forward: :_input_key.left: :_input_key.back: :_input_key.right:.=Переміщайтеся світом, використовуючи :_input_key.forward: :_input_key.left: :_input_key.back: :_input_key.right:.
 profanity_filter.msg=The text you entered contains words that others may find offensive and cannot be used. Please try again.=Введений текст містить слова, які можуть бути образливими для інших, тому їх не можна вживати. Спробуйте ще раз.
 howtoplay.smithing_table.text.4=Place a Template into the leftmost slot of a Smithing Table to see which items you need for the upgrade.=Помістіть шаблон у крайній лівий слот ковальського столу, щоб побачити, які предмети потрібні для модернізації.
-store.addon.update.realms.body1=This world may not look or behave in the same way as non-modified worlds and you cant earn achievements.=Цей світ може виглядати або функціонувати не так, як немодифіковані світи, і ви не можете заробляти досягнення.
+store.addon.update.local.body1=The world may not look or behave in the same way as non-modified worlds and you can't earn achievements.=Цей світ може виглядати або функціонувати не так, як немодифіковані світи, і ви не можете заробляти досягнення.
 authentication.adalException=We can't connect to the service you need right now. Please check your internet connection and try again.=Зараз не вдалося підключитися до потрібної вам служби. Перевірте підключення до Інтернету та спробуйте ще раз.
 autosave.info.xbox=When you see this icon, we are saving your game. Do not turn off your Xbox while this icon is on screen.=Коли відображається ця піктограма, ми зберігаємо гру. Не вимикайте Xbox, поки бачите цю піктограму на екрані.
 howtoplay.yourFirstCraft.text.4=Some items require you to place your crafting ingredients in a certain shape - also called a §erecipe§f.=Деякі предмети вимагають розміщення інгредієнтів для крафтингу в певній формі. Це називається §eрецептом§f.
@@ -682,7 +683,6 @@ options.raytracing.disabled.upsell.unsupported_platform=You need a specific devi
 howtoplay.armorStand.text.2.notTouch=Press :_input_key.use: on an Armor Stand while holding a piece of armor to place it on the Armor Stand.=Натисніть :_input_key.use: на стійці для обладунку, утримуючи частину обладунку, щоб розмістити її на стійці для обладунку.
 howtoplay.elytra.text.2=Elytra cannot be crafted, but are found in Item Frames in rare End Ships, guarded by fearsome Shulkers.=Надкрилля не крафтиться, але його можна знайти в рамах на рідкісних кораблях Енду, які охороняють страхітливі шалкери.
 howtoplay.theEnd.text.5=If once wasn't enough, add four Ender Crystals to the exit portal corners to reawaken the Ender Dragon.=Якщо одного разу замало, вставте чотири кристали Ендеру по кутках вихідного порталу, щоб пробудити дракона Ендеру.
-store.addon.update.local.body1=The world may not look or behave in the same way as non-modified worlds and you cant earn achievements.=Цей світ може виглядати або функціонувати не так, як немодифіковані світи, і ви не можете заробляти досягнення.
 course.edu.joinLessonIntro=Find classmates in the same lesson to join, or enter their IP address if they don't appear in the list.=Знайдіть однокласників у тому ж уроці, щоб приєднатися, або введіть IP-адресу, якщо їх не видно в списку.
 playscreen.delete.legacy.content=Are you sure you want to delete the selected old world? This world will be lost forever! (A long time!)=Ви точно хочете видалити вибраний старий світ? Цей світ буде втрачено назавжди! (Це дууууже довго!)
 xbox.thirdpartysignin.line1=Awesome mini-games and new players are waiting for you! But first, '%s' would like to know who you are.=Відпадні міні-ігри та нові гравці чекають на вас! Але спочатку "%s" хоче дізнатися про вас більше.
@@ -768,6 +768,7 @@ options.darknessEffectModifier.message=Adjust how dark the screen can get during
 tips.realms.3=Keep up to date with what's going on in your Realm by checking the Story Feed in Realms Stories.=Будьте в курсі того, що відбувається у вашому Realm, перевіряючи стрічку історій у Realms Stories.
 howtoplay.fireworks.text.3.notTouch=To use a Firework, press :_input_key.use: on a block to send the Firework shooting into the sky.=Для використання феєрверка натисніть :_input_key.use: на блоці, щоб вистрелити феєрверк у небо.
 options.achievementsDisabled.onLoad=If you start playing with these settings, achievements will no longer be earnable in this world.=Якщо ви почнете грати з цими параметрами, досягнення в цьому світі більше не зароблятимуться.
+store.loading.error.trying=It’s taking longer than expected to load the Marketplace. Please wait and we’ll get you in soon.=Завантаження Ринку займає більше часу, ніж очікувалося. Зачекайте, і ми скоро вас впустимо.
 resourcePack.incompatible.memory=This resolution is incompatible with your device because your device doesn't have enough memory.=Ця роздільна здатність несумісна з вашим пристроєм, тому що на ньому недостатньо пам’яті.
 disconnectionScreen.multiplayerLockedSkin=The Skin that you have equipped is from a content pack that is not allowed in multiplayer games.=Ви вибрали скін із пакета вмісту, який не дозволено в мультиплеєрних іграх.
 beginnerTips.5=Use the right tool for the job! Chopping wood with an axe is much faster than using your hands.=Використовуйте правильний інструмент для роботи! Рубати деревину сокирою набагато швидше, ніж подрібнювати її руками.
@@ -833,8 +834,8 @@ crossPlatformToggle.startMenuScreen.enable.line2=Cross-platform play allows you 
 howtoplay.addons.text.4=We recommend that you save a copy of your world or Realm before adding or removing Add-Ons.=Рекомендуємо зберегти копію світу або Realm, перш ніж додавати або видаляти доповнення.
 progressScreen.message.modifiedWorldWarning.1=You're playing in a world with Add-Ons! This will add new features to your Minecraft world.=Ви граєте у світі з доповненнями! Це додасть нових можливостей у ваш світ Minecraft.
 howtoplay.bedsNew.text.3=You can only fall asleep when it's cozy, like when it's nighttime or during a thunderstorm.=Заснути можна тільки, коли затишно, наприклад, вночі або під час грози.
-store.loading.error.account=There is an issue with your account. Try again soon, and contact support if this persists.=Виникла проблема з вашим обліковим записом. Повторіть спробу трохи згодом і зверніться до служби підтримки, якщо проблема не зникне.
 tips.edu.17=Show hints for commonly-used keyboard and mouse controls by pressing "H" on your keyboard.=Покажіть підказки для елементів керування клавіатурою та мишею, які часто використовуються, натиснувши "H" на клавіатурі.
+store.loading.error.account=Couldn’t access the Marketplace. Try again later. Contact support if the problem persists.=Не вдалося отримати доступ до Ринку. Повторіть спробу пізніше. Зверніться до служби підтримки, якщо проблема не зникає.
 terms_and_conditions.viewTermsAndConditions=To view terms and conditions, please visit https://minecraft.net/terms in any web browser.=Щоб ознайомитися з положеннями й умовами, перейдіть на сторінку https://minecraft.net/terms у будь-якому веб-браузері.
 skins.information.upsellWithoutStore=You must purchase the skin pack to use that skin, and we can't connect to the Marketplace.=Щоб скористатися цим скіном, вам потрібно придбати пакет скінів, а нам не вдається підключитися до Ринку.
 dr.classic_skins.upsellWithoutStore=You must purchase the skin pack to use that skin, and we can't connect to the Marketplace.=Щоб скористатися цим скіном, вам потрібно придбати пакет скінів, а нам не вдається підключитися до Ринку.
@@ -924,6 +925,7 @@ dr.classic_skins.right_side.purchasing_disclaimer=*Buys %s Minecoins for %s and 
 store.ratings.signIn.description2=Before we can let you rate an item, you will need to sign in with a Microsoft account.=Щоб оцінити об’єкт, увійдіть в обліковий запис Microsoft.
 realmsWorld.realmsDescription.Beta.line2=If you'd like to stop using the beta and access Realms, click below for instructions.=Якщо ви хочете припинити використовувати бета-версію та отримати доступ до служби Realms, клацніть нижче, щоб отримати відповідні інструкції.
 howtoplay.placingBlocks.text.2.touch=Tap a block in your hotbar to select it, then tap somewhere in the world to place it.=Торкніться блоку на панелі доступу, щоб вибрати його, а потім торкніться того місця у світі, де його слід розмістити.
+createWorldScreen.experimentalY2025Drop1Description=Explore new biome improvements and mob variants coming in the first game drop of 2025=Досліджуйте нові покращення біомів і варіанти мобів, які з’являться в першому ігровому дропі 2025 року
 permissions.deopingself.message=You will no longer have Operator level permissions by lowering your permission level.=Ви більше не матимете дозволів рівня оператора, якщо зменшите свій рівень дозволів.
 portfolioScreen.noInventory=You do not have any photos in your inventory. Try using the camera to take a picture.=У вашому інвентарі немає фотографій. Спробуйте за допомогою камери зробити знімок.
 realmsSettingsScreen.nonMatchingPurchasePlatformFormat=You started your subscription in the %s. You can only extend your subscription there.=Ви почали використовувати передплату в %s. Продовжити передплату можна лише там.
@@ -1033,6 +1035,7 @@ playscreen.realmsPreProdNotAuthorized=You do not have access to Realms in pre-pr
 disconnectionScreen.editor.cannotUseRayTracing=Ray Tracing enabled resource packs are not yet compatible with Editor projects.=Пакети ресурсів із підтримкою трасування променів ще не сумісні з редакторськими проєктами.
 xbox.invitesignin.line1=Invite your friends by their Gamertag to see their worlds when they are online.=Запрошуйте своїх друзів за псевдонімами гравців, щоб бачити їхні світи, коли вони в мережі.
 packupgradewarning.duplicate_uuid=Provided UUID '%s' element already exists in pack manifest; Defaulting to '%s'.=Наданий елемент UUID "%s" вже наявний у маніфесті пакета. Використовуємо стандартний "%s".
+store.loading.error.tryLoginAgain=You've been logged out from your Microsoft account. Please log in and try again=Ви вийшли зі свого облікового запису Microsoft. Будь ласка, увійдіть і спробуйте ще раз
 death.attack.sonicBoom.player=%1$s was obliterated by a sonically-charged shriek whilst trying to escape %2$s=%1$s був знищений криком, зарядженим ультразвуком, під час спроби втекти від %2$s
 gui.submitFeedback.failure.status.tooManyRequests=Oh no! You have sent too many reviews, please try again later. (Error Code: %d)=О ні! Ви надіслали забагато відгуків, спробуйте ще раз пізніше. (Код помилки: %d)
 howtoplay.beds.text.2.notTouch=Press :_input_key.use: on a Bed to go to sleep. This can only be done at night.=Щоб піти спати, натисніть :_input_key.use: на ліжку. Це можна зробити лише вночі.
@@ -1055,6 +1058,7 @@ realmsSettingsScreen.inviteLinkLabelDescription=You can add up to 5 invite links
 howtoplay.tools.text.10=Flint & Steel allows you to light fires... be careful in densely wooded areas!=Використовуючи кресало, ви зможете добувати вогонь… але робіть це обережно, якщо навкруги багато дерева!
 commands.mobevent.eventsEnabledIsTrue=Mob Events are enabled. Individual events which are set to false will not run.=Події мобів увімкнуто. Окремі події, для яких встановлено значення false, не запускатимуться.
 howtoplay.armorStand.text.3.touch=Tap an Armor Stand with an open hand to remove something from the Armor Stand.=Торкніться стійки для обладунку з відкритою рукою, щоб прибрати щось зі стійки для обладунку.
+store.loading.error.internetDown=Couldn’t access the Marketplace. Check your internet connection and try again.=Не вдалося отримати доступ до Ринку. Перевірте підключення до Інтернету та повторіть спробу.
 store.mashup.out_of_date_tooltip=This pack may not have skins for items/blocks released after its latest update=Цей пакет може не містити скіни для предметів чи блоків, випущені після останнього оновлення
 dr.modal.restricted_content_text=This content is available in most geographic regions, but restricted in a few.=Цей вміст доступний у більшості географічних регіонів, але обмежений у деяких із них.
 howtoplay.farming.text.6=When the crops are fully grown they change in appearance and can be harvested.=Коли врожай повністю дозрів, він змінює зовнішній вигляд, і його можна зібрати.
@@ -1139,6 +1143,7 @@ disabledSkin.body.dressingRoom=This server has %s disabled. Are you sure want to
 dayOneExperience.skin_tip=You can change your skin by selecting the Profile button on the main menu.=Ви можете змінити свій скін, натиснувши кнопку "Профіль" у головному меню.
 joincode.error.message.no_response=There was a problem connecting to the join code service. Please try again.=Під час підключення до коду приєднання виникла проблема. Спробуйте ще раз.
 howtoplay.tools.text.12=Shears are very handy for collecting items like Wool, Leaves, and Cobwebs.=Ножиці допомагають збирати матеріали, як-от вовну, листя та павутиння.
+store.progress.dialog.tooltip.6=Try out all different types of content - worlds, skins, add-ons, textures.=Спробуйте всі види контенту: світи, скіни, доповнення та текстури.
 storage_migration.transfer_error.description=We couldn't move all your files. We encountered the following error: (%s).=Не вдалося перемістити всі ваші файли. Сталася помилка: (%s).
 commands.loot.description=Drops the given loot table into the specified inventory or into the world.=Викидає таблицю певної наживи у вказаний інвентар або світ.
 commands.hasitem.fail.invalidQuantity="quantity" has an invalid input, must be an integer or range of integers.=Введено неприпустиме значення "quantity" (кількість), це має бути ціле число або діапазон цілих чисел.
@@ -1176,6 +1181,7 @@ howtoplay.chat.text.1.keyboard=Press :_input_key.chat: to open Chat. Type your m
 onlinePlay.untrustedIp.message=You should only connect to servers you trust! Do you still wish to join?=Ви повинні підключатися лише до серверів, яким довіряєте! Ви все ще хочете приєднатися?
 xbox.profile.friendHelperText=Follow %s. After you both are friends, you can invite them to your game.=Слідкуйте за %s. Коли ви станете друзями, то зможете запрошувати один одного до гри.
 howtoplay.trading.text.4=Take care of your villagers, they need to rest, work, and eat to thrive.=Піклуйтеся про своїх селян. Їм потрібно відпочивати, працювати та їсти, щоб вижити.
+options.creator.diagnosticsDeleteBody=Delete all diagnostics (*.mcstats) and profiler (*.cpuprofile) captures.=Видалити всі записи діагностики (*.mcstats) та профілювальника (*.cpuprofile).
 createWorldScreen.experimentalArmadilloDescription=Get to know the Armadillo and gear up your Wolf with the new Wolf Armor!=Познайомтеся з броненосцем та екіпіруйте свого вовка новим вовчим обладунком!
 store.csb.landing.info.line2=Change the look of blocks, biomes, and even your favorite Minecraft mobs=Змінювати зовнішній вигляд блоків, біомів і навіть улюблених мобів Minecraft
 tips.realms.7=Get to know your Realm's community on the Members tab in Realms Stories.=Познайомтеся зі спільнотою Realm на вкладці «Учасники» в Realms Stories.
@@ -1183,6 +1189,7 @@ options.viewSubscriptions.prereleaseMessage=Please go to the full version of Min
 commands.tp.safeTeleportFail=Unable to teleport %1$s to %2$s because the area wasn't clear of blocks.=Не вдалося телепортувати %1$s до %2$s, тому що в області були блоки.
 store.popup.purchasePriceMismatch.msg=Sorry, we were unable to complete your purchase. Please try again later.=На жаль, не вдалося виконати вашу покупку. Спробуйте ще раз пізніше.
 realmsSharingScreen.unexpectedServerResponseMessage=Sorry, we had a problem connecting to the Realm. Please try again later.=Виникла проблема з підключенням до Realm. Повторіть спробу пізніше.
+store.loading.error.account.banned=You aren’t able to access the Marketplace until your suspension expires.=Ви не матимете доступу до Ринку, доки не спливе термін блокування.
 createWorldScreen.editor.deleteWarningFormat=Are you sure you want to delete "%s"? This project will be lost forever!=Справді видалити «%s»? Цей проєкт буде втрачений назавжди!
 store.ratings.signIn.description1=Tell the creator and the community about your experience with this item!=Поділіться з творцем і спільнотою своїми враженнями!
 howtoplay.placingBlocks.text.2.nottouch=Choose a block in your hotbar, then press :_input_key.use: to place it.=Виберіть блок на панелі швидкого доступу, а потім натисніть :_input_key.use:, щоб розмістити його.
@@ -1236,7 +1243,6 @@ commands.screenshake.success=Sent a request to the following players for their c
 gameTip.useSneak.mouse=Hold :_input_key.sneak: to sneak!~LINEBREAK~Can't fall off edges now=Утримуйте :_input_key.sneak:, щоб крастися!~LINEBREAK~Тепер ви не можете впасти з краю
 packupgradewarning.required_manifest_property_empty=Required '%s' element is empty in pack manifest; Defaulting to '%s'.=Потрібний елемент "%s" пустий у маніфесті пакета. Використовуємо стандартний "%s".
 realmsSettingsScreen.inviteLinkExpirationNeverTTS=Expiration date. Textblock. Link %s. Set when this link will expire.=Термін дії. Текстовий блок. Посилання %s. Укажіть термін дії для цього посилання.
-store.loading.error.account.banned=You are unable to use the marketplace until your suspension expires.=Ви не можете використовувати ринок, доки не закінчиться термін дії призупинення.
 howtoplay.netherPortals.text.2=If constructed correctly the Nether Portal can be lit and activated.=Якщо правильно збудувати портал у Незер, його можна підсвітити та активувати.
 gathering.info.signIn.body=Please sign in to your Microsoft account to take part in this event.=Щоб взяти участь у цій події, увійдіть під своїм обліковим записом Microsoft.
 howtoplay.furnace.text.2.notTouch=Place the Furnace in the world and press :_input_key.use: to use it.=Розмістіть піч у світі та натисніть :_input_key.use:, щоб скористатися нею.
@@ -1251,7 +1257,6 @@ options.stream.changes=You may need to restart your stream for these changes to 
 midgameTips.51=Shear a Beehive or nest to get Honeycomb, use a Bottle to get honey.=Зріжте вулик або гніздо, щоб отримати соти, і зберіть мед у пляшку.
 storageManager.sync_retailtopreview_worlds.fetch_complete.content=We have found %s retail worlds from the Retail version of Minecraft.=Ми знайшли світи для продажу (%s) із версії Minecraft для продажу.
 tips.realms.6=Access Realms Stories from the game menu while playing on the Realm.=Отримуйте доступ до Realms Stories з меню гри під час гри в Realm.
-store.loading.error.issues=Hmm, Marketplace is having some issues. Please try connecting later.=Із Ринком виникли деякі проблеми. Спробуйте підключитися пізніше.
 progressScreen.message.directoryDepthError=This world can't be opened because of a directory issue in the pack.=Цей світ неможливо відкрити через проблему з каталогом у пакеті.
 hudScreen.controlCustomization.resetModalText=You're about to reset the customisation of the touch control screen.=Ви збираєтеся скинути налаштування сенсорного екрана керування.
 howtoplay.fireworks.text.6.4=§eBurst§f - Adding a feather will give the explosion a burst effect.=§eВибух§f — якщо додати перо, феєрверк матиме ефект вибуху.
@@ -1309,7 +1314,6 @@ realmsSettingsScreen.inviteLink.errorLinkAddingBody=There was an error adding a 
 howtoplay.banners.text.7=Experiment with different combinations to get even more patterns!=Експериментуйте з різними комбінаціями, щоб отримати ще більше візерунків!
 midgameTips.12=Blocks that can be used as a light source will melt snow and ice.=Блоки, які можна використовувати як джерело світла, розтоплять сніг і лід.
 howtoplay.camera.text.3.touch=To take a selfie, place a camera and tap the Take Picture button.=Щоб зробити селфі, розмістіть камеру й натисніть кнопку "Зробити знімок".
-createWorldScreen.experimentalFocusTargetCameraDescription=Enables behavior for the existing free camera to target an entity=Вмикає поведінку для наявної вільної камери, яка націлюється на сутність
 commands.worldborder.warning.time.success=Set world border warning to %1$s seconds away (from %2$s seconds)=Для кордону світу встановлено попередження за %1$s с (раніше: %2$s с)
 howtoplay.gatheringResources.text.3=Pick up any dropped resources by walking over the floating icons.=Підбирайте будь-які ресурси, що випали, проходячи по летючим значкам.
 commands.tickingarea-add-circle.success=Added ticking area centered at %1$d with a radius of %2$d chunks.=Додано зациклену область із центром у %1$d і радіусом у %2$d чанків.
@@ -1319,6 +1323,7 @@ options.conflictingPacks.message.onStack=A pack already on the stack can't be ap
 disconnectionScreen.editionMismatchEduToVanilla=The server is not running Minecraft Education. Failed to connect.=На сервері запущено не Minecraft Education. Помилка підключення.
 options.dev_achievementsAlwaysEnabled=Achievements always enabled (Requires to be outside a game world)=Досягнення завжди ввімкнені (потрібно бути поза ігровим світом)
 lategameTips.4=Our music is by C418, Lena Raine, Aaron Cherof, and Kumi Tanioka.=Наша музика від C418, Лени Рейн, Аарона Черофа та Кумі Таніоки.
+commands.place.description=Places a jigsaw structure, feature, or feature rule in the world.=Розміщує споруду пазла, об’єкт або правило об’єкта у світі.
 storageManager.sync_legacy_worlds.fetch_complete.content=We have found %s old worlds from a previous version of Minecraft.=Ми знайшли старі світи (%s) з попередньої версії Minecraft.
 patchNotes.error.noInternet.msg=Oops! Something went wrong. Maybe check your internet connection?=Ой! Щось пішло не так. Перевірте підключення до Інтернету.
 howtoplay.permissionBlocks.text.2=Allow and Deny blocks control where players can build in a world.=Блоки дозволу й заборони спрямовують розбудову світу.
@@ -1356,7 +1361,6 @@ commands.worldborder.warning.distance.success=Set world border warning to %1$s b
 commands.mobevent.eventSetToTrueButEventsDisabled=Mob Event %s (id: %s) set to true, but Mob Events are disabled.=Для події мобів %s (id: %s) встановлено значення true, проте події мобів вимкнуто.
 store.realmsPlus.faq.question3=Do my friends need to purchase Realms Plus to play on my Realm?=Чи мої друзі мають придбати Realms Plus, щоб вони могли грати у моєму Realm?
 options.viewSubscriptions.realmsPlus.detail=Over 150+ Marketplace packs and your own 10 player Realm server=Понад 150 пакетів вмісту з Ринку і ваш власний сервер Realm для 10 гравців
-realmsCreateScreen.nsoinfotext=To use Realms, you need to subscribe to Nintendo Switch Online.=Для використання Realms потрібна передплата на Nintendo Switch Online.
 feed.connected=Every Realm is connected to a Club with your Microsoft account.=Кожен Realm підключений до Клубу з вашим обліковим записом Microsoft.
 npcscreen.help.url.a=Click this button to add a URL hyperlink in the NPC dialog box.=Натисніть цю кнопку, щоб додати URL-адресу до діалогового вікна NPC.
 multiplayer.packErrors=At least one of your resource or behavior packs failed to load.=Не вдалося завантажити принаймні один пакет ресурсів або поведінки.
@@ -1384,7 +1388,6 @@ persona.csb.savings=You save %s minecoins with your Marketplace Pass subscriptio
 progressScreen.message.exporting.warning=Please do not exit the game. Exiting might corrupt the export.=Не виходьте з гри. У разі виходу експортовані дані можуть пошкодитися.
 course.edu.connectionProblem.quiz=There was a problem connecting to your quiz. Please try again.=Під час підключення до опитування виникла проблема. Спробуйте ще раз.
 course.edu.enterConnectionScreenReader=Enter the Connection I.D. of the world you would like to join.=Введіть ідентифікатор підключення світу, до якого хочете приєднатися.
-commands.place.chunknotloaded.error=Jigsaw structure generation failed. Not all chunks are loaded.=Споруду пазла не вдалося згенерувати. Завантажилися не всі деталі.
 gameTest.error.succeededInInvalidTick=Succeeded in invalid tick: expected %s, but current tick is %s=Успіх неприпустимого циклу: очікувалося %s, але поточний цикл – %s
 commands.generic.too.many.requests=Too many commands have been requested, wait for one to be done=Запитано забагато команд, зачекайте виконання принаймні однієї
 commands.give.item.invalid=Invalid command syntax: no such %s exists with that data value=Неприпустимий синтаксис команди: %s з таким значенням не існує
@@ -1423,15 +1426,19 @@ commands.change-setting.description=Changes a setting on the dedicated server wh
 progressScreen.message.leaveLevel=Your game is being saved. Please do not turn off your device.=Триває збереження вашої гри. Не вимикайте пристрій.
 howtoplay.npc.text.3=NPCs have a variety of skins to choose from and are immobile.=NPC нерухомі, і для них є широкий вибір скінів.
 commands.dialogue.changeSuccess=Dialogue successfully changed the scene for the NPC globally.=Діалог успішно змінив сцену для NPC глобально.
+store.loading.error.unavailable=The Marketplace is not available in this version of the game.=У цій версії гри Ринок недоступний.
 commands.hasitem.fail.slotNoLocation=Specifying a "slot" is invalid if a "location" is not given.=Вказувати значення "slot" (слот) не можна, якщо не надано значення "location" (розташування).
 store.csb.faq.question4=What happens to my content after it leaves Marketplace Pass?=Що трапиться з моїм вмістом після того, як він більше не буде доступний у Marketplace Pass?
 commands.loot.failure.mainhandOffhandOnNonEntity=Mainhand or offhand should not be used on non entity object.=Головну чи другорядну руку не можна використовувати на об’єкті, що не є сутністю.
 xbox.report.postLinkToInappropriateContent=Posting links to inappropriate content or malicious software=Розміщення посилань на неприйнятні матеріали або шкідливе програмне забезпечення
-store.loading.error.failure=We ran into an error. Please restart the game and try again.=Ми зіткнулися з помилкою. Будь ласка, перезапустіть гру та спробуйте ще раз.
+store.progress.dialog.tooltip.4=Rating your purchase sends feedback to our content creators.=Оцінюючи свою покупку, ви надсилаєте зворотній зв’язок нашим творцям контенту.
 commands.camera.invalid.pitch=Camera pitch (X rotation) must be between -90 and 90 degrees=Нахил камери (обертання навколо осі X) має становити від -90 до 90 градусів
+store.loading.error.failure=Couldn’t access the Marketplace. Try again in a few minutes.=Не вдалося отримати доступ до Ринку. Повторіть спробу за декілька хвилин.
 commands.generic.encryption.badsalt=Bad salt given. Expected a 16 bytes before base 64 encoding.=Надано неправильну сіль. Перед кодуванням Base 64 очікувалося 16 байт.
 howtoplay.dyes.text.1=Dye is used to change the color of many things in Minecraft.=Барвник використовується для зміни кольору багатьох речей у Minecraft.
 options.dev_azure_notebooks_environment=Azure Notebooks (AZNB) Environment (requires editor restart)=Середовище Azure Notebooks (AZNB) (вимагає перезавантаження редактора)
+store.progress.dialog.tooltip.3=Check out our minecoin bundles - some come with bonus coins.=Перегляньте наші набори minecoin – деякі з них містять бонусні монети.
+commands.wsserver.request.failed.disabled=Websocket server request rejected, go to Settings to enable.=Запит до сервера Websocket відхилено, увімкніть його в Налаштуваннях.
 course.edu.enterConnection=Enter the Connection ID of the world you would like to join.=Введіть ідентифікатор підключення світу, до якого хочете приєднатися.
 store.addon.update.local.body2=You may want to save a copy of your world before continuing.=Можливо, ви захочете зберегти копію свого світу, перш ніж продовжити.
 packdiscoveryerror.required_manifest_property_invalid_value=Provided '%s' element has an invalid value in pack manifest.=Наданий елемент "%s" має неприпустиме значення в маніфесті пакета.
@@ -1469,6 +1476,7 @@ options.multiplayerDisabled=Content active in this world cannot be used in multi
 commands.effect.failure.notActive=Couldn't take %1$s from %2$s as they do not have the effect=Не вдалося забрати %1$s у %2$s, оскільки у гравця немає такого ефекту
 store.realmsPlus.landing.info2.renews=Subscription renews automatically each month until canceled=Підписка автоматично поновлюється щомісяця, доки її не буде скасовано
 store.csb.landing.info.line5=Subscription renews automatically each month until canceled=Підписка автоматично поновлюється щомісяця, доки її не буде скасовано
+commands.aimassist.unsupportedCameraType=Target player's camera type does not support aim assist: %s=Тип камери цільового гравця не підтримує допомогу в прицілюванні: %s
 commands.effect.failure.notActive.all=Couldn't take any effects from %1$s as they do not have any=Не вдалося забрати жодного ефекту в %1$s, оскільки у гравця їх немає
 realmsCreateScreen.playNowMessage1=You can invite friends to your Realm and start playing now.=Ви можете запросити друзів до свого Realm та почати грати вже зараз.
 chat.link.confirmTrusted=Do you want to open this link or copy it to your clipboard?=Ви хочете відкрити це посилання чи скопіювати його в буфер обміну?
@@ -1517,7 +1525,6 @@ hudScreen.controlCustomization.tooltip.alreadycustomizing=There is already a tou
 connect_gamepad.pressButtonToContinue=Please press the 'A' button on your controller to continue=Щоб продовжити, натисніть кнопку "A" на контролері
 howtoplay.gameSettings.text.15=§eMob Griefing§f: Prevents mobs from destroying the world.=§eДратування мобів§f: не дає мобам знищувати світ.
 storageManager.sync_retailtopreview_worlds.conversion_description=Click a world to convert it into a playable preview world=Натисніть на світ, щоб перетворити його на доступний для ознайомлення та гри
-store.loading.error.connecting=We had an issue connecting. Please go back and try again.=У нас виникла проблема з підключенням. Поверніться назад і спробуйте ще раз.
 stream.unavailable.failed_auth_error=Unable to authenticate to Twitch. Please try again later.=Не вдається автентифікувати обліковий запис Twitch. Спробуйте ще раз згодом.
 multiplayer.texturePrompt.line1=This server recommends the use of a custom resource pack.=На цьому сервері рекомендується використовувати власний пакет ресурсів.
 howtoplay.structureBlocks.text.7=3D Export exports a 3D model file on supported platforms.=Режим "3D-експорт" експортує файл 3D-моделі на підтримувані платформи.
@@ -1536,6 +1543,7 @@ chat.coordinatesInvalidLong=Invalid Coordinates: make sure you are looking at a 
 commands.setmaxplayers.description=Sets the maximum number of players for this game session.=Установлює максимальну кількість гравців на цей ігровий сеанс.
 howtoplay.beds.text.2.touch=Tap a Bed to go to sleep. This can only be done at night.=Щоб піти спати, торкніться ліжка. Це можна зробити лише вночі.
 invite.error1=Something went wrong. We couldn't load your friends list.=Щось пішло не так. Не вдалося завантажити список ваших друзів.
+commands.generic.wrongTargetCamera=Active camera has to be a free camera to target an entity=Активна камера повинна бути вільною, щоб націлитися на об’єкт
 feed.screenshotAlmostFull=Screenshot captured. Your gallery is almost full. (%d/%d)=Зроблено знімок екрана. Ваша галерея майже заповнена. (%d/%d)
 commands.closechat.description=Closes the chat window of the local player if it is open.=Закриває вікно чату локального гравця, якщо воно відкрите.
 commands.save-all.error=An error occurred when trying to pause the world storage.=Під час спроби зупинити зберігання світу сталася помилка.
@@ -1543,7 +1551,6 @@ commands.clear.failure.no.items=Could not clear the inventory of %1$s, no items 
 midgameTips.60=Allays love music and therefore interact with noteblocks!=Служки люблять музику, тому використовують нотні блоки!
 commands.kill.attemptKillPlayerCreative=Players cannot be killed while they are in Creative mode.=Гравців не можна вбивати, поки вони у творчому режимі.
 course.edu.enterIp=Enter the IP Address of the world you would like to join.=Введіть IP-адресу світу, до якого хочете приєднатися.
-store.disabled.nopermission=You do not have permission to use the Store at this time.=Зараз у вас немає дозволу на використання Магазину.
 commands.world_age.description=Changes or queries the world's age (time since creation).=Змінює або запитує вік світу (час від створення).
 commands.tickingarea-add-bounds.preload.success=Added ticking area from %1$d to %2$d marked for preload.=Додано зациклену область від %1$d до %2$d, відмічено для передзавантаження.
 commands.aimassist.success=Applied aim assist settings to the following players: %s=Застосовано налаштування допомоги в прицілюванні для наступних гравців: %s
@@ -1636,8 +1643,6 @@ jsonValidationError.invalidValueError=%s: Did not find valid value for property.
 commands.execute.falseConditionWithCount=Execute subcommand %1$s %2$s test failed, count: %3$s.=Execute subcommand %1$s %2$s test failed, count: %3$s.
 commands.scoreboard.teams.leave.failure=Could not remove %1$d player(s) from their teams: %2$s=Не вдалося видалити %1$d гравців із їхніх команд: %2$s
 commands.clone.filtered.error=Filtered usage requires a filter block to be specified=Щоб використати фільтр, потрібно вказати блок фільтра
-options.betaNewDeathScreenToggle.disabled=You can't change this setting while playing in a world=Ви не можете змінити цей параметр під час гри у світі
-options.betaNewBedScreenToggle.disabled=You can't change this setting while playing in a world=Ви не можете змінити цей параметр під час гри у світі
 death.attack.cactus.player=%1$s walked into a cactus whilst trying to escape %2$s=Гравець %1$s наткнувся на кактус, утікаючи від %2$s
 howtoplay.gameSettings.text.2=§eWorld Name§f: This is where you can name your world.=§eНазва світу§f: тут можна дати назву своєму світу.
 commands.allowlist.list=There are %1$d (out of %2$d seen) allowlisted players:=У списку дозволених %1$d гравців (з %2$d бачених):
@@ -1678,11 +1683,13 @@ commands.fill.description=Fills all or parts of a region with a specific block.=
 store.csb.faq.question8=Can I use my Marketplace Pass content on any device?=Чи можу я використовувати свій вміст Marketplace Pass на будь-якому пристрої?
 options.dev_reset_new_player_flow=Reset New Player Flow (must delete worlds and packs)=Скинути ігрові досягнення нового гравця (потрібно видалити світи й пакети)
 disconnectionScreen.biomeData.MixedIdPresence=Biome Packet has mixed id presence for Custom Biomes=Пакет «Біом» має змішану наявність ідентифікаторів для Власних біомів
+store.progress.dialog.tooltip.5=Add-Ons can be used on both new and existing worlds.=Доповнення можна використовувати як у нових, так і в існуючих світах.
 commands.tp.far=Unable to teleport %1$s to the unloaded area at %2$s=Не вдалося телепортувати %1$s до незавантаженої області в %2$s
 howtoplay.structureBlocks.text.4=Save mode saves an area of the world as a structure.=Режим "Збереження" зберігає область світу у вигляді структури.
 commands.generic.radiusError=Minimum selector radius must be smaller than maximum=Мінімальний радіус селектора має бути меншим за максимальний
 howtoplay.structureBlocks.text.9.gamepad=Use :_gamepad_stick_right: to rotate the 3D preview.=Використайте :_gamepad_stick_right:, щоб обернути 3D-модель.
 options.skinsMultiplayerDisabled=The skin you're using cannot be used in multiplayer.=Вибраний скін не можна використовувати в мультиплеєрній грі.
+commands.place.chunknotloaded.error=Feature placement failed. Not all chunks are loaded.=Не вдалося розмістити об’єкт. Не всі чанки завантажились.
 userData.recovered.text=Successfully recovered your corrupted user settings.=Ваші пошкоджені параметри користувача успішно відновлено.
 commands.generic.invalidOrigin=Command origin was invalid at command execution time=Джерело команди було недійсним під час виконання команди
 howtoplay.dyes.text.5=§eBrown Dye§f - Harvesting Cocoa Beans in the Jungle=§eКоричневий барвник§f — збираючи какао-боби у джунглях
@@ -1728,7 +1735,6 @@ howtoplay.nightfall.new.text.1=When the sun starts to set, it's time to get read
 commands.getspawnpoint.description=Gets the spawn position of the specified player(s).=Отримує місце призову вказаних гравців.
 store.csb.faq.question6=What's the difference between this and Realms Plus?=У чому різниця між цим і Realms Plus?
 permissions.removeplayer.reason=You have been removed from the session by the host.=Хост вилучив вас із цього сеансу.
-options.dev_eduCloudResumableUpload=Use the resumable upload API for file uploads >4MB=Використовуйте API завантаження з відновленням для завантаження файлів розміром >4 МБ
 progressScreen.dialog.message.storageProviderOutOfLocalStorage=Not enough local free space to support cloud sync.=Недостатньо локального вільного місця для підтримки синхронізації з хмарою.
 options.turnOnHardcoreMode.message.1=1. When you die, you will not respawn — game over!=1. Коли ви помрете, то не зможете відродитися, тож гра закінчиться!
 store.realmsPlus.landing.info2.catalog=Free access to a catalog of 150+ Marketplace packs=Безкоштовний доступ до каталогу з понад 150 пакетами вмісту з Ринку
@@ -1771,6 +1777,7 @@ trial.collection.12.description=Dress as a Cake Maniac, Frankencrafter, or Worse
 store.mashup.hover.label.texturePack=Add a new visual to your world or game interface.=Додайте новий візуальний ефект до свого світу або ігрового інтерфейсу.
 options.dev_connection_off=Off - In-memory connection enabled for local play=Вимкнуто – підключення на основі пам’яті ввімкнуто для локальної гри
 jsonValidationError.typeError=%s: Invalid type for property. Expected %s got %s=%s: недійсний тип для властивості. Очікувалося: %s, отримано: %s
+store.loading.error.issues=Couldn’t access the Marketplace. Try again later.=Не вдалося отримати доступ до Ринку. Повторіть спробу пізніше.
 storageManager.sync_legacy_worlds.conversion_description=Click a world to convert it into a playable world=Натисніть на світ, щоб перетворити його на доступний для гри
 howtoplay.furnace.text.2.touch=Place the Furnace in the world and tap to use it.=Розмістіть піч у світі та торкніться, щоб скористатися нею.
 resourcePack.message.warning=A pack has warnings that might cause odd behavior=У пакеті є попередження, через які він може працювати дивно
@@ -1938,6 +1945,7 @@ commands.summon.failed.npc=You need Creative + Operator to summon an NPC=Вам 
 commands.stats.noCompatibleBlock=Block at %1$d, %2$d, %3$d can not track stats=Блок за координатами %1$d, %2$d, %3$d не може відстежувати статистику
 howtoplay.banners.text.5=  - Making a cross gives you a cross pattern.=  - Створюючи простий хрест, ви отримаєте візерунок "простий хрест".
 dr.classic_skins.right_side.limited_usage.tooltip=This skin can be used here, but may not roam.=Цей скін можна використовувати тут, але не можна переносити.
+store.progress.dialog.tooltip.2=Find your previous purchases in your library.=Ви можете знайти свої попередні покупки у своїй бібліотеці.
 commands.tickingarea-preload.count=%1$d matching area(s) are marked for preload.=%1$d відповідних областей відмічено для передзавантаження.
 generator.amplified.info=Notice: Just for fun, requires beefy computer=Примітка. Просто для розваги, потрібен потужний комп’ютер
 options.dev_connection_slow=Slow - 400Kbps, 300ms latency, 3% packet loss=Повільне – 400 Кбіт/с, затримка 300 мс, втрата пакетів 3%
@@ -1963,6 +1971,7 @@ store.realmsPlus.faq.question6=How often are new packs added to Realms Plus?=Я�
 commands.dialogue.noNpcComponent=Selected actor did not have an NPC component.=У вибраного персонажа не було компонента NPC.
 commands.tp.outOfWorld=Cannot teleport entities outside of the world=Не можна телепортувати сутності за межі світу
 death.attack.sweetBerry=%1$s was poked to death by a sweet berry bush=%1$s заколовся до смерті у кущі солодких ягід
+commands.place.invalidposition.error=Feature could not be placed at this location.=Об’єкт не вдалося розмістити на цьому місці.
 commands.ride.summonRider.ridesWithNoRideableComp=The following entities are not rideable: %1$s=На цих сутностях не можна їздити верхи: %1$s
 commands.xp.failure.widthdrawXp=Cannot give player negative experience points=Не вдається забрати в гравця одиниці досвіду
 store.itemIsIncompatible=This item is not compatible with your device.=Цей компонент несумісний із вашим пристроєм.
@@ -1991,7 +2000,6 @@ commands.scoreboard.players.remove.success=Removed %1$d from [%2$s] for %3$s (no
 achievement.mineWood.desc=Attack a tree until a block of wood pops out=Атакувати дерево, доки з нього не вискочить дерев’яний блок
 codeScreen.needCheats=Cheats must be enabled in the world to code!=Для програмування в цьому світі мають бути ввімкнуті чіти!
 commands.aimassist.invaliddistance=Aim assist distance must be between 1 and 16=Відстань допомоги в прицілюванні має становити від 1 до 16
-store.loading.error.trying=We are still trying to connect. Please wait.=Ми все ще намагаємося підключитися. Будь ласка, зачекайте.
 commands.aimassist.invalidxangle=Aim assist X angle must be between 10 and 90=Кут допомоги в прицілюванні X має становити від 10 до 90
 commands.aimassist.invalidyangle=Aim assist Y angle must be between 10 and 90=Кут допомоги в прицілюванні Y має становити від 10 до 90
 xbox.report.defamation=Defamation, Impersonation, False Information=Наклеп, видача себе за іншу особу, неправдива інформація
@@ -2051,6 +2059,7 @@ npcscreen.help.url.b=Link opens in the player's default browser.=Посилан�
 gameTest.assert.hasArmor=Entity has armor %s in slot %s with data %s=Сутність має обладунок "%s" у слоті "%s" із даними "%s"
 store.content.requireXbl.signedIn=Download for free with a Microsoft account.=Завантажити безкоштовно з обліковим записом Microsoft.
 gameTip.stopFlying.mouse=Double tap :_input_key.jump: to stop flying=Двічі натисніть :_input_key.jump:, щоб зупинити політ
+store.loading.error.failureRetry=Couldn’t access the Marketplace. Try again.=Не вдалося отримати доступ до Ринку. Спробуйте знову.
 commands.bossbar.get.max=Custom bossbar [%1$s] has a maximum of %2$d=Власна смуга здоров’я босів [%1$s] має максимум %2$d
 commands.blockstate.typeError=Invalid value type for Block State: '%1$s'.=Неприпустимий тип значення для стану блоку: "%1$s".
 options.dev_connection_3g=3G - 1.5Mbps, 200ms latency, 2% packet loss=3G – 1,5 Мбіт/с, затримка 200 мс, втрата пакетів 2%
@@ -2066,6 +2075,7 @@ store.realmsPlus.faq.answer6=New packs are added to Realms Plus monthly.=Нов�
 commands.tickingarea-list.success.allDimensions=List of all ticking areas in all dimensions=Список усіх зациклених областей в усіх вимірах
 skins.information.selectSkin=Choose the correct model type for your skin=Виберіть правильний тип моделі для свого скіну
 dr.classic_skins.select_skin=Choose the correct model type for your skin=Виберіть правильний тип моделі для свого скіна
+script.success.diagnosticsCaptureStopped=Diagnostics capture stopped - saved to '%s'=Діагностика: запис зупинено – збережено в «%s»
 createWorldScreen.experimentalUpdateAnnounced2023Description=New features and content for Minecraft 1.21=Нові можливості та контент для Minecraft 1.21
 commands.generic.error.permissions=Incorrect permission level for command: %s.=Неправильний рівень дозволу для команди: %s.
 cloud_upload.failed.retryable.description=Your world could not be uploaded because %s=Не вдалося завантажити ваш світ, оскільки %s
@@ -2120,11 +2130,13 @@ playscreen.confirmLeaveMessage=Are you sure you want to leave Realm %1$s?=Ви �
 trial.upsell.expiredDescription.line5=-Discover mysterious structures and realms=- Відкривайте загадкові будови й Realm
 commands.achievement.take.success.one=Successfully taken the stat %1$s from %2$s=Забрано статистику %1$s у гравця %2$s
 commands.chunkinfo.vertices=%1$s layer's buffer contains %2$d vertices=Буфер шару %1$s містить %2$d вершин
+commands.globalpause.error=Invalid conditions for setting pause state=Неприпустимі умови для призупинення
 commands.volumearea.noneExist.currentDimension=No volumes exist in the current dimension.=Немає просторів у поточному вимірі.
 createWorldUpsell.realm.sellPoint3=Takes up zero storage space on your device=Не займає місця на вашому пристрої
 commands.kick.no.teacher=Teachers may not be removed from the game.=Учителів не можна видалити з гри.
 commands.scoreboard.teams.add.alreadyExists=A team with the name '%1$s' already exists=Команда з іменем "%1$s" уже існує
 commands.ability.granted=The '%1$s' ability has been granted to you=Вам надано вміння "%1$s"
+options.content_log_gui_show_on_errors=Show Content Log GUI On Error During Load=Показувати графічний інтерфейс журналу вмісту у випадку помилки під час завантаження
 dr.deep_link_fail.dressing_room=Deep Linking Failed: Unable to open offer=Помилка створення глибинного посилання: не вдалося відкрити пропозицію
 commands.execute.falseCondition=Execute subcommand %1$s %2$s test failed.=Тест на виконання підкоманди %1$s %2$s показав негативний результат.
 gameTip.emote.mouse=Press or hold :_input_key.emote: to emote=Натисніть або утримуйте :_input_key.emote: для активації емограми
@@ -2184,6 +2196,7 @@ howtoplay.movingAround.text.2.gamepad=Look around with :_gamepad_stick_right:.=�
 item.itemLock.cantDrop=:hollow_star: Can't Drop Items can't be:=:hollow_star: "Не можна викидати предмети" не може бути:
 commands.bossbar.get.visible.true=Custom bossbar [%1$s] is currently shown=Власна смуга здоров’я босів [%1$s] зараз відображається
 resourcePack.GreekMythology.description=It's mythical Greece at your fingertips.=Зануртесь у захопливий світ міфів Стародавньої Греції.
+store.progress.dialog.tooltip.1=Check Marketplace daily for new content.=Щодня перевіряйте Ринок на наявність нового контенту.
 options.dev_overrideXboxEnvironment=Override Xbox Sandbox (requires restart)=Перепризначити пісочницю Xbox (потрібен перезапуск)
 notification.lock.noDrop=This item is locked and can't be dropped=Цей предмет заблоковано, і його не можна викинути
 script.success.debuggerConnect=Debugger connected to host %s on port %s=Налагоджувач підключений до хоста %s за портом %s
@@ -2195,6 +2208,7 @@ advMode.notAllowed=Must be an opped player in creative mode=Це має бути
 commands.camera.invalid.entity.offset=Entity offset must be between -64 and 64=Значення зсуву сутності має бути від -64 до 64
 disconnectionScreen.internalError.cantEdit=There was a problem finding this server.=Виникла проблема під час пошуку цього сервера.
 disconnectionScreen.internalError.cantFindServer=There was a problem finding this server.=Виникла проблема під час пошуку цього сервера.
+options.creator.diagnosticsClearCaptures=Delete Diagnostics and Profiler Captures=Видалити записи діагностики та профілювальника
 action.hint.exit.console.chest_boat=Press :_input_key.jump: to exit the boat=Натисніть :_input_key.jump:, щоб зійти з човна
 action.hint.exit.console.raft=Press :_input_key.jump: to exit the raft=Натисніть :_input_key.jump:, щоб зійти з плоту
 xbox.signin.website.qr=1. Visit this website on another device:=1. Зайдіть на цей веб-сайт на іншому пристрої:
@@ -2235,7 +2249,7 @@ options.dev_ad_edu_max_signin_token_refresh=EDU Max Sign In Token Refresh (Minut
 item.itemLock.cantMove=:solid_star: Can't Move Items can't be:=:solid_star: "Не можна переміщати предмети" не може бути:
 realmsSettingsScreen.forceResourcePackFail=Failed to set force resource pack value=Не вдалося примусово встановити значення пакета ресурсів
 store.csb.faq.question5=What happens when my subscription ends?=Що станеться, коли закінчиться термін дії моєї підписки?
-script.success.profilerStopped=Profiler stopped. Profile saved to '%s'=Профілювальник припинив роботу. Профіль збережено в "%s"
+script.success.profilerStopped=Profiler stopped. Profile saved to '%s'=Профілювальник припинив роботу. Профіль збережено в «%s»
 commands.ride.startRiding.success=Riders successfully added to ride: %1$s=Вершники, яких успішно додано до їздової сутності: %1$s
 tile.bed.notValid=Your home bed was missing or obstructed=Вашого ліжка немає або до нього неможливо дістатися
 lategameTips.27=Diorite, you either love it or hate it.=Діорит – ви його або любите, або терпіти не можете.
@@ -2246,7 +2260,6 @@ commands.save-on.notDone=A previous save has not been completed.=Поперед�
 network.thirdparty.connect.store=You will need a %s to browse the store.=Щоб роздивитися в магазині, вам знадобиться %s.
 demo.help.movementShort=Move by pressing %1$s, %2$s, %3$s, %4$s=Щоб рухатися, натискайте %1$s, %2$s, %3$s, %4$s
 store.wishlist.toast.failed=%s cannot be added/removed at this time=%s на даний момент не можна додати або видалити
-store.loading.error.internetDown=We can’t detect an internet connection.=Ми не можемо виявити підключення до Інтернету.
 disconnectionScreen.internalError.cantFindRealm=There was a problem finding this Realm.=Виникла проблема під час пошуку цього Realm.
 gui.submitFeedback.placeHolder.text=What do you like? What could be better?=Що вам подобається? Що можна зробити краще?
 options.dev.windowsStore=Select Windows Store (Restart Required)=Вибрати Windows Store (потрібен перезапуск)
@@ -2255,6 +2268,7 @@ options.dev_playfab_token_refresh_threshold=Playfab Token Refresh Threshold Minu
 commands.achievement.unknownAchievement=Unknown achievement or statistic '%1$s'=Невідоме досягнення або статистика "%1$s"
 commands.scoreboard.teams.join.success=Added %1$d player(s) to team %2$s: %3$s=Додано %1$d гравців до команди %2$s: %3$s
 options.dev_overrideDayLength=Override Day Length In Minutes (Min: 1)=Замінити довжину дня у хвилинах (мін.: 1)
+script.error.diagnosticsCaptureStarted=Diagnostics capture failed to open file=Діагностичний запис не зміг відкрити файл
 commands.gamerule.norule=No game rule called '%1$s' is available=Правило гри під назвою "%1$s" недоступне
 commands.kill.description.edu=Removes entities (players, mobs, etc.).=Видалені сутності (гравців, мобів тощо).
 commands.setblock.outOfWorld=Cannot place block outside of the world=Не можна розмістити блок за межами світу
@@ -2279,7 +2293,6 @@ selectWorld.gameMode.adventure.line1=Same as survival mode, but blocks can't=Я�
 store.popup.update.msg=This will update the %s on your device.=На вашому пристрої оновиться %s.
 xbox.report.whereReport=Where did you observe the bad behavior?=Де ви помітили погану поведінку?
 commands.hud.description=Changes the visibility of hud elements.=Змінює видимість елементів HUD.
-commands.place.description=Places a jigsaw structure in the world.=Розміщує споруду пазла у світі.
 commands.scoreboard.objectives.add.success=Added new objective '%1$s' successfully=Додано новий об’єкт "%1$s"
 emotes.emotes_instructions_general=Use hot Key or Mouse to activate Emote=Використовуйте скорочення клавіш або мишу, щоб активувати емограму
 commands.setmaxplayers.success.upperbound=(Bound to maximum allowed connections)=(Залежить від максимальної дозволеної кількості підключень)
@@ -2380,7 +2393,6 @@ commands.volumearea.list.success.allDimensions=List of all volumes in all dimens
 gameTest.report.testLocation=At: %s, %s, %s (relative: %s, %s, %s)=У: %s, %s, %s (відносно: %s, %s, %s)
 commands.ability.noability=No ability called '%1$s' is available=Уміння під назвою "%1$s" недоступне
 commands.loot.failure.noContainer=Target position %s is not a container=Цільова позиція %s не є контейнером
-dynamicPackage.download.android.state_failed_fetchingUrl=Failed – Resources could not be found=Помилка – не вдалося знайти ресурси
 achievement.buildSword.desc=Use planks and sticks to make a sword=Змайструвати меч із дощок і палиць
 commands.transferserver.description=Transfers a player to another server.=Переносить гравця на інший сервер.
 item.banner.diagonal_up_right.silver=Light Gray Per Bend Sinister Inverted=Світло-сірий обернений правий скіс
@@ -2428,7 +2440,6 @@ crafting.noRecipesWorkbench=You need to collect blocks to craft!=Щоб краф
 selectServer.deleteWarning=will be lost forever! (A long time!)=буде втрачено назавжди! (Це дууууже довго!)
 selectWorld.deleteWarning=will be lost forever! (A long time!)=буде втрачено назавжди! (Це дууууже довго!)
 midgameTips.41=You can gather cobwebs using shears.=За допомогою ножиць можна збирати павутину.
-createWorldScreen.experimentalFocusTargetCamera=Creator Cameras: Focus Target Camera=Камери створювача: камера фокусування цілі
 deathScreen.hardcoreInfo=You cannot respawn in hardcore mode!=Ви не можете відродитися в режимі хардкор!
 gameTip.playerMovement.controller=Move :tip_left_stick: to move around=Щоб пересуватися, рухайте :tip_left_stick:
 commands.lesson.description=Handle Educational Lesson reporting.=Звітування про обробку навчальних уроків.
@@ -2444,12 +2455,12 @@ commands.debug.description=Starts or stops a debugging session.=Запускає
 action.hint.exit.console.camel=Press :_input_key.sneak: to dismount=Щоб злізти, натисніть :_input_key.sneak:
 commands.scoreboard.players.set.multiple.success=Set [%1$s] for %2$d entities to %3$d=Задано ціль [%1$s] для %2$d сутн.: %3$d
 options.turnOffCrossPlatformMultiplayer=Turn Off Cross-Platform Multiplayer?=Вимкнути крос-платформений мультиплеєр?
-options.betaNewDeathScreenToggle=New "You Died" Screen (Experimental)=Новий екран смерті (експериментальний)
 selectWorld.gameMode.survival.line1=Search for resources, crafting, gain=Пошук ресурсів, крафтинг, прокачування
 stream.unavailable.initialization_failure=Unable to initialize the Twitch SDK.=Не вдається ініціалізувати Twitch SDK.
 commands.compactdb.description=Explicitly compacts the levelDB log.=Безпосередньо стискає журнал levelDB.
 commands.scoreboard.teams.list.player.count=Showing %1$d player(s) in team %2$s:=Показано %1$d гравців у команді %2$s:
 commands.worldbuilder.success=World Builder status updated to %1$s=Стан "Творець світу" оновлено до %1$s
+pauseNotification.subtitle.gameUnpaused=Watch out, game is no longer paused!=Обережно, гра більше не призупинена!
 seargeSays.searge5=Scoreboard deleted, commands blocked=Табло видалено, команди заблоковано
 commands.getchunks.description=Gets list of chunks that are loaded.=Отримує список завантажених чанків.
 options.dev_discoveryOverrideServiceName=Service Name (safety, persona, etc.)=Назва сервісу (безпека, особа тощо)
@@ -2525,7 +2536,6 @@ xbox.report.exploits=Exploits and 3rd party applications=Експлойти й �
 commands.op.description=Grants operator status to a player.=Надає гравцю стан оператора.
 potion.fireResistance.linger.name=Lingering Potion of Fire Resistance=Тривале зілля вогнестійкості
 multiplayer.player.changeToPersona=%s edited the character appearance.=%s змінює вигляд персонажа.
-store.disabled.generic=The Store is currently unavailable.=Зараз Магазин недоступний.
 commands.recipes.playerDoesNotHaveRecipe=%1$s does not have the recipe: %2$s=%1$s не має рецепта: %2$s
 commands.players.list=There are %1$d/%2$d players online:=Гравці онлайн %1$d/%2$d:
 skins.information.invalidCustomSkin=That's not a Minecraft skin, silly.=Це ж не скін Minecraft.
@@ -2615,6 +2625,7 @@ death.attack.player.item=%1$s was slain by %2$s using %3$s=Гравця %1$s д�
 options.dev_disableRenderMainMenuCubeMap=Disable Main Menu CubeMap Drawing=Вимкнути малювання CubeMap у головному меню
 commands.wsserver.request.failed=Could not connect to server: %1$s=Не вдалося підключитися до сервера: %1$s
 realmsCreateScreen.renameFailed.profanity=The world name %s is not allowed.=Не можна використовувати назву світу %s.
+pauseNotification.title.moreThanTwoPlayers=Multiple people joined your game!=До вашої гри приєдналося кілька гравців!
 survey.line5=I thought I needed a Xbox console=Мені здавалося, що потрібна консоль Xbox
 realmsSettingsScreen.backupInProgress=Replacing realm world with backup=Замінення світу Realm на резервну копію
 disconnectionScreen.realmsDisabledBeta=Realms are disabled for the beta.=Служба Realms недоступна в бета-версії.
@@ -2659,7 +2670,6 @@ commands.corruptworld.success=Successfully corrupted the world.=Світ усп�
 commands.itemswithtag.success.single=There is %d item with the tag %s:=Є %d елемент з тегом %s:
 commands.tagsfromitem.success.multiple=There are %d tags on the item %s:=На елемент %s є %d теги:
 xbl.signOut.message2=Are you sure you want to do this?=Ви справді цього хочете?
-store.loading.error.unavailable=The Marketplace is not available.=Ринок недоступний.
 store.realmsPlus.landing.headerTrial=Free 30 Day Trial, then %s/month=Безкоштовне ознайомлення протягом 30 днів, потім %s/місяць
 store.csb.landing.headerTrial=Free 30 Day Trial, then %s/month=Безкоштовне ознайомлення протягом 30 днів, потім %s/місяць
 options.useSpecificTouchControlNames=Use Specific Touch Control Names=Використовувати певні імена сенсорних елементів керування
@@ -2761,7 +2771,6 @@ commands.gametips-on.description=Enable game tips on this device=Увімкну�
 item.banner.square_bottom_right.silver=Light Gray Base Sinister Canton=Світло-сіра вільна частина на краю праворуч
 demo.help.inventory=Use %1$s to open your inventory=Щоб відкрити свій інвентар, натисніть %1$s
 container.smithing_table.arrow_tooltip_cannot_craft=Item can't be upgraded this way=Предмет не можна модернізувати таким чином
-dynamicPackage.download.android.state_paused_roaming=Paused – Check roaming settings=Призупинено – перевірте параметри роумінгу
 accessibility.start.feedback=Submit Feedback Link to Website=Надіслати посилання на відгук на веб-сайт
 commands.setmaxplayers.success.lowerbound=(Bound to current player count)=(Залежить від поточної кількості гравців)
 item.banner.square_bottom_right.lightBlue=Light Blue Base Sinister Canton=Блакитна вільна частина на краю праворуч
@@ -2807,7 +2816,6 @@ stat.brewingstandInteraction=Interactions with Brewing Stand=Взаємодій 
 commands.scoreboard.players.resetscore.success=Reset score %1$s of player %2$s=Скинуто очки %1$s гравця %2$s
 item.banner.diagonal_up_right.pink=Pink Per Bend Sinister Inverted=Рожевий обернений правий скіс
 tile.waxed_weathered_copper_trapdoor.name=Waxed Weathered Copper Trapdoor=Люк з вощеної вивітреної міді
-dynamicPackage.download.android.NotificationChannelDescription=Show update status and progress=Показати стан і хід оновлення
 store.restore.description=We're restoring your purchases!=Ми відновлюємо ваші покупки!
 store.promo.holiday.fourth=On the fourth day of Minecraft,=На четвертий день Minecraft,
 stream.unavailable.title=Twitch Broadcasting Unavailable=Трансляція Twitch недоступна
@@ -2877,6 +2885,7 @@ options.fov.toggle=FOV Can Be Altered By Gameplay=Кут огляду можна
 store.realmsPlus.content.worldDescription=Explore popular content packs!=Оцініть популярні пакети вмісту!
 midgameTips.32=Use shears to carve a pumpkin.=Ножицями можна вирізати гарбуза.
 dr.notification.to_persona=Switching to Character Creator=Переключення на творця персонажа
+script.error.diagnosticsCaptureStopped=Failed to capture diagnostics.=Не вдалося записати діагностику.
 commands.recipes.unlockedAllRecipes=Unlocked all recipes for %1$s.=%1$s: розблоковано всі рецепти.
 commands.structure.save.success=Saved a structure with name %s=Збережено структуру з іменем %s
 progressScreen.editor.message.convert.worldToProject=Converting world to project...=Перетворення світу на проєкт...
@@ -2958,14 +2967,12 @@ commands.replaceitem.tagError=Data tag parsing failed: %1$s=Не вдалося 
 commands.setblock.tagError=Data tag parsing failed: %1$s=Не вдалося розпізнати тег даних: %1$s
 commands.summon.tagError=Data tag parsing failed: %1$s=Не вдалося розпізнати тег даних: %1$s
 commands.testfor.tagError=Data tag parsing failed: %1$s=Не вдалося розпізнати тег даних: %1$s
-options.betaNewBedScreenToggle=New Bed Screen (Experimental)=Новий екран ліжка (експериментальний)
 gameTest.assert.unexpectedDataResult=Unexpected Entity data result=Неочікуваний результат даних сутності
 commands.agent.getitemcount.success=Agent getitemcount successful=Agent: getitemcount виконано успішно
 commands.agent.getitemspace.success=Agent getitemspace successful=Agent: getitemspace виконано успішно
 commands.agent.inspectdata.success=Agent inspect data successful=Agent: inspect data виконано успішно
 options.unlockTemplateWorldOptions.initiate=Unlock Template World Options=Розблокувати параметри шаблону світу
 skins.picker.no.cross.platform=Platform Restricted Skin Pack=Пакет скінів, заборонений платформою
-clientscript.error.noDebugger=Client debugger not available=Клієнтський налагоджувач недоступний
 commands.loot.failure.entityNoLootTable=Entity %1$s has no loot table=Сутність %1$s не має таблиці наживи
 commands.scoreboard.objectives.description=Modify scoreboard objectives.=Змінити цілі в таблиці результатів.
 commands.effect.description=Add or remove status effects.=Додайте або видаліть ефекти стану.
@@ -2995,11 +3002,10 @@ selectWorld.gameMode.hardcore.line2=difficulty, and one life only=складні
 store.realmsPlus.content.popularPacks=Popular Packs in Realms Plus:=Популярні пакети в Realms Plus:
 store.coins.purchase.toast.withCoinCount=You just bought %s Minecoins!=Ви придбали %s монет Minecoins!
 tile.monster_egg.chiseledbrick.name=Infested Chiseled Stone Brick=Заражена висічена кам’яна цегла
-dynamicPackage.download.android.state_paused_networkUnavailable=Paused – No network available=Призупинено – мережа недоступна
-dynamicPackage.download.android.state_paused_networkSetupFailure=Paused – No network available=Призупинено – мережа недоступна
 gameTest.assert.missingComponent=Entity missing component '%s'=Сутність не має компонента "%s"
 commands.scoreboard.players.enable.success=Enabled trigger %1$s for %2$s=Увімкнуто тригер %1$s для %2$s
 disconnectionScreen.crossPlatformDisabled.header=Cross-Platform Play Disabled.=Кросплатформенну гру вимкнуто.
+gui.doNotShow=Do not show this screen again=Більше не показувати цей екран
 potion.nightVision.splash.name=Splash Potion of Night Vision=Вибухове зілля нічного бачення
 store.mashup.hover.label.world=A hand-crafted Minecraft map.=Карта Minecraft ручної роботи.
 cloud_upload.prompt.do_not_show_toggle=Do not show this screen again=Більше не показувати цей екран
@@ -3095,7 +3101,6 @@ accessibility.screenName.createWorld=Create World Settings Screen=Екран п�
 gui.importRetailWorld.failedMessage=Failed to import your world.=Не вдалось імпортувати ваш світ.
 tile.glazedTerracotta.silver.name=Light Gray Glazed Terracotta=Світло-сіра глазурована кераміка
 tile.glazedTerracottaSilver.name=Light Gray Glazed Terracotta=Світло-сіра глазурована кераміка
-dynamicPackage.download.android.state_paused_sdcardUnavailable=Paused – Storage unavailable=Призупинено – сховище недоступне
 achievement.bakeCake.desc=Wheat, sugar, milk and eggs!=Пшениця, цукор, молоко та яйця!
 commands.agent.getitemcount.failed=Agent failed to getitemcount=Agent: getitemcount не виконано
 commands.agent.getitemspace.failed=Agent failed to getitemspace=Agent: getitemspace не виконано
@@ -3178,6 +3183,7 @@ tile.deepslate_brick_double_slab.name=Deepslate Brick Double Slab=Подвійн
 howtoplay.movingAround.text.2.keyboard=Look around with the mouse.=Роздивіться навколо, використовуючи мишу.
 item.banner.square_bottom_right.purple=Purple Base Sinister Canton=Фіолетова вільна частина на краю праворуч
 commands.scoreboard.players.set.success=Set [%1$s] for %2$s to %3$d=Задано ціль [%1$s] для гравця %2$s: %3$d
+pauseNotification.title.twoPlayers=%s and %s joined your game!=Гравці %s і %s приєдналися до вашої гри!
 item.banner.square_top_left.magenta=Magenta Chief Dexter Canton=Малинова вільна частина на главі ліворуч
 options.graphicsModeOptions.rayTraced=Ray Traced Graphics Options=Параметри графіки з трасуванням променів
 midgameTips.39=Leads can be used on boats.=На човнах можна використовувати грузила.
@@ -3200,8 +3206,6 @@ item.banner.square_bottom_right.yellow=Yellow Base Sinister Canton=Жовта в
 item.banner.square_top_right.white=White Chief Sinister Canton=Біла вільна частина на главі праворуч
 options.raytracing.renderDistance=Ray Tracing Render Distance=Дальність рендеру трасування променів
 onlinePlay.editor.notRated=Online editing is not rated=Онлайнове редагування не рецензується
-dynamicPackage.download.android.state_paused_wifiUnavailable=Paused – No Wi-Fi available=Призупинено – мережа Wi-Fi недоступна
-dynamicPackage.download.android.state_paused_wifiDisabled=Paused – No Wi-Fi available=Призупинено – мережа Wi-Fi недоступна
 gameTest.report.someTestsFailed=%s required tests failed :(=%s обов’язкових тестів не пройдено :(
 commands.camera.invalid=Invalid camera command mode=Неприпустимий командний режим камери
 joincode.entry_popup.icon_entry=%3 join code entry %1 of %2=%3 введення коду приєднання %1 із %2
@@ -3221,6 +3225,7 @@ commands.loot.failure.invalidLootTable=Loot table '%1$s' not found=Таблиц�
 commands.xp.success.negative.levels=Taken %1$d levels from %2$s=Забрано %1$d рівнів у гравця %2$s
 realmsInvitationScreen.fetchingCode=Fetching new invite code...=Отримання нового коду запрошення…
 realmsSettingsScreen.failedLoadingSubscription=Failed Loading subscription=Не вдалося завантажити передплату
+options.creator.diagnosticsHeading=Script Diagnostics Settings=Налаштування діагностики скриптів
 progressScreen.message.copyingPacks=Saving World Resource Packs=Збереження пакетів ресурсів світу
 raycasting.purchase.error.title=System Requirements Warning=Попередження щодо системних вимог
 commands.difficulty.success=Set game difficulty to %1$s=Установлено складність гри: %1$s
@@ -3252,6 +3257,7 @@ progressScreen.message.genericMayTakeAMoment=This may take a few moments=Це м
 selectWorld.hardcoreMode.info=World is deleted upon death=Світ видаляється після смерті
 tile.waxed_oxidized_copper_grate.name=Waxed Oxidized Copper Grate=Вощена окиснена мідна решітка
 ratingPopUp.title=Are you enjoying Minecraft?=Чи подобається вам Minecraft?
+script.success.diagnosticsCaptureStarted=Diagnostics capture started=Розпочато діагностичний запис
 commands.blockdata.success=Block data updated to: %1$s=Дані блока оновлено до: %1$s
 entity.command_block_minecart.name=Minecart with Command Block=Вагонетка з командним блоком
 item.banner.curly_border.lightBlue=Light Blue Bordure Indented=Блакитна зазубрена облямівка
@@ -3320,14 +3326,12 @@ item.banner.square_bottom_right.black=Black Base Sinister Canton=Чорна ві
 item.banner.square_top_left.yellow=Yellow Chief Dexter Canton=Жовта вільна частина на главі ліворуч
 item.banner.square_top_right.blue=Blue Chief Sinister Canton=Синя вільна частина на главі праворуч
 item.banner.square_top_right.gray=Gray Chief Sinister Canton=Сіра вільна частина на главі праворуч
-options.showBlockSelectButton=Pick Block (Creative only)=Взяти блок (лише для творчого режиму)
 options.xboxliveBroadcastSettings=Microsoft account Settings=Параметри облікового запису Microsoft
 options.xboxLiveAccountSettings=Microsoft account Settings=Параметри облікового запису Microsoft
 xbox.dev_wrongSandboxSigninFailed.button.clearXbl=Clear Account Sign in Data=Очистити дані входу в обліковий запис
 safety.bannedSkin.continue=Continue with default skin=Продовжити зі скіном за замовчуванням
 gameTip.playerMovement.touch=Move by using the joystick=Пересувайтеся за допомогою джойстика
 item.banner.square_bottom_right.white=White Base Sinister Canton=Біла вільна частина на краю праворуч
-script.success.statsSaved=Script stats saved to '%s'=Статистика скриптів збережена в "%s"
 accessibility.screenName.addExternalServer=Add External Server Screen=Екран додавання зовнішнього сервера
 gui.pickIcon.failedMessage=Error: Invalid file format=Помилка: неприпустимий формат файлу
 options.dev_showDiscoveryOverridePanel=Override Service Endpoints=Перевизначити кінцеві точки сервісу
@@ -3403,6 +3407,7 @@ store.resource.create=Manage your Resource Packs=Керувати пакетам
 store.sales.texturesOnSale=Texture Packs on Sale Now!=Розпродаж пакетів текстур!
 xbox.signin.url=https://microsoft.com/link=https://microsoft.com/link
 commands.effect.success.removed.all=Took all effects from %1$s=Забрано всі ефекти у %1$s
+commands.place.invalidfeaturerule.error=Invalid feature rule name.=Недійсне правило об’єкта.
 death.fell.accident.water=%1$s fell out of the water=Гравець %1$s випав з води
 potion.oozing.linger.name=Lingering Potion of Oozing=Тривале зілля заслизлення
 store.realmsPlus.faq.question2=What is a personal server?=Що таке особистий сервер?
@@ -3514,6 +3519,7 @@ realmsSettingsScreen.failedUploadPack=Failed to upload pack %s.=Не вдало�
 level.editor.export.started=Project export started...=Експорт проєкту розпочався...
 options.creator.serverboundClientDiagnosticsEnabled=Enable Client Diagnostics=Увімкнути діагностику клієнта
 options.graphicsModeOptions.deferred=Deferred Graphics Options=Параметри відкладеної графіки
+resourcePack.warning.multiple.addon=Stacking multiple Add-Ons=Накопичення кількох доповнень
 store.csb.upsell.rightBullet.1=Personal 10 friend server=Особистий сервер на 10 друзів
 tile.glazedTerracotta.magenta.name=Magenta Glazed Terracotta=Малинова глазурована кераміка
 tile.glazedTerracottaMagenta.name=Magenta Glazed Terracotta=Малинова глазурована кераміка
@@ -3802,7 +3808,6 @@ structure_block.progress.generating=Generating your model...=Генерація 
 tile.stained_glass.silver.name=Light Gray Stained Glass=Світло-сіре скло
 storage_migration.gathering_info.description=Gathering information...=Збір інформації…
 commands.ability.success=Ability has been updated=Уміння оновлено
-dynamicPackage.download.android.state_fetchingUrl=Looking for resources...=Пошук ресурсів…
 realmsSettingsScreen.resetButtonHelperLabel=Start over from scratch?=Почати з нуля?
 tile.stained_glass.light_blue.name=Light Blue Stained Glass=Блакитне скло
 options.dev_force_trial_mode=Force enable Trial Mode=Примусове увімкнення ознайомлювального режиму
@@ -3848,6 +3853,7 @@ options.dev_attachPosRenderLevel=Render Attach Positions=Рендерити по
 options.splitscreen.horizontal=Horizontal Split Screen=Екран, розділений по горизонталі
 tile.coral_block.purple_dead.name=Dead Bubble Coral Block=Блок мертвих пухирчастих коралів
 tile.resin_brick_double_slab.name=Resin Brick Double Slab=Подвійна плита зі смоляної цегли
+accessibility.gamepad.stick.left.tiltUp=Left Stick Tilt Forward=Відхиліть лівий джойстик уперед
 realmsPlusUpgradeNotice.title=Welcome to Realms Plus!=Ласкаво просимо до Realms Plus!
 item.banner.curly_border.orange=Orange Bordure Indented=Помаранчева зазубрена облямівка
 key.copyFacingCoordinates=Copy Facing Coordinates=Копіювати координати орієнтації
@@ -3857,7 +3863,6 @@ store.search.filter.clear.pack_type=Clear Pack Type Filters=Скинути фі�
 tile.dark_oak_pressure_plate.name=Dark Oak Pressure Plate=Темно-дубова притискна пластина
 tile.waxed_cut_copper_stairs.name=Waxed Cut Copper Stairs=Сходи з вощеної різьбленої міді
 dr.prompt.switching_to_skin_title=Switch to Classic Skins=Переключитися на класичні скіни
-dynamicPackage.download.android.state_failed_unlicensed=Failed – Unlicensed app=Помилка – програма без ліцензії
 accessibility.keyboard.leftBracket=Left square bracket key=Клавіша лівої квадратної дужки
 seargeSays.searge3=Ask for help on twitter=Попросіть допомогти у Твіттері
 commands.agent.attack.success=Agent attack successful=Agent: attack виконано успішно
@@ -3943,7 +3948,6 @@ options.textBackgroundOpacity=Text Background Opacity=Непрозорість �
 options.graphicsModeOptions.simple=Simple Graphics Options=Прості параметри графіки
 tile.repeating_command_block.name=Repeating Command Block=Циклічний командний блок
 storage_migration.progress.error.internal=Failed (internal error)=Збій (внутрішня помилка)
-dynamicPackage.download.android.state_idle=Waiting for download...=Очікування завантаження…
 gameTest.error.unkownEvent=Unknown event name '%s'=Невідоме ім’я події "%s"
 accessibility.fullprice=Full Price %s Minecoins=Повна ціна %s Minecoins
 achievement.theEnd2.desc=Defeat the Ender Dragon=Побороти дракона Ендеру
@@ -4143,7 +4147,6 @@ store.realmsPlus.buyNowPerMonth=Subscribe Now %s/month=Підписатися з
 store.realmsPlus.landing.header=Subscription Includes:=Що входить у передплату:
 store.search.filter.clear.minecoin=Clear Minecoin Filters=Скинути фільтри Minecoin
 tile.chiseled_nether_bricks.name=Chiseled Nether Bricks=Висічена незерська цегла
-script.error.noDebugger=Debugger not available=Налагоджувач недоступний
 authentication.edu.leaveGame.title=You've been logged out=Вас викинуло із системи
 commands.banip.success=Banned IP address %1$s=IP-адресу %1$s забанено
 createWorldScreen.header.realms=Create a Realms Server=Створення сервера Realm
@@ -4160,7 +4163,6 @@ options.volumetricFogQuality=Volumetric Fog Quality=Якість об’ємно
 potion.thick.linger.name=Lingering Thick Potion=Тривале зілля насичення
 recipeToast.newUnlock.descriptionCraftingTable=View in crafting table=Перегляньте на верстаку
 resourcePack.realmsPlus.title.packs.contentSub=Marketplace Pass Packs=Пакети Marketplace Pass
-resourcePack.warning.remove.button.ok=Remove the pack anyway=Все одно видалити пакет
 resourcePack.vanilla.name=Minecraft Texture Pack=Пакет текстур Minecraft
 tile.weathered_copper_grate.name=Weathered Copper Grate=Вивітрена мідна решітка
 tile.green_candle_cake.name=Cake with Green Candle=Торт із зеленою свічкою
@@ -4214,6 +4216,7 @@ commands.globalpause.success=Set or got pause state=Поставлено на п
 commands.time.added=Added %1$d to the time=До часу додано %1$d
 dayOneExperience.intro_title=Minecraft has Updated!=Minecraft оновлено!
 howtoplay.portfolio.title=How to Play: Portfolio=Як грати: портфоліо
+store.progress.dialog.title=Loading Marketplace...=Завантаження Ринку…
 tile.concretePowder.orange.name=Orange Concrete Powder=Помаранчевий цемент
 commands.damage.success=Applied damage to %1$s=Шкоду завдано %1$s
 disconnect.disconnected=Disconnected by Server=Сервер відключився
@@ -4251,6 +4254,8 @@ xbox.dev_wrongSandboxSigninFailed.button.dev=Change To Dev Sandbox=Перейт�
 accessibility.controllerLayoutScreen.buttonRemapped=%s is now bound to %s=Команду %s тепер прив’язано до: %s
 tile.deepslate_tile_stairs.name=Deepslate Tile Stairs=Сходи з плитки з глибинного сланцю
 tile.deepslate_diamond_ore.name=Deepslate Diamond Ore=Глибинний сланець з алмазною рудою
+accessibility.gamepad.stick.left.tiltRight=Left Stick Tilt Right=Відхиліть лівий джойстик праворуч
+options.dev_show_display_logged_error=Display logged errors=Відображати зареєстровані помилки
 tile.cobblestone_wall.red_nether_brick.name=Red Nether Brick Wall=Стіна з червоної незерської цегли
 tile.stone_slab2.red_nether_brick.name=Red Nether Brick Slab=Плита з червоної незерської цегли
 emotes.instructions_touch=Tap emote to activate=Торкніться емоції, щоб активувати
@@ -4315,7 +4320,6 @@ tile.acacia_pressure_plate.name=Acacia Pressure Plate=Акацієва прит�
 tile.stone_slab2.prismarine.bricks.name=Prismarine Brick Slab=Плита з призмаринової цегли
 content.import.failed=Failed to import '%s'=Не вдалось імпортувати "%s"
 storage_migration.transfer_error.title=Trouble moving files!=Помилка переміщення файлів!
-dynamicPackage.download.android.state_failed_sdcardFull=Failed – Storage full=Помилка – сховище заповнено
 chooseRealmScreen.realmsplusbuttontext=Add a 10 player Realm=Додати Realm на 10 гравців
 realmsSettingsScreen.realmOpenError=Failed to open realm.=Не вдалося відкрити Realm.
 death.attack.arrow=%1$s was shot by %2$s=Гравця %1$s застрелив %2$s
@@ -4382,6 +4386,7 @@ addServer.resourcePack=Server Resource Packs=Серверні пакети ре�
 cloud_upload.tts.message=Uploading world files=Передавання файлів світу
 accessibility.screenName.inviteToGame=Invite To Game Screen=Екран запрошення до гри
 commands.generic.invalidType=Unknown type argument=Невідомий аргумент типу
+commands.place.invalidfeature.error=Invalid feature name.=Недійсна назва об’єкта.
 createWorldScreen.progress.local=Creating new world...=Створення нового світу…
 realmsCreateScreen.title.create=Create a Realm Server=Створення сервера Realm
 howtoplay.realms_stories.header.5=Connect from anywhere=Підключайтеся звідусіль
@@ -4475,6 +4480,7 @@ options.creator.deviceInfo=Device Info Settings=Налаштування інф�
 resourcepack.FestiveMashup2016=Festive Mash-up 2016=Збірний пакет "Новорічні свята" 2016
 resourcePack.festivemashup2016.name=Festive Mash-up 2016=Збірний пакет "Новорічні свята" 2016
 worldTemplate.festivemashup2016.name=Festive Mash-up 2016=Збірний пакет "Новорічні свята" 2016
+pauseNotification.title.onePlayer=%s joined your game!=Гравець %s приєднався до вашої гри!
 key.use=Use Item/Place Block=Використати предмет/Розмістити блок
 options.creator.watchdogSlowWarning=Slow Script Warnings=Попередження про повільний сценарій
 options.activateExperimentalGameplay.activate=Activate Experiments=Активувати експериментальні функції
@@ -4486,6 +4492,7 @@ tile.wood.stripped.spruce.name=Stripped Spruce Wood=Обідрана дерев�
 tile.deepslate_brick_slab.name=Deepslate Brick Slab=Плита з цегли з глибинного сланцю
 tile.deepslate_brick_wall.name=Deepslate Brick Wall=Стіна з цегли з глибинного сланцю
 tile.deepslate_copper_ore.name=Deepslate Copper Ore=Глибинний сланець із мідною рудою
+accessibility.gamepad.stick.left.tiltLeft=Left Stick Tilt Left=Відхиліть лівий джойстик ліворуч
 createWorld.customize.custom.depthNoiseScaleExponent=Depth Noise Exponent=Експонента варіативності глибини
 options.splitscreenHUDsize=Splitscreen HUD Size=Розмір HUD за розділеного екрана
 permissions.open.account.setting.button=See terms of service=Переглянути умови надання послуг
@@ -4494,6 +4501,7 @@ tile.coral_fan_dead.pink_fan.name=Dead Brain Coral Fan=Віяло з мертв�
 permissions.open.account.help.button=Get Help Fixing This=Отримати допомогу з виправлення
 store.realmsPlus.errorNoOffer=ERROR NO OFFER FOUND=ПОМИЛКА: ПРОПОЗИЦІЇ НЕ ЗНАЙДЕНО
 store.csb.errorNoOffer=ERROR NO OFFER FOUND=ПОМИЛКА: ПРОПОЗИЦІЇ НЕ ЗНАЙДЕНО
+accessibility.gamepad.stick.left.tiltDown=Left Stick Tilt Back=Відхиліть лівий джойстик назад
 realmsSharingScreen.cantJoinClosedTitle=%s closed this Realm=Користувач %s закрив цей Realm
 options.safeZoneX=Horizontal Safe Area=Горизонтальна безпечна ділянка
 item.wayfinder_armor_trim_smithing_template.name=Wayfinder Armor Trim=Орнамент обладунків «Слідопит»
@@ -4671,6 +4679,7 @@ selectWorld.createTemplate=Create From Template=Створити із шабло
 store.realmsPlus.content.skinDescriptionPersona=Dress up with skins!=Одягайтеся в скіни!
 store.popup.purchaseInProgress.title=Purchase in progress=Покупка виконується
 manifestvalidation.noerror=No errors were found=Помилок не знайдено
+dr.header.search.home=Dressing Room Search=Пошук у Роздягальні
 commands.toggledownfall.description=Toggles the weather.=Переключає погоду.
 disconnectionScreen.realmsDisabled=Realms are disabled.=Realms недоступні.
 item.fermented_spider_eye.name=Fermented Spider Eye=Квашене око павука
@@ -4730,6 +4739,7 @@ tile.stained_glass.yellow.name=Yellow Stained Glass=Жовте скло
 lateJoinScreen.waitingForUserReady=Getting things ready=Готуємося…
 options.swapJumpAndSneak=Swap Jump and Sneak=Поміняти місцями кнопки "Стрибати" та "Крастися"
 trial.thanks_for_testing.button=Take me to the FAQ!=Покажіть мені розділ «Запитання й відповіді»!
+options.graphicsQualityPresetMode=Quality Preset Mode=Режим попереднього налаштування якості
 realmsCreateScreen.viewPrivacyPolicy=View Privacy Policy=Переглянути політику конфіденційності
 realmsSettingsScreen.inviteLinkAddButton=Add new invite link=Додати нове посилання із запрошенням
 patchNotes.loading=Loading Patch Notes=Завантаження приміток до виправлень
@@ -5194,6 +5204,7 @@ item.banner.triangle_bottom.silver=Light Gray Chevron=Світло-сірий ш
 item.spawn_egg.entity.guardian.name=Guardian Spawn Egg=Яйце призову стража
 item.bucketPowderSnow.name=Powder Snow Bucket=Відро пухкого снігу
 options.dev_addProgressionId=Add Progression Id=Додати код прогресу
+options.websocketsEnabled=Websockets Enabled=Увімкнено Websocket
 permissions.title=Player Permissions=Дозволи для гравців
 progressScreen.editor.message.copyingProject=Copying Project...=Копіювання проєкту…
 action.interact.allay=Give item to Allay=Дати предмет служці
@@ -5254,6 +5265,7 @@ howtoplay.structureBlocks.header.5=Integrity and Seed=Цілісність і с
 item.banner.triangle_bottom.lightBlue=Light Blue Chevron=Блакитний шеврон
 item.chainmail_leggings.name=Chainmail Leggings=Кольчужні поножі
 options.dev_connectionQuality=Connection Quality=Якість з’єднання
+options.dev_gatherings_refresh_gatherings=Refresh Gatherings=Оновити зустрічі
 raid.expiry=A raid has expired=Напад закінчився
 item.birch_hanging_sign.name=Birch Hanging Sign=Березова вивіска
 trim_material.netherite.name=Netherite Material=Матеріал незерит
@@ -5272,8 +5284,9 @@ tile.crimson_fence_gate.name=Crimson Fence Gate=Багряна хвіртка
 accessibility.screenName.permissions=Permissions Screen=Екран дозволів
 item.banner.stripe_top.magenta=Magenta Chief Fess=Малинова глава
 progressScreen.message.exporting=Export in Progress=Триває експорт
-resourcePack.warning.remove.title=This Is Dangerous!=Це небезпечно!
+store.search.title=Marketplace Search=Пошук на Ринку
 structure_block.show_bounding_box=Show Bounding Box:=Показати межі:
+options.dev_show_display_logged_error_marketplace=Marketplace errors=Помилки Ринку
 options.forceUnicodeFont=Force Unicode Font=Шрифт Юнікоду
 tile.stained_glass.lime.name=Lime Stained Glass=Салатове скло
 tile.stained_glass.cyan.name=Cyan Stained Glass=Бірюзове скло
@@ -5290,6 +5303,7 @@ howtoplay.theCraftingTable=The Crafting Table=Верстак
 commands.aimassist.description=Enable Aim Assist=Увімкнути функцію «Допомога в прицілюванні»
 realmsSettingsScreen.dev_no_matching_version_message=NO MATCH FOR '%s'=НЕМАЄ РЕЗУЛЬТАТІВ ЗА ЗАПИТОМ "%s"
 controller.buttonTip.removeFuelInput=Remove Fuel/Input=Прибрати паливо/вхідні матеріали
+options.graphicsQualityPresetMode.performance=Favor Performance=Надавати перевагу продуктивності
 sign.edit=Edit sign message=Змінити повідомлення для підпису
 progressScreen.title.waitingForStorageProvider=Syncing user data=Синхронізація даних користувача
 item.raiser_armor_trim_smithing_template.name=Raiser Armor Trim=Орнамент обладунків «Вирощувач»
@@ -5310,6 +5324,7 @@ realmsSettingsScreen.inviteLink.errorLinkAddingTitle=Error Adding Link=Поми�
 feed.failedToPost=Post unsuccessful=Не вдалося розмістити запис
 item.ominous_trial_key.name=Ominous Trial Key=Зловісний ключ випробування
 progressScreen.message.appearanceLoaded=Appearance Loaded=Візуальну форму завантажено
+resourcePack.warning.remove.button.cancel=Copy and continue=Зробити копію та продовжити
 item.sentry_armor_trim_smithing_template.name=Sentry Armor Trim=Орнамент обладунків «Варта»
 trim_pattern.sentry.name=Sentry Armor Trim=Орнамент обладунків «Варта»
 stat.joinMultiplayer=Multiplayer joins=Ігор зіграно в мультиплеєрі
@@ -5318,6 +5333,7 @@ tile.jungle_fence_gate.name=Jungle Fence Gate=Хвіртка з тропічно
 contentlog.history.copyToClipboard=Copy to Clipboard=Скопіювати до буферу обміну
 key.lookRightSmooth=Look Right Smooth=Подивитися плавно праворуч
 options.dev_chunk_map_mode_server_chunk_debug_display_state=Server (DB State)=Сервер (стан налагодження)
+options.pauseHint=Enable game pause=Увімкнути призупинення гри
 resourcePack.error.enteringgame.button=View Active Packs=Переглянути активні пакети
 trial.tabbed_upsell.navleft=Navigate Tab Left=Перейти на вкладку ліворуч
 accessibility.popup.joinRealm=Join Realm Screen=Екран приєднання до Realm
@@ -5444,6 +5460,7 @@ tile.stained_hardened_clay.orange.name=Orange Terracotta=Помаранчева 
 trial.collection.3.title=Wildlife: Savanna=Дика природа: савана
 manifestvalidation.unkown.packtype=Unknown Pack Type=Невідомий тип пакета
 manifestvalidation.unkown.packtitle=Unknown Pack Name=Невідоме ім’я пакета
+accessibility.screenName.myServers=My Servers Screen=Екран «Мої сервери»
 controller.buttonTip.place.from.bundle=Place from Bundle=Розмістити з набору
 course.edu.notSupported=Not Supported Yet=Ще не підтримується
 createWorld.customize.custom.lowerLimitScale=Lower Limit Scale=Нижня межа масштабу
@@ -5518,6 +5535,7 @@ item.carrotOnAStick.name=Carrot on a Stick=Морква на паличці
 item.golden_chestplate.name=Golden Chestplate=Золотий нагрудник
 itemGroup.name.coral_decorations=Coral Decorations=Коралові прикраси
 options.controllerLayout=Controller Layout=Кнопки контролера
+options.creator.diagnosticsDeleteProgress=Deleting Captures=Видалення записів
 options.viewSubscriptions.daysRemaining=%d days remaining=Залишилося %d дн.
 options.superFancyWaterEnable=Super Fancy Water=Дуже красива вода
 permissions.ability.op=Operator Commands=Команди оператора
@@ -5615,6 +5633,7 @@ howtoplay.pets.header.1=Befriending Pets=Товаришування з дома�
 realmsSettingsScreen.inviteLinkCopyTTS=Copy invite link=Копіювати запрошувальне посилання
 commands.agent.tpagent.success=Agent teleported=Agent: teleport виконано успішно
 options.dev_useLocalServer=Use local server=Використовувати локальний сервер
+options.filterProfanity=Filter Profanity=Фільтрувати ненормативну лексику
 trial.collection.9.title=Pastel Skin Pack=Пакет скінів "Пастельні кольори"
 store.realmsPlus.freeTrial=START FREE TRIAL=ПОЧАТИ БЕЗКОШТОВНЕ ОЗНАЙОМЛЕННЯ
 store.csb.freeTrial=START FREE TRIAL=ПОЧАТИ БЕЗКОШТОВНЕ ОЗНАЙОМЛЕННЯ
@@ -5750,7 +5769,6 @@ tile.coral_block.yellow.name=Horn Coral Block=Блок рогових корал
 structure_block.save.successful=Structure Saved!=Структуру збережено!
 map.extendAndClear=Zoom Out & Clear=Віддалити й очистити
 dr.color.very_dark_warm=Very Dark - Warm=Дуже темний – теплий
-dynamicPackage.download.android.state_completed=Update finished!=Оновлення завершено!
 achievement.get=Achievement get!=Це досягнення ваше!
 authentication.store.confirmPurchase=Confirm Purchase=Підтвердити покупку
 createWorldScreen.showDaysPlayed=Show Days Played=Показати ігрові дні
@@ -6217,6 +6235,7 @@ item.netherite_scrap.name=Netherite Scrap=Незеритовий лом
 item.netherite_sword.name=Netherite Sword=Незеритовий меч
 itemGroup.name.ominousBottle=Ominous Bottles=Зловісні пляшки
 itemGroup.name.banner_pattern=Banner Patterns=Візерунки стяга
+options.creator.diagnosticsDeleteTitle=Delete Captures=Видалити записи
 options.creator.watchdogHangThreshold=Interrupt after=Перервати після
 options.updateAndPlay=Update and play=Оновити й грати
 playscreen.joinableRealms=Joinable Realms=Доступні Realms
@@ -6349,7 +6368,7 @@ item.eye_armor_trim_smithing_template.name=Eye Armor Trim=Орнамент об�
 trim_pattern.eye.name=Eye Armor Trim=Орнамент обладунків «Око»
 store.realmsPlus.buyNow.viewPrivacyPolicy=PRIVACY POLICY=ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ
 store.csb.buyNow.viewPrivacyPolicy=PRIVACY POLICY=ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ
-realmsSharingScreen.joinMessage=Join realm %s?=Приєднатися до Realm %s?
+realmsSharingScreen.joinMessage=Join Realm %s?=Приєднатися до Realm %s?
 howtoplay.improvedTools=Improved tools=Удосконалені інструменти
 item.banner.cross.orange=Orange Saltire=Помаранчевий косий хрест
 key.menuTabRight=Menu Tab Right=На вкладку меню праворуч
@@ -6421,6 +6440,7 @@ item.banner.gradient.brown=Brown Gradient=Коричневий градієнт
 item.banner.triangle_bottom.orange=Orange Chevron=Помаранчевий шеврон
 key.sneak=Sneak/Fly Down=Крастися/Спуститися
 options.creator.debuggerAutoAttachTimeout=Attach Timeout=Прикріпити тайм-аут
+options.upscalingMode=Upscaling Mode=Режим масштабування
 permissions.ability.attackplayers=Attack players=Нападати на гравців
 potion.harm=Instant Damage=Миттєве пошкодження
 store.seeMoreBy=See more by %s=Показати більше: %s
@@ -6565,6 +6585,7 @@ options.resourcepacks=Resource Packs=Пакети ресурсів
 options.sounds.title=Audio Settings=Параметри звуку
 options.videoTitle=Video Settings=Параметри відео
 options.edgeHighlightEnable=Edge Highlight=Виділення країв
+pauseScreen.gameIsPaused=Game is paused=Гра призупинена
 resourcePack.toast.unownedContent.title=%s Deactivated=%s деактивовано
 storageManager.contentType.resourcePacks=Resource Packs=Пакети ресурсів
 storageManager.mcpack=Minecraft Pack=Пакет Minecraft
@@ -6588,7 +6609,6 @@ structure_block.structure_name=Structure Name=Назва структури
 3d_export.remove_blocks=Remove Blocks:=Видалити блоки:
 eduTemplateWorld.tutorialWorld.name=Tutorial World=Навчальний світ
 dr.header.featured_skins=Featured Skins=Популярні скіни
-dynamicPackage.download.android.timeRemainingNotification=%1$s remaining=Залишилося %1$s
 commands.scoreboard.players.offlinePlayerName=Player Offline=Гравець офлайн
 container.creative=Item Selection=Вибір предмета
 container.repair.expensive=Too Expensive!=Ого як дорого!
@@ -6715,6 +6735,7 @@ howtoplay.craftingTable=Crafting Table=Верстак
 tile.crafting_table.name=Crafting Table=Верстак
 accessibility.text.quotationMark=Quotation Mark=Лапка
 options.content_log_gui.level=GUI Log Level=Рівень журналу графічного інтерфейсу
+options.graphicsQualityPresetMode.visuals=Favor Visuals=Надавати перевагу візуальним ефектам
 tile.wood.dark_oak.name=Dark Oak Wood=Обідрана деревина темного дуба
 chat.settings.muteAll=Mute All Chat=Вимкнути всі сповіщення чату
 howtoplay.loom.header.2=Loom Patterns=Візерунки ткацького верстата
@@ -6764,6 +6785,7 @@ item.spawn_egg.entity.vex.name=Vex Spawn Egg=Яйце призову докуч�
 pauseScreen.betaFeedback=Beta Feedback=Відгук про бета-версію
 hudScreen.controlCustomization.reset=Reset Default=Скинути до замовчувань
 resourcePack.description.store=View in Store=Переглянути в Магазині
+resourcePack.warning.multiple.addon.title=Using Add-Ons=Використання доповнень
 item.boat.big_oak.name=Dark Oak Boat=Човен із темного дуба
 item.boat.pale_oak.name=Pale Oak Boat=Човен із блідого дуба
 options.accessibility=Accessibility=Спеціальні можливості
@@ -6837,7 +6859,6 @@ tile.carpet.orange.name=Orange Carpet=Помаранчевий килим
 tile.orange_candle.name=Orange Candle=Помаранчева свічка
 dr.color.amber_light=Amber - Light=Янтарний — світлий
 dr.color.reddish_black=Reddish Black=Червонувато-чорний
-dynamicPackage.download.android.state_failed=Update failed=Не вдалось оновити
 authentication.loggingin=Signing in...=Виконується вхід…
 connect.authorizing=Logging in...=Виконується вхід…
 realmsSettingsScreen.unknownStoreDisplayName=unknown store=невідомий магазин
@@ -6860,6 +6881,7 @@ options.stream.systemVolume=System Volume=Системна гучність
 playscreen.ownershipVerifyState.signingIn=Signing In...=Виконується вхід…
 potion.effects.whenDrank=When Applied:=При застосуванні:
 quiz.popup.ok=Take the Quiz=Пройти опитування
+resourcePack.warning.remove.button.ok=Just continue=Просто продовжити
 storageManager.contentType.retailtopreview_worlds=Retail Worlds=Світи для продажу
 tile.mangrove_wood.name=Mangrove Wood=Мангрова деревина
 tile.bamboo_button.name=Bamboo Button=Бамбуковий ґудзик
@@ -7007,7 +7029,6 @@ offer.category.resourcepack=Texture Packs=Пакети текстур
 options.dev_enableDebugHudOverlay.buffermemory=Buffer Memory=Пам’ять буфера
 options.dev_render_attach_pos.eyes_pos=Eyes Position=Положення очей
 options.dev_render_attach_pos.body_pos=Body Position=Положення тіла
-resourcePack.warning.remove.button.cancel=Keep the pack=Залишити пакет
 sidebar.classicSkins=Classic Skins=Класичні скіни
 tile.mangrove_slab.name=Mangrove Slab=Мангрова плита
 item.mangrove_door.name=Mangrove Door=Мангрові двері
@@ -7037,7 +7058,6 @@ trade.levelPrefixAndName=Level %d - %s=Рівень %d – %s
 trade.notEnough=Not enough %s=Недостатньо %s
 dr.header.classic_skins=Classic Skins=Класичні скіни
 dr.color.medium_blonde=Medium Blonde=Помірний блонд
-dynamicPackage.download.android.notificationChannelName=Update status=Стан оновлення
 gathering.connect.title=Connecting...=Підключення...
 accessibility.key.gamepad=Controller %s=%s контролера
 accessibility.screenName.emoteWheel=Emotes Screen=Екран емограм
@@ -7151,6 +7171,7 @@ howtoplay.raids.header.1=I Need A Hero=Шукаю героя
 howtoplay.structureBlocks.header.1=How to Obtain=Як отримати
 item.banner.circle.white=White Roundel=Біла монета
 item.banner.yellow.name=Yellow Banner=Жовтий стяг
+pauseScreen.playersTitle=Players in %s=Гравці в %s
 profileScreen.header=Dressing Room=Роздягальня
 tile.chiseled_tuff.name=Chiseled Tuff=Точений туф
 store.realmsPlus.buyNow=SUBSCRIBE NOW=ПІДПИСАТИСЯ
@@ -7536,6 +7557,7 @@ item.record_strad.desc=C418 - strad=C418 – страд
 item.black_bundle=Black Bundle=Чорний набір
 menu.singleplayer=Singleplayer=Одиночна гра
 options.3DRendering=3D Rendering=3D-рендеринг
+options.dev_show_display_logged_error_other=Other errors=Інші помилки
 options.modelPart.right_sleeve=Right Sleeve=Правий рукав
 hudScreen.tooltip.basic.startFlying=Start Flying=Почати політ
 sidebar.newReleases=New Releases=Нові випуски
@@ -7651,7 +7673,7 @@ item.banner.small_stripes.orange=Orange Paly=Помаранчевий посіч
 options.patchNotes=Patch Notes=Примітки до виправлень
 selectServer.select=Join Server=Приєднатися до сервера
 controller.buttonTip.renameItem=Rename Item=Перейменувати предмет
-realmsSharingScreen.joinTitle=Join realm?=Приєднатися до Realm?
+realmsSharingScreen.joinTitle=Join Realm?=Приєднатися до Realm?
 item.banner.straight_cross.green=Green Cross=Зелений простий хрест
 item.banner.stripe_downright.orange=Orange Bend=Помаранчевий перев’яз
 key.flyUpSlow=Fly Up Slow=Повільно летіти вгору
@@ -7724,7 +7746,9 @@ accessibility.gamepad.button.systemLeft=View Button=Кнопка перегля�
 codeScreen.button.flipWindow=Flip Window=Перемкнути вікно
 color.dark_purple=Dark Purple=Темно-фіолетовий
 controllerLayoutScreen.saveAndExit=Save & Exit=Зберегти й вийти
+createWorldScreen.experimentalY2025Drop1=Drop 1 2025=Дроп 1 2025 року
 realmsSettingsScreen.selectorSectionLabel.manage=Manage "%s"=Налаштувати "%s"
+date.formattedTimePm=%1$s:%2$spm=%1$s:%2$s вечора
 disconnectionScreen.serverFull.title=Server Full=Сервер заповнено
 howtoplay.tools.header.2=Other Tools=Інші інструменти
 item.armor_stand.name=Armor Stand=Стійка для броні
@@ -7762,6 +7786,7 @@ dr.default.emote.basicClap=Simple Clap=Просте плескання
 dr.color.white_mid=White - Mid=Білий – середній
 accessibility.settings.chooseSeed=Choose Seed=Вибрати насіння
 controller.buttonTip.select.item=Select Item=Вибрати предмет
+date.formattedTimeAM=%1$s:%2$sam=%1$s:%2$s ранку
 item.banner.mojang.brown=Brown Thing=Коричнева штука
 item.banner.stripe_downright.yellow=Yellow Bend=Жовтий перев’яз
 item.banner.stripe_middle.purple=Purple Fess=Фіолетовий пояс
@@ -7772,6 +7797,7 @@ item.tropicalSchoolYellowTang.name=Yellow Tang=Жовта зебрасома
 item.milk.name=Milk Bucket=Відро з молоком
 item.netherStar.name=Nether Star=Незерська зірка
 item.wheat_seeds.name=Wheat Seeds=Насіння пшениці
+item.resin_brick.name=Resin Brick=Смоляна цеглина
 item.lime_bundle=Lime Bundle=Салатовий набір
 item.cyan_bundle=Cyan Bundle=Бірюзовий набір
 itemGroup.name.cookedFood=Cooked Food=Приготована їжа
@@ -7885,7 +7911,6 @@ item.leather_helmet.name=Leather Cap=Шкіряна шапка
 item.magma_cream.name=Magma Cream=Магмовий крем
 item.melon.name=Melon Slice=Скибка кавуна
 item.skull.char.name=Player Head=Голова гравця
-item.resin_brick.name=Resin Brick=Смоляна цегла
 item.shield.lime.name=Lime Shield=Салатовий щит
 item.shield.cyan.name=Cyan Shield=Бірюзовий щит
 item.pink_bundle=Pink Bundle=Рожевий набір
@@ -8091,7 +8116,6 @@ itemGroup.name.fenceGate=Fence Gates=Хвіртки
 tile.red_flower.oxeyeDaisy.name=Oxeye Daisy=Ромашка
 tile.cobblestone.name=Cobblestone=Кругляк
 storage_migration.progress.starting=Starting...=Запуск…
-dynamicPackage.download.android.state_unknown=Starting...=Запуск…
 menu.getStarted=Get started=Почати
 options.attribution=Attribution=Автори
 storage_migration.button.get_started=Get started=Почати
@@ -8148,7 +8172,6 @@ item.dried_kelp.name=Dried Kelp=Висушена ламінарія
 joincode.error.title=Join Error=Помилка приєднання
 options.stream.micVolumne=Mic Volume=Гучність мікрофона
 options.uiprofile=UI Profile=Профіль інтерфейсу
-dynamicPackage.download.android.state_connecting=Connecting=Триває підключення
 gathering.caption.endsIn=Ends in %s=Закінчується за %s
 accounts.signOut.fail.hyperLink.text=Learn more=Дізнайтеся більше
 createWorldScreen.eduCloud.resolution.uploadNow=Upload Now=Завантажити зараз
@@ -8379,6 +8402,7 @@ item.tropicalSchoolParrotfish.name=Parrotfish=Риба-папуга
 item.fireworksCharge.type.1=Large Ball=Велика куля
 itemGroup.name.goatHorn=Goat Horns=Козячі роги
 menu.respawning=Respawning=Відродження
+options.dev_show_display_logged_error_osi=OSI errors=Помилки OSI
 options.dev_identity_environment.prod=Production=Виробництво
 options.dev_gatherings_active_gathering=Active: %s=Активне: %s
 options.saturation=Saturation=Насиченість
@@ -8419,6 +8443,7 @@ key.pickItem=Pick Block=Взяти блок
 menu.copyright=©Mojang AB=©Mojang AB
 menu.quickplay=Quick Play=Швидка гра
 npcscreen.learnmore=Learn More=Докладніше
+options.showBlockSelectButton=Pick Block=Взяти блок
 options.difficulty=Difficulty=Складність
 options.hdr_brightness=Brightness=Яскравість
 options.gamma=Brightness=Яскравість
@@ -8515,6 +8540,7 @@ accessibility.search.sort_menu.A_to_Z.tts.title='A' to 'Z'=A–Я
 accessibility.search.sort_menu.Z_to_A.tts.title='Z' to 'A'=Я–А
 store.search.sort_menu.A_to_Z.tts.title='A' to 'Z'=A–Я
 store.search.sort_menu.Z_to_A.tts.title='Z' to 'A'=Я–А
+options.dev_show_display_logged_error_ui=UI errors=Помилки користувацького інтерфейсу
 storage_migration.button.go_to_faq=Go to FAQ=Перейти до поширених запитань
 eula.view=View EULA=Переглянути ліцензійну угоду
 commands.op.success=Opped: %s=Надано статус оператора: %s
@@ -8692,6 +8718,7 @@ menu.saving=Saving...=Збереження…
 options.autojump=Auto Jump=Автострибок
 options.category.classroom_settings=Classroom=Режим класу
 options.dev.windowsStore.auto=Automatic=Автоматично
+options.upscalingPercentage.zero=Automatic=Автоматично
 hudScreen.tooltip.basic.swimDown=Swim Down=Пливти вниз
 hudScreen.tooltip.peel=Peel Bark=Полірування
 portfolioScreen.addPhoto=Add Photo=Додати фото
@@ -8790,7 +8817,6 @@ typeface.notoSans=Noto Sans=Noto Sans
 trial.tabbed_upsell.minecraft.title=MINECRAFT=MINECRAFT
 dr.classic_skins.right_side.world_count.plural=%s Worlds=Світи: %s
 dr.classic_skins.select_skin.title=Skin Type=Тип скіна
-dynamicPackage.download.android.kilobytesPerSecond=%1$s KB/s=%1$s КБ/с
 accessibility.screenName.pause=Game menu=Меню гри
 achievement.enchantments=Enchanter=Чарівник
 chestScreen.header.player=Inventory=Інвентар
@@ -8864,6 +8890,7 @@ item.honeycomb.name=Honeycomb=Соти
 item.slime_ball.name=Slimeball=Слиз
 itemGroup.name.trapdoor=Trapdoors=Лази
 selectTemplate.seeMore=See More=Переглянути інші шаблони
+textToIcon.touch.assigment.use=LONG TAP=ТОРКНУТИСЯ ТА УТРИМУВАТИ
 accessibility.gamepad.dpad.up=D-Pad Up=Кнопка хрестовини вгору
 manifestvalidation.packid=Pack ID:=Ідентифікатор пакета:
 action.interact.use=Use Item=Використати предмет
@@ -8886,7 +8913,6 @@ map.lock=Lock Map=Заблокувати карту
 createWorldScreen.mobLoot=Mob Loot=Предмети з мобів
 xbox.signin.welcome=Welcome!=Ласкаво просимо!
 xbox.signin.newaccount.welcome=Welcome!=Ласкаво просимо!
-dynamicPackage.download.android.state_downloading=Updating=Триває оновлення
 accessibility.minecoin=Minecoin=Монета Minecoin
 effect.badOmen=Bad Omen=Погане знамення
 item.charcoal.name=Charcoal=Деревне вугілля
@@ -9003,6 +9029,7 @@ jigsaw.joint_type.rollable=Rollable=Обертальне
 keyboard.keyName.lbracket=LBRACKET=ЛІВА ДУЖКА
 menu.serverStore=%s Store=Магазин %s
 options.continue=Continue=Продовжити
+options.upscalingModeOptions.bilinear=Bilinear=Білінійний
 patchNotes.continue=Continue=Продовжити
 playscreen.lastPlayed.longAgo=Long ago=Дуже давно
 permissions.Continue=Continue=Продовжити
@@ -9053,7 +9080,6 @@ dr.rarity.uncommon=Uncommon=Нетиповий
 dr.classic_skins.right_side.skin_count.plural=%s Skins=Скіни: %s
 dr.left_arm=Left Arm=Ліва рука
 dr.left_leg=Left Leg=Ліва нога
-dynamicPackage.download.android.state_failed_cancelled=Canceled=Скасовано
 accessibility.popup.left_button_text=Turn Off=Вимкнути
 accessibility.gamepad.faceButton.down=Button A=Кнопка A
 accessibility.gamepad.faceButton.right=Button B=Кнопка B
@@ -9303,6 +9329,7 @@ item.fireworksCharge.flicker=Twinkle=Мерехтіння
 hudScreen.tooltip.release=Release=Відпустити
 permissions.level.visitor=Visitor=Відвідувач
 permissions.visitor=Visitor=Відвідувач
+resourcePack.warning.multiple.addon.confirm=Got it!=Зрозуміло!
 store.promo.date.mar=Mar. %s=%s березня
 store.promo.date.sep=Sep. %s=%s вересня
 store.search.singularResult= Result= Результат
@@ -9405,6 +9432,7 @@ csbCreateScreen.termsAndConditionsAgree=I agree=Приймаю
 networkWorld.online=Online:=Онлайн:
 networkWorld.servers_label=Servers=Сервери
 date.full_october=October=Жовтень
+edu.play_screen.servers=SERVERS=СЕРВЕРИ
 effect.weaving=Weaving=Ткацтво
 enchantment.lootBonusDigger=Fortune=Везіння
 entity.dolphin.name=Dolphin=Дельфін
@@ -9579,7 +9607,6 @@ options.toggle=Toggle=Переключити
 options.uiprofile.pocket=Pocket=Кишеньковий
 potion.oozing=Oozing=Заслизлення
 dr.rarity=Rarity=Рідкісність
-dynamicPackage.download.android.state_paused_byRequest=Paused=Призупинено
 realmsCreateScreen.purchasePrefix.extend=Extend=Продовжити
 realmsSettingsScreen.allowlist_invite=Invite=Запрошення
 feed.ignore=Ignore=Пропустити
@@ -9623,6 +9650,7 @@ options.difficulty.normal=Normal=Нормально
 options.cancel=Cancel=Скасувати
 options.renderDistance.normal=Normal=Нормально
 options.viewSubscriptions.button.manage=Manage=Керування
+options.graphicsQualityPresetMode.custom=Custom=Особливий
 hudScreen.tooltip.rotate=Rotate=Повернути
 permissions.nocheats.cancel=Cancel=Скасувати
 potion.wither=Wither=Згублення
@@ -9697,6 +9725,7 @@ manifestvalidation.delete.confirm_delete=Delete=Видалити
 addServer.resourcePack.prompt=Prompt=Підказка
 dr.header.animation=Emotes=Емограми
 dr.categories.animation=Emotes=Емограми
+dr.categories.emotes=Emotes=Емограми
 dr.categories.gloves=Gloves=Рукавиці
 emotes.header_text=Emotes=Емограми
 book.export=Export=Експорт
@@ -9877,7 +9906,6 @@ soundCategory.block=Blocks=Блоки
 stat.blocksButton=Blocks=Блоки
 store.mashup.bundle=Bundle=Набір
 store.offerDescription.genre=Genre:=Жанр:
-store.search.title=Search=Пошук
 store.search.button=Search=Пошук
 store.search.filter.worldTemplates=Worlds=Світи
 tile.leaves.name=Leaves=Листя
@@ -9990,6 +10018,7 @@ hudScreen.tooltip.plant=Plant=Посадити
 playscreen.lastPlayed.today=Today=Сьогодні
 permissions.ability.build=Build=Будувати
 progressScreen.dialog.button.leave=Leave=Покинути
+resourcePack.warning.remove.title=Wait!=Заждіть!
 storageManager.title.item.plural=items=елементи
 screenshot.post=Share=Поширити
 stat.itemsButton=Items=Предмети
@@ -10165,6 +10194,7 @@ options.guiScale.small=Small=Малий
 options.interactionmodel.touch=Touch=Дотик
 options.touch=Touch=Дотик
 options.video=Video=Відео
+options.pauseHeader=Pause=Пауза
 hudScreen.tooltip.sleep=Sleep=Спати
 persona.small.title=small=малий
 sidebar.capes=Capes=Плащі
@@ -10300,6 +10330,7 @@ item.kelp.name=Kelp=Ламінарія
 options.content_log_gui.level.info=Info=Відомості
 options.hold=Hold=Утримання
 options.viewSubscriptions.button.info=Info=Відомості
+resourcePack.warning.multiple.addon.link=Link=Посилання
 store.search.sort_menu.sortConstWord=Sort=Сортувати
 tile.deny.name=Deny=Відмовити
 manifestvalidation.info=Info=Відомості
@@ -10419,6 +10450,7 @@ edu.worlds_screen.play=PLAY=ГРАТИ
 edu.worlds_screen.back=BACK=НАЗАД
 entity.boat.name=Boat=Човен
 addExternalServerScreen.playButtonLabel=Play=Грати
+pauseNotification.playButton=Play=Грати
 globalPauseScreen.quit=Quit=Вийти
 gui.back=Back=Назад
 gui.exit=Exit=Вийти
@@ -10509,6 +10541,7 @@ options.guiScale.auto=Auto=Авто
 options.creator.debuggerPort=Port=Порт
 options.modelPart.cape=Cape=Плащ
 options.name=Name=Ім’я
+options.upscalingModeOptions.taau=TAAU=TAAU
 sidebar.categoryBody=Body=Тіло
 entity.frog.name=Frog=Жаба
 stat.mobsButton=Mobs=Моби
@@ -10551,6 +10584,7 @@ hudScreen.tooltip.use=Use=Використати
 npcscreen.action.url.title=URL=URL-адреса
 options.dev_discoveryOverrideServiceCustom=URL=URL-адреса
 options.fov=FOV=Кут огляду
+textToIcon.touch.assigment.attack=TAP=ТОРКНУТИСЯ
 networkWorld.add_label=Add=Додавання
 options.dev_realms_environment.dev=Dev=Розробник
 tile.tnt.name=TNT=Вибухівка

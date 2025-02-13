@@ -208,11 +208,10 @@ function syncVers() {
     beVer2 = document.getElementById('version-choice-bedrock2').value;
 }
 
+const newestBeVer = '1.21.60'
 
-var beVer = '1.21.50'
-var beVer2 = '1.21.50'
-
-const newestBeVer = '1.21.50'
+var beVer = '1.21.60'
+var beVer2 = '1.21.60'
 
 const translations_bedrock = {};
 var bedrock_vers = Array.from(document.getElementById("version-choice-bedrock").options).map(option => option.value);
@@ -222,7 +221,7 @@ for (let verB of bedrock_vers) {
             translations_bedrock[verB] = data;
         })
         .catch(error => {
-            console.error(`Error fetching file translations_java[${verB}]:`, error);
+            console.error(`Error fetching file translations_bedrock[${verB}]:`, error);
         });
 }
 document.getElementById('version-choice-bedrock').addEventListener('change', function() {
