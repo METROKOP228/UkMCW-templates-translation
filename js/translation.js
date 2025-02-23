@@ -31,13 +31,13 @@ function translateNames() {
     }
 }
 
-function translateNamesTemplate(text, iArray, arrays, trKeys) {
+function translateNamesTemplate(text, iArray, arrays, trKeys, outside=false) {
     template = document.getElementById("advanced-replacement").checked;
     text = text.split("\n");
     let en_uk = [];
     for (let i = 0; i < text.length; i++) {
         let matches = [];
-        if (text[i].includes("[[File:") || text[i].includes("[[Файл:")) {
+        if ((text[i].includes("[[File:") || text[i].includes("[[Файл:")) && !(outside)) {
             matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
             for (let match of matches) {
                 text[i] = text[i].replace(match, 'ЗАМІНИТИ');
@@ -49,7 +49,7 @@ function translateNamesTemplate(text, iArray, arrays, trKeys) {
                 let searchTerm = en_uk[0];
                 let replacement = en_uk[1];
                 
-                if (template) {
+                if (template && !(outside)) {
                     let patternTJ = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
                     text[i] = text[i].replace(patternTJ, replacement);
                 } else {
@@ -66,7 +66,7 @@ function translateNamesTemplate(text, iArray, arrays, trKeys) {
                     en_uk = iArray[j].split("=");
                 }
                 if (!(en_uk || en_uk[0] || en_uk[1]) || en_uk[0].length < 3 || en_uk[1].length < 3) continue
-                if (template) {
+                if (template && !(outside)) {
                     let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
                     text[i] = text[i].replace(patternT, en_uk[1]);
                 } else {
@@ -89,24 +89,24 @@ function translateNamesTemplate(text, iArray, arrays, trKeys) {
     return text;
 }
 
-function translateJava(text) {
-    translateNamesTemplate(text, translations_java[jeVer], true, false)
+function translateJava(text, outside) {
+    return translateNamesTemplate(text, translations_java[jeVer], true, false, outside)
 }
 
-function translateBedrock(text) {
-    translateNamesTemplate(text, translations_bedrock[beVer], false, true)
+function translateBedrock(text, outside) {
+    return translateNamesTemplate(text, translations_bedrock[beVer], false, true, outside)
 }
 
-function translateEarth(text) {
-    translateNamesTemplate(text, translations_earth, false, false)
+function translateEarth(text, outside) {
+    return translateNamesTemplate(text, translations_earth, false, false, outside)
 }
 
-function translateLegends(text) {
-    translateNamesTemplate(text, translations_legends, false, false)
+function translateLegends(text, outside) {
+    return translateNamesTemplate(text, translations_legends, false, false, outside)
 }
 
-function translateEducation(text) {
-    translateNamesTemplate(text, translations_education, false, false)
+function translateEducation(text, outside) {
+    return translateNamesTemplate(text, translations_education, false, false, outside)
 }
 
 

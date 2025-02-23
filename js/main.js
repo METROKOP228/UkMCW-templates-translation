@@ -626,7 +626,7 @@ function id_table(text) {
                 text[i] = translateBedrock(text[i]);
                 break;
             default:
-                text[i] = translateJava(text[i]);
+                text[i] = translateJava(text[i], true);
                 break;
             }
         }
@@ -639,7 +639,7 @@ function sound_table(text) {
     highlightAdditions(text, text
         .replace(/\{\{(.*)\[\[sound type\]\] / ,"[[Тип звуку]] {{$1")
         .split("\n")
-        .map(segment => segment.includes("subtitle") ? translateJava(performReplacements(segment, replacements_sound)) : performReplacements(segment, replacements_sound))
+        .map(segment => segment.includes("subtitle") ? translateJava(performReplacements(segment, replacements_sound), true) : performReplacements(segment, replacements_sound))
         .join("\n"));
 }
 
@@ -685,21 +685,21 @@ function version_nav(text) {
 function entity(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => (segment.includes("invimage") || segment.includes("usableitems") || segment.includes("{{drop")) ? translateJava(performReplacements(segment, replacements_entity)) : performReplacements(segment, replacements_entity))
+        .map(segment => (segment.includes("invimage") || segment.includes("usableitems") || segment.includes("{{drop")) ? translateJava(performReplacements(segment, replacements_entity), true) : performReplacements(segment, replacements_entity))
         .join("\n"));
 }
 
 function block(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => segment.includes("invimage") ? translateJava(performReplacements(segment, replacements_block)) : performReplacements(segment, replacements_block))
+        .map(segment => segment.includes("invimage") ? translateJava(performReplacements(segment, replacements_block), true) : performReplacements(segment, replacements_block))
         .join("\n"));
 }
 
 function dropsTable(text) {
     highlightAdditions(text, text
         .split("|")
-        .map(segment => segment.includes("name") ? translateJava(performReplacements(segment, replacements_drops)) : performReplacements(segment, replacements_drops))
+        .map(segment => segment.includes("name") ? translateJava(performReplacements(segment, replacements_drops), true) : performReplacements(segment, replacements_drops))
         .join("|"));
 }
 
@@ -846,13 +846,13 @@ function looming(text) {
 
     text = text.join("\n");
 
-    highlightAdditions(oldText, translateJava(performReplacements(text, replacements_looming)));
+    highlightAdditions(oldText, translateJava(performReplacements(text, replacements_looming)), true);
 }
 
 function biome(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => (segment.includes("blocks") || segment.includes("title")) ? translateJava(performReplacements(segment, replacements_biome)) : performReplacements(segment, replacements_biome))
+        .map(segment => (segment.includes("blocks") || segment.includes("title")) ? translateJava(performReplacements(segment, replacements_biome), true) : performReplacements(segment, replacements_biome))
         .join("\n"));
 }
 
@@ -872,10 +872,10 @@ function spawnTable(text) {
             console.log(edition);
             switch (edition) {
             case "bedrock":
-                text[i] = translateBedrock(text[i]);
+                text[i] = translateBedrock(text[i], true);
                 break;
             default:
-                text[i] = translateJava(text[i]);
+                text[i] = translateJava(text[i], true);
                 break;
             }
         }
@@ -887,14 +887,14 @@ function spawnTable(text) {
 function item(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_item)) : performReplacements(segment, replacements_item))
+        .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_item), true) : performReplacements(segment, replacements_item))
         .join("\n"));
 }
 
 function itemEntity(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_itemEntity)) : performReplacements(segment, replacements_itemEntity))
+        .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_itemEntity), true) : performReplacements(segment, replacements_itemEntity))
         .join("\n"));
 }
 
