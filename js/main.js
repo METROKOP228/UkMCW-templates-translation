@@ -302,7 +302,7 @@ const replacements_biome = {
     "short=1": "короткий=1"
 };
 const replacements_spawn = {
-    "Spawn attempt succeeds only in slime chunks.": "Спроба заспавнитися вдається лише в слимакових чанках.",
+    "Spawn attempt succeeds only in slime chunks.": "Спроба появи вдається лише в слимакових чанках.",
     "{{Spawn table": "{{Таблиця появи",
     "{{Spawn row": "{{Ряд появи",
     "title": "назва",
@@ -1251,8 +1251,8 @@ document.getElementById('disagree-btn').addEventListener('click', function() {
 function openTab(tabId, btnId) {
     if (document.querySelector(".tab-btn-active").id !== btnId) {
         // Сховати всі вкладки
-        var tabs = document.getElementsByClassName('tab');
-        for (var i = 0; i < tabs.length; i++) {
+        let tabs = document.getElementsByClassName('tab');
+        for (let i = 0; i < tabs.length; i++) {
             tabs[i].style.display = 'none';
         }
         document.getElementById(tabId).style.display = 'flex';
@@ -1265,7 +1265,7 @@ function openTab(tabId, btnId) {
         editor2.refresh();
 
         // Зняти активність з усіх кнопок та очистити їхній текст
-        var buttons = document.querySelectorAll('.tab-buttons button');
+        let buttons = document.querySelectorAll('.tab-buttons button');
         buttons.forEach(button => {
             button.classList.remove('tab-btn-active');
         });
@@ -1301,6 +1301,52 @@ window.onload = function() {
         document.getElementById('cookie-banner').style.display = 'flex';
     }
 }
+
+document.addEventListener("keydown", function (event) {
+    tabButtons = ["mc-tmp", "mc-name", "mc-name-search", "mc-name-compare", "thanks-tab"]
+    if (event.shiftKey && event.key === "ArrowLeft" && document.querySelector(".tab-btn-active").id !== tabButtons[0]) {
+        event.preventDefault(); // Запобігаємо стандартній дії (збереженню сторінки)
+        evTab = document.querySelector(".tab-btn-active")
+        evTabId = evTab.id;
+        evTabNum = tabButtons.indexOf(evTab.id)
+        // Зняти активність з усіх кнопок та очистити їхній текст
+        let buttons = document.querySelectorAll('.tab-buttons button');
+        buttons.forEach(button => {
+            button.classList.remove('tab-btn-active');
+        });
+        evTabNum2 = tabButtons.indexOf(evTab.id) - 1
+        evTab2 = document.getElementById(tabButtons[evTabNum2])
+        evTab2.classList.add('tab-btn-active');
+
+        let tabs = document.getElementsByClassName('tab');
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = 'none';
+        }
+        document.getElementById(`tab${evTabNum2+1}`).style.display = 'flex';
+        editor2.refresh();
+    }
+    else if (event.shiftKey && event.key === "ArrowRight" && document.querySelector(".tab-btn-active").id !== tabButtons[tabButtons.length - 1]) {
+        event.preventDefault(); // Запобігаємо стандартній дії (збереженню сторінки)
+        evTab = document.querySelector(".tab-btn-active")
+        evTabId = evTab.id;
+        evTabNum = tabButtons.indexOf(evTab.id)
+        // Зняти активність з усіх кнопок та очистити їхній текст
+        var buttons = document.querySelectorAll('.tab-buttons button');
+        buttons.forEach(button => {
+            button.classList.remove('tab-btn-active');
+        });
+        evTabNum2 = tabButtons.indexOf(evTab.id) + 1
+        evTab2 = document.getElementById(tabButtons[evTabNum2])
+        evTab2.classList.add('tab-btn-active');
+
+        let tabs = document.getElementsByClassName('tab');
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = 'none';
+        }
+        document.getElementById(`tab${evTabNum2+1}`).style.display = 'flex';
+        editor2.refresh();
+    }
+});
 
 function timeoutForTemplates() {
     if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.50'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
