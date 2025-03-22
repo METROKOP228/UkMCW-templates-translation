@@ -11,19 +11,19 @@ function translateNames() {
 
             switch (id) {
             case 'java':
-                output2.setValue(translateNamesTemplate(text, translations_java[jeVer], true, false));
+                output2.setValue(translateNamesTemplate(text, translations_java[jeVer], true));
                 break;
             case 'bedrock':
-                output2.setValue(translateNamesTemplate(text, translations_bedrock[beVer], false, true));
+                output2.setValue(translateNamesTemplate(text, translations_bedrock[beVer], true));
                 break;
             case 'earth':
-                output2.setValue(translateNamesTemplate(text, translations_earth, false, false));
+                output2.setValue(translateNamesTemplate(text, translations_earth, false));
                 break;
             case 'legends':
-                output2.setValue(translateNamesTemplate(text, translations_legends, false, false));
+                output2.setValue(translateNamesTemplate(text, translations_legends, false));
                 break;
             case 'education':
-                output2.setValue(translateNamesTemplate(text, translations_education, false, false));
+                output2.setValue(translateNamesTemplate(text, translations_education, false));
                 break;
             }
             return;
@@ -31,7 +31,7 @@ function translateNames() {
     }
 }
 
-function translateNamesTemplate(text, iArray, arrays, trKeys, outside=false) {
+function translateNamesTemplate(text, iArray, arrays, outside=false) {
     template = document.getElementById("advanced-replacement").checked;
     text = text.split("\n");
     let en_uk = [];
@@ -59,12 +59,7 @@ function translateNamesTemplate(text, iArray, arrays, trKeys, outside=false) {
             }
         } else {
             for (let j = 0; j < iArray.length; j++) {
-                if (trKeys) {
-                    let parts = iArray[j].split("=");
-                    en_uk = [parts.slice(1, -1).join("="), parts[parts.length - 1]];
-                } else {
-                    en_uk = iArray[j].split("=");
-                }
+                en_uk = iArray[j].split("=");
                 if (!(en_uk || en_uk[0] || en_uk[1]) || en_uk[0].length < 3 || en_uk[1].length < 3) continue
                 if (template && !(outside)) {
                     let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
@@ -90,23 +85,23 @@ function translateNamesTemplate(text, iArray, arrays, trKeys, outside=false) {
 }
 
 function translateJava(text, outside) {
-    return translateNamesTemplate(text, translations_java[jeVer], true, false, outside)
+    return translateNamesTemplate(text, translations_java[jeVer], true, outside)
 }
 
 function translateBedrock(text, outside) {
-    return translateNamesTemplate(text, translations_bedrock[beVer], false, true, outside)
+    return translateNamesTemplate(text, translations_bedrock[beVer], true, outside)
 }
 
 function translateEarth(text, outside) {
-    return translateNamesTemplate(text, translations_earth, false, false, outside)
+    return translateNamesTemplate(text, translations_earth, false, outside)
 }
 
 function translateLegends(text, outside) {
-    return translateNamesTemplate(text, translations_legends, false, false, outside)
+    return translateNamesTemplate(text, translations_legends, false, outside)
 }
 
 function translateEducation(text, outside) {
-    return translateNamesTemplate(text, translations_education, false, false, outside)
+    return translateNamesTemplate(text, translations_education, false, outside)
 }
 
 
@@ -181,7 +176,7 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
             }
         }
 
-        const searchAndHighlight = (el, arrayName, arrays=false, trKeys=false) => {
+        const searchAndHighlight = (el, arrayName, arrays=false) => {
             // Визначаємо регулярний вираз для пошуку
             const flags = caseSensitive ? 'g' : 'gi';
             const searchRegex = useRegex ? regex : new RegExp(text, flags);
@@ -197,10 +192,6 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
                         break;
                     }
                 }
-            } else if (trKeys) {
-                matchFound = useRegex 
-                    ? regex.test(el) 
-                    : (caseSensitive ? el.includes(text) : el.toLowerCase().includes(text.toLowerCase()));
             } else {             
                 matchFound = useRegex 
                     ? regex.test(el) 
@@ -224,8 +215,6 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
                 let processedEl;
                 if (arrays) {
                     processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span> <small class="changesHover" onclick="(() => copyText(\`${els[2]}\`))();">(${replaceParts[2]})</small><hr>`;
-                } else if (trKeys) {
-                    processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[1]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${els[2]}\`))();">${replaceParts[2]}</span> <small class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">(${replaceParts[0]})</small><hr>`;
                 } else {
                     processedEl = `<span class="changesHover" onclick="(() => copyText(\`${escapedEls0}\`))();">${replaceParts[0]}</span> <span class="arrow"> --&gt; </span> <span class="changesHover" onclick="(() => copyText(\`${escapedEls1}\`))();">${replaceParts[1]}</span><hr>`;
                 }
@@ -260,7 +249,7 @@ function searchInArrays(arrayJ, arrayB, arrayE, arrayL, arrayEdu) {
             resultElement.innerHTML = element;
             resultsContainer.appendChild(resultElement);
             for (let i = 0; i < arrayB.length; i++) {
-                searchAndHighlight(arrayB[i], matches2, false, true);
+                searchAndHighlight(arrayB[i], matches2, true);
             }
             if (matches2[0] === undefined) {
                 document.getElementById('mcbeText').classList.add('hidden');
@@ -433,8 +422,8 @@ function trackChanges() {
 
             insert_changes(new_lines, changed_lines, removed_lines);
         } else if (document.getElementById("edition-choice-changes").value === "Bedrock Edition") {
-            old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value]);
-            new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value]);
+            old_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-1").value], true);
+            new_dict = parse_lines(translations_bedrock[document.getElementById("compare-version-2").value], true);
 
             new_lines = find_new_lines(old_dict, new_dict);
             changed_lines = find_changed_lines(old_dict, new_dict);
@@ -458,7 +447,7 @@ function syncCompareOptions() {
     if (selectedValue === "Java Edition") {
         versionsSelect = java_vers; // Ваша змінна з версіями Java
     } else {
-        versionsSelect = bedrock_vers; // Ваша змінна з версіями Bedrock
+        versionsSelect = versBedrock; // Ваша змінна з версіями Bedrock
     }
     const version1Select = document.getElementById('compare-version-1');
     const version2Select = document.getElementById('compare-version-2');
@@ -495,10 +484,17 @@ function syncCompareOptions() {
 
 document.getElementById('edition-choice-changes').addEventListener('change', syncCompareOptions);
 document.getElementById('compare-version-1').addEventListener('change', function() {
-    this.options[0].disabled = true;
-    const selectedValue = this.value;
+    cv1change();
+});
+document.getElementById('compare-version-2').addEventListener('change', function() {
+    cv1change();
+});
 
-    const selectedIndex = this.selectedIndex;
+function cv1change() {
+    document.getElementById('compare-version-1').options[0].disabled = true;
+    const selectedValue = document.getElementById('compare-version-1').value;
+
+    const selectedIndex = document.getElementById('compare-version-1').selectedIndex;
 
     // Розблокувати всі option в другому select
     for (let i = 0; i < document.getElementById('compare-version-2').options.length; i++) {
@@ -509,11 +505,11 @@ document.getElementById('compare-version-1').addEventListener('change', function
     for (let i = selectedIndex; i < document.getElementById('compare-version-2').options.length; i++) {
         document.getElementById('compare-version-2').options[i].disabled = true; // Заблокувати
     }
-});
-document.getElementById('compare-version-2').addEventListener('change', function() {
-    this.options[0].disabled = true;
-    const selectedValue = this.value;
-    const selectedIndex = this.selectedIndex;
+}
+function cv2change() {
+    document.getElementById('compare-version-2').options[0].disabled = true;
+    const selectedValue = document.getElementById('compare-version-2').value;
+    const selectedIndex = document.getElementById('compare-version-2').selectedIndex;
 
     // Розблокувати всі option в другому select
     for (let i = 0; i < document.getElementById('compare-version-2').options.length; i++) {
@@ -524,6 +520,6 @@ document.getElementById('compare-version-2').addEventListener('change', function
     for (let i = 0; i <= selectedIndex; i++) {
         document.getElementById('compare-version-1').options[i].disabled = true; // Заблокувати
     }
-});
+}
 
 syncCompareOptions();

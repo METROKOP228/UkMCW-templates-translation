@@ -23,6 +23,9 @@
     	<span>Зачекайте, доки завантажаться необхідні ресурси</span>
     	<progress id="progress-bar" value="0" max="40"> 0% </progress>
     </div>
+    <div id="loading-window">
+    	<span>Спробуйте перезавантажити сторінку, якщо завантаження задовге</span>
+    </div>
     <header class="header">
         <a href="https://uk.minecraft.wiki" class="button">
         	<svg class="header-img" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><polygon points="100,85 175,50 175,95 100,130" fill="#00428B" /><polygon points="100,10 175,50 100,85 100,130 25,95 25,50" fill="#0261CA" /><polygon points="100,130 175,95 175,140 100,180" fill="#B39700" /><polygon points="100,130 25,95 25,140 100,180" fill="#FFD700" /><polygon points="100,10 175,50 175,140 100,180 25,140 25,50" fill="transparent" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="25" y1="50" x2="100" y2="85" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="175" y1="50" x2="100" y2="85" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="25" y1="95" x2="100" y2="130" stroke="black" stroke-width="10" class="svg-wiki" /><line x1="175" y1="95" x2="100" y2="130" stroke="black" stroke-width="10" class="svg-wiki" /><line  x1="100" y1="85" x2="100" y2="180" stroke="black" stroke-width="10" class="svg-wiki" /></svg>
@@ -197,13 +200,14 @@
 				            <p>Виберіть видання/гру:</p>
 				            <input type="radio" class="radio" id="java" name="editions" value="Java Edition" checked>
 				            <label for="java">Java Edition: </label>
-					    	<select name="version-choice-java" id="version-choice-java"></select>
+					    	<select name="version-choice-java" id="version-choice-java">
+					    		<option value="Зачекайте…">Зачекайте…</option>
+					    	</select>
 					    	<br>
 				            <input type="radio" class="radio" id="bedrock" name="editions" value="Bedrock Edition">
 				            <label for="bedrock">Bedrock Edition: </label>
 					    	<select name="version-choice-bedrock" id="version-choice-bedrock">
-				    			<option value="1.21.60">1.21.60</option>
-				    			<option value="1.21.50">1.21.50</option>
+					    		<option value="Зачекайте…">Зачекайте…</option>
 					    	</select>
 					    	<br>
 				            <input type="radio" class="radio" id="earth" name="editions" value="Minecraft Earth">
@@ -270,13 +274,14 @@
 			            <p>Виберіть видання/гру:</p>
 			            <input type="radio" class="radio" id="java2" name="editions2" value="Java Edition" checked>
 			            <label for="java2">Java Edition: </label>
-				    	<select name="version-choice-java2" id="version-choice-java2"></select>
+				    	<select name="version-choice-java2" id="version-choice-java2">
+				    		<option value="Зачекайте…">Зачекайте…</option>
+				    	</select>
 				    	<br>
 			            <input type="radio" class="radio" id="bedrock2" name="editions2" value="Bedrock Edition">
 			            <label for="bedrock2">Bedrock Edition: </label>
 				    	<select name="version-choice-bedrock2" id="version-choice-bedrock2">
-				    		<option value="1.21.60">1.21.60</option>
-				    		<option value="1.21.50">1.21.50</option>
+				    		<option value="Зачекайте…">Зачекайте…</option>
 				    	</select>
 				    	<br>
 			            <input type="radio" class="radio" id="earth2" name="editions2" value="Minecraft Earth">

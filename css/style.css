@@ -267,6 +267,28 @@ ul {
 #loading-screen span {
     font-size: 24px;
 }
+#loading-window {
+    z-index: 999999;
+    display: none;
+    width: 250px;
+    height: 100px;
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    border: 2px solid var(--alt-color);
+    color: var(--alt-color);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+
+
+
 
 
 

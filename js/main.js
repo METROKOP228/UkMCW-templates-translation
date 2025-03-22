@@ -1349,7 +1349,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 function timeoutForTemplates() {
-    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.50'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
+    if (Object.keys(translations_java).length === totalTranslations && Object.keys(translations_bedrock).length > 0 && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
         if (modeVar) {
             document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
         }
@@ -1364,7 +1364,7 @@ function timeoutForTemplates() {
     }
 }
 function timeoutForTr2() {
-    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.50'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
+    if (Object.keys(translations_java).length === totalTranslations && Object.keys(translations_bedrock).length > 0 && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
         document.getElementById('mc-name').click();
         if (modeVar) {
             document.getElementById(modeVar).checked = true; // Вибрати радіокнопку
@@ -1396,7 +1396,7 @@ function timeoutForTr2() {
     }
 }
 function timeoutForSearch() {
-    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.50'] !== undefined && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
+    if (Object.keys(translations_java).length === totalTranslations && Object.keys(translations_bedrock).length > 0 && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {
         document.getElementById('mc-name-search').click();
         if (modeVar) {
             for (let i = 0; i < document.getElementsByName('editions2').length; i++) {
@@ -1440,7 +1440,7 @@ function timeoutForSearch() {
     }
 }
 function timeoutForComparison() {
-    if (Object.keys(translations_java).length === totalTranslations && translations_bedrock['1.21.50'] !== undefined) {
+    if (Object.keys(translations_java).length === totalTranslations && Object.keys(translations_bedrock).length > 0) {
         document.getElementById('mc-name-compare').click();
         if (modeVar) {
             for (option in document.getElementById('edition-choice-changes').options) {
@@ -1465,6 +1465,8 @@ function timeoutForComparison() {
                 }
             }
         }
+        cv1change();
+        cv2change();
         trackChanges();
     } else {
         setTimeout(() => {

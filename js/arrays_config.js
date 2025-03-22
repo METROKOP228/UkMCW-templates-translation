@@ -1,5 +1,14 @@
 var objsUk = {}
 var objsEn = {}
+
+
+
+
+// JAVA
+
+
+
+
 var translations_java = {};
 
 var versJson = []
@@ -32,14 +41,31 @@ let processedTranslations = 0;
 
 function trackProgress() {
     screen.style.display = "flex";
-    if (processedTranslations < totalTranslations) {
+    if (processedTranslations < totalTranslations || document.getElementById("version-choice-bedrock").value === "Зачекайте…") {
         bar.value = processedTranslations;
-        bar.max = totalTranslations; // встановлюємо максимальне значення прогресбару
+        bar.max = totalTranslations + 2; // встановлюємо максимальне значення прогресбару
         setTimeout(() => {
             trackProgress();
         }, 100);
     } else {
         screen.style.display = "none"; // приховуємо екран завантаження
+    }
+}
+
+let tpWindow = document.getElementById("loading-window");
+
+if (localStorage.getItem("loadingScreen") === "false") {
+    tpWindow.style.display = "flex";
+    trackProgressWindow();
+}
+
+function trackProgressWindow()  {
+    if (processedTranslations < totalTranslations || document.getElementById("version-choice-bedrock").value === "Зачекайте…") {
+        setTimeout(() => {
+            trackProgressWindow();
+        }, 100);
+    } else {
+        tpWindow.style.display = "none"; // приховуємо екран завантаження
     }
 }
 
@@ -195,10 +221,163 @@ async function createVerArrayLang(ver) {
 }
 
 
+
+
+
+// BEDROCK
+
+
+
+
+var beVer;
+var beVer2;
+
+var translations_bedrock = {};
+
+let versBedrock = [];
+
+async function getAllStableTags(owner, repo) {
+    let page = 1;
+    let stableTags = [];
+
+    while (true) {
+        const url = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=100&page=${page}`;
+        
+        try {
+            const response = await fetch(url, {
+                headers: { 'Accept': 'application/vnd.github.v3+json' }
+            });
+
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+            const releases = await response.json();
+            if (releases.length === 0) break; // Якщо більше немає сторінок, виходимо
+
+            stableTags.push(...releases
+                .filter(release => !release.prerelease)
+                .map(release => release.tag_name));
+
+            page++; // Переходимо до наступної сторінки
+        } catch (error) {
+            console.error('Error fetching stable tags:', error);
+            break;
+        }
+    }
+
+    versBedrock = stableTags;
+}
+
+// Виклик функції та очікування завершення
+async function initBedrock() {
+    await getAllStableTags('Mojang', 'bedrock-samples');
+    await processVersionsBedrock();
+    syncBedrockVers();
+    beVer = document.getElementById('version-choice-bedrock').value;
+    beVer2 = document.getElementById('version-choice-bedrock2').value;
+    newestBeVer = versBedrock[0]
+}
+
+async function processVersionsBedrock() {
+    await Promise.all(versBedrock.map(async (ver) => {
+        await createVerArrayBedrock(ver);
+        processedTranslations++; // Оновлюємо прогрес
+    }));
+
+    for (const ver of versBedrock) {
+        const ukObj = objsUk[ver] || {};
+        const enObj = objsEn[ver] || {};
+
+        translations_bedrock[ver] = Object.keys(enObj).map(key => {
+            const enValue = enObj[key] || "";
+            const ukValue = ukObj[key] || "";
+            return [enValue, ukValue, key];
+        });
+        translations_bedrock[ver].sort((a, b) => b[0].length - a[0].length);
+    }
+}
+
+async function createVerArrayBedrock(ver) {
+    let ukUrl = `https://raw.githubusercontent.com/Mojang/bedrock-samples/${ver}/resource_pack/texts/uk_UA.lang`;
+    let enUrl = `https://raw.githubusercontent.com/Mojang/bedrock-samples/${ver}/resource_pack/texts/en_US.lang`;
+
+    try {
+        let [ukResponse, enResponse] = await Promise.all([
+            fetch(ukUrl),
+            fetch(enUrl)
+        ]);
+
+        if (!ukResponse.ok || !enResponse.ok) {
+            throw new Error(`Не вдалося отримати файли для версії ${ver}`);
+        }
+
+        const ukText = await ukResponse.text();
+        const enText = await enResponse.text();
+
+        function cleanValue(value) {
+            return value
+                .replace(/\t+$/, '')      // Видаляє табуляцію в кінці рядка
+                .replace(/\s*#.*$/, '');  // Видаляє пробіли перед # та сам # з коментарем
+        }
+
+        const ukObj = Object.fromEntries(
+            ukText.trim().split('\n')
+                .filter(line => line.includes('='))
+                .map(line => {
+                    let [key, value] = line.split('=').map(part => part.trim());
+                    return [key, cleanValue(value)];
+                })
+        );
+
+        const enObj = Object.fromEntries(
+            enText.trim().split('\n')
+                .filter(line => line.includes('='))
+                .map(line => {
+                    let [key, value] = line.split('=').map(part => part.trim());
+                    return [key, cleanValue(value)];
+                })
+        );
+
+        objsUk[ver] = ukObj;
+        objsEn[ver] = enObj;
+
+    } catch (error) {
+        console.log(`Error processing version ${ver}:`, error);
+    }
+}
+
+function syncBedrockVers() {
+    const vCBedrock = document.getElementById('version-choice-bedrock');
+    const vCBedrock2 = document.getElementById('version-choice-bedrock2');
+    vCBedrock.innerHTML = '';
+    vCBedrock2.innerHTML = '';
+
+    for (let ver of versBedrock) {
+        // Створюємо окремі елементи для кожного select
+        let option1 = document.createElement('option');
+        option1.value = ver;
+        option1.textContent = ver;
+        vCBedrock.appendChild(option1);
+
+        let option2 = document.createElement('option');
+        option2.value = ver;
+        option2.textContent = ver;
+        vCBedrock2.appendChild(option2);
+    }
+}
+
+// Запуск основної функції
+initBedrock();
+
 document.getElementById('version-choice-java').addEventListener('change', function() {
     syncVers();
 });
 document.getElementById('version-choice-java2').addEventListener('change', function() {
+    syncVers();
+});
+document.getElementById('version-choice-bedrock').addEventListener('change', function() {
+    syncVers();
+});
+document.getElementById('version-choice-bedrock2').addEventListener('change', function() {
     syncVers();
 });
 function syncVers() {
@@ -208,28 +387,16 @@ function syncVers() {
     beVer2 = document.getElementById('version-choice-bedrock2').value;
 }
 
-const newestBeVer = '1.21.60'
 
-var beVer = '1.21.60'
-var beVer2 = '1.21.60'
 
-const translations_bedrock = {};
-var bedrock_vers = Array.from(document.getElementById("version-choice-bedrock").options).map(option => option.value);
-for (let verB of bedrock_vers) {
-    fileFetch(`https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/bedrock/${verB}.txt`)
-        .then(data => {
-            translations_bedrock[verB] = data;
-        })
-        .catch(error => {
-            console.error(`Error fetching file translations_bedrock[${verB}]:`, error);
-        });
-}
-document.getElementById('version-choice-bedrock').addEventListener('change', function() {
-    syncVers();
-});
-document.getElementById('version-choice-bedrock2').addEventListener('change', function() {
-    syncVers();
-});
+
+
+
+
+
+// EARTH, LEGENDS, EDUCATION
+
+
 
 
 const earthUrl = 'https://raw.githubusercontent.com/METROKOP228/UkMCW-templates-translation/main/files/earth/newest.txt';
