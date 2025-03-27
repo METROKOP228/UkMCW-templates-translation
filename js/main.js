@@ -154,7 +154,10 @@ const replacements_vn = {
     "Server": "Сервер",
     "editorver": "editorвер",
     "No corresponding server": "Немає відповідного сервера",
-    "vernum": "версія"
+    "vernum": "версія",
+    "Snapshot": "Знімок",
+    "Pre-Release": "Пре-реліз",
+    "Release Candidate": "Кандидат на реліз"
 };
 const replacements_entity = {
     "health": "здоров'я",
@@ -1304,11 +1307,11 @@ window.onload = function() {
 
 document.addEventListener("keydown", function (event) {
     tabButtons = ["mc-tmp", "mc-name", "mc-name-search", "mc-name-compare", "thanks-tab"]
+    evTab = document.querySelector(".tab-btn-active")
+    evTabId = evTab.id;
+    evTabNum = tabButtons.indexOf(evTab.id)
     if (event.shiftKey && event.key === "ArrowLeft" && document.querySelector(".tab-btn-active").id !== tabButtons[0]) {
         event.preventDefault(); // Запобігаємо стандартній дії (збереженню сторінки)
-        evTab = document.querySelector(".tab-btn-active")
-        evTabId = evTab.id;
-        evTabNum = tabButtons.indexOf(evTab.id)
         // Зняти активність з усіх кнопок та очистити їхній текст
         let buttons = document.querySelectorAll('.tab-buttons button');
         buttons.forEach(button => {
@@ -1327,9 +1330,6 @@ document.addEventListener("keydown", function (event) {
     }
     else if (event.shiftKey && event.key === "ArrowRight" && document.querySelector(".tab-btn-active").id !== tabButtons[tabButtons.length - 1]) {
         event.preventDefault(); // Запобігаємо стандартній дії (збереженню сторінки)
-        evTab = document.querySelector(".tab-btn-active")
-        evTabId = evTab.id;
-        evTabNum = tabButtons.indexOf(evTab.id)
         // Зняти активність з усіх кнопок та очистити їхній текст
         var buttons = document.querySelectorAll('.tab-buttons button');
         buttons.forEach(button => {
@@ -1346,7 +1346,29 @@ document.addEventListener("keydown", function (event) {
         document.getElementById(`tab${evTabNum2+1}`).style.display = 'flex';
         editor2.refresh();
     }
+
+    if (event.shiftKey && event.key === "Enter") {
+        event.preventDefault(); // Запобігаємо стандартній дії
+        switch (evTabId) {
+            case "mc-tmp":
+                document.getElementById('button-tr1').click();
+                break;
+            case "mc-name":
+                document.getElementById('button-tr2').click();
+                break;
+            case "mc-name-search":
+                document.getElementById('search-button').click();
+                break;
+            case "mc-name-compare":
+                document.getElementById('generate-button').click();
+                break;
+            default:
+                break;
+        }
+    }
 });
+
+
 
 function timeoutForTemplates() {
     if (Object.keys(translations_java).length === totalTranslations && Object.keys(translations_bedrock).length > 0 && translations_earth !== undefined && translations_legends !== undefined && translations_education !== undefined) {

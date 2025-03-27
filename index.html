@@ -269,7 +269,7 @@
 				        	<label id="cs-search-lb" for="cs-search">Чутливий до регістру</label>
 			        	</div>
 		        	</div>
-		        	<button class="search-button" onclick="searchMatches();">Шукати</button>
+		        	<button class="search-button" id="search-button" onclick="searchMatches();">Шукати</button>
 	        		<form class="editions-form">
 			            <p>Виберіть видання/гру:</p>
 			            <input type="radio" class="radio" id="java2" name="editions2" value="Java Edition" checked>
@@ -319,7 +319,7 @@
 		    		<span>Виберіть другу версію: </span>
 		    		<select name="compare-version-2" id="compare-version-2"></select>
 		    	</div>
-		        <button class="generate-button" onclick="trackChanges();">Генерувати</button>
+		        <button class="generate-button" id="generate-button" onclick="trackChanges();">Генерувати</button>
 		    	<div id="compare-results-container"></div>
 		    </div>
 
