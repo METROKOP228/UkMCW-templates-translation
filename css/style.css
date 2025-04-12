@@ -362,26 +362,6 @@ input[type="color"] {
     right: 0;
 }
 
-.reset-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: yellow;
-    color: blue;
-    text-decoration: none;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-.reset-btn:hover {
-    background-color: #A69D00;
-    color: white;
-}
-
 .pers-presets-button,
 .textareas-color-button {
     background-color: var(--alt-color);
@@ -971,14 +951,13 @@ label a:hover {
 
 
 
-div.CodeMirror {
+div.CodeMirror, div.cm-s-dracula.CodeMirror {
     width: 500px;
     height: 420px;
     font-size: 14px;
-    color: black;
-    border: none;
     outline: none;
     resize: none;
+    border: 2px solid var(--alt-color);
 }
 
 .cm-custom-link {
