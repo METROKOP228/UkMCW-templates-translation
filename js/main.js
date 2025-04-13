@@ -398,6 +398,45 @@ const replacements_itemEntity = {
     "Yes": "Так",
     "No": "Ні"
 };
+
+const replacements_character = {
+    "{{Infobox character": "{{Персонаж",
+    "{{infobox character": "{{персонаж",
+    "character_titles": "назви_персонажа",
+    "title": "назва",
+    "group": "група",
+    "image": "зобр",
+    "health": "здоров'я",
+    "age": "вік",
+    "damage": "шкода",
+    "gender": "гендер",
+    "species": "вид",
+    "status": "статус",
+    "aliases": "псевдоніми",
+    "occupation": "професія",
+    "affiliations ": "приналежності",
+    "residence": "місце_проживання",
+    "familial": "сімейний_стан",
+    "allies": "союзники",
+    "enemies": "вороги",
+    "first_appearance": "перша_поява",
+    "latest_appearance": "остання_поява",
+    "physical_actor": "фізичний_актор",
+    "voice_actor": "голосовий_актор",
+    "actor": "актор",
+    "lang1": "мова1",
+    "lang2": "мова2",
+    "lang3": "мова3",
+    "lang4": "мова4",
+    "lang5": "мова5",
+    "va1": "га1",
+    "va2": "га2",
+    "va3": "га3",
+    "va4": "га4",
+    "va5": "га5",
+    "more_headers = true": "більше_заголовків = так",
+    "more_headers=true": "більше_заголовків=так"
+};
     
 const monthes = {
     "January": "січня",
@@ -523,6 +562,8 @@ function translateuk() {
                     itemEntity(text);
                 } else if (text.includes('{{Infobox item')) {
                     item(text);
+                } else if (text.includes('{{Infobox character')) {
+                    character(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -552,6 +593,8 @@ function translateuk() {
                 item(text);
             } else if (id === 'itemEntity') {
                 itemEntity(text);
+            } else if (id === 'character') {
+                character(text);
             }
             return;
         }
@@ -899,6 +942,10 @@ function itemEntity(text) {
         .split("\n")
         .map(segment => (segment.includes("invimage")) || segment.includes("title") ? translateJava(performReplacements(segment, replacements_itemEntity), true) : performReplacements(segment, replacements_itemEntity))
         .join("\n"));
+}
+
+function character(text) {
+    highlightAdditions(text, performReplacements(text, replacements_character))
 }
 
 function dateTranslation(date) {
