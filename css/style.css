@@ -34,6 +34,7 @@ input[type="radio"] {
     height: 16px;
     border-radius: 8px;
     background-color: var(--alt-color);
+    border: 2px solid var(--alt-color);
 }
 input[type="radio"]:checked {
     background-color: var(--bg-color);
@@ -106,7 +107,6 @@ select {
 }
 select:hover {
     border: 2px solid var(--btn-hover-bg-color);
-    color: var(--btn-hover-bg-color);
 }
 select:hover option {
     color: var(--alt-color);
@@ -550,7 +550,7 @@ main.content-container {
 }
 
 .button .svg-wiki {
-    stroke: var(--btn-hover-bg-color);
+    stroke: var(--bg-color);
 }
 
 .button:hover .svg-wiki {
@@ -960,6 +960,14 @@ div.CodeMirror, div.cm-s-dracula.CodeMirror {
     border: 2px solid var(--alt-color);
 }
 
+.CodeMirror-selected {
+    background-color: cyan !important;
+}
+
+.cm-s-dracula.CodeMirror .CodeMirror-selected {
+    background-color: blue !important;
+}
+
 .cm-custom-link {
     color: blue;
     font-weight: bold;
@@ -986,20 +994,20 @@ div.CodeMirror, div.cm-s-dracula.CodeMirror {
     color: gray;
 }
 .cm-diff-added-green {
-    background-color: #d4fcbc;
+    background-color: rgba(212, 252, 188, 0.5);
 }
 .cm-s-dracula .cm-diff-added-green {
-    background-color: #007235;
+    background-color: rgba(0, 114, 53, 0.5);
 }
 .cm-interwiki-green {
-    background-color: #b5ff87;
+    background-color: rgb(181, 255, 135, 0.5);
 }
 .cm-interwiki-red {
-    background-color: #ff7c7c;
+    background-color: rgba(255, 124, 124, 0.5);
 }
 .cm-s-dracula .cm-interwiki-green {
-    background-color: #007235;
+    background-color: rgba(0, 114, 53, 0.5);
 }
 .cm-s-dracula .cm-interwiki-red {
-    background-color: #ff5656;
+    background-color: rgba(255, 86, 86, 0.5);
 }
