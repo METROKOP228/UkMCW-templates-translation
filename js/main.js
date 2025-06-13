@@ -156,8 +156,10 @@ const replacements_vn = {
     "No corresponding server": "Немає відповідного сервера",
     "vernum": "версія",
     "Snapshot": "Знімок",
-    "Pre-Release": "Пре-реліз",
-    "Release Candidate": "Кандидат на реліз"
+    "=Pre-release": "=Пре-реліз",
+    "=Release candidate": "=Кандидат на реліз",
+    "= Pre-release": "= Пре-реліз",
+    "= Release candidate": "= Кандидат на реліз"
 };
 const replacements_entity = {
     "health": "здоров'я",
@@ -224,6 +226,8 @@ const replacements_drops = {
     "DropsTableHead": "Голова таблиці дропу",
     "DropsLine": "Рядок дропу",
     "DropsTableFoot": "Підвал таблиці дропу",
+    "DropTable": "ТаблицяДропу",
+    "DropLine": "РядокДропу",
     "version": "версія",
     "image": "зобр",
     "namelink": "посиланняназви",
@@ -232,14 +236,19 @@ const replacements_drops = {
     "rollchancenote": "нотаткашансунауспіх",
     "rollchance": "шанснауспіх",
     "lootingquantity": "кількістьзграбунком",
+    "quantity": "кількість",
     "quantitylimit": "обмежкількости",
     "dropchance": "шансдропу",
+    "multiplychance": "шанспримноження",
     "lootingchance": "шансзграбунком",
     "playerkill": "вбивствогравця",
-    "= yes": "= так",
-    "= no": "= ні",
-    "=yes": "=так",
-    "=no": "=ні",
+    "limit": "ліміт",
+    "rolls": "перекидання",
+    "independent": "незалежний",
+    "mutuallyexclusive": "взаємовиключні",
+    "nosource": "безджерела",
+    "notes": "примітки",
+    "edition": "видання",
     "Yes": "Так",
     "No": "Ні",
     "quantity": "кількість"
@@ -548,7 +557,7 @@ function translateuk() {
                     entity(text);
                 } else if (text.includes('{{Infobox block')) {
                     block(text);
-                } else if (text.includes('{{Drops')) {
+                } else if (text.includes('{{Drops') || text.includes('{{DropTable')) {
                     dropsTable(text);
                 } else if (text.includes('{{History')) {
                     historyTable(text);
