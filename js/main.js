@@ -103,10 +103,8 @@ const replacements_sound = {
     "Falling on the block without fall damage": "Падіння на блок без отримання шкоди"
 };
 const replacements_vn = {
-    "Version nav": "Версія навігація",
-    "version nav": "Версія навігація",
-    "Infobox version": "Версія навігація",
-    "infobox version": "Версія навігація",
+    "Infobox version": "Картка версії",
+    "infobox version": "Картка версії",
     "othereditions": "іншівидання",
     "edition": "видання",
     "title": "назва",
@@ -180,14 +178,14 @@ const replacements_entity = {
     "extratext": "додатковийтекст",
     "invimage": "інвзображення",
     "image": "зобр",
-    "{{Infobox entity": "{{Сутність",
-    "{{Entity": "{{Сутність",
+    "{{Infobox entity": "{{Картка сутности",
+    "{{Entity": "{{Картка сутности",
     "{{hp": "{{оз",
     "{{drop": "{{дроп",
     "caption": "підпис"
 };
 const replacements_block = {
-    "Infobox block": "Блок",
+    "Infobox block": "Картка блока",
     "rarity": "рідкісність",
     "renewable": "поновл",
     "stackable": "склад",
@@ -279,7 +277,7 @@ const replacements_looming = {
     "ingredients": "інгредієнти"
 };
 const replacements_biome = {
-    "{{Infobox biome": "{{Біом",
+    "{{Infobox biome": "{{Картка біому",
     "title": "назва",
     "imagesize": "зобр1розмір",
     "image": "зобр",
@@ -340,7 +338,7 @@ const replacements_spawn = {
 };
 
 const replacements_item = {
-    "{{Infobox item": "{{Предмет",
+    "{{Infobox item": "{{Картка предмета",
     "title": "назва",
     "imagesize": "зобр1розмір",
     "invimage": "інвзображення",
@@ -375,7 +373,7 @@ const replacements_item = {
 };
 
 const replacements_itemEntity = {
-    "{{Infobox item entity": "{{Предмет-сутність",
+    "{{Infobox item entity": "{{Картка предмета-сутности",
     "title": "назва",
     "invimage": "інвзображення",
     "image": "зобр",
@@ -409,8 +407,8 @@ const replacements_itemEntity = {
 };
 
 const replacements_character = {
-    "{{Infobox character": "{{Персонаж",
-    "{{infobox character": "{{персонаж",
+    "{{Infobox character": "{{Картка персонажа",
+    "{{infobox character": "{{картка персонажа",
     "character_titles": "назви_персонажа",
     "title": "назва",
     "group": "група",
