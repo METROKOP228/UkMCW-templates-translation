@@ -348,11 +348,25 @@ const replacements_item = {
     "extratext": "додатковийтекст",
     "rarity": "рідкісність",
     "durability": "міцн",
+    "armortoughnesscustom": "користувацькаміцнобладунків",
+    "armortoughness": "міцнобладунків",
+    "armorcustom": "користувацькийзахист",
     "armor": "захист",
     "renewable": "поновл",
     "stackable": "склад",
     "heals": "відновлює",
     "effects": "ефекти",
+    "miningefficiency": "ефективністьдобування",
+    "mininglevel": "рівеньдобування",
+    "attackdamage": "шкодаатаки",
+    "attackspeedcustom": "користувацькашвидкістьатаки",
+    "attackspeed": "швидкістьатаки",
+    "sweepdamage": "разючашкода",
+    "projectiledamage": "шкодаснаряда",
+    "chargetime": "часзаряду",
+    "inaccuracy": "неточність",
+    "miningefficiencyweapon": "ефективністьдобуваннязброї",
+    "knockbackresistance": "стійкістьдовідкидання",
     "Yes": "Так",
     "No": "Ні",
     "hunger": "голод",
@@ -1605,4 +1619,5 @@ function getLink(tab) {
         console.error("Could not copy link: ", err);
     });
 }
+
 
