@@ -444,7 +444,46 @@ const replacements_character = {
     "more_headers = true": "більше_заголовків = так",
     "more_headers=true": "більше_заголовків=так"
 };
-    
+
+const replacements_profession = {
+    "{{Infobox profession": "{{Картка професії",
+    "{{infobox profession": "{{картка професії",
+    "title": "назва",
+    "group": "група",
+    "image": "зобр",
+    "imagesize": "зобррозмір",
+    "workstation": "робочастанція",
+    "buys": "купує",
+    "sells": "продає",
+    "notes": "примітки",
+    "footertitle": "назвапідвалу",
+    "ItemLink": "Посилання/Предмет",
+    "BlockLink": "Посилання/Блок"
+};
+
+const replacements_trades = {
+    "{{TradeTable": "{{ТаблицяТоргівлі",
+    "{{TradeLine": "{{РядокТоргівлі",
+    "title": "назва",
+    "profession": "професія",
+    "ignoreUsage": "ігнорувати",
+    "level": "рівень",
+    "lvl": "рівень",
+    "slot": "слот",
+    "wantQuant": "хочеКількість",
+    "wantNoteText": "хочеТекстНотатки",
+    "wantNote": "хочеНотатка",
+    "want": "хоче",
+    "multi": "множник",
+    "giveQuant": "даєКількість",
+    "giveNoteText": "даєТекстНотатки",
+    "giveNote": "даєНотатка",
+    "give": "дає",
+    "maxTrades": "максТоргів",
+    "xpGain": "досвідуОтримано",
+    "weight": "вага"
+};
+
 const monthes = {
     "January": "січня",
     "February": "лютого",
@@ -571,6 +610,10 @@ function translateuk() {
                     item(text);
                 } else if (text.includes('{{Infobox character')) {
                     character(text);
+                } else if (text.includes('{{Infobox profession')) {
+                    profession(text);
+                } else if (text.includes('{{TradeTable') || text.includes('{{TradeLine')) {
+                    tradeTable(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -602,6 +645,10 @@ function translateuk() {
                 itemEntity(text);
             } else if (id === 'character') {
                 character(text);
+            } else if (id === 'profession') {
+                profession(text);
+            } else if (id === 'trade') {
+                tradeTable(text);
             }
             return;
         }
@@ -953,6 +1000,17 @@ function itemEntity(text) {
 
 function character(text) {
     highlightAdditions(text, performReplacements(text, replacements_character))
+}
+
+function profession(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => (segment.includes("ItemLink")) || segment.includes("BlockLink") || segment.includes("workstation") ? translateJava(performReplacements(segment, replacements_profession), true) : performReplacements(segment, replacements_profession))
+        .join("\n"));
+}
+
+function tradeTable(text) {
+    highlightAdditions(text, translateJava(performReplacements(text, replacements_trades)), true)
 }
 
 function dateTranslation(date) {
