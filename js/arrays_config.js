@@ -15,14 +15,14 @@ var versJson = []
 var versLang = []
 
 if (localStorage.getItem('cookieConsent') && localStorage.getItem('loadJava') === "major") {
-    versJson = [ "1.21.9", "1.20.6", "1.19.4", "1.18.2", "1.17.1", "1.16.5", "1.15.2", "1.14.4", "1.13.2" ]
+    versJson = [ "1.21.10", "1.20.6", "1.19.4", "1.18.2", "1.17.1", "1.16.5", "1.15.2", "1.14.4", "1.13.2" ]
 
     versLang = [ "1.12.2", "1.11.2" ]
 } else if (localStorage.getItem('cookieConsent') && localStorage.getItem('loadJava') === "last") {
-    versJson = ["1.21.9"]
+    versJson = ["1.21.10"]
 } else {
     versJson = 
-        [ "1.21.9", "1.21.8", "1.21.7", "1.21.6", "1.21.5", "1.21.4", "1.21.3", "1.21.1", "1.21", "1.20.6", "1.20.5", "1.20.4", "1.20.3",
+        [ "1.21.10", "1.21.9", "1.21.8", "1.21.7", "1.21.6", "1.21.5", "1.21.4", "1.21.3", "1.21.1", "1.21", "1.20.6", "1.20.5", "1.20.4", "1.20.3",
          "1.20.2", "1.20.1", "1.20", "1.19.4", "1.19.3", "1.19.2", "1.19.1", "1.19", "1.18.2", "1.18.1", "1.18", "1.17.1", "1.17",
          "1.16.5", "1.16.4", "1.16.3", "1.16.2", "1.16.1", "1.16", "1.15.2", "1.15.1", "1.15",
          "1.14.4", "1.14.3", "1.14", "1.13.2", "1.13" ]
@@ -234,42 +234,17 @@ var beVer2;
 
 var translations_bedrock = {};
 
-let versBedrock = [];
+let versBedrock = ["v1.21.120.4", "v1.21.110.2", "v1.21.100.6", "v1.21.90.3", "v1.21.80.3", "v1.21.70.3", "v1.21.60.10", "v1.21.50.7",
+                   "v1.21.40.3", "v1.21.30.3", "v1.21.20.3", "v1.21.0.3", "v1.20.80.5", "v1.20.70.6", "v1.20.60.4",
+                   "v1.20.50.3", "v1.20.40.1", "v1.20.30.1", "v1.20.10.1", "v1.20.0.1", "v1.19.80.2", "v1.19.70.2",
+                   "v1.19.60.3", "v1.19.50.2", "v1.19.40.2", "v1.19.30"];
 
-async function getAllStableTags(owner, repo) {
-    let page = 1;
-    let stableTags = [];
-
-    while (true) {
-        const url = `https://api.github.com/repos/${owner}/${repo}/releases?per_page=100&page=${page}`;
-        
-        try {
-            const response = await fetch(url, {
-                headers: { 'Accept': 'application/vnd.github.v3+json' }
-            });
-
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-
-            const releases = await response.json();
-            if (releases.length === 0) break; // Якщо більше немає сторінок, виходимо
-
-            stableTags.push(...releases
-                .filter(release => !release.prerelease)
-                .map(release => release.tag_name));
-
-            page++; // Переходимо до наступної сторінки
-        } catch (error) {
-            console.error('Error fetching stable tags:', error);
-            break;
-        }
-    }
-
-    versBedrock = stableTags;
+if (localStorage.getItem('cookieConsent') && localStorage.getItem('loadBedrock') === "last") {
+    versBedrock = [versBedrock[0]]
 }
 
 // Виклик функції та очікування завершення
 async function initBedrock() {
-    await getAllStableTags('Mojang', 'bedrock-samples');
     await processVersionsBedrock();
     syncBedrockVers();
     beVer = document.getElementById('version-choice-bedrock').value;

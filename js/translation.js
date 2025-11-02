@@ -31,36 +31,66 @@ function translateNames() {
     }
 }
 
-function translateNamesTemplate(text, iArray, arrays, outside=false) {
-    template = document.getElementById("advanced-replacement").checked;
+function translateNamesTemplate(text, iArray, arrays, outside=false, lootchest=false) {
+    let template = document.getElementById("advanced-replacement").checked;
     text = text.split("\n");
     let en_uk = [];
+
+    // Iterating through lines of text
     for (let i = 0; i < text.length; i++) {
         let matches = [];
+
+        // Avoid translating file names
         if ((text[i].includes("[[File:") || text[i].includes("[[Файл:")) && !(outside)) {
             matches = text[i].match(/\[\[(File|Файл):[^\]]*\]\]/g);
             for (let match of matches) {
                 text[i] = text[i].replace(match, 'ЗАМІНИТИ');
             }
         }
+
+        // Translation array is in format of [["Pig", "Свиня", "minecraft.entity.pig"], …]
         if (arrays) {
+            // Iterating through each subarray with three values
             for (let j = 0; j < iArray.length; j++) {
+                // e.g. "en_uk" is ["Pig", "Свиня", "minecraft.entity.pig"]
                 en_uk = iArray[j];
-                let searchTerm = en_uk[0];
-                let replacement = en_uk[1];
+
+                // Removing short strings (2 symbols or less)
+                if (!(en_uk || en_uk[0] || en_uk[1]) || en_uk[0].length < 3 || en_uk[1].length < 3) continue
+
+                let searchTerm = en_uk[0]; // e.g. "Pig"
+                let replacement = en_uk[1]; // e.g. "Свиня"
                 
-                if (template && !(outside)) {
-                    let patternTJ = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-                    text[i] = text[i].replace(patternTJ, replacement);
+                // "template"===true means replacing case insensitive
+                if ((template && !(outside)) || lootchest) {
+                    let patternTJ;
+                    // lootchest - used by lootchest translation, additionally add "-" instead of space to all English keys
+                    if (lootchest) {
+                        patternTJ = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, "-"), 'gi');
+
+                        if (text[i] !== text[i].replace(patternTJ, replacement)) {
+                            text[i] = text[i].replace(patternTJ, replacement);
+                            break;
+                        }
+                    } else {
+                        patternTJ = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+                        text[i] = text[i].replace(patternTJ, replacement);
+                    }
+                // Normally replacing without changing anything
                 } else {
                     let patternTJ = new RegExp(searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
                     text[i] = text[i].replace(patternTJ, replacement);
                 }
             }
+        // Translation array is in format of ["Pig=Свиня", …]
         } else {
             for (let j = 0; j < iArray.length; j++) {
                 en_uk = iArray[j].split("=");
+
+                // Removing short strings (2 symbols or less)
                 if (!(en_uk || en_uk[0] || en_uk[1]) || en_uk[0].length < 3 || en_uk[1].length < 3) continue
+
+                // "template"===true means replacing case insensitive
                 if (template && !(outside)) {
                     let patternT = new RegExp(en_uk[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
                     text[i] = text[i].replace(patternT, en_uk[1]);
@@ -84,8 +114,8 @@ function translateNamesTemplate(text, iArray, arrays, outside=false) {
     return text;
 }
 
-function translateJava(text, outside) {
-    return translateNamesTemplate(text, translations_java[jeVer], true, outside)
+function translateJava(text, outside, advtemplate=false) {
+    return translateNamesTemplate(text, translations_java[jeVer], true, outside, advtemplate)
 }
 
 function translateBedrock(text, outside) {

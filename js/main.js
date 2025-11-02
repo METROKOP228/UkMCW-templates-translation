@@ -549,6 +549,13 @@ var editor2 = CodeMirror.fromTextArea(document.getElementById("textareaInput2"),
     theme: "default"
 });
 
+var editor3 = CodeMirror.fromTextArea(document.getElementById("textareaInput3"), {
+    lineNumbers: true,
+    lineWrapping: true,
+    mode: "",
+    theme: "default"
+});
+
 var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), {
     readOnly: true,
     lineWrapping: true,
@@ -557,6 +564,13 @@ var output = CodeMirror.fromTextArea(document.getElementById("textareaOutput"), 
 });
 
 var output2 = CodeMirror.fromTextArea(document.getElementById("textareaOutput2"), {
+    readOnly: true,
+    lineWrapping: true,
+    mode: "",
+    theme: "default"
+});
+
+var output3 = CodeMirror.fromTextArea(document.getElementById("textareaOutput3"), {
     readOnly: true,
     lineWrapping: true,
     mode: "",
@@ -1165,7 +1179,7 @@ document.getElementById('interwiki-button').addEventListener('click', async () =
 function copy(num) {
     // Створення тимчасового textarea
     let textarea = document.createElement('textarea');
-    textarea.value = num === 1 ? output.getValue() : output2.getValue();
+    textarea.value = num === 1 ? output.getValue() : num === 2 ? output2.getValue() : output3.getValue();
     document.body.appendChild(textarea);
     
     // Вибір тексту
@@ -1229,9 +1243,13 @@ function toggleMenu() {
 }
 
 function clearTextareas(num) {
-    num === 1
-        ? (editor.setValue(''), output.setValue(''))
-        : (editor2.setValue(''), output2.setValue(''));
+    if (num === 1) {
+        editor.setValue(''), output.setValue('');
+    } else if (num === 2) {
+        editor2.setValue(''), output2.setValue('');
+    } else if (num === 3) {
+        editor3.setValue(''), output3.setValue('');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -1288,6 +1306,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (localStorage.getItem("loadJava")) {
             document.getElementById("choice-load-java").value = localStorage.getItem("loadJava");
         }
+        if (localStorage.getItem("loadBedrock")) {
+            document.getElementById("choice-load-bedrock").value = localStorage.getItem("loadBedrock");
+        }
         if (localStorage.getItem("loadingScreen")) {
             document.getElementById("loading-screen-checkbox").checked = localStorage.getItem("loadingScreen") === "true";
         }
@@ -1328,9 +1349,11 @@ function presetChoice(
 function setTheme(theme) {
     editor.setOption('theme', theme);
     editor2.setOption('theme', theme);
+    editor3.setOption('theme', theme);
     editorI.setOption('theme', theme);
     output.setOption('theme', theme);
     output2.setOption('theme', theme);
+    output3.setOption('theme', theme);
     outputI.setOption('theme', theme);
     if (localStorage.getItem('cookieConsent')) {
         localStorage.setItem('TATheme', theme);
@@ -1340,6 +1363,11 @@ function setTheme(theme) {
 document.getElementById("choice-load-java").addEventListener('change', function() {
     if (localStorage.getItem('cookieConsent')) {
         localStorage.setItem('loadJava', this.value);
+    } 
+});
+document.getElementById("choice-load-bedrock").addEventListener('change', function() {
+    if (localStorage.getItem('cookieConsent')) {
+        localStorage.setItem('loadBedrock', this.value);
     } 
 });
 
@@ -1392,6 +1420,7 @@ function openTab(tabId, btnId) {
         activeButton.style.display = 'flex';
 
         editor2.refresh();
+        editor3.refresh();
 
         // Зняти активність з усіх кнопок та очистити їхній текст
         let buttons = document.querySelectorAll('.tab-buttons button');

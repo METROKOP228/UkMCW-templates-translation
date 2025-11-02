@@ -889,6 +889,25 @@ label a:hover {
 
 
 
+.datamodules-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: left;
+}
+
+.datamodules-container label,
+.datamodules-container p,
+.datamodules-container h2 {
+    color: var(--alt-color);
+}
+
+.datamodules-container .datamodules-submodules-selection {
+    margin-left: 150px;
+}
+
+
 
 
 
