@@ -495,7 +495,8 @@ const replacements_trades = {
     "give": "дає",
     "maxTrades": "максТоргів",
     "xpGain": "досвідуОтримано",
-    "weight": "вага"
+    "weight": "вага",
+    "overrideProbability": "перевизначенняЙмовірности"
 };
 
 const monthes = {
