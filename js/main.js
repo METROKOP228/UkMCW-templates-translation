@@ -163,6 +163,7 @@ const replacements_entity = {
     "health": "здоров'я",
     "armor": "обладунки",
     "behavior": "поведінка",
+    "mobtype": "типмоба",
     "classification": "класифікація",
     "family": "сімейство",
     "damage": "атака",
