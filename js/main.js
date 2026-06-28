@@ -153,11 +153,14 @@ const replacements_vn = {
     "editorver": "editorвер",
     "No corresponding server": "Немає відповідного сервера",
     "vernum": "версія",
-    "Snapshot": "Знімок",
+    "=Snapshot": "=Знімок",
     "=Pre-release": "=Пре-реліз",
     "=Release candidate": "=Кандидат на реліз",
+    "=Preview": "=Попередній перегляд",
+    "= Snapshot": "= Знімок",
     "= Pre-release": "= Пре-реліз",
-    "= Release candidate": "= Кандидат на реліз"
+    "= Release candidate": "= Кандидат на реліз",
+    "= Preview": "= Попередній перегляд"
 };
 const replacements_entity = {
     "health": "здоров'я",
