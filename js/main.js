@@ -155,11 +155,15 @@ const replacements_vn = {
     "vernum": "версія",
     "=Snapshot": "=Знімок",
     "=Pre-release": "=Пре-реліз",
+    "=Pre-Release": "=Пре-реліз",
     "=Release candidate": "=Кандидат на реліз",
+    "=Release Candidate": "=Кандидат на реліз",
     "=Preview": "=Попередній перегляд",
     "= Snapshot": "= Знімок",
     "= Pre-release": "= Пре-реліз",
+    "= Pre-Release": "= Пре-реліз",
     "= Release candidate": "= Кандидат на реліз",
+    "= Release Candidate": "= Кандидат на реліз",
     "= Preview": "= Попередній перегляд"
 };
 const replacements_entity = {
