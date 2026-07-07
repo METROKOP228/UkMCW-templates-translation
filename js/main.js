@@ -114,6 +114,7 @@ const replacements_vn = {
     "| server": "| сервер",
     "prefix": "префікс",
     "image": "зобр",
+    "group": "група",
     "name": "ім'я",
     "|client": "|клієнт",
     "| client": "| клієнт",
