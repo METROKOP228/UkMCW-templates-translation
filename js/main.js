@@ -108,6 +108,8 @@ const replacements_vn = {
     "Infobox version": "Картка версії",
     "infobox version": "Картка версії",
     "othereditions": "іншівидання",
+    "Unobfuscated": "Необфускований",
+    "Obfuscated": "Обфускований",
     "edition": "видання",
     "title": "назва",
     "|server": "|сервер",
@@ -812,8 +814,9 @@ function version_nav(text) {
             }
             m = m.split("Тут потрібно розрізати");
             if (edition !== null) {
-                let changed_image_line = m[0] + m[1] + " (" + edition + " Edition) меню.png" + m[2];
-                text = text.replace(image2_line, changed_image_line)
+                let filename = m[1].replace(/^(.*) Unobfuscated$/, "Необфускований $1");
+                let changed_image_line = m[0] + filename + " (" + edition + " Edition) меню.png" + m[2];
+                text = text.replace(image2_line, changed_image_line);
             }
         } else if (line.includes('дата')) {
             text = text.replace(line, dateTranslation(line));
