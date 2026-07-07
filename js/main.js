@@ -120,6 +120,8 @@ const replacements_vn = {
     "name": "ім'я",
     "|client": "|клієнт",
     "| client": "| клієнт",
+    "|custom": "|своє",
+    "| custom": "| своє",
     "build": "збірка",
     "internal": "внутрішній",
     "versioncode": "кодверсії",
