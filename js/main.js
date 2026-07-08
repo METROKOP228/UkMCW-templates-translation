@@ -111,6 +111,7 @@ const replacements_vn = {
     "Unobfuscated": "Необфускований",
     "Obfuscated": "Обфускований",
     "edition": "видання",
+    "subtitle": "підзаголовок",
     "title": "назва",
     "|server": "|сервер",
     "| server": "| сервер",
@@ -175,6 +176,8 @@ const replacements_vn = {
     "= Preview": "= Попередній перегляд"
 };
 const replacements_entity = {
+    "subtitle": "підзаголовок",
+    "title": "назва",
     "health": "здоров'я",
     "armor": "обладунки",
     "behavior": "поведінка",
@@ -206,6 +209,7 @@ const replacements_block = {
     "renewable": "поновл",
     "stackable": "склад",
     "tool": "інструмент",
+    "subtitle": "підзаголовок",
     "title": "назва",
     "hardness": "міцн",
     "durability": "стійкість",
@@ -294,6 +298,7 @@ const replacements_looming = {
 };
 const replacements_biome = {
     "{{Infobox biome": "{{Картка біому",
+    "subtitle": "підзаголовок",
     "title": "назва",
     "imagesize": "зобр1розмір",
     "image": "зобр",
@@ -355,6 +360,7 @@ const replacements_spawn = {
 
 const replacements_item = {
     "{{Infobox item": "{{Картка предмета",
+    "subtitle": "підзаголовок",
     "title": "назва",
     "imagesize": "зобр1розмір",
     "invimage": "інвзображення",
@@ -404,6 +410,7 @@ const replacements_item = {
 
 const replacements_itemEntity = {
     "{{Infobox item entity": "{{Картка предмета-сутности",
+    "subtitle": "підзаголовок",
     "title": "назва",
     "invimage": "інвзображення",
     "image": "зобр",
@@ -439,6 +446,7 @@ const replacements_itemEntity = {
 const replacements_character = {
     "{{Infobox character": "{{Картка персонажа",
     "{{infobox character": "{{картка персонажа",
+    "subtitle": "підзаголовок",
     "character_titles": "назви_персонажа",
     "title": "назва",
     "group": "група",
@@ -478,6 +486,7 @@ const replacements_character = {
 const replacements_profession = {
     "{{Infobox profession": "{{Картка професії",
     "{{infobox profession": "{{картка професії",
+    "subtitle": "підзаголовок",
     "title": "назва",
     "group": "група",
     "image": "зобр",
