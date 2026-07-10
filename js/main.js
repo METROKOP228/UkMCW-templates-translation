@@ -806,12 +806,12 @@ function version_nav(text) {
         if (line.includes('зобр2') || line.includes('2-2')) {
             image2_line = line;
             let edition = null;
-            let unobfuscated = False;
+            let unobfuscated = false;
             if (image2_line.includes(' Unobfuscated')) {
-                unobfuscated = True;
+                unobfuscated = true;
                 image2_line = image2_line.replace(' Unobfuscated', '');
             }
-            m = image2_line.replace('.png', 'Тут потрібно розрізати');
+            let m = image2_line.replace('.png', 'Тут потрібно розрізати');
             if (m.includes('Bedrock')) {
                 if (m.includes('Edition')) {
                     m = m.replace("Bedrock Edition ", "Тут потрібно розрізати");
