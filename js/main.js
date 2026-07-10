@@ -803,9 +803,14 @@ function version_nav(text) {
     let lines = text.split("\n");
 
     for (let line of lines) {
-        if (line.includes('зобр2')) {
+        if (line.includes('зобр2') || line.includes('2-2')) {
             image2_line = line;
             let edition = null;
+            let unobfuscated = False;
+            if (image2_line.includes(' Unobfuscated')) {
+                unobfuscated = True;
+                image2_line = image2_line.replace(' Unobfuscated', '');
+            }
             m = image2_line.replace('.png', 'Тут потрібно розрізати');
             if (m.includes('Bedrock')) {
                 if (m.includes('Edition')) {
@@ -826,8 +831,11 @@ function version_nav(text) {
             }
             m = m.split("Тут потрібно розрізати");
             if (edition !== null) {
+                if (unobfuscated) {
+                    m[1] = 'Необфускований ' + m[1];
+                }
                 let changed_image_line = m[0] + m[1] + " (" + edition + " Edition) меню.png" + m[2];
-                text = text.replace(image2_line, changed_image_line)
+                text = text.replace(image2_line, changed_image_line);
             }
         } else if (line.includes('дата')) {
             text = text.replace(line, dateTranslation(line));
