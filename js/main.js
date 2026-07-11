@@ -231,6 +231,7 @@ const replacements_block = {
     "caption": "підпис",
     "extratext": "додатковийтекст",
     "tntres": "вибухост",
+    "mapcolor": "колірнамапі",
     "Common": "Звичайний",
     "Uncommon": "Незвичайний",
     "Rare": "Рідкісний",
