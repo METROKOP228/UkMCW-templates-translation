@@ -239,7 +239,12 @@ const replacements_block = {
     "common": "звичайний",
     "uncommon": "незвичайний",
     "rare": "рідкісний",
-    "epic": "епічний"
+    "epic": "епічний",
+    "{{TooltipSprite": "{{Спрайт/Підказка",
+    "{{{{Map color": "{{Колір на мапі"
+    "{{only": "{{тільки",
+    "short=y": "короткий=т",
+    "short=1": "короткий=1"
 };
 const replacements_drops = {
     "DropsTableHead": "Голова таблиці дропу",
