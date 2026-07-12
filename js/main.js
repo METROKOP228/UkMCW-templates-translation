@@ -876,7 +876,7 @@ function entity(text) {
 function block(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => segment.includes("invimage") ? translateJava(performReplacements(segment, replacements_block), true) : performReplacements(segment, replacements_block))
+        .map(segment => segment.includes("invimage") || segment.includes("{{TooltipSprite") || segment.includes("{{Map color") ? translateJava(performReplacements(segment, replacements_block), true) : performReplacements(segment, replacements_block))
         .join("\n"));
 }
 
