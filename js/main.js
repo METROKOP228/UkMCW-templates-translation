@@ -241,7 +241,7 @@ const replacements_block = {
     "rare": "рідкісний",
     "epic": "епічний",
     "{{TooltipSprite": "{{Спрайт/Підказка",
-    "{{{{Map color": "{{Колір на мапі"
+    "{{Map color": "{{Колір на мапі",
     "{{only": "{{тільки",
     "short=y": "короткий=т",
     "short=1": "короткий=1"
