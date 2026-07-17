@@ -52,9 +52,9 @@ const replacements_id = {
     "No displayed name": "Немає відображуваного імені"
 };
 const replacements_sound = {
-    "SoundLine": "ЗвуковийРядок",
-    "SoundTable": "ЗвуковаТаблиця",
-    "Sound table": "Звукова таблиця",
+    "{{SoundLine": "{{ЗвуковийРядок",
+    "{{SoundTable": "{{ЗвуковаТаблиця",
+    "{{Sound table": "{{Звукова таблиця",
     "sound": "звук",
     "sound1": "звук1",
     "sound2": "звук2",
@@ -114,7 +114,9 @@ const replacements_sound = {
     "Falling on the block with fall damage": "Падіння на блок з отриманням шкоди",
     "Walking on the block": "Ходіння по блоку",
     "Jumping from the block": "Стрибання з блока",
-    "Falling on the block without fall damage": "Падіння на блок без отримання шкоди"
+    "Falling on the block without fall damage": "Падіння на блок без отримання шкоди",
+    "{{BlockSprite": "{{Спрайт/Блок",
+    "Category:Generic sound tables": "Категорія:Загальні звукові таблиці"
 };
 const replacements_vn = {
     "Infobox version": "Картка версії",
@@ -827,7 +829,7 @@ function sound_table(text) {
     highlightAdditions(text, text
         .replace(/\{\{(.*)\[\[sound type\]\] / ,"[[Тип звуку]] {{$1")
         .split("\n")
-        .map(segment => segment.includes("subtitle") ? translateJava(performReplacements(segment, replacements_sound), true) : performReplacements(segment, replacements_sound))
+        .map(segment => segment.includes("subtitle") || segment.includes("{{BlockSprite") ? translateJava(performReplacements(segment, replacements_sound), true) : performReplacements(segment, replacements_sound))
         .join("\n"));
 }
 
