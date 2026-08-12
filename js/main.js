@@ -563,6 +563,20 @@ const replacements_trades = {
     "overrideProbability": "перевизначенняЙмовірности"
 };
 
+const replacements_command = {
+    "{{Infobox command": "{{Картка команди",
+    "{{infobox command": "{{картка команди",
+    "title": "назва",
+    "name": "ім'я",
+    "alias": "варіанти",
+    "hidden": "прихована",
+    "oplevel": "рівеньоп",
+    "cheat": "чит",
+    "serveronly": "тількисервер",
+    "noserver": "однокористувацька",
+    "others": "інші"
+};
+
 const monthes = {
     "January": "січня",
     "February": "лютого",
@@ -707,6 +721,8 @@ function translateuk() {
                     profession(text);
                 } else if (text.includes('{{TradeTable') || text.includes('{{TradeLine')) {
                     tradeTable(text);
+                } else if (text.includes('{{Infobox command')) {
+                    command(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -742,6 +758,8 @@ function translateuk() {
                 profession(text);
             } else if (id === 'trade') {
                 tradeTable(text);
+            } else if (id === 'command') {
+                command(text);
             }
             return;
         }
@@ -1112,6 +1130,13 @@ function profession(text) {
 
 function tradeTable(text) {
     highlightAdditions(text, translateJava(performReplacements(text, replacements_trades)), true)
+}
+
+function command(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => performReplacements(segment, replacements_command)
+        .join("\n"));
 }
 
 function dateTranslation(date) {
