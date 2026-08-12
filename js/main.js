@@ -775,7 +775,7 @@ function translateuk() {
                     result_table(text);
                 } else if (text.includes('{{Output table')) {
                     output_table(text);
-                } else if (text.includes('{{Arg desc')) || text.includes('{{arg desc') || text.includes('{{arg_desc') {
+                } else if (text.includes('{{Arg desc') || text.includes('{{arg desc') || text.includes('{{arg_desc')) {
                     arg_desc(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
