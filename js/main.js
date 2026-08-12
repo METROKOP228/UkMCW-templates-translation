@@ -580,6 +580,40 @@ const replacements_command = {
     "short=1}}": "короткий=1}}"
 };
 
+const replacements_result = {
+    "{{Result table|": "{{Таблиця результату|",
+    "{{result table|": "{{таблиця результату|",
+    "cmd": "команда",
+    "onlyje": "тількиje",
+    "onlybe": "тількиbe",
+    "|succeed": "|успіх",
+    "|fail": "|невдача",
+    "|N/A": "|Н/Д",
+    "|unparseable": "|нерозбірливо"
+};
+
+const replacements_output = {
+    "{{Output table|": "{{Таблиця виходу|",
+    "{{output table|": "{{таблиця виходу|",
+    "cmd": "команда",
+    "onlybe": "тількиbe",
+    "edition": "видання",
+    "|On success": "|У разі успіху",
+    "|On fail": "|У разі невдачі",
+    "|N/A": "|Н/Д"
+};
+
+const replacements_arg_desc = {
+    "{{Arg desc|": "{{Опис аргументу|",
+    "{{arg desc|": "{{опис аргументу|",
+    "type": "тип",
+    "min": "мін",
+    "max": "макс",
+    "amount": "кількість",
+    "registry": "реєстр",
+    "|N/A": "|Н/Д"
+};
+
 const monthes = {
     "January": "січня",
     "February": "лютого",
@@ -726,6 +760,12 @@ function translateuk() {
                     tradeTable(text);
                 } else if (text.includes('{{Infobox command')) {
                     command(text);
+                } else if (text.includes('{{Result table')) {
+                    command(text);
+                } else if (text.includes('{{Output table')) {
+                    command(text);
+                } else if (text.includes('{{Arg desc')) {
+                    command(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -763,6 +803,12 @@ function translateuk() {
                 tradeTable(text);
             } else if (id === 'command') {
                 command(text);
+            } else if (id === 'result') {
+                result(text);
+            } else if (id === 'output') {
+                output(text);
+            } else if (id === 'arg_desc') {
+                arg_desc(text);
             }
             return;
         }
@@ -1139,6 +1185,27 @@ function command(text) {
     highlightAdditions(text, text
         .split("\n")
         .map(segment => performReplacements(segment, replacements_command))
+        .join("\n"));
+}
+
+function result(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => performReplacements(segment, replacements_result))
+        .join("\n"));
+}
+
+function output(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => performReplacements(segment, replacements_output))
+        .join("\n"));
+}
+
+function arg_desc(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => performReplacements(segment, replacements_arg_desc))
         .join("\n"));
 }
 
