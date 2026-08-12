@@ -574,7 +574,10 @@ const replacements_command = {
     "cheat": "чит",
     "serveronly": "тількисервер",
     "noserver": "однокористувацька",
-    "others": "інші"
+    "others": "інші",
+    "[[Cheat]] only": "Тільки з [[Чити|читами]]",
+    "{{only": "{{тільки",
+    "short=1}}": "короткий=1}}"
 };
 
 const monthes = {
