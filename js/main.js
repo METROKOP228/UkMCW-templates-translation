@@ -51,6 +51,7 @@ const replacements_id = {
     "Block entity": "Блок-сутність",
     "No displayed name": "Немає відображуваного імені"
 };
+
 const replacements_sound = {
     "{{SoundLine": "{{ЗвуковийРядок",
     "{{SoundTable": "{{ЗвуковаТаблиця",
@@ -118,6 +119,7 @@ const replacements_sound = {
     "{{BlockSprite": "{{Спрайт/Блок",
     "Category:Generic sound tables": "Категорія:Загальні звукові таблиці"
 };
+
 const replacements_vn = {
     "Infobox version": "Картка версії",
     "infobox version": "Картка версії",
@@ -189,6 +191,7 @@ const replacements_vn = {
     "= Release Candidate": "= Кандидат на реліз",
     "= Preview": "= Попередній перегляд"
 };
+
 const replacements_entity = {
     "subtitle": "підзаголовок",
     "title": "назва",
@@ -220,6 +223,7 @@ const replacements_entity = {
     "{{drop": "{{дроп",
     "caption": "підпис"
 };
+
 const replacements_block = {
     "Infobox block": "Картка блока",
     "rarity": "рідкісність",
@@ -263,6 +267,7 @@ const replacements_block = {
     "short=y": "короткий=т",
     "short=1": "короткий=1"
 };
+
 const replacements_drops = {
     "DropsTableHead": "Голова таблиці дропу",
     "DropsLine": "Рядок дропу",
@@ -294,6 +299,7 @@ const replacements_drops = {
     "No": "Ні",
     "quantity": "кількість"
 };
+
 const replacements_history = {
     "HistoryTable": "ТаблицяІсторії",
     "HistoryLine": "РядокІсторії",
@@ -305,6 +311,7 @@ const replacements_history = {
     "[[File:": "[[Файл:",
     "1.13/Flattening": "1.13 (Java Edition)/Flattening"
 };
+
 const replacements_looming = {
     "{{Looming": "{{Ткацтво",
     "{{looming": "{{ткацтво",
@@ -319,6 +326,7 @@ const replacements_looming = {
     "description": "опис",
     "ingredients": "інгредієнти"
 };
+
 const replacements_biome = {
     "{{Infobox biome": "{{Картка біому",
     "subtitle": "підзаголовок",
@@ -371,6 +379,7 @@ const replacements_biome = {
     "short=y": "короткий=т",
     "short=1": "короткий=1"
 };
+
 const replacements_spawn = {
     "Spawn attempt succeeds only in slime chunks.": "Спроба появи вдається лише в слимакових чанках.",
     "{{Spawn table": "{{Таблиця появи",
@@ -580,9 +589,9 @@ const replacements_command = {
     "short=1}}": "короткий=1}}"
 };
 
-const replacements_result = {
-    "{{Result table|": "{{Таблиця результату|",
-    "{{result table|": "{{таблиця результату|",
+const replacements_result_table = {
+    "{{Result table": "{{Таблиця результату",
+    "{{result table": "{{таблиця результату",
     "cmd": "команда",
     "onlyje": "тількиje",
     "onlybe": "тількиbe",
@@ -592,9 +601,9 @@ const replacements_result = {
     "|unparseable": "|нерозбірливо"
 };
 
-const replacements_output = {
-    "{{Output table|": "{{Таблиця виходу|",
-    "{{output table|": "{{таблиця виходу|",
+const replacements_output_table = {
+    "{{Output table": "{{Таблиця виходу",
+    "{{output table": "{{таблиця виходу",
     "cmd": "команда",
     "onlybe": "тількиbe",
     "edition": "видання",
@@ -604,8 +613,10 @@ const replacements_output = {
 };
 
 const replacements_arg_desc = {
-    "{{Arg desc|": "{{Опис аргументу|",
-    "{{arg desc|": "{{опис аргументу|",
+    "{{Arg desc": "{{Опис аргументу",
+    "{{arg desc": "{{опис аргументу",
+    "{{Arg_desc": "{{Опис_аргументу",
+    "{{arg_desc": "{{опис_аргументу",
     "type": "тип",
     "min": "мін",
     "max": "макс",
@@ -761,11 +772,11 @@ function translateuk() {
                 } else if (text.includes('{{Infobox command')) {
                     command(text);
                 } else if (text.includes('{{Result table')) {
-                    command(text);
+                    result_table(text);
                 } else if (text.includes('{{Output table')) {
-                    command(text);
+                    output_table(text);
                 } else if (text.includes('{{Arg desc')) {
-                    command(text);
+                    arg_desc(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -803,10 +814,10 @@ function translateuk() {
                 tradeTable(text);
             } else if (id === 'command') {
                 command(text);
-            } else if (id === 'result') {
-                result(text);
-            } else if (id === 'output') {
-                output(text);
+            } else if (id === 'result_table') {
+                result_table(text);
+            } else if (id === 'output_table') {
+                output_table(text);
             } else if (id === 'arg_desc') {
                 arg_desc(text);
             }
@@ -1188,17 +1199,17 @@ function command(text) {
         .join("\n"));
 }
 
-function result(text) {
+function result_table(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => performReplacements(segment, replacements_result))
+        .map(segment => performReplacements(segment, replacements_result_table))
         .join("\n"));
 }
 
-function output(text) {
+function output_table(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => performReplacements(segment, replacements_output))
+        .map(segment => performReplacements(segment, replacements_output_table))
         .join("\n"));
 }
 
