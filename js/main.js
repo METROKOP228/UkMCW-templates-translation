@@ -1138,7 +1138,7 @@ function tradeTable(text) {
 function command(text) {
     highlightAdditions(text, text
         .split("\n")
-        .map(segment => performReplacements(segment, replacements_command)
+        .map(segment => performReplacements(segment, replacements_command))
         .join("\n"));
 }
 
