@@ -167,6 +167,10 @@ const replacements_vn = {
     "data_manual": "дані_вручну",
     "no_protocol": "немає_протоколу",
     "no_data": "немає_даних",
+    "no_respack": "немає_респака",
+    "respack_manual": "респак_вручну",
+    "no_datpack": "немає_датапака",
+    "datpack_manual": "датапак_вручну",
     "no_": "немає_",
     "_manual": "_вручну",
     "parent": "знімокдля",
@@ -189,7 +193,15 @@ const replacements_vn = {
     "= Pre-Release": "= Пре-реліз",
     "= Release candidate": "= Кандидат на реліз",
     "= Release Candidate": "= Кандидат на реліз",
-    "= Preview": "= Попередній перегляд"
+    "= Preview": "= Попередній перегляд",
+    "phase": "фаза",
+    "built": "зібраний",
+    "retracted": "відкликаний",
+    "appletpage": "сторінкааплету",
+    "link=": "пос=",
+    "link =": "пос =",
+    "sort=": "сорт=",
+    "sort =": "сорт ="
 };
 
 const replacements_entity = {
