@@ -1040,20 +1040,14 @@ div.CodeMirror, div.cm-s-dracula.CodeMirror {
 
 
 .templates-columns {
-    column-count: 1; /* 1 стовпчик для мобільних */
-}
-
-@media (min-width: 600px) {
-    .templates-columns {
-        column-count: 2; /* Розбиває контент на 2 стовпчики */
-        column-gap: 30px; /* Відстань між стовпчиками */
-    }
+	column-count: 2; /* Розбиває контент на 2 стовпчики */
+	column-gap: 30px; /* Відстань між стовпчиками */
 }
 
 /* Запобігає розриву, коли input в одному стовпчику, а label перескакує в інший */
 .templates-columns input, 
 .templates-columns label {
-    break-inside: avoid;
-    display: inline-block;
-    margin-bottom: 5px;
+	break-inside: avoid;
+	display: inline-block;
+	margin-bottom: 5px;
 }
