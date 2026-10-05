@@ -127,65 +127,67 @@
 		    		<h2>Переклад шаблонів</h2>
 			        <form class="templates-form">
 			        	<p>Виберіть шаблон:</p>
-			            <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
-			            <label for="auto">Автоматично</label>
-			            <br>
-			            <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
-			            <label for="id">ID таблиця (ID table)</label>
-				        <br>
-			            <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
-			            <label for="sound">Звукова таблиця (Sound table)</label>
-			            <br>
-			            <input type="radio" class="radio" id="vn" name="templates" value="Картка версії">
-			            <label for="vn">Картка версії (Infobox version)</label>
-			            <br>
-			            <input type="radio" class="radio" id="entity" name="templates" value="Картка сутности">
-			            <label for="entity">Картка сутности (Infobox entity)</label>
-			            <br>
-			            <input type="radio" class="radio" id="block" name="templates" value="Картка блока">
-			            <label for="block">Картка блока (Infobox block)</label>
-			            <br>
-			            <input type="radio" class="radio" id="drops" name="templates" value="Таблиця дропу">
-			            <label for="drops">Таблиця дропу (DropsTable)</label>
-			            <br>
-			            <input type="radio" class="radio" id="historyTable" name="templates" value="ТаблицяІсторії">
-			            <label for="historyTable">ТаблицяІсторії (HistoryTable)</label>
-			            <br>
-			            <input type="radio" class="radio" id="looming" name="templates" value="Ткацтво">
-			            <label for="looming">Ткацтво (Looming)</label>
-			            <br>
-			            <input type="radio" class="radio" id="biome" name="templates" value="Картка біому">
-			            <label for="biome">Картка біому (Infobox biome)</label>
-			            <br>
-			            <input type="radio" class="radio" id="spawnTable" name="templates" value="Таблиця появи">
-			            <label for="spawnTable">Таблиця появи (Spawn table)</label>
-			            <br>
-			            <input type="radio" class="radio" id="item" name="templates" value="Картка предмета">
-			            <label for="item">Картка предмета (Infobox item)</label>
-			            <br>
-			            <input type="radio" class="radio" id="itemEntity" name="templates" value="Картка предмета-сутности">
-			            <label for="itemEntity">Картка предмета-сутности (Infobox item entity)</label>
-			            <br>
-			            <input type="radio" class="radio" id="character" name="templates" value="Картка персонажа">
-			            <label for="character">Картка персонажа (Infobox character)</label>
-			            <br>
-			            <input type="radio" class="radio" id="profession" name="templates" value="Картка професії">
-			            <label for="profession">Картка професії (Infobox profession)</label>
-			            <br>
-			            <input type="radio" class="radio" id="trade" name="templates" value="ТаблицяТоргівлі">
-			            <label for="trade">ТаблицяТоргівлі (TradeTable)</label>
-						<br>
-			            <input type="radio" class="radio" id="command" name="templates" value="Картка команди">
-			            <label for="command">Картка команди (Infobox command)</label>
-						<br>
-			            <input type="radio" class="radio" id="result_table" name="templates" value="Таблиця результату">
-			            <label for="result_table">Таблиця результату (Result table)</label>
-						<br>
-			            <input type="radio" class="radio" id="output_table" name="templates" value="Таблиця виходу">
-			            <label for="output_table">Таблиця виходу (Output table)</label>
-						<br>
-			            <input type="radio" class="radio" id="arg_desc" name="templates" value="Опис аргументу">
-			            <label for="arg_desc">Опис аргументу (Arg desc)</label>
+						<div class="templates-columns">
+				            <input type="radio" class="radio" id="auto" name="templates" value="Автоматично" checked>
+				            <label for="auto">Автоматично</label>
+				            <br>
+				            <input type="radio" class="radio" id="id" name="templates" value="ID таблиця">
+				            <label for="id">ID таблиця (ID table)</label>
+					        <br>
+				            <input type="radio" class="radio" id="sound" name="templates" value="Звукова таблиця">
+				            <label for="sound">Звукова таблиця (Sound table)</label>
+				            <br>
+				            <input type="radio" class="radio" id="vn" name="templates" value="Картка версії">
+				            <label for="vn">Картка версії (Infobox version)</label>
+				            <br>
+				            <input type="radio" class="radio" id="entity" name="templates" value="Картка сутности">
+				            <label for="entity">Картка сутности (Infobox entity)</label>
+				            <br>
+				            <input type="radio" class="radio" id="block" name="templates" value="Картка блока">
+				            <label for="block">Картка блока (Infobox block)</label>
+				            <br>
+				            <input type="radio" class="radio" id="drops" name="templates" value="Таблиця дропу">
+				            <label for="drops">Таблиця дропу (DropsTable)</label>
+				            <br>
+				            <input type="radio" class="radio" id="historyTable" name="templates" value="ТаблицяІсторії">
+				            <label for="historyTable">ТаблицяІсторії (HistoryTable)</label>
+				            <br>
+				            <input type="radio" class="radio" id="looming" name="templates" value="Ткацтво">
+				            <label for="looming">Ткацтво (Looming)</label>
+				            <br>
+				            <input type="radio" class="radio" id="biome" name="templates" value="Картка біому">
+				            <label for="biome">Картка біому (Infobox biome)</label>
+				            <br>
+				            <input type="radio" class="radio" id="spawnTable" name="templates" value="Таблиця появи">
+				            <label for="spawnTable">Таблиця появи (Spawn table)</label>
+				            <br>
+				            <input type="radio" class="radio" id="item" name="templates" value="Картка предмета">
+				            <label for="item">Картка предмета (Infobox item)</label>
+				            <br>
+				            <input type="radio" class="radio" id="itemEntity" name="templates" value="Картка предмета-сутности">
+				            <label for="itemEntity">Картка предмета-сутности (Infobox item entity)</label>
+				            <br>
+				            <input type="radio" class="radio" id="character" name="templates" value="Картка персонажа">
+				            <label for="character">Картка персонажа (Infobox character)</label>
+				            <br>
+				            <input type="radio" class="radio" id="profession" name="templates" value="Картка професії">
+				            <label for="profession">Картка професії (Infobox profession)</label>
+				            <br>
+				            <input type="radio" class="radio" id="trade" name="templates" value="ТаблицяТоргівлі">
+				            <label for="trade">ТаблицяТоргівлі (TradeTable)</label>
+							<br>
+				            <input type="radio" class="radio" id="command" name="templates" value="Картка команди">
+				            <label for="command">Картка команди (Infobox command)</label>
+							<br>
+				            <input type="radio" class="radio" id="result_table" name="templates" value="Таблиця результату">
+				            <label for="result_table">Таблиця результату (Result table)</label>
+							<br>
+				            <input type="radio" class="radio" id="output_table" name="templates" value="Таблиця виходу">
+				            <label for="output_table">Таблиця виходу (Output table)</label>
+							<br>
+				            <input type="radio" class="radio" id="arg_desc" name="templates" value="Опис аргументу">
+				            <label for="arg_desc">Опис аргументу (Arg desc)</label>
+						</div>
 			        </form>
 		    	</div>
 				<div class="container">
