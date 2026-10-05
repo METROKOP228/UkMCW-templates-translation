@@ -1030,3 +1030,30 @@ div.CodeMirror, div.cm-s-dracula.CodeMirror {
 .cm-s-dracula .cm-interwiki-red {
     background-color: rgba(255, 86, 86, 0.5);
 }
+
+
+
+
+
+
+
+
+
+.templates-columns {
+    column-count: 1; /* 1 стовпчик для мобільних */
+}
+
+@media (min-width: 600px) {
+    .templates-columns {
+        column-count: 2; /* Розбиває контент на 2 стовпчики */
+        column-gap: 30px; /* Відстань між стовпчиками */
+    }
+}
+
+/* Запобігає розриву, коли input в одному стовпчику, а label перескакує в інший */
+.templates-columns input, 
+.templates-columns label {
+    break-inside: avoid;
+    display: inline-block;
+    margin-bottom: 5px;
+}
