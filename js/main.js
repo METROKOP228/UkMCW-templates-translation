@@ -637,6 +637,73 @@ const replacements_arg_desc = {
     "|N/A": "|Н/Д"
 };
 
+const replacements_entityDungeons = {
+    "{{Infobox Dungeons entity": "{{Картка сутности Dungeons",
+    "{{infobox Dungeons entity": "{{картка сутности Dungeons",
+    "subtitle": "підзаголовок",
+    "title": "назва",
+    "group": "група",
+    "image": "зобр",
+    "health": "здоров'я",
+    "behavior": "поведінка",
+    "classification": "класифікація",
+    "mob category": "категорія моба",
+    "category": "категорія",
+    "immunities": "імунітети",
+    "push": "поштовх",
+    "damage": "атака",
+    "speed": "швидкість",
+    "spawn": "поява",
+    "equipment": "екіпірування",
+    "codename": "кодове ім'я",
+    "description": "опис",
+    "desclabel": "підписопису",
+    "=Passive": "=Пасивна",
+    "=Neutral": "=Нейтральна",
+    "=Hostile": "=Ворожа",
+    "= Passive": "= Пасивна",
+    "= Neutral": "= Нейтральна",
+    "= Hostile": "= Ворожа",
+    "=Friendlies": "=Союзники",
+    "=Enemies": "=Вороги",
+    "= Friendlies": "= Союзники",
+    "= Enemies": "= Вороги",
+    "{{MCD|Pet (cosmetic)": "{{MCD|Улюбленець (косметика)",
+    "{{MCD|Pet (summonable)": "{{MCD|Улюбленець (що викликається)",
+    "{{MCD|Boss": "{{MCD|Бос",
+    "{{MCD|Ancient": "{{MCD|Стародавній",
+    "{{MCD|Ender": "{{MCD|Ендер",
+    "{{MCD|Illager": "{{MCD|Лиходій",
+    "{{MCD|Merchant": "{{MCD|Торговець",
+    "{{MCD|Undead": "{{MCD|Немертвий",
+    "{{slink": "{{Посилання на розділ"
+};
+
+const replacements_enchantmentDungeonsII = {
+    "{{Infobox Dungeons II enchantment": "{{Картка чарів Dungeons II",
+    "{{infobox Dungeons II enchantment": "{{картка чарів Dungeons II",
+    "subtitle": "підзаголовок",
+    "title": "назва",
+    "group": "група",
+    "image": "зобр",
+    "type": "тип",
+    "=melee": "=ближня така",
+    "=melee weapon": "=зброя ближнього бою",
+    "=ranged": "=дальня атака",
+    "=ranged weapon": "=зброя дальнього бою",
+    "=armor": "=обладунки",
+    "=weapon": "=зброя",
+    "= melee": "= ближня така",
+    "= melee weapon": "= зброя ближнього бою",
+    "= ranged": "= дальня атака",
+    "= ranged weapon": "= зброя дальнього бою",
+    "= armor": "= обладунки",
+    "= weapon": "= зброя",
+    "codename": "кодове ім'я",
+    "description": "опис",
+    "desclabel": "підписопису"
+};
+
 const monthes = {
     "January": "січня",
     "February": "лютого",
@@ -789,6 +856,10 @@ function translateuk() {
                     output_table(text);
                 } else if (text.includes('{{Arg desc') || text.includes('{{arg desc') || text.includes('{{arg_desc')) {
                     arg_desc(text);
+                } else if (text.includes('{{Infobox Dungeons entit')) {
+                    entityDungeons(text);
+                } else if (text.includes('{{Infobox Dungeons II enchantment')) {
+                    enchantmentDungeonsII(text);
                 } else if (text === "") {
                     output.setValue("Введіть справжній текст шаблона, а не пустоту");
                 } else {
@@ -832,6 +903,10 @@ function translateuk() {
                 output_table(text);
             } else if (id === 'arg_desc') {
                 arg_desc(text);
+            } else if (id === 'entityDungeons') {
+                entityDungeons(text);
+            } else if (id === 'enchantmentDungeonsII') {
+                enchantmentDungeonsII(text);
             }
             return;
         }
@@ -1229,6 +1304,20 @@ function arg_desc(text) {
     highlightAdditions(text, text
         .split("\n")
         .map(segment => performReplacements(segment, replacements_arg_desc))
+        .join("\n"));
+}
+
+function entityDungeons(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => performReplacements(segment, replacements_entityDungeons))
+        .join("\n"));
+}
+
+function enchantmentDungeonsII(text) {
+    highlightAdditions(text, text
+        .split("\n")
+        .map(segment => performReplacements(segment, replacements_enchantmentDungeonsII))
         .join("\n"));
 }
 
